@@ -1,4 +1,4 @@
-= SAÉ 3.01 2022-2023
+= S5.A.01 - Développement avancé
 :icons: font
 :models: models
 :experimental:
