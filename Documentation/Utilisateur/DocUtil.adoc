@@ -28,7 +28,95 @@ image::images/boutonAccueil.png[accueil2]
 
 === Recherche d'un type de lieu    
 
-Vous pouvez rechercher un type de lieu en sélectionnant un type de lieu dans la liste déroulante `Type de lieu` et en cliquant sur le bouton `Rechercher`.
+Vous pouvez rechercher un type de lieu en sélectionnant un type de lieu dans la liste déroulante `Rechercher un type de lieu` 
+
+image::images/listeDeroul.png[rechercheTypeLieu]
+
+Puis en cliquant sur le bouton `Rechercher`.
+
+image::images/rechercheLieu.png[rechercheTypeLieu2]
+
+Cela aura pour effet de changer la couleur des points sur la carte. 
+
+image::images/pointDiff.png[carte]
+
+=== Recherche un récit
+
+Vous pouvez rechercher un récit en sélectionnant un récit dans la liste déroulante `Rechercher un récit`
+
+image::images/listeDeroul2.png[rechercheRécit]
+
+Puis en cliquant sur le bouton `Rechercher`.
+
+image::images/rechercheRécit.png[rechercheRécit2]
+
+Cela aura pour effet de mettre en valeur les différents lieux liée au récit sélectionné.
+
+image::images/lieuRécit.png[lieuRécit]
+
+=== Légende de la carte
+
+Une légende est présente en bas à droite de la carte. Elle vous permet de savoir à quoi correspond les différents points et lieux sur la carte.
+
+image::images/légende.png[légende]
+
+== Partie Administrateur
+
+=== Connexion
+
+Pour accéder à la partie administrateur vous devez vous connecter en cliquant sur le bouton `Connexion` en bas à droite de la page en dessous de la légende.
+
+image::images/connexion.png[connexion]
+
+Vous arrivez alors sur la page de connexion. Il vous suffit de saisir votre identifiant et votre mot de passe puis de cliquer sur le bouton `Connexion`.
+
+image::images/connexion2.png[connexion2]
+
+Une fois la connexion effectuée vous serez redirigé vers la page d'accueil mais avec quelques ajouts. Un ajout sur le titre du site sera visible avec le mot `Connecté` afin de vous indiquer que vous êtes bien connecté.
+
+image::images/adminAccueil.png[connexion3]
+
+Vous aurez également accès à un bouton `Déconnexion` en bas à droite de la page en dessous de la légende. Ce bouton vous permettra de vous déconnecter de la partie administrateur.
+
+image::images/déconnexion.png[déconnexion]
+
+=== Ajout d'un point
+
+De plus, vous aurez accès à un bouton `Ajout d'un point` en bas à droite de la page en dessous du bouton de déconnexion. 
+
+image::images/ajoutPointBout.png[ajoutPoint]
+
+Vous serez alors redirigé vers la page d'ajout d'un point. Il vous faudra donc saisir les informations demandées afin d'ajouter un point sur la carte.
+
+image::images/formAjoutPoint.png[ajoutPoint2]
+
+==== Ajout d'un point : Coordonnées
+
+Tout d'abord il vous faudra saisir les coordonnées du point que vous souhaitez ajouter. Pour cela vous devrez cliquer sur le bouton `Agrandir le plan` afin de l'ouvrir. 
+
+image::images/carteAjoutPoint.png[ajoutPoint3]
+
+Vous pourrez effectuer un clique droit sur l'endroit de votre choix afin de récupérer les coordonnées géographiques.
+
+image::images/carteAjoutPoint2.png[ajoutPoint4]
+
+Vous devrez ensuite saisir les coordonnées dans le champ `Coordonnées` de la page d'ajout d'un point.
+
+image::images/formAjoutPoint2.png[ajoutPoint5]
+
+==== Ajout d'un point : Ville 
+
+Vous devrez ensuite saisir la ville dans le champ `Ville` de la page d'ajout d'un point.    
+
+image::images/formAjoutPoint3.png[ajoutPoint6]
+
+=== Ajout d'un point : Type de point
+
+Vous devrez ensuite sélectionner le type de point que vous souhaitez ajouter dans la liste déroulante `Type de point` de la page d'ajout d'un point.
+
+image::images/formAjoutPoint4.png[ajoutPoint7]
+
+
 
 
 
