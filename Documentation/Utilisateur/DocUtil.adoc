@@ -1,0 +1,46 @@
+= Documentation Utilisateur site web G1A-1
+:toc:
+:toc-title: Table des matières
+:sectnums:
+:sectnumlevels: 4
+:hide-uri-scheme:   
+
+== Introduction
+Bienvenue sur notre site web ! Ce guide d'utilisation a été conçu pour vous aider à naviguer sur notre site et à en tirer le meilleur parti. Il vous expliquera comment accéder aux différentes sections et fonctionnalités, ainsi que les étapes à suivre pour effectuer des tâches courantes, telles que la création d'un compte ou la consultation d'un produit. Si vous rencontrez des problèmes ou des questions, n'hésitez pas à consulter notre section d'aide ou à nous contacter directement. Merci d'utiliser notre site !
+
+
+== Accéder au site web
+
+
+Afin d'accéder à notre site ouvrez votre navigateur web et saisissez (ou cliquer simplement sur) l'adresse suivante : https://slave-narratives.univ-tlse2.fr/
+
+== Accueil
+
+Lorsque vous êtes redirigé vers notre site vous arrivez sur la page d'accueil. 
+
+image::images/accueil.png[accueil]
+
+=== En-tête du site 
+
+Vous pouvez y accéder à tout moment en cliquant sur le bouton `Accueil` de notre site en haut à gauche de la page.
+
+image::images/boutonAccueil.png[accueil2]
+
+=== Recherche d'un type de lieu    
+
+Vous pouvez rechercher un type de lieu en sélectionnant un type de lieu dans la liste déroulante `Type de lieu` et en cliquant sur le bouton `Rechercher`.
+
+
+
+=== Pied de page du site
+
+Le pied de page contient des liens vers les pages tel que `A propos`, `Contact` (mettre lien vers explication page)
+
+image::images/piedPage.png[pied de page]
+
+
+
+
+
+
+
