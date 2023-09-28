@@ -8,9 +8,7 @@
 == Introduction
 Bienvenue sur notre site web ! Ce guide d'utilisation a été conçu pour vous aider à naviguer sur notre site et à en tirer le meilleur parti. Il vous expliquera comment accéder aux différentes sections et fonctionnalités, ainsi que les étapes à suivre pour effectuer des tâches courantes, telles que la création d'un compte ou la consultation d'un produit. Si vous rencontrez des problèmes ou des questions, n'hésitez pas à consulter notre section d'aide ou à nous contacter directement. Merci d'utiliser notre site !
 
-
 == Accéder au site web
-
 
 Afin d'accéder à notre site ouvrez votre navigateur web et saisissez (ou cliquer simplement sur) l'adresse suivante : https://slave-narratives.univ-tlse2.fr/
 
@@ -22,9 +20,29 @@ image::images/accueil.png[accueil]
 
 === En-tête du site 
 
-Vous pouvez y accéder à tout moment en cliquant sur le bouton `Accueil` de notre site en haut à gauche de la page.
+Vous pouvez accéder à tout moment à la page d'accueil en cliquant sur le bouton `Accueil` de notre site en haut à gauche de la page.
 
 image::images/boutonAccueil.png[accueil2]
+
+Vous pouvez également accéder à la liste des récits en cliquant sur le bouton `Liste des récits` de notre site 
+
+image::images/boutonListeRécit.png[accueil3]
+
+=== Liste des récits
+
+Une fois sur la page de la liste des récits vous pourrez découvrir la liste des récits disponibles sur notre site.
+
+image::images/listeRécit.png[listeRécit]
+
+Depuis cette page vous pouvez aussi accéder au détail du récit en cliquant sur le `nom de l'auteur` du récit. 
+
+image::images/listeRécit2.png[listeRécit2]
+
+=== Détail d'un récit
+
+Une fois sur la page de détail d'un récit vous pourrez découvrir les informations relatives au récit sélectionné.
+
+image::images/détailRécit.png[détailRécit]
 
 === Recherche d'un type de lieu    
 
@@ -68,7 +86,7 @@ Pour accéder à la partie administrateur vous devez vous connecter en cliquant 
 
 image::images/connexion.png[connexion]
 
-Vous arrivez alors sur la page de connexion. Il vous suffit de saisir votre identifiant et votre mot de passe puis de cliquer sur le bouton `Connexion`.
+Vous arrivez alors sur la page de connexion. Il vous suffit de saisir votre identifiant et votre     mot de passe puis de cliquer sur le bouton `Connexion`.
 
 image::images/connexion2.png[connexion2]
 
@@ -76,9 +94,23 @@ Une fois la connexion effectuée vous serez redirigé vers la page d'accueil mai
 
 image::images/adminAccueil.png[connexion3]
 
+=== Déconnexion
+
 Vous aurez également accès à un bouton `Déconnexion` en bas à droite de la page en dessous de la légende. Ce bouton vous permettra de vous déconnecter de la partie administrateur.
 
 image::images/déconnexion.png[déconnexion]
+
+[sidebar]
+.Attention
+--
+La déconnexion peut ne pas marcher si le navigateur que vous utilisez est Firefox.
+--
+
+=== Liste des récits (Administrateur)
+
+En tant qu'administrateur vous aurez accès à un bouton de modification et de suppression de récit sur la page de la liste des récits.
+
+image::images/listeRécitAdmin.png[listeRécitAdmin]
 
 === Ajout d'un point
 
@@ -116,8 +148,15 @@ Vous devrez ensuite sélectionner le type de point que vous souhaitez ajouter da
 
 image::images/formAjoutPoint4.png[ajoutPoint7]
 
+=== Ajout d'un point : Joindre à un récit
 
+Vous pourrez ensuite sélectionner un récit dans la liste déroulante `Joindre à un récit` de la page d'ajout d'un point.
 
+image::images/formAjoutPoint5.png[ajoutPoint8]
+
+Il ne vous reste plus qu'à cliquer sur le bouton `Terminer` afin d'ajouter le point sur la carte. Le point sera alors visible sur la carte.
+
+image::images/pointAjouté.png[ajoutPoint9]
 
 
 === Pied de page du site
@@ -125,6 +164,22 @@ image::images/formAjoutPoint4.png[ajoutPoint7]
 Le pied de page contient des liens vers les pages tel que `A propos`, `Contact` (mettre lien vers explication page)
 
 image::images/piedPage.png[pied de page]
+
+==== À propos
+
+Cette page permet d'avoir des informations sur le site et sur les personnes qui ont travaillé dessus.
+
+image::images/àPropos.png[à propos]
+
+==== Contact
+
+Cette page permet de contacter Marie-Pierre BADUEL la cliente et gérante du site. 
+
+====
+*Non fonctionnel pour le moment*.
+====
+
+image::images/contact.png[contact]
 
 
 
