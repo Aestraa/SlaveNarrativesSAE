@@ -100,11 +100,9 @@ Vous aurez également accès à un bouton `Déconnexion` en bas à droite de la 
 
 image::images/déconnexion.png[déconnexion]
 
-[sidebar]
-.Attention
---
-La déconnexion peut ne pas marcher si le navigateur que vous utilisez est Firefox.
---
+====
+*La déconnexion peut ne pas marcher si le navigateur que vous utilisez est Firefox.*
+====
 
 === Liste des récits (Administrateur)
 
