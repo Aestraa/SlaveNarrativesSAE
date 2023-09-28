@@ -63,6 +63,20 @@ WARNING: Le contenu de ce dépôt et de ce ReadMe changeront tout au long de la 
 | `SITE WEB CLIENT` | https://slave-narratives.univ-tlse2.fr/[Lien vers le site web] | Site web client
 |===
 
+==== Documentation utilisateur 
+
+[cols="1,2,2",options=header]
+|===
+| Nom    | Lien         |  Notes 
+| `DOCUMENTATION UTILISATEUR (pdf)` | https://github.com/Aestraa/SlaveNarrativesSAE/blob/master/Documentation/Utilisateur/DocUtil.pdf[Lien vers la documentation] | Documentation utilisateur en pdf
+|===
+
+[cols="1,2,2",options=header]
+|===
+| Nom    | Lien         |  Notes 
+| `DOCUMENTATION UTILISATEUR (adoc)` | https://github.com/Aestraa/SlaveNarrativesSAE/blob/master/Documentation/Utilisateur/DocUtil.adoc[Lien vers la documentation] | Documentation utilisateur en asciiDoc
+|===
+
 === Code source du projet (WEB/BD)
 
 ==== Version 0
