@@ -40,12 +40,21 @@ toc::[]
 
 == Equipe
 
-Projet réalisé par::
+Projet réalisé par : 
 
-- https://github.com/Alexandre3131[BENACHIR Alexandre]
-- https://github.com/Aestraa[MOINY-BOUDGHASSEM Yanis]
+=== Elève formation initiale
+
+- https://github.com/Aestraa[MOINY Yanis]
 - https://github.com/RMassip[MASSIP Romain] 
 - https://github.com/Ted971[BABEL Teddy]
+- https://github.com/Alexandre3131[BENACHIR Alexandre]
+
+=== Elève formation alternance
+
+- https://github.com/Darknxss[GRASSER James]
+- https://github.com/EternalNico[SACILOTTO Nicolas]
+- https://github.com/jordanQuin[QUINVEROS Jordan]
+- https://github.com/Guilhamasse[GUILHAMASSÉ Quentin]
 
 Cliente:: mailto:marie-pierre.baduel@univ-tlse2.fr[MPB]
 
