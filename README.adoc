@@ -58,7 +58,7 @@ Projet réalisé par :
 
 Cliente:: mailto:marie-pierre.baduel@univ-tlse2.fr[MPB]
 
-== Réalisations 
+== Réalisations
 
 TIP: Vous trouverez ici toutes les informations nécessaires pour utiliser notre application ou site web, y compris comment y accéder, où trouver les documents, etc.
 
@@ -88,14 +88,14 @@ WARNING: Le contenu de ce dépôt et de ce ReadMe changeront tout au long de la 
 
 === Code source du projet (WEB/BD)
 
-==== Version 0
+==== Dernière version
 
 ===== WEB 
 
 [cols="1,2,2",options=header]
 |===
 | Nom    | Lien         |  Notes 
-| `Code source WEB V0` | https://github.com/Aestraa/SlaveNarrativesSAE/tree/master/CodeSource/Web/Version0[Lien vers le code source] | Code source partie WEB Version 0
+| `Code source WEB V0` | https://github.com/Aestraa/SlaveNarrativesSAE/tree/master/CodeSource/Web/Version3[Lien vers le code source] | Code source partie WEB Version 3
 |===
 
 ===== BD
@@ -103,25 +103,7 @@ WARNING: Le contenu de ce dépôt et de ce ReadMe changeront tout au long de la 
 [cols="1,2,2",options=header]
 |===
 | Nom    | Lien         |  Notes 
-| `Code source BD V0` | https://github.com/Aestraa/SlaveNarrativesSAE/tree/master/CodeSource/BD/Version0[Lien vers le code source] | Code source partie BD Version 0
-|===
-
-==== Version 1
-
-===== WEB 
-
-[cols="1,2,2",options=header]
-|===
-| Nom    | Lien         |  Notes 
-| `Code source WEB V1` | https://github.com/Aestraa/SlaveNarrativesSAE/tree/master/CodeSource/Web/Version3[Lien vers le code source] | Code source partie WEB Version 1
-|===
-
-===== BD
-
-[cols="1,2,2",options=header]
-|===
-| Nom    | Lien         |  Notes 
-| `Code source BD V1` | https://github.com/Aestraa/SlaveNarrativesSAE/tree/master/CodeSource/BD/Version2[Lien vers le code source] | Code source partie BD Version 1
+| `Code source BD V0` | https://github.com/Aestraa/SlaveNarrativesSAE/tree/master/CodeSource/BD/Version2[Lien vers le code source] | Code source partie BD Version 2
 |===
 
 == Gestion de projet & Qualité      
@@ -130,6 +112,8 @@ WARNING: Le contenu de ce dépôt et de ce ReadMe changeront tout au long de la 
 
 - `User stories` en cours : image:https://img.shields.io/github/issues/Aestraa/SlaveNarrativesSAE/User%20Story?style=plastic&logo=MUI&logoColor=FFFFFF&label=User%20Stories&color=00CA00[link=https://github.com/Aestraa/SlaveNarrativesSAE/issues?q=is:open+is:issue+label:%22User+Story%22+]
 - `Tâches` en cours : image:https://img.shields.io/github/issues/Aestraa/SlaveNarrativesSAE/T%C3%A2che?style=plastic&logo=Tesla&label=T%C3%A2ches&color=28D5FF[link=https://github.com/Aestraa/SlaveNarrativesSAE/issues?q=is:open+is:issue+label:T%C3%A2che]
+- `Tâches` terminées : image:https://img.shields.io/github/issues-closed/Aestraa/SlaveNarrativesSAE/T%C3%A2che?style=plastic&logo=X&color=red[link=https://github.com/Aestraa/SlaveNarrativesSAE/issues?q=is:issue+is:closed]
+- `User Story` terminées : image:https://img.shields.io/github/issues-closed/Aestraa/SlaveNarrativesSAE/User%20Story?style=plastic&logo=Udacity&color=red[link=https://github.com/Aestraa/SlaveNarrativesSAE/issues?q=is:issue+is:closed+label:%22User+Story%22]
 
 === Gantt 
 
@@ -137,4 +121,12 @@ WARNING: Le contenu de ce dépôt et de ce ReadMe changeront tout au long de la 
 |===
 | Nom    | Lien         |  Notes 
 | `Gantt prévisionnel` | https://github.com/Aestraa/SlaveNarrativesSAE/blob/master/Documentation/Gantt/GANTTV1SAE.mpp[Lien vers le gantt] | Gantt prévisionnel à télécharger
+|===
+
+=== Maquette du site 
+
+[cols="1,2,2",options=header]
+|===
+| Nom    | Lien         |  Notes 
+| `Liste Maquette` | https://github.com/Aestraa/SlaveNarrativesSAE/tree/master/Documentation/maquette[Lien vers la liste des maquettes] | Liste des maquettes du site client
 |===
