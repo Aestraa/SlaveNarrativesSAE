@@ -10,15 +10,11 @@ $lastPoint = $model->getLastPoint();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ajout d'un Point</title>
-    <!-- Ajout du css pour la carte leaflet -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/style_connexion.css'); ?>">
-    <!-- Ajout du js pour la carte leaflet -->
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
 </head>
 
 <body>
-<div class="login-container">
+    <div class="login-container">
         <h2>Ajout d'un Point</h2>
         <form action="<?= site_url('Ajout/InsertPoint') ?>" method="post">
             <div class="input-group">
@@ -60,35 +56,13 @@ $lastPoint = $model->getLastPoint();
                 echo '<input type="text" id="point" name="point" value="' . $lastPoint . '">';
                 ?>
             </div>
+
             <button type="submit">Terminer</button>
         </form>
     </div>
-    <!-- Div de la map -->
-    <div id="map" style="width: 100%; height: 500px;"></div>
-   
-    <!-- Script pour gérer la carte et récupérer les coordonnées -->
-    <script>
-        //le setView possède ces valeurs pour avoir une vue d'ensemble des tous les continents sur la carte
-        var map = L.map('map').setView([0, 0], 1);
-        
-        //Référence et configuration de la carte
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        }).addTo(map);
-        
-        //Variable d'affectation qui servira dans la fonction ci-dessous
-        var coordInput = document.getElementById("coord");
-        
-        //Méthode qui permet d'ajouter les coordonées dans la zone de texte souhaité suite à un clic sur la carte
-        map.on('click', function(e) {
-            var lat = e.latlng.lat;
-            var lng = e.latlng.lng;
-            //En suivant la norme ISO 6709 => l'ordre est latitude et longitude
-            var coordValue = lat + ','  + lng;
-            //Ajout des valeurs dans la zone de texte "Coordonées" suuite au clic
-            coordInput.value = coordValue;
-        });
-    </script>
+    <div>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d38842409.43735749!2d-32.80326698876798!3d32.535496033354896!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sfr!2sfr!4v1695204067631!5m2!1sfr!2sfr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
 </body>
 
 </html>
