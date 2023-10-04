@@ -38,5 +38,5 @@
         <a class="navbar-brand" href="<?= site_url() . "recits" ?>">Liste des récits</a>
     </nav>
 
-    <h1 class=tprinc> Slave narratives issou <?= $session->get('is_admin') ? '(Connecter)' : '' ?> </h1>
+    <h1 class=tprinc> Slave narratives <?= $session->get('is_admin') ? '(Connecter)' : '' ?> </h1>
     <h3> Every voice needs to be heard </h3>
