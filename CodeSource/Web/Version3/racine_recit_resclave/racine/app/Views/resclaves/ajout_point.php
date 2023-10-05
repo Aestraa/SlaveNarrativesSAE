@@ -50,14 +50,14 @@ $lastPoint = $model->getLastPoint();
                     ?>
                 </select>
             </div>
-            <!--
+            
             <div class="input-group">
                 <label for="point">Id du Recit</label>
                 <?php
                 echo '<input type="text" id="point" name="point" value="' . $lastPoint . '">';
                 ?>
             </div>
-                -->
+            
             <button type="submit">Terminer</button>
         </form>
     </div>

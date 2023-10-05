@@ -128,9 +128,9 @@
 	<br><br>
 		<?php if($session->get('is_admin')):?>
 				<br>
-				<a href="/ajout_point"><button>Ajout d'un point</button></a>
+				<a href="/ajout_point"><button><?php echo lang('sidebar.add_point_button') ?></button></a>
 				<br>
-				<a href="/ajout_recit"><button>Ajout d'un récit</button></a>
+				<a href="/ajout_recit"><button><?php echo lang('sidebar.add_narrative_button') ?></button></a>
 		<?php endif ?>
 
 </div>

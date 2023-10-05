@@ -53,5 +53,5 @@ helper('language');
       <a href="<?php echo base_url('language/changeLanguage/fr'); ?>">French</a>
     </nav>
 
-    <h1 class=tprinc><?php echo lang('headergeo.title')?><?= $session->get('is_admin') ? '(Connecter)' : '' ?> </h1>
+    <h1 class=tprinc><?php echo lang('headergeo.title')?><?= $session->get('is_admin') ? lang('headergeo.isConnected') : '' ?> </h1>
     <h3> <?php echo lang('headergeo.subtitle')?> </h3>

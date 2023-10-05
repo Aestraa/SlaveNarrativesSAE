@@ -30,5 +30,7 @@ return [
     ],
     'search_button' => 'Search',
     'connection_button' => 'Connection',
-    'disconnection_button' => 'Disconnection'
+    'disconnection_button' => 'Disconnection',
+    'add_point_button' => "Add a point",
+    'add_narrative_button' => "Add a narrative"
 ];
