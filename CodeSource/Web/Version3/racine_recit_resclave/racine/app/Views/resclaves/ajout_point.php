@@ -56,7 +56,6 @@ $lastPoint = $model->getLastPoint();
                 echo '<input type="text" id="point" name="point" value="' . $lastPoint . '">';
                 ?>
             </div>
-
             <button type="submit">Terminer</button>
         </form>
     </div>

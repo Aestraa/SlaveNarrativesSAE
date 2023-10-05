@@ -68,18 +68,11 @@
 
 
   // légende statique
-<<<<<<< HEAD
   var legendText = "<?php echo lang('accueil.locations_publication_narratives')?>"
   var legend = L.control({ position: "bottomright" });
   legend.onAdd = function(map) {
     var div = L.DomUtil.create("div", "legend");
     div.innerHTML += '<i class="publi"></i><span>' + legendText +'</span><br>';
-=======
-  var legend = L.control({ position: "bottomright" });
-  legend.onAdd = function(map) {
-    var div = L.DomUtil.create("div", "legend");
-    div.innerHTML += '<i class="publi"></i><span> Lieux de publication des récits </span><br>';
->>>>>>> 69f6e55 (nécessaire)
     return div;
   };
 
@@ -124,6 +117,7 @@
   var delete_button = "<?php echo lang('accueil.popup.delete_button') ?>"
 
   // Dessin des points de publication
+
       var f = points_publi;
       cluster.addLayer(L.geoJSON(f,{
         pointToLayer: function (feature, latlng) {
