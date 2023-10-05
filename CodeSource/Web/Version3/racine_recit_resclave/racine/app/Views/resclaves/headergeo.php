@@ -33,6 +33,12 @@
 </head>
 
 <body>
+<?php 
+ // Démarrer la session
+ $session = \Config\Services::session();
+ 
+helper('language');
+?>
     <!--Modification de la couleur du fond directement dans le code, non fonctionnel-->
     <style>
       body {
@@ -40,16 +46,12 @@
       }
     </style>
 
-    <?php
-    // Démarrer la session
-    $session = \Config\Services::session();
-    ?>
-
     <nav class="navbar navbar-expand-lg ">
-      <a class="navbar-brand" href="<?= site_url() . "map" ?>">Accueil</a>
-      <a class="navbar-brand" href="<?= site_url() . "recits" ?>">Liste des récits</a>
-
+      <a class="navbar-brand" href="<?= site_url() . "map" ?>"><?php echo lang('headergeo.nav_bar.home')?></a>
+      <a class="navbar-brand" href="<?= site_url() . "recits" ?>"><?php echo lang('headergeo.nav_bar.list_narratives')?></a>
+      <a href="<?php echo base_url('language/changeLanguage/en'); ?>">English</a>
+      <a href="<?php echo base_url('language/changeLanguage/fr'); ?>">French</a>
     </nav>
 
-    <h1 class=tprinc> Slave narratives <?= $session->get('is_admin') ? '(Connecter)' : '' ?> </h1>
-    <h3> Every voice needs to be heard </h3>
+    <h1 class=tprinc><?php echo lang('headergeo.title')?><?= $session->get('is_admin') ? '(Connecter)' : '' ?> </h1>
+    <h3> <?php echo lang('headergeo.subtitle')?> </h3>

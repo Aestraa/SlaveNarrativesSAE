@@ -77,6 +77,8 @@ $routes->get('/suppr_recit', [Suppr::class, 'suppr']);
 $routes->get('Suppr/SupprRecit', 'Suppr::SupprRecit');
 $routes->post('Modif/ModifRecit', 'Modif::ModifRecit');
 
+$routes->get('language/changeLanguage/(:any)', 'Language::changeLanguage/$1');
+
 
 
 
