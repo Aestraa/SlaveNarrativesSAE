@@ -34,16 +34,6 @@
         
            <label>Type de récit :</label>
            <input name="typeR" id="typeR" type="text" /><br><br>
-
-           <label>Préface existante :</label>
-           <select name="prefD" id="prefD">
-                    <option value="non">Non</option>
-                    <option value="oui">Oui</option>
-                    <option value="nonVerif">Non vérifiable</option>
-                </select> <br><br>
-
-           <label>Détails de la préface :</label>
-           <input name="pref" id="pref" type="text" /><br><br>
         
            <label>Commentaires / Historiographie :</label>
            <input name="com" id="com" type="text" /><br><br>

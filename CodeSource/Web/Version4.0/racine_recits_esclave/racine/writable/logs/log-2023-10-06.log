@@ -151,3 +151,62 @@ INFO - 2023-10-06 13:59:33 --> Session: Class initialized using 'CodeIgniter\Ses
 INFO - 2023-10-06 13:59:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2023-10-06 13:59:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
 INFO - 2023-10-06 13:59:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2023-10-06 15:34:00 --> Error connecting to the database: mysqli_sql_exception: Unknown database 'databasetest2' in C:\GitHub\SlaveNarrativesSAE\CodeSource\Web\Version4.0\racine_recits_esclave\racine\system\Database\MySQLi\Connection.php:173
+Stack trace:
+#0 C:\GitHub\SlaveNarrativesSAE\CodeSource\Web\Version4.0\racine_recits_esclave\racine\system\Database\MySQLi\Connection.php(173): mysqli->real_connect('127.0.0.1', 'root', Object(SensitiveParameterValue), 'databasetest2', 3306, '', 0)
+#1 C:\GitHub\SlaveNarrativesSAE\CodeSource\Web\Version4.0\racine_recits_esclave\racine\system\Database\BaseConnection.php(391): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 C:\GitHub\SlaveNarrativesSAE\CodeSource\Web\Version4.0\racine_recits_esclave\racine\system\Database\BaseConnection.php(573): CodeIgniter\Database\BaseConnection->initialize()
+#3 C:\GitHub\SlaveNarrativesSAE\CodeSource\Web\Version4.0\racine_recits_esclave\racine\system\Database\BaseBuilder.php(1602): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\GitHub\SlaveNarrativesSAE\CodeSource\Web\Version4.0\racine_recits_esclave\racine\system\Model.php(240): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\GitHub\SlaveNarrativesSAE\CodeSource\Web\Version4.0\racine_recits_esclave\racine\system\BaseModel.php(618): CodeIgniter\Model->doFindAll(60, 0)
+#6 C:\GitHub\SlaveNarrativesSAE\CodeSource\Web\Version4.0\racine_recits_esclave\racine\app\Models\ModelMap.php(19): CodeIgniter\BaseModel->findAll(60)
+#7 C:\GitHub\SlaveNarrativesSAE\CodeSource\Web\Version4.0\racine_recits_esclave\racine\app\Controllers\Map.php(79): App\Models\ModelMap->getPoints()
+#8 C:\GitHub\SlaveNarrativesSAE\CodeSource\Web\Version4.0\racine_recits_esclave\racine\system\CodeIgniter.php(934): App\Controllers\Map->index()
+#9 C:\GitHub\SlaveNarrativesSAE\CodeSource\Web\Version4.0\racine_recits_esclave\racine\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Map))
+#10 C:\GitHub\SlaveNarrativesSAE\CodeSource\Web\Version4.0\racine_recits_esclave\racine\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\GitHub\SlaveNarrativesSAE\CodeSource\Web\Version4.0\racine_recits_esclave\racine\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#12 C:\GitHub\SlaveNarrativesSAE\CodeSource\Web\Version4.0\racine_recits_esclave\racine\system\Commands\Server\rewrite.php(47): require_once('C:\\GitHub\\Slave...')
+#13 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Unknown database 'databasetest2' in C:\GitHub\SlaveNarrativesSAE\CodeSource\Web\Version4.0\racine_recits_esclave\racine\system\Database\MySQLi\Connection.php:218
+Stack trace:
+#0 C:\GitHub\SlaveNarrativesSAE\CodeSource\Web\Version4.0\racine_recits_esclave\racine\system\Database\BaseConnection.php(391): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 C:\GitHub\SlaveNarrativesSAE\CodeSource\Web\Version4.0\racine_recits_esclave\racine\system\Database\BaseConnection.php(573): CodeIgniter\Database\BaseConnection->initialize()
+#2 C:\GitHub\SlaveNarrativesSAE\CodeSource\Web\Version4.0\racine_recits_esclave\racine\system\Database\BaseBuilder.php(1602): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 C:\GitHub\SlaveNarrativesSAE\CodeSource\Web\Version4.0\racine_recits_esclave\racine\system\Model.php(240): CodeIgniter\Database\BaseBuilder->get()
+#4 C:\GitHub\SlaveNarrativesSAE\CodeSource\Web\Version4.0\racine_recits_esclave\racine\system\BaseModel.php(618): CodeIgniter\Model->doFindAll(60, 0)
+#5 C:\GitHub\SlaveNarrativesSAE\CodeSource\Web\Version4.0\racine_recits_esclave\racine\app\Models\ModelMap.php(19): CodeIgniter\BaseModel->findAll(60)
+#6 C:\GitHub\SlaveNarrativesSAE\CodeSource\Web\Version4.0\racine_recits_esclave\racine\app\Controllers\Map.php(79): App\Models\ModelMap->getPoints()
+#7 C:\GitHub\SlaveNarrativesSAE\CodeSource\Web\Version4.0\racine_recits_esclave\racine\system\CodeIgniter.php(934): App\Controllers\Map->index()
+#8 C:\GitHub\SlaveNarrativesSAE\CodeSource\Web\Version4.0\racine_recits_esclave\racine\system\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Map))
+#9 C:\GitHub\SlaveNarrativesSAE\CodeSource\Web\Version4.0\racine_recits_esclave\racine\system\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\GitHub\SlaveNarrativesSAE\CodeSource\Web\Version4.0\racine_recits_esclave\racine\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#11 C:\GitHub\SlaveNarrativesSAE\CodeSource\Web\Version4.0\racine_recits_esclave\racine\system\Commands\Server\rewrite.php(47): require_once('C:\\GitHub\\Slave...')
+#12 {main}
+CRITICAL - 2023-10-06 15:34:00 --> Unable to connect to the database.
+Main connection [MySQLi]: Unknown database 'databasetest2'
+in SYSTEMPATH\Database\BaseConnection.php on line 427.
+ 1 SYSTEMPATH\Database\BaseConnection.php(573): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH\Database\BaseBuilder.php(1602): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `points`
+JOIN `tab_recits_v3` ON `points`.`id_recit` = `tab_recits_v3`.`id_recit`
+WHERE `points`.`type` = :points.type:
+ LIMIT 60', [...], false)
+ 3 SYSTEMPATH\Model.php(240): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH\BaseModel.php(618): CodeIgniter\Model->doFindAll(60, 0)
+ 5 APPPATH\Models\ModelMap.php(19): CodeIgniter\BaseModel->findAll(60)
+ 6 APPPATH\Controllers\Map.php(79): App\Models\ModelMap->getPoints()
+ 7 SYSTEMPATH\CodeIgniter.php(934): App\Controllers\Map->index()
+ 8 SYSTEMPATH\CodeIgniter.php(499): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Map))
+ 9 SYSTEMPATH\CodeIgniter.php(368): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('FCPATH\\index.php')
+INFO - 2023-10-06 15:34:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-06 15:35:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-06 15:35:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-06 15:35:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-06 15:35:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-06 15:35:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-06 15:35:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-06 15:35:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2023-10-06 15:35:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

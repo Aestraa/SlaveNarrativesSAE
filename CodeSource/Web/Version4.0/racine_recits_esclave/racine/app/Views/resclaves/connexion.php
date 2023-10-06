@@ -19,9 +19,6 @@
             <div class="input-group">
                 <label for="password">Mot de passe</label>
                 <input type="password" id="password" name="password" required>
-            </div>
-            <div>
-                <a href="/creercompte">Créer un compte </a> 
             </div><br>
             <button type="submit">Se connecter</button>
         </form>
