@@ -44,13 +44,38 @@ helper('language');
       body {
         background-color: #FAEBD7;
       }
+
+    .language {
+      position: absolute;
+      right: 5%;
+    }
+
+    .language-link {
+        margin-right: 10px; /* Espacement entre les liens */
+        text-decoration: none; /* Supprimer la décoration de texte */
+        padding: 5px 10px; /* Ajouter un peu de rembourrage pour un meilleur aspect */
+        border: 1px solid #ccc; /* Ajouter une bordure */
+        border-radius: 5px; /* Coins arrondis */
+        color: #000; /* Couleur du texte au survol */
+    }
+
+    .language-link:hover {
+        background-color: #ccc; /* Couleur de fond au survol */
+        color: #000; /* Couleur du texte au survol */
+    }
+
+    .language-link-active {
+        background-color: #ccc; /* Couleur de fond pour le français */
+    }
     </style>
 
     <nav class="navbar navbar-expand-lg ">
       <a class="navbar-brand" href="<?= site_url() . "map" ?>"><?php echo lang('headergeo.nav_bar.home')?></a>
       <a class="navbar-brand" href="<?= site_url() . "recits" ?>"><?php echo lang('headergeo.nav_bar.list_narratives')?></a>
-      <a href="<?php echo base_url('language/changeLanguage/en'); ?>">English</a>
-      <a href="<?php echo base_url('language/changeLanguage/fr'); ?>">French</a>
+      <div class="language">
+      <a href="<?php echo base_url('language/changeLanguage/en'); ?>" class="language-link<?php echo ($session->get('locale') === 'en') ? ' language-link-active' : ''; ?>">EN</a>
+      <a href="<?php echo base_url('language/changeLanguage/fr'); ?>" class="language-link<?php echo ($session->get('locale') === 'fr') ? ' language-link-active' : ''; ?>">FR</a>
+      </div>
     </nav>
 
     <h1 class=tprinc><?php echo lang('headergeo.title')?><?= $session->get('is_admin') ? lang('headergeo.isConnected') : '' ?> </h1>
