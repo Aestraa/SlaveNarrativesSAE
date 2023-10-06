@@ -31,6 +31,10 @@ return [
     'search_button' => 'Search',
     'connection_button' => 'Connection',
     'disconnection_button' => 'Disconnection',
+    'create_account_button' => 'Create an account',
     'add_point_button' => "Add a point",
-    'add_narrative_button' => "Add a narrative"
+    'add_narrative_button' => "Add a narrative",
+    'add_slave_button' => 'Adding a slave/author',
+    'modify_slave_button' => 'Modify a slave/author',
+    'delete_slave_button' => 'Delete a slave/author'
 ];
