@@ -113,7 +113,7 @@
 	</section>
 	<script>
 		function confirmLogout() {
-			return confirm('<?= lang('sidebar.disconnection_confirmation') ?>');
+			return confirm('<?= lang('sidebar.logout_confirmation') ?>');
 		}
 	</script>
 
@@ -122,7 +122,7 @@
 
 	<br>
 	<a href="<?= $session->get('is_admin') ? '/deconnexion' : '/connexion' ?>">
-		<button onclick="return <?= $session->get('is_admin') ? 'confirmLogout()' : '' ?>"><?= $session->get('is_admin') ? lang('sidebar.disconnection_button') : lang('sidebar.connection_button') ?></button>
+		<button onclick="return <?= $session->get('is_admin') ? 'confirmLogout()' : '' ?>"><?= $session->get('is_admin') ? lang('sidebar.logout_button') : lang('sidebar.login_button') ?></button>
 	</a>
 
 	<br><br>

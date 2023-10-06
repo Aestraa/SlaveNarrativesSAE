@@ -29,9 +29,9 @@ return [
 
     ],
     'search_button' => 'Search',
-    'connection_button' => 'Connection',
-    'disconnection_button' => 'Disconnection',
-    'disconnection_confirmation' => 'Are you sure you want to logout ?',
+    'login_button' => 'Log in',
+    'logout_button' => 'Log out',
+    'logout_confirmation' => 'Are you sure you want to log out ?',
     'create_account_button' => 'Create an account',
     'add_point_button' => "Add a point",
     'add_narrative_button' => "Add a narrative",

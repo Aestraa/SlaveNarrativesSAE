@@ -9,18 +9,21 @@
 </head>
 
 <body>
+    <?php
+    helper('language');
+    ?>
     <div class="login-container">
-        <h2>Connexion Admin</h2>
+        <h2><?= lang('connexion.title') ?></h2>
         <form action="<?= site_url('/Admin/login') ?>" method="post">
             <div class="input-group">
-                <label for="username">Nom d'utilisateur</label>
+                <label for="username"><?= lang('connexion.username')?></label>
                 <input type="text" id="username" name="username" required>
             </div>
             <div class="input-group">
-                <label for="password">Mot de passe</label>
+                <label for="password"><?= lang('connexion.password')?></label>
                 <input type="password" id="password" name="password" required>
             </div><br>
-            <button type="submit">Se connecter</button>
+            <button type="submit"><?= lang('connexion.login_button')?></button>
         </form>
     </div>
 </body>
