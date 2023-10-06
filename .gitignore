@@ -1,4 +1,2 @@
 CodeSource/Web/Version4.0/racine_recits_esclave/racine/.env
-debugbar*
-ci_session*
-CodeSource/Web/Version4.0/racine_recits_esclave/racine/writable/logs/*.log
+CodeSource/Web/Version4.0/racine_recits_esclave/racine/writable/*
