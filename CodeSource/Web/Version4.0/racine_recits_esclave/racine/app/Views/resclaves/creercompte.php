@@ -9,21 +9,24 @@
 </head>
 
 <body>
+    <?php
+    helper('language')
+    ?>
     <div class="login-container">
-        <h2>Création d'un Compte</h2>
+        <h2><?= lang('creercompte.title')?></h2>
         <form action="<?=  site_url('/Admin/creercompte') ?>" method="post">
             <div class="input-group">
-                <label for="username">Nom d'utilisateur</label>
+                <label for="username"><?= lang('creercompte.username')?></label>
                 <input type="text" id="username" name="username" required>
             </div>
             <div class="input-group">
-                <label for="password">Mot de passe</label>
+                <label for="password"><?= lang('creercompte.password')?></label>
                 <input type="password" id="password" name="password" required>
             </div>
             <div>
-                <a href="/map">Retour </a> 
+                <a href="/map"><?= lang('creercompte.back_button')?></a> 
             </div><br>
-            <button type="submit">Terminer</button>
+            <button type="submit"><?= lang('creercompte.create_button')?></button>
         </form>
     </div>
 </body>
