@@ -62,18 +62,22 @@ class Recits extends BaseController
                     *Ajout de titre racourci pour récupérer les informations de l'api
                     *
                     */
+
+                    if ($apiValues != null){
                     
-                    // Remplacement de chaque occurrence de 'afficherPopup()' par une variable différente
-                    $texte = preg_replace_callback('/afficherPopup\(\)/', function ($match) use (&$indiceValeur, $apiValues) {
-                        // Obtenez la valeur actuelle du tableau en utilisant l'indice courant
-                        $valeur = $apiValues[$indiceValeur];
-                        
-                        // Incrémentez l'indice de valeur pour passer à la suivante
-                        $indiceValeur++;
-                        
-                        // Retournez la chaîne avec la valeur insérée dans les parenthèses
-                        return "afficherPopup('" . $valeur . "')";
-                    }, $texte);
+                        // Remplacement de chaque occurrence de 'afficherPopup()' par une variable différente
+                        $texte = preg_replace_callback('/afficherPopup\(\)/', function ($match) use (&$indiceValeur, $apiValues) {
+                            // Obtenez la valeur actuelle du tableau en utilisant l'indice courant
+                                $valeur = $apiValues[$indiceValeur];
+                            
+                            
+                            // Incrémentez l'indice de valeur pour passer à la suivante
+                            $indiceValeur++;
+                            
+                            // Retournez la chaîne avec la valeur insérée dans les parenthèses
+                            return "afficherPopup('" . $valeur . "')";
+                        }, $texte);
+                    }
 
 
 
