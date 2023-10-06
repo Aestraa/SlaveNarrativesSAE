@@ -33,23 +33,50 @@
 </head>
 
 <body>
+<?php 
+ // Démarrer la session
+ $session = \Config\Services::session();
+ 
+helper('language');
+?>
     <!--Modification de la couleur du fond directement dans le code, non fonctionnel-->
     <style>
       body {
         background-color: #FAEBD7;
       }
+
+    .language {
+      position: absolute;
+      right: 5%;
+    }
+
+    .language-link {
+        margin-right: 10px; /* Espacement entre les liens */
+        text-decoration: none; /* Supprimer la décoration de texte */
+        padding: 5px 10px; /* Ajouter un peu de rembourrage pour un meilleur aspect */
+        border: 1px solid #ccc; /* Ajouter une bordure */
+        border-radius: 5px; /* Coins arrondis */
+        color: #000; /* Couleur du texte au survol */
+    }
+
+    .language-link:hover {
+        background-color: #ccc; /* Couleur de fond au survol */
+        color: #000; /* Couleur du texte au survol */
+    }
+
+    .language-link-active {
+        background-color: #ccc; /* Couleur de fond pour le français */
+    }
     </style>
 
-    <?php
-    // Démarrer la session
-    $session = \Config\Services::session();
-    ?>
-
     <nav class="navbar navbar-expand-lg ">
-      <a class="navbar-brand" href="<?= site_url() . "map" ?>">Accueil</a>
-      <a class="navbar-brand" href="<?= site_url() . "recits" ?>">Liste des récits</a>
-
+      <a class="navbar-brand" href="<?= site_url() . "map" ?>"><?php echo lang('headergeo.nav_bar.home')?></a>
+      <a class="navbar-brand" href="<?= site_url() . "recits" ?>"><?php echo lang('headergeo.nav_bar.list_narratives')?></a>
+      <div class="language">
+      <a href="<?php echo base_url('language/changeLanguage/en'); ?>" class="language-link<?php echo ($session->get('locale') === 'en') ? ' language-link-active' : ''; ?>">EN</a>
+      <a href="<?php echo base_url('language/changeLanguage/fr'); ?>" class="language-link<?php echo ($session->get('locale') === 'fr') ? ' language-link-active' : ''; ?>">FR</a>
+      </div>
     </nav>
 
-    <h1 class=tprinc> Slave narratives <?= $session->get('is_admin') ? '(Connecter)' : '' ?> </h1>
-    <h3> Every voice needs to be heard </h3>
+    <h1 class=tprinc><?php echo lang('headergeo.title')?><?= $session->get('is_admin') ? lang('headergeo.isConnected') : '' ?> </h1>
+    <h3> <?php echo lang('headergeo.subtitle')?> </h3>
