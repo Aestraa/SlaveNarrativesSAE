@@ -13,7 +13,14 @@ class Ajout extends BaseController
             'title' => $model->getRecit(),
         ];
 
-        return view('resclaves/ajout_point', $data);
+        $session = \Config\Services::session();
+
+        if ($session->has('is_admin') && $session->get('is_admin') === true) {
+            return view('resclaves/ajout_point', $data);
+        } else {
+            return redirect()->to('/map');
+        }
+        
     }
 
     public function InsertPoint()
@@ -57,7 +64,14 @@ class Ajout extends BaseController
             'auteurs' => $model1->getAuteurs()
         ];
 
-        return view('resclaves/ajout_recit', $data);
+        $session = \Config\Services::session();
+
+        if ($session->has('is_admin') && $session->get('is_admin') === true) {
+            return view('resclaves/ajout_recit', $data);
+        } else {
+            return redirect()->to('/map');
+        }
+        
     }
 
     public function InsertRecit()
@@ -75,7 +89,7 @@ class Ajout extends BaseController
         $infoSup = $this->request->getPost('infoSup');
         $dateP = $this->request->getPost('dateP');
         $typeR = $this->request->getPost('typeR');
-        $pref = $this->request->getPost('pref');
+        $pref = "non";
         $com = $this->request->getPost('com');
         $modeP = $this->request->getPost('modeP');
         $dateN = $this->request->getPost('dateN');
@@ -135,8 +149,6 @@ class Ajout extends BaseController
             'id_recit' => $id_recit
         ];
 
-
-
         return view('resclaves/modifier_point',$data);
     }
 
@@ -186,6 +198,66 @@ class Ajout extends BaseController
 
         $sql = 'DELETE FROM points WHERE `points`.`id` ='.$id_point.'';
         $db->query($sql, [$id_point]);
+
+        return redirect()->to('/map');
+    }
+
+
+    public function auteur()
+    {
+        $model = model(ModelFormulaire::class);
+        $model1 = model(ModelGetAuteur::class);
+        $data = [
+            'title' => $model->getRecit(),
+            'auteurs' => $model1->getAuteurs()
+        ];
+
+        $session = \Config\Services::session();
+
+        if ($session->has('is_admin') && $session->get('is_admin') === true) {
+            return view('resclaves/ajout_esclave', $data);
+        } else {
+            return redirect()->to('/map');
+        }
+    }
+
+    public function InsertAuteur()
+    {
+        $model = model(ModelFormulaire::class);
+        $model1 = model(ModelGetAuteur::class);
+        $data = [
+            'title' => $model->getRecit(),
+            'auteurs' => $model1->getAuteurs()
+        ];
+
+        $nomR = $this->request->getPost('nomR');
+        $anneeN = $this->request->getPost('anneeN');
+        $lieuN = $this->request->getPost('lieuN');
+        $dateD = $this->request->getPost('dateD');
+        $lieuD = $this->request->getPost('lieuD');
+        $lieuE = $this->request->getPost('lieuE');
+        $moy = $this->request->getPost('moy');
+        $lieuV = $this->request->getPost('lieuV');
+        $origP = $this->request->getPost('origP');
+        $mil = $this->request->getPost('mil');
+        $part = $this->request->getPost('part');
+
+        $idA = 0;
+        foreach ($data['auteurs'] as $elt) {
+            if($elt['id_auteur'] > $idA){
+                $idA = $elt['id_auteur'];
+            }
+        }
+        $idA ++;
+
+        $plrs = "non";
+        $opS = "";
+
+        $sql = 'INSERT INTO `tab_auteurs` (`nom`, `naissance`, `lieu_naissance`, `deces`, `lieu_deces`, `lieu_esclavage`, `moyen_lib`, `lieuvie_ap_lib`, `origine_parents`, `militant_abolitionniste`, `particularites`, `plrs_recits`, `id_auteur`, `op_source`)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
+        $db = db_connect();
+        $db->query($sql, [$nomR, $anneeN, $lieuN, $dateD, $lieuD, $lieuE, $moy, $lieuV, $origP, $mil, $part, $plrs, $idA, $opS]);
+
 
         return redirect()->to('/map');
     }
