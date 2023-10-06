@@ -31,6 +31,7 @@ return [
     'search_button' => 'Search',
     'connection_button' => 'Connection',
     'disconnection_button' => 'Disconnection',
+    'disconnection_confirmation' => 'Are you sure you want to logout ?',
     'create_account_button' => 'Create an account',
     'add_point_button' => "Add a point",
     'add_narrative_button' => "Add a narrative",

@@ -68,11 +68,12 @@
               }).addTo(map);
 
 
-  // légende statique
+// légende statique
+var legendText = "<?php echo lang('accueil.locations_publication_narratives')?>"
   var legend = L.control({ position: "bottomright" });
   legend.onAdd = function(map) {
     var div = L.DomUtil.create("div", "legend");
-    div.innerHTML += '<i class="publi"></i><span> Lieux de publication des récits </span><br>';
+    div.innerHTML += '<i class="publi"></i><span>' + legendText +'</span><br>';
     return div;
   };
 
@@ -109,6 +110,11 @@
       }
   });
 
+  //traduction
+  var visualize_button = "<?php echo lang('accueil.popup.visualize_narrative_map_button')?>"
+  var date_publication = "<?php echo lang('accueil.popup.date_publication') ?>"
+  var modify_button = "<?php echo lang('accueil.popup.modify_button') ?>"
+  var delete_button = "<?php echo lang('accueil.popup.delete_button') ?>"
 
   // Dessin des points de publication
       var f = points_publi;
@@ -123,25 +129,25 @@
       layer.bindPopup(
         <?php if($session->get('is_admin')):?>
           '<a id="trya" href="' + url +'">' + "<h3 id='h3popup'>"+feature.properties.nom_esc+"</h3>" + "</a>"+
-          "<p class='text_popup'>Date de publication : "+ feature.properties.date_publi+ "</p>"+
+          "<p class='text_popup'>"+date_publication+" : "+ feature.properties.date_publi+ "</p>"+
           
 
           "<form id='formulaire' action='<?= base_url();?>/map/recits' method='post'>"+
-          " <button id='bouton' type='submit' name ='select_recit' value="+ id_recit +"> <p id='pop_carte'>Visualiser la carte du récit </p>" +
+          " <button id='bouton' type='submit' name ='select_recit' value="+ id_recit +"> <p id='pop_carte'>" + visualize_button + " </p>" +
           "</button></form><br>"+
             "<form id='formulaire' action='<?= site_url('Ajout/show_modification') ?>' method='post'>"+
-            "   <button id='boutonaj' name ='boutonaj' type='submit' value='"+ id_point +"'>Modifier</button>"+
+            "   <button id='boutonaj' name ='boutonaj' type='submit' value='"+ id_point +"'>"+ modify_button +"</button>"+
             "</form>"+
             "<form  action='<?= site_url('Ajout/suppressionPoint') ?>' method='post'>"+
-            "   <button id='boutonsup' name ='boutonsup' type='submit' value="+ id_point +">Supprimer</button>"+
+            "   <button id='boutonsup' name ='boutonsup' type='submit' value="+ id_point +">"+ delete_button +"</button>"+
             "</form>"
         <?php else: ?>
           '<a id="trya" href="' + url +'">' + "<h3 id='h3popup'>"+feature.properties.nom_esc+"</h3>" + "</a>"+
-          "<p class='text_popup'>Date de publication : "+ feature.properties.date_publi+ "</p>"+
+          "<p class='text_popup'>"+date_publication+" : "+ feature.properties.date_publi+ "</p>"+
           
 
           "<form id='formulaire' action='<?= base_url();?>/map/recits' method='post'>"+
-          " <button id='bouton' type='submit' name ='select_recit' value="+ id_recit +"> <p id='pop_carte'>Visualiser la carte du récit </p>" +
+          " <button id='bouton' type='submit' name ='select_recit' value="+ id_recit +"> <p id='pop_carte'>"+ visualize_button + " </p>" +
           "</button></form><br>"
         <?php endif ?>
       ),

@@ -113,7 +113,7 @@
 	</section>
 	<script>
 		function confirmLogout() {
-			return confirm('Êtes-vous sûr de vous déconnecter ?');
+			return confirm('<?= lang('sidebar.disconnection_confirmation') ?>');
 		}
 	</script>
 

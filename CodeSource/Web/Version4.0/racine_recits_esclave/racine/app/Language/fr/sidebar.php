@@ -30,6 +30,7 @@ return [
     'search_button' => 'Rechercher',
     'connection_button' => 'Connexion',
     'disconnection_button' => 'Déconnexion',
+    'disconnection_confirmation' => 'Êtes-vous sûr de vouloir vous déconnecter ?',
     'create_account_button' => 'Créer un compte',
     'add_point_button' => "Ajout d'un point",
     'add_narrative_button' => "Ajout d'un récit",
