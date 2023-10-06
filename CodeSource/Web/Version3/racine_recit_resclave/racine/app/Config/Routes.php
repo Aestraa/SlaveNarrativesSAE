@@ -51,6 +51,7 @@ $routes->get('/', [Map::class, 'index']);
 $routes->get('/map', [Map::class, 'index']);
 $routes->post('Ajout/InsertPoint', 'Ajout::InsertPoint');
 $routes->post('Ajout/InsertRecit', 'Ajout::InsertRecit');
+$routes->post('Ajout/InsertAuteur', 'Ajout::InsertAuteur');
 $routes->post('Admin/login', 'Admin::login');
 $routes->post('Admin/creercompte', 'Admin::creercompte');
 $routes->get('/recits', [Recits::class, 'index']);
@@ -67,15 +68,21 @@ $routes->match(['get', 'post'], '/map/recits2', [Map::class, 'index']);
 
 $routes->get('/ajout_point', [Ajout::class, 'point']);
 $routes->get('/ajout_recit', [Ajout::class, 'recit']);
+$routes->get('/ajout_esclave', [Ajout::class, 'auteur']);
 
 $routes->post('/Ajout/show_modification','Ajout::show_modification');
 $routes->post('/Ajout/suppressionPoint','Ajout::suppressionPoint');
 $routes->post('/Ajout/modificationPoint','Ajout::modificationPoint');
 
 $routes->get('/modif_recit', [Modif::class, 'modif']);
-$routes->get('/suppr_recit', [Suppr::class, 'suppr']);
+$routes->get('/choix_esclave', [Modif::class, 'choixModifA']);
+$routes->post('/modif_esclave', [Modif::class, 'modifA']);
+$routes->get('/suppr_recit', [Suppr::class, 'supprR']);
+$routes->get('/suppr_esclave', [Suppr::class, 'supprA']);
 $routes->get('Suppr/SupprRecit', 'Suppr::SupprRecit');
+$routes->post('Suppr/SupprAuteur', 'Suppr::SupprAuteur');
 $routes->post('Modif/ModifRecit', 'Modif::ModifRecit');
+$routes->post('Modif/ModifAuteur', 'Modif::ModifAuteur');
 
 
 

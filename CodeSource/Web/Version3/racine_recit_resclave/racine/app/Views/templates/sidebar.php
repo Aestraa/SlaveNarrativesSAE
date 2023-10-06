@@ -127,10 +127,17 @@
 
 	<br><br>
 		<?php if($session->get('is_admin')):?>
+				<a href="/creercompte"><button>Créer un compte</button> </a> 
 				<br>
 				<a href="/ajout_point"><button>Ajout d'un point</button></a>
 				<br>
 				<a href="/ajout_recit"><button>Ajout d'un récit</button></a>
+				<br>
+				<a href="/ajout_esclave"><button>Ajout d'un esclave/auteur</button></a>
+				<br>
+				<a href="/choix_esclave"><button>Modification d'un esclave/auteur</button></a>
+				<br>
+				<a href="/suppr_esclave"><button>Suppresion d'un esclave/auteur</button></a>
 		<?php endif ?>
 
 </div>
