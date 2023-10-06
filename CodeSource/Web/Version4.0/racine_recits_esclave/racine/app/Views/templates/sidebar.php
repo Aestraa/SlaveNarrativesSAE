@@ -60,7 +60,7 @@
 		echo "<a id= 'acc'href=", $url, "><p id='lien'>", $pts[0]['nom_esc'],
 		" (", $pts[0]['date_publi'], "), (Voir la fiche récit)</p></a>";
 	} else {
-		echo "<p id='recit'>Rechercher un récit</p>";
+		echo "<p id='recit'>" . lang('sidebar.narrative.search_narrative') ."</p>";
 		//var_dump($couche);
 	}
 	?>
