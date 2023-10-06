@@ -84,6 +84,7 @@ $routes->post('Suppr/SupprAuteur', 'Suppr::SupprAuteur');
 $routes->post('Modif/ModifRecit', 'Modif::ModifRecit');
 $routes->post('Modif/ModifAuteur', 'Modif::ModifAuteur');
 
+$routes->get('language/changeLanguage/(:any)', 'Language::changeLanguage/$1');
 
 
 

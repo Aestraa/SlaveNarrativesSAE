@@ -13,7 +13,6 @@ class Modif extends BaseController
             'title' => $model->getRecit(),
             'auteurs' => $model1->getAuteurs()
         ];
-
         $session = \Config\Services::session();
 
         if ($session->has('is_admin') && $session->get('is_admin') === true) {

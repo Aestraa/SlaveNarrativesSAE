@@ -148,7 +148,6 @@ class Ajout extends BaseController
             'id_point' => $id_point,
             'id_recit' => $id_recit
         ];
-
         return view('resclaves/modifier_point',$data);
     }
 
@@ -261,4 +260,5 @@ class Ajout extends BaseController
 
         return redirect()->to('/map');
     }
+
 }

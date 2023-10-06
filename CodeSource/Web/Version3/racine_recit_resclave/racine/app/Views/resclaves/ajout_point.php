@@ -19,6 +19,7 @@ $lastPoint = $model->getLastPoint();
 
 <body>
 <div class="login-container">
+
         <h2>Ajout d'un Point</h2>
         <form action="<?= site_url('Ajout/InsertPoint') ?>" method="post">
             <div class="input-group">
@@ -54,7 +55,6 @@ $lastPoint = $model->getLastPoint();
                     ?>
                 </select>
             </div>
-            
             <div class="input-group">
                 <label for="point">Id du Recit</label>
                 <?php
