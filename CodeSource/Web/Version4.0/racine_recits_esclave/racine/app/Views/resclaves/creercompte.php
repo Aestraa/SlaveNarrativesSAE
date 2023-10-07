@@ -20,9 +20,6 @@
                 <label for="password"><?= lang('creercompte.password')?></label>
                 <input type="password" id="password" name="password" required>
             </div>
-            <div>
-                <a href="/map"><?= lang('creercompte.back_button')?></a> 
-            </div><br>
             <button type="submit"><?= lang('creercompte.create_button')?></button>
         </form>
     </div>

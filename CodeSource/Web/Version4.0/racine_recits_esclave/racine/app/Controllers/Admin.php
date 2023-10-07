@@ -7,7 +7,8 @@ class Admin extends BaseController
     public function showconnexion()
     {
         // Votre logique pour afficher la page de connexion
-        return view('resclaves/connexion');
+        return view('resclaves/header')
+            . view('resclaves/connexion');
     }
 
     public function login()
@@ -56,7 +57,8 @@ class Admin extends BaseController
     public function showcreercompte()
     {
         //afficher la page de création de compte
-        return view('resclaves/creercompte');
+        return view("")
+            . view('resclaves/creercompte');
     }
 
     public function creercompte()
