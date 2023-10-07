@@ -9,9 +9,6 @@
 </head>
 
 <body>
-    <?php
-    helper('language');
-    ?>
     <div class="login-container">
         <h2><?= lang('connexion.title') ?></h2>
         <form action="<?= site_url('/Admin/login') ?>" method="post">

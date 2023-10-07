@@ -15,7 +15,7 @@ class Recits extends BaseController
         'recits'  => $model->get5Recits(),
         ];
 
-        return view ('resclaves/header_recit')
+        return view ('resclaves/header')
         . view ('resclaves/recits',$data)
         . view ('templates/footer_resc');
     }
@@ -94,7 +94,7 @@ class Recits extends BaseController
                 throw new PageNotFoundException('Cannot find the news item: ' . $idre);
             }
 
-            return view('resclaves/header_recit')
+            return view('resclaves/header')
                 . view('resclaves/view', $data)
                 . view('templates/footer_resc');
         }

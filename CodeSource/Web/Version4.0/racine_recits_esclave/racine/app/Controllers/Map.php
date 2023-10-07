@@ -42,7 +42,7 @@ l'information récupérée des formulaires de type 'post' doit être dans la mê
             ];
 
 
-            return view('resclaves/headergeo')
+            return view('resclaves/header')
                 . view('resclaves/style')
                 . view('templates/sidebar', $data2)
                 . view('resclaves/accueil2', $data2)
@@ -65,7 +65,7 @@ l'information récupérée des formulaires de type 'post' doit être dans la mê
             ];
 
 
-            return view('resclaves/headergeo')
+            return view('resclaves/header')
                 . view('resclaves/style')
                 . view('templates/sidebar', $data)
                 . view('resclaves/places', $data)
@@ -80,7 +80,7 @@ l'information récupérée des formulaires de type 'post' doit être dans la mê
             ];
 
 
-            return view('resclaves/headergeo')
+            return view('resclaves/header')
                 . view('resclaves/style')
                 . view('templates/sidebar', $data)
                 . view('resclaves/accueil', $data)
@@ -92,7 +92,7 @@ l'information récupérée des formulaires de type 'post' doit être dans la mê
     public function about()
     {
 
-        return view('resclaves/header_recit')
+        return view('resclaves/header')
             . view('resclaves/about_resc')
             . view('templates/footer_resc');
     }
@@ -100,7 +100,7 @@ l'information récupérée des formulaires de type 'post' doit être dans la mê
     public function contact()
     {
 
-        return view('resclaves/header_recit')
+        return view('resclaves/header')
             . view('resclaves/contact_resc')
             . view('templates/footer_resc');
     }

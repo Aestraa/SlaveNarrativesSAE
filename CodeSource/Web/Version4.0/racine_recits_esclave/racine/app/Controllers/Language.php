@@ -20,7 +20,7 @@ class Language extends BaseController {
         $this->session->set('locale', $lang);
         
         // Rediriger vers la page précédente ou une page spécifique
-        return redirect()->to(site_url()); // Redirigez vers la page d'accueil ou une autre page
+        return redirect()->back(); // Redirigez vers la page d'accueil ou une autre page
     }
 
 }
