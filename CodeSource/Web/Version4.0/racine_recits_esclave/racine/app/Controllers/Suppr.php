@@ -49,7 +49,8 @@ class Suppr extends BaseController
         $session = \Config\Services::session();
 
         if ($session->has('is_admin') && $session->get('is_admin') === true) {
-            return view('resclaves/suppr_esclave', $data);
+            return view('resclaves/header')
+                . view('resclaves/suppr_esclave', $data);
         } else {
             return redirect()->to('/map');
         }

@@ -7,10 +7,10 @@
 </head>
 <body>
     
-    <div class="contentAjout">
+    <div class="login-container">
            <form action="<?= site_url('Suppr/SupprAuteur') ?>" method="post">
         
-           <label>Nom de l'esclave  que vous voulez supprimer:</label>
+           <label><?= lang('suppr_esclave.select_slave') ?></label>
            <select name="idE" id="idE" required>
                     <?php
                     if (!empty($auteurs) && is_array($auteurs)) {
@@ -21,7 +21,7 @@
                     ?>
                 </select><br><br>
         
-           <button type="submit" onclick="return confirm('Êtes vous sûr ?')">Supprimer</button>
+           <button type="submit" onclick="return confirm('<?= lang('suppr_esclave.delete_confirmation') ?>')"><?= lang('suppr_esclave.delete_button') ?></button>
         </form>
 </body>
 </html>
