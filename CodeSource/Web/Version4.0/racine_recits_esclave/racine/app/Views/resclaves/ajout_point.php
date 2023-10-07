@@ -19,28 +19,28 @@ $lastPoint = $model->getLastPoint();
 
 <body>
     <div class="login-container">
-        <h2>Ajout d'un Point</h2>
+        <h2><?= lang('ajout_point.title')?></h2>
         <form action="<?= site_url('Ajout/InsertPoint') ?>" method="post">
             <div class="input-group">
-                <label for="coord">Coordonnées</label>
+                <label for="coord"><?= lang('ajout_point.coordinates')?></label>
                 <input type="text" id="coord" name="coord" required>
             </div>
             <div class="input-group">
-                <label for="ville">ville</label>
+                <label for="ville"><?= lang('ajout_point.city')?></label>
                 <input type="ville" id="ville" name="ville" required>
             </div>
             <div class="input-group">
-                <label for="type">Type de point:</label>
+                <label for="type"><?= lang('ajout_point.type') ?></label>
                 <select name="type" id="type">
-                    <option value="naissance">Naissance</option>
-                    <option value="publication">Publication</option>
-                    <option value="deces">Décée</option>
-                    <option value="esclavage">Esclavage</option>
-                    <option value="lieuvie">Lieu de Vie</option>
+                    <option value="naissance"><?= lang('ajout_point.types.birth') ?></option>
+                    <option value="publication"><?= lang('ajout_point.types.publication') ?></option>
+                    <option value="deces"><?= lang('ajout_point.types.death') ?></option>
+                    <option value="esclavage"><?= lang('ajout_point.types.slavery') ?></option>
+                    <option value="lieuvie"><?= lang('ajout_point.types.location_life') ?></option>
                 </select>
             </div>
             <div class="input-group">
-                <label for="recit">Joindre a un Récit:</label>
+                <label for="recit"><?= lang('ajout_point.attach_narrative')?></label>
                 <select name="recit" id="recit">
                     <?php
                     if (!empty($title) && is_array($title)) {
@@ -62,7 +62,7 @@ $lastPoint = $model->getLastPoint();
                 ?>
             </div>
                 -->
-            <button type="submit">Terminer</button>
+            <button type="submit"><?= lang('ajout_point.add_point_button') ?></button>
         </form>
     </div>
     <!-- Div de la map -->

@@ -28,7 +28,14 @@ label {
 }
 
 input {
-    width: 90%;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #8a6d3b;
+    background-color: #fdfdcb;
+}
+
+select {
+    width: 100%;
     padding: 10px;
     border: 1px solid #8a6d3b;
     background-color: #fdfdcb;
