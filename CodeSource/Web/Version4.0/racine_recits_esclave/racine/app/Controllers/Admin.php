@@ -57,7 +57,7 @@ class Admin extends BaseController
     public function showcreercompte()
     {
         //afficher la page de création de compte
-        return view("")
+        return view('resclaves/header')
             . view('resclaves/creercompte');
     }
 
