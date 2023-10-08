@@ -73,10 +73,50 @@ helper('language');
       <a class="navbar-brand" href="<?= site_url() . "map" ?>"><?php echo lang('headergeo.nav_bar.home')?></a>
       <a class="navbar-brand" href="<?= site_url() . "recits" ?>"><?php echo lang('headergeo.nav_bar.list_narratives')?></a>
       <div class="language">
-      <a href="<?php echo base_url('language/changeLanguage/en'); ?>" class="language-link<?php echo ($session->get('locale') === 'en') ? ' language-link-active' : ''; ?>">EN</a>
-      <a href="<?php echo base_url('language/changeLanguage/fr'); ?>" class="language-link<?php echo ($session->get('locale') === 'fr') ? ' language-link-active' : ''; ?>">FR</a>
+      <a href="#" id="changeLanguageEN" class="language-link<?php echo ($session->get('locale') === 'en') ? ' language-link-active' : ''; ?>">EN</a>
+      <a href="#" id="changeLanguageFR" class="language-link<?php echo ($session->get('locale') === 'fr') ? ' language-link-active' : ''; ?>">FR</a>
       </div>
     </nav>
 
     <h1 class=tprinc><?php echo lang('headergeo.title')?><?= $session->get('is_admin') ? lang('headergeo.isConnected') : '' ?> </h1>
     <h3> <?php echo lang('headergeo.subtitle')?> </h3>
+
+    <script type="text/javascript">
+      //script pour envoyer methode post pour language EN
+  document.getElementById('changeLanguageEN').addEventListener('click', function(event) {
+    event.preventDefault();
+
+    var form = document.createElement('form');
+    form.method = 'post';
+    form.action = '<?php echo base_url('language/changeLanguage/en'); ?>';
+
+    // Ajouter le champ pour l'ID
+    var idInput = document.createElement('input');
+    idInput.type = 'hidden';
+    idInput.name = 'idE';
+    idInput.value = '<?php echo isset($_POST['idE']) ? htmlspecialchars($_POST['idE']) : null; ?>'; // Remplacez par la valeur de votre ID
+    form.appendChild(idInput);
+
+    document.body.appendChild(form);
+    form.submit();
+  });
+
+      //script pour envoyer methode post pour language EN
+      document.getElementById('changeLanguageFR').addEventListener('click', function(event) {
+    event.preventDefault();
+
+    var form = document.createElement('form');
+    form.method = 'post';
+    form.action = '<?php echo base_url('language/changeLanguage/fr'); ?>';
+
+    // Ajouter le champ pour l'ID
+    var idInput = document.createElement('input');
+    idInput.type = 'hidden';
+    idInput.name = 'idE';
+    idInput.value = '<?php echo isset($_POST['idE']) ? htmlspecialchars($_POST['idE']) : null; ?>'; // Remplacez par la valeur de votre ID
+    form.appendChild(idInput);
+
+    document.body.appendChild(form);
+    form.submit();
+  });
+</script>

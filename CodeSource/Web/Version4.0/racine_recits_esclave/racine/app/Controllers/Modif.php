@@ -93,9 +93,13 @@ class Modif extends BaseController
 
         $session = \Config\Services::session();
 
-        if ($session->has('is_admin') && $session->get('is_admin') === true && isset($_POST['idE'])) {
-            return view('resclaves/header')
+        if ($session->has('is_admin') && $session->get('is_admin') === true) {
+            if(isset($_POST['idE'])){
+                return view('resclaves/header')
                 . view('resclaves/modif_esclave', $data);
+            } else {
+                return redirect()->to('/choix_esclave');
+            }
         } else {
             return redirect()->to('/map');
         }

@@ -76,6 +76,7 @@ $routes->post('/Ajout/modificationPoint','Ajout::modificationPoint');
 
 $routes->get('/modif_recit', [Modif::class, 'modif']);
 $routes->get('/choix_esclave', [Modif::class, 'choixModifA']);
+$routes->get('/modif_esclave', [Modif::class, 'modifA']);
 $routes->post('/modif_esclave', [Modif::class, 'modifA']);
 $routes->get('/suppr_recit', [Suppr::class, 'suppr']);
 $routes->get('/suppr_esclave', [Suppr::class, 'supprA']);
@@ -85,6 +86,8 @@ $routes->post('Modif/ModifRecit', 'Modif::ModifRecit');
 $routes->post('Modif/ModifAuteur', 'Modif::ModifAuteur');
 
 $routes->get('language/changeLanguage/(:any)', 'Language::changeLanguage/$1');
+$routes->post('language/changeLanguage/(:any)', 'Language::changeLanguage/$1');
+
 
 
 

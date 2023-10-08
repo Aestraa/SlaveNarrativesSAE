@@ -18,9 +18,28 @@ class Language extends BaseController {
 
         // Définir la langue dans la session
         $this->session->set('locale', $lang);
-        
-        // Rediriger vers la page précédente ou une page spécifique
-        return redirect()->back(); // Redirigez vers la page d'accueil ou une autre page
-    }
+
+        if(isset($_POST['idE']) && $_POST['idE'] != null){
+              //on redirige avec la méthode post
+              echo '<body><script>
+              const form = document.createElement("form");
+              form.method = "post";
+              form.action = document.referrer;  // Rediriger vers la page précédente
+              
+              const idEInput = document.createElement("input");
+              idEInput.type = "hidden";
+              idEInput.name = "idE";
+              idEInput.value = ' . json_encode($_POST['idE']) . ';  // Insérer la valeur de idE
+              form.appendChild(idEInput);
+              
+              document.body.appendChild(form);
+              form.submit();
+          </script>';
+          return;
+        } else {
+         // on redirige avec la méthode get
+         return redirect()->back();
+        }
+   }
 
 }
