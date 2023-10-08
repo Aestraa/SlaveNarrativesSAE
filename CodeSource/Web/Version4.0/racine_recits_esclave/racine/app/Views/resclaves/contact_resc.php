@@ -9,21 +9,21 @@
 </head>
 
 <body>
-    <div class="contact-container">
-        <h2>Contactez-nous</h2>
+    <div class="login-container">
+        <h2><?= lang('contact_resc.title') ?></h2>
         <div class="input-group">
-            <label for="name">Nom</label>
+            <label for="name"><?= lang('contact_resc.name') ?></label>
             <input type="text" id="name" name="name" required>
         </div>
         <div class="input-group">
-            <label for="email">Email</label>
+            <label for="email"><?= lang('contact_resc.email') ?></label>
             <input type="email" id="email" name="email" required>
         </div>
         <div class="input-group">
-            <label for="message">Message</label>
+            <label for="message"><?= lang('contact_resc.message') ?></label>
             <textarea id="message" name="message" rows="5" required></textarea>
         </div>
-        <button type="submit">Envoyer</button>
+        <button type="submit"><?= lang('contact_resc.send_button') ?></button>
     </div>
 </body>
 
