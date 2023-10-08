@@ -8,9 +8,9 @@
 <body>
 
 
-    <div class="contentAjout">
+    <div class="login-container">
            <form action="<?= site_url('Modif/ModifAuteur') ?>" method="post">
-           <label>Nom de l'esclave :</label>
+           <label><?= lang('modif_esclave.name_slave') ?></label>
            <?php
                     if (!empty($auteurs) && is_array($auteurs)) {
                         foreach ($auteurs as $elt) {
@@ -21,7 +21,7 @@
                     }
             ?>
         
-           <label>Année de naissance :</label>
+           <label><?= lang('modif_esclave.year_birth') ?></label>
            <?php
                     if (!empty($auteurs) && is_array($auteurs)) {
                         foreach ($auteurs as $elt) {
@@ -32,7 +32,7 @@
                     }
             ?>
 
-           <label>Lieu de naissance :</label>
+           <label><?= lang('modif_esclave.location_birth') ?></label>
            <?php
                     if (!empty($auteurs) && is_array($auteurs)) {
                         foreach ($auteurs as $elt) {
@@ -43,7 +43,7 @@
                     }
             ?>
 
-           <label>Année de décès :</label>
+           <label><?= lang('modif_esclave.year_death') ?></label>
            <?php
                     if (!empty($auteurs) && is_array($auteurs)) {
                         foreach ($auteurs as $elt) {
@@ -54,7 +54,7 @@
                     }
             ?>
         
-           <label>Lieu de décès :</label>
+           <label><?= lang('modif_esclave.location_death') ?></label>
            <?php
                     if (!empty($auteurs) && is_array($auteurs)) {
                         foreach ($auteurs as $elt) {
@@ -65,7 +65,7 @@
                     }
             ?>
 
-           <label>Lieu d'esclavage :</label>
+           <label><?= lang('modif_esclave.location_slavery') ?></label>
            <?php
                     if (!empty($auteurs) && is_array($auteurs)) {
                         foreach ($auteurs as $elt) {
@@ -76,7 +76,7 @@
                     }
             ?>
 
-           <label>Moyen de libération :</label>
+           <label><?= lang('modif_esclave.means_release') ?></label>
            <?php
                     if (!empty($auteurs) && is_array($auteurs)) {
                         foreach ($auteurs as $elt) {
@@ -87,7 +87,7 @@
                     }
             ?>
 
-           <label>Lieu de vie après la libération :</label>
+           <label><?= lang('modif_esclave.location_life_after_release') ?></label>
            <?php
                     if (!empty($auteurs) && is_array($auteurs)) {
                         foreach ($auteurs as $elt) {
@@ -98,7 +98,7 @@
                     }
             ?>
 
-           <label>Origine des parents :</label>
+           <label><?= lang('modif_esclave.origin_parents') ?></label>
            <?php
                     if (!empty($auteurs) && is_array($auteurs)) {
                         foreach ($auteurs as $elt) {
@@ -109,7 +109,7 @@
                     }
             ?>
         
-           <label>Militant abolitionniste :</label>
+           <label><?= lang('modif_esclave.abolitionist_activist') ?></label>
            <?php
                     if (!empty($auteurs) && is_array($auteurs)) {
                         foreach ($auteurs as $elt) {
@@ -120,7 +120,7 @@
                     }
             ?>
 
-           <label>Particularités :</label>
+           <label><?= lang('modif_esclave.particularities') ?></label>
            <?php
                     if (!empty($auteurs) && is_array($auteurs)) {
                         foreach ($auteurs as $elt) {
@@ -135,7 +135,7 @@
             echo '<input name="idE" id="idE" type="hidden" value="'. $auteur .'" required/><br><br>';
             ?>
         
-           <button type="submit">Modifier</button>
+           <button type="submit"><?= lang('modif_esclave.modify_button') ?></button>
         </form>
 </body>
 </html>
