@@ -1,25 +1,11 @@
 <br>
 <div id="carte"></div>
-<script>
+<script> 
 
 // Carte Leaflet 
-var map = L.map('carte').setView([29.052497808641004, -45.60848140244032], 3);
-map.addControl(new L.Control.Fullscreen());
 
-// Mise en place de panneaux pour régler l'ordre des couches
-  map.createPane("pane_pays").style.zIndex = 252;
-
-  map.createPane("pane_autoch").style.zIndex = 250;
-
-  map.createPane("pane_usa").style.zIndex = 251;
-
-  map.createPane("pane_afr").style.zIndex = 253;
-
-  map.createPane("pane450").style.zIndex = 450;
-
-  map.createPane("pane550").style.zIndex = 550;
-
-
+  var map = L.map('carte').setView([29.052497808641004, -45.60848140244032],3);
+  map.addControl(new L.Control.Fullscreen());
 
 // Fond ESRI relief
   var Esri_WorldShadedRelief = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Shaded_Relief/MapServer/tile/{z}/{y}/{x}', {
@@ -36,27 +22,86 @@ map.addControl(new L.Control.Fullscreen());
 // Fond ESRI World Physical
   var Esri_WorldPhysical = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Physical_Map/MapServer/tile/{z}/{y}/{x}', {
 	attribution: 'Tiles &copy; Esri &mdash; Source: US National Park Service',
-	maxZoom: 8
+	maxZoom: 7
 }).addTo(map);
 
+var OpenTopoMap = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
+	maxZoom: 17,
+	attribution: 'Map data: &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, <a href="http://viewfinderpanoramas.org">SRTM</a> | Map style: &copy; <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)'
+});
+
+// Mise en place de panneaux pour régler l'ordre des couches
+map.createPane("pane_pays").style.zIndex = 252;
+
+ map.createPane("pane_autoch").style.zIndex = 250;
+
+ map.createPane("pane_usa").style.zIndex = 251;
+
+ map.createPane("pane_afr").style.zIndex = 253;
+
+ map.createPane("pane450").style.zIndex = 450;
+
+ map.createPane("pane550").style.zIndex = 550;
 
 
-    // Ajout d'une échelle
-    var echelle = L.control.scale().addTo(map);
+// Ajout d'une échelle
+var echelle = L.control.scale().addTo(map);
 
-    // Button to return to initial view
-    L.control.resetView({
-                position: "topleft",
-                title: "Reset view",
-                latlng: L.latLng([29.052497808641004, -45.60848140244032]),
-                zoom: 3.3,
-            }).addTo(map);
+// Button to return to initial view
+L.control.resetView({
+            position: "topleft",
+            title: "Reset view",
+            latlng: L.latLng([29.052497808641004, -45.60848140244032]),
+            zoom: 3.3,
+        }).addTo(map);
 
+
+// légende statique
+var legendText = "<?php echo lang('Lieu de naissance')?>"
+  var legend = L.control({ position: "bottomright" });
+  var legendText2 = "<?php echo lang('accueil.locations_publication_narratives')?>"
+  var legend2 = L.control({ position: "bottomright" });
+  var legendText3 = "<?php echo lang('Lieu de vie')?>"
+  var legend2 = L.control({ position: "bottomright" });
+  var legendText4 = "<?php echo lang('Lieu de décès')?>"
+  var legend2 = L.control({ position: "bottomright" });
+  var legendText5 = "<?php echo lang('Lieu d\'escalavage')?>"
+  var legend2 = L.control({ position: "bottomright" });
+  legend.onAdd = function(map) {
+    var div = L.DomUtil.create("div", "legend");
+    div.innerHTML += '<i class="naissance"></i><span>' + legendText +'</span><br> ';
+    div.innerHTML += '<i class="publi"></i><span>' + legendText2 +'</span><br>';
+    div.innerHTML += '<i class="lieuvie"></i><span>' + legendText3 +'</span><br>';
+    div.innerHTML += '<i class="deces"></i><span>' + legendText4 +'</span><br>';
+    div.innerHTML += '<i class="esclavage"></i><span>' + legendText5 +'</span><br>';
+    return div;
+  };
+
+  legend.addTo(map);
 
 
 // Création des différentes couches GeoJSON 
 
 <?php 
+// Les ponctuels (naissance, esclavage, décès, lieu de vie, de publication)
+if (! empty($pts) && is_array($pts)) {
+  $nbt = count($pts);
+  $reponse = 'var place = {"type": "FeatureCollection", "features": [';
+  $type = 'var type = '."'".$pts[1]['type']."';";
+  for ($i = 0; $i < $nbt; $i++) {
+        $reponse .= '{"geometry": '.$pts[$i]['geoj'].',"id": '.$pts[$i]['id'].', "type": "Feature", "properties": {
+            "type": "'.$pts[$i]['type'].'","nom_esc": "'.$pts[$i]['nom_esc'].'",
+            "ville": "'.$pts[$i]['ville'].'","id_recit": "'.$pts[$i]['id_recit'].'",
+            "date_publi": "'.$pts[$i]['date_publi'].'"
+        
+        }},'."\r\n";
+      }
+      $reponse = substr($reponse,0,strlen($reponse)-1);
+      $reponse .= ']};';
+      echo $reponse;
+      echo $type;
+  }
+
 //Frontières etatsuniennes
 		if (! empty($couche) && is_array($couche)) {
 			$nbt = count($couche);
@@ -90,20 +135,7 @@ map.addControl(new L.Control.Fullscreen());
               $reponse .= ']};';
               echo $reponse;
           }
-// Les ponctuels (naissance, esclavage, décès, lieu de vie, de publication)
-          if (! empty($pts) && is_array($pts)) {
-            $nbt = count($pts);
-            $reponse = 'var point = {"type": "FeatureCollection", "features": [';
-            for ($i = 0; $i < $nbt; $i++) {
-                  $reponse .= '{"geometry": '.$pts[$i]['geoj'].',"id": '.$pts[$i]['id'].', "type": "Feature", "properties": {"type": "'.$pts[$i]['type'].'"
-                  ,"id_recit":"'.$pts[$i]['id_recit'].'","ville": "'.$pts[$i]['ville'].'"
-                  ,"nom_esc": "'.$pts[$i]['nom_esc'].'","resume": "'.$pts[$i]['lien_recit'].'"
-                }},'."\r\n";
-                }
-                $reponse = substr($reponse,0,strlen($reponse)-1);
-                $reponse .= ']};';
-                echo $reponse;
-            }     
+
  // Les polygones correspondant aux pays et états         
             if (! empty($poly) && is_array($poly)) {
               $nbt = count($poly);
@@ -119,8 +151,8 @@ map.addControl(new L.Control.Fullscreen());
                   $reponse = substr($reponse,0,strlen($reponse)-1);
                   $reponse .= ']};';
                   $type.= '];';
-                  echo $reponse;
-                  echo $type;
+                 echo $reponse;
+                 echo $type;
               }    
             
 	?>
@@ -181,34 +213,35 @@ var pays = L.geoJSON(poly,{
 
 
 // Création des clusters
- var markers = new L.MarkerClusterGroup({
-    iconCreateFunction: function(cluster) {
-        return L.divIcon({ 
-            html: cluster.getChildCount(), 
-            className: 'mycluster', 
-            iconSize: null 
-        });
-    }
-});
+var style_c = style_clust("publication"); 
+  var cluster = new L.MarkerClusterGroup({
+      iconCreateFunction: function(cluster) {
+          return L.divIcon({ 
+              html: "<div class="+style_c+">"+cluster.getChildCount()+"</div>", 
+              className: "", 
+              iconSize: null 
+          });
+      }
+  })
 
 //ajout des points au cluster
-		var fp = point;
-    markers.addLayer(L.geoJSON(fp,{
-      pointToLayer: function (feature, latlng) {
-        var style_feat = style_pt(feature); 
-        var ville = feature.properties.ville;
-
-        return L.circleMarker(latlng, style_feat)
-        },
-        onEachFeature: function (feature, layer) {
-        var url = '<?=site_url()."recits/"?>' + feature.properties.id_recit ;
-        var lieu = feature.properties.type;
+     
+cluster.addLayer(L.geoJSON(place, {
+    pointToLayer: function (feature, latlng) {
+        var nom_esc = feature.properties.nom_esc;
+        var style_test = style_pt(feature);
+        return L.circleMarker(latlng, style_test);
+    },
+    onEachFeature: function (feature, layer) {
+        var url = '<?=site_url()."recits/"?>' + feature.properties.id_recit;
+        var id_recit = feature.properties.id_recit;
         var id_point = feature.id;
+
         layer.bindPopup(
-    '<a href="' + url +'">' + "<h3 id='h3popup'>"+feature.properties.nom_esc+"</h3>" + "</a>"+
-    "<p class='text_popup'>"+feature.properties.ville+"</p>"+
-    
-    "<form id='formulaire' action='<?= base_url();?>/map/recits' method='post'>"+
+            '<a href="' + url + '">' + "<h3 id='h3popup'>" + feature.properties.nom_esc + "</h3>" + "</a><br>" +
+            "Date de publication : " + feature.properties.date_publi + "<br>" +
+
+            "<form id='formulaire' action='<?= base_url();?>/map/recits' method='post'>"+
     " <button id='bouton' type='submit' name ='select_recit' value="+ id_recit +"> <p id='pop_carte'>Visualiser la carte du récit </p>" +
     "</button></form><br>"+
     "<form id='formulaire' action='<?= site_url('Ajout/show_modification') ?>' method='post'>"+
@@ -219,23 +252,25 @@ var pays = L.geoJSON(poly,{
     "</form>"
       ),
 
-       layer.bindTooltip(feature.properties.ville,
-       {permanent: true, direction: 'auto',opacity: 0.65}
-       ).openTooltip(),
+        layer.bindTooltip(feature.properties.ville, {
+            permanent: true,
+            direction: 'auto',
+            opacity: 0.65
+        }).openTooltip();
 
-      layer.on('mouseover', function () {
-      this.bindTooltip(feature.properties.ville,
-       {permanent: false, direction: 'right',opacity: 0.65}
-       );
+        layer.on('mouseover', function () {
+            this.bindTooltip(feature.properties.ville + "<br>" + feature.properties.nom_esc, {
+                permanent: false,
+                direction: 'right',
+                opacity: 0.65
+            });
         });
-          
     }
-    }
-    ));
-    
-map.addLayer(markers);
-var extens = markers.getBounds();
+}));
 
+    map.addLayer(cluster);
+    var extension = cluster.getBounds();
+    map.flyToBounds(extension);
 
 
 ///////////// FRONTIERES USA //////////////////
@@ -279,22 +314,21 @@ var extens = markers.getBounds();
     ).addTo(map);
 
 
-  // Fonds de carte
-  var baseMaps = {
+   // Fonds de carte
+      var baseMaps = {
+        "OpenTopoMap": OpenTopoMap,
         "ESRI World Physical": Esri_WorldPhysical,
         "ESRI Shaded Relief": Esri_WorldShadedRelief,
         "ESRI Terrain Base": ESRI_Terrain_Base
     };
-
-      var overlayMaps = {
-        "Aires autochtones amérindiennes": aires_aut,
+    var overlayMaps = {
+        "Aires amérindiennes": aires_aut,
         "Royaumes Africains": roy_afr,
-        "Frontières étatsuniennes": maps
+        "Points": cluster
       };
-
+      
     // Ajout d'une fonctionnalité permettant le choix du fond de carte et des couches
     var layerControl = L.control.layers(baseMaps, overlayMaps).addTo(map);
-
 </script>
 <br><br><br><br>
 
