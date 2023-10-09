@@ -3,18 +3,18 @@
 <div class="container"><br>
 <?php $session = \Config\Services::session(); ?>
 <p style="text-align:center"> 
-Recensement des récits</p><br>
+<?= lang('recits.page_title') ?></p><br>
 <?php if (! empty($recits) && is_array($recits)): ?>
     <table id="exa" class="display" style="width:100%">
     <thead>
         
     <TR>
-		<TH> Nom de l'esclave </TH>
-        <TH> Date de publication </TH>
-        <TH> Titre </TH>
+		<TH> <?= lang('recits.name_slave') ?> </TH>
+        <TH> <?= lang('recits.date_publication') ?> </TH>
+        <TH> <?= lang('recits.title') ?> </TH>
         <?php if ($session->get('is_admin')) : ?>
-            <TH> Modification </TH>
-            <TH> Suppresion </TH>
+            <TH> <?= lang('recits.modification') ?> </TH>
+            <TH> <?= lang('recits.delete') ?> </TH>
         <?php endif; ?>
 	</TR>
 
@@ -38,11 +38,11 @@ Recensement des récits</p><br>
 
         <?php if ($session->get('is_admin')) : ?>
             <td>
-                <p><a href="<?= site_url('/modif_recit?esc='.esc($r['id_auteur']).'&idR='.esc($r['id_recit'])) ?>">Modifier</a></p>
+                <p><a href="<?= site_url('/modif_recit?esc='.esc($r['id_auteur']).'&idR='.esc($r['id_recit'])) ?>"><?= lang('recits.modify_button') ?></a></p>
              </td>
 
             <td>
-                <p><a href="<?= site_url('Suppr/SupprRecit?esc='.esc($r['id_auteur']).'&idR='.esc($r['id_recit'])) ?>" onclick="return confirm('Voulez vous vraiment supprimer ce récit ?')">Supprimer</a></p>
+                <p><a href="<?= site_url('Suppr/SupprRecit?esc='.esc($r['id_auteur']).'&idR='.esc($r['id_recit'])) ?>" onclick="return confirm('<?= lang('recits.delete_confirmation') ?>')"><?= lang('recits.delete_button') ?></a></p>
             </td>
         <?php endif; ?>
 
