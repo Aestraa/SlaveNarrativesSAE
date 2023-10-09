@@ -1,6 +1,7 @@
 <?php
 
 return [
+    'title' => "Modifier un esclave",
     'name_slave' => "Nom de l'esclave",
    'year_birth' => 'Année de naissance',
    'location_birth' => 'Lieu de naissance',

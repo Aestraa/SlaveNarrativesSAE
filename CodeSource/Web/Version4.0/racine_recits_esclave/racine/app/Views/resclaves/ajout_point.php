@@ -9,8 +9,8 @@ $lastPoint = $model->getLastPoint();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ajout d'un Point</title>
-    <!-- Ajout du css pour la carte leaflet -->
+    <?php $page_name = lang('ajout_point.title') ?>
+    <title><?= $page_name ?></title>    <!-- Ajout du css pour la carte leaflet -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/style_connexion.css'); ?>">
     <!-- Ajout du js pour la carte leaflet -->

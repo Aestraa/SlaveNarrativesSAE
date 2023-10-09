@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'title' => "Modification d'un point",
+    'title' => "Modifier un point",
     'coordinates' => 'Coordonnées',
     'city' => 'Ville',
     'type' => 'Type',

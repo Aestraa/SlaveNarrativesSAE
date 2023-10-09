@@ -1,6 +1,7 @@
 <?php
 
 return [
+    'title' => 'Modify a slave',
     'name_slave' => "Slave name",
    'year_birth' => 'Year of birth',
    'location_birth' => 'Location of birth',

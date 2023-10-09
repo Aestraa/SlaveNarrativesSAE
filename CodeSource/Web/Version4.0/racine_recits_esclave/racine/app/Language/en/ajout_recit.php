@@ -1,6 +1,7 @@
 <?php
 
 return [
+    'title' => 'Adding a narrative',
     'name_narrative' => 'Name of the narrative',
     'name_slave' => "Name of the slave",
     'location_publication' => 'Location of publication',

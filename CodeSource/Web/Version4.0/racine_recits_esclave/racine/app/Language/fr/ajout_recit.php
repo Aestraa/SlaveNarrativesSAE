@@ -1,6 +1,7 @@
 <?php
 
 return [
+    'title' => "Ajout d'un récit",
     'name_narrative' => 'Nom du récit',
     'name_slave' => "Nom de l'esclave",
     'location_publication' => 'Lieu de publication',

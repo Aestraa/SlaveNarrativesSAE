@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Création compte</title>
+    <?php $page_name = lang('creercompte.title') ?>
+    <title><?= $page_name ?></title>
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/style_connexion.css'); ?>">
 </head>
 
