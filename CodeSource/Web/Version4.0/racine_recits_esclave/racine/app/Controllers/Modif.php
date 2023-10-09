@@ -14,8 +14,11 @@ class Modif extends BaseController
             'auteurs' => $model1->getAuteurs()
         ];
 
+        $session = \Config\Services::session();
+
         if ($session->has('is_admin') && $session->get('is_admin') === true) {
-            return view('resclaves/modif_recit', $data);
+            return view('resclaves/header')
+                . view('resclaves/modif_recit', $data);
         } else {
             return redirect()->to('/map');
         }

@@ -2,14 +2,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Modifier un récit</title> 
+	<title><?= lang('modif_recit.title') ?></title> 
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/style_connexion.css'); ?>">
 </head>
 <body>
     
-    <div class="contentAjout">
+    <div class="login-container">
            <form action="<?= site_url('Modif/ModifRecit?idR='.$_GET['idR']) ?>" method="post">
-           <label>Nom du récit :</label>
+           <label><?= lang('modif_recit.name_narrative') ?></label>
            <?php
                     if (!empty($title) && is_array($title)) {
                         foreach ($title as $elt) {
@@ -19,7 +19,7 @@
                         }
                     }
             ?>
-           <label>Nom de l'esclave :</label>
+           <label><?= lang('modif_recit.name_slave') ?></label>
            <select name="idE" id="idE">
                     <?php
                     if (!empty($auteurs) && is_array($auteurs)) {
@@ -34,7 +34,7 @@
                     ?>
                 </select><br><br>
 
-           <label>Lieu de publication :</label>
+           <label><?= lang('modif_recit.location_publication') ?></label>
            <?php
                     if (!empty($title) && is_array($title)) {
                         foreach ($title as $elt) {
@@ -46,7 +46,7 @@
             ?>
            
 
-           <label>Année de publication :</label>
+           <label><?= lang('modif_recit.year_publication') ?></label>
            <?php
                     if (!empty($title) && is_array($title)) {
                         foreach ($title as $elt) {
@@ -57,7 +57,7 @@
                     }
             ?>
         
-           <label>Type de récit :</label>
+           <label><?= lang('modif_recit.type_narrative') ?></label>
            <?php
                     if (!empty($title) && is_array($title)) {
                         foreach ($title as $elt) {
@@ -67,47 +67,8 @@
                         }
                     }
             ?>
-
-           <label>Préface existante :</label>
-           <?php
-           if (!empty($title) && is_array($title)) {
-            foreach ($title as $elt) {
-                if ($elt['id_recit'] == $_GET['idR']){
-                    if ($elt['preface_blanc'] == "oui"){
-                        echo '<select name="prefD" id="prefD">
-                                <option value="non">Non</option>
-                                <option value="oui" selected>Oui</option>
-                                <option value="nonVerif">Non vérifiable</option>
-                            </select> <br><br>';
-                    } elseif ($elt['preface_blanc'] == "non"){
-                        echo '<select name="prefD" id="prefD">
-                                <option value="non"selected>Non</option>
-                                <option value="oui">Oui</option>
-                                <option value="nonVerif">Non vérifiable</option>
-                            </select> <br><br>';
-                    } else {
-                        echo '<select name="prefD" id="prefD">
-                                <option value="non">Non</option>
-                                <option value="oui">Oui</option>
-                                <option value="nonVerif" selected>Non vérifiable</option>
-                            </select> <br><br>';
-                    }
-                }
-            }
-        }
-            ?>
-           <label>Détails de la préface :</label>
-           <?php
-                    if (!empty($title) && is_array($title)) {
-                        foreach ($title as $elt) {
-                            if ($elt['id_recit'] == $_GET['idR']){
-                            echo '<input name="prefD" id="prefD" type="text" value="'. $elt['details_preface'] .'"/><br><br>';
-                            }
-                        }
-                    }
-            ?>
         
-           <label>Commentaires / Historiographie :</label>
+           <label><?= lang('modif_recit.comments') ?></label>
            <?php
                     if (!empty($title) && is_array($title)) {
                         foreach ($title as $elt) {
@@ -118,7 +79,7 @@
                     }
             ?>
 
-           <label>Mode de publication :</label>
+           <label><?= lang('modif_recit.method_publication') ?></label>
            <?php
                     if (!empty($title) && is_array($title)) {
                         foreach ($title as $elt) {
@@ -132,7 +93,7 @@
           <!--<label>Date de naissance :</label>
            <input name="dateN" id="dateN" type="date" /><br><br> -->
 
-           <label>Nom du scribe/écrivain :</label>
+           <label><?= lang('modif_recit.name_writer') ?></label>
            <?php
                     if (!empty($title) && is_array($title)) {
                         foreach ($title as $elt) {
@@ -143,7 +104,7 @@
                     }
             ?>
         
-           <label>Lien vers le récit :</label>
+           <label><?= lang('modif_recit.link_narrative') ?></label>
            <?php
                     if (!empty($title) && is_array($title)) {
                         foreach ($title as $elt) {
@@ -154,7 +115,7 @@
                     }
             ?>
         
-           <button type="submit">Modifier</button>
+           <button type="submit"><?= lang('modif_recit.modify_button') ?></button>
         </form>
 </body>
 </html>
