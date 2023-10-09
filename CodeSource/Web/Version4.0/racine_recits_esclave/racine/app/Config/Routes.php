@@ -70,7 +70,8 @@ $routes->get('/ajout_point', [Ajout::class, 'point']);
 $routes->get('/ajout_recit', [Ajout::class, 'recit']);
 $routes->get('/ajout_esclave', [Ajout::class, 'auteur']);
 
-$routes->post('/Ajout/show_modification','Ajout::show_modification');
+$routes->get('/modif_point','Ajout::show_modification');
+$routes->post('/modif_point','Ajout::show_modification');
 $routes->post('/Ajout/suppressionPoint','Ajout::suppressionPoint');
 $routes->post('/Ajout/modificationPoint','Ajout::modificationPoint');
 

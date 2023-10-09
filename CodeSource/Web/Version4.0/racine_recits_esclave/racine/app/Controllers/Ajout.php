@@ -124,34 +124,37 @@ class Ajout extends BaseController
 
     public function show_modification()
     {   
+        $session = \Config\Services::session();
         $model1 = model(ModelFormulaire::class);
         $model = model(ModelGetPointsid::class);
         $id_point = $this->request->getPost('boutonaj');
 
         $data = $model->getselecpoint($id_point);
 
-        $var = explode('[', $data->geoj);
-        $var = explode(']', $var[1]);
-        $var = explode(',', $var[0]);
+        if ($session->has('is_admin') && $session->get('is_admin') === true && $data != null) {
+            $var = explode('[', $data->geoj);
+            $var = explode(']', $var[1]);
+            $var = explode(',', $var[0]);
+    
+            $coord = $var[1].', '.$var[0];
+            $ville = $data->ville;
+            $id_recit = $data->id_recit;
+            $type = $data->type;
+    
+            $data = [
+                'coord' => $coord,
+                'ville' => $ville,
+                'type' => $type,
+                'title' => $model1->getRecit(),
+                'id_point' => $id_point,
+                'id_recit' => $id_recit
+            ];
 
-        $coord = $var[1].', '.$var[0];
-        $ville = $data->ville;
-        $id_recit = $data->id_recit;
-        $type = $data->type;
-
-        $data = [
-            'coord' => $coord,
-            'ville' => $ville,
-            'type' => $type,
-            'title' => $model1->getRecit(),
-            'id_point' => $id_point,
-            'id_recit' => $id_recit
-        ];
-
-
-
-        return view('resclaves/header')
+            return view('resclaves/header')
             . view('resclaves/modifier_point',$data);
+        } else {
+            return redirect()->to('/map');
+        }
     }
 
     public function modificationPoint()

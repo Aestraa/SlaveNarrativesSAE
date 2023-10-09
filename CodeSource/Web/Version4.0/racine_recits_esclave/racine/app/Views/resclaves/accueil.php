@@ -135,7 +135,7 @@ var legendText = "<?php echo lang('accueil.locations_publication_narratives')?>"
           "<form id='formulaire' action='<?= base_url();?>/map/recits' method='post'>"+
           " <button id='bouton' type='submit' name ='select_recit' value="+ id_recit +"> <p id='pop_carte'>" + visualize_button + " </p>" +
           "</button></form><br>"+
-            "<form id='formulaire' action='<?= site_url('Ajout/show_modification') ?>' method='post'>"+
+            "<form id='formulaire' action='<?= site_url('modif_point') ?>' method='post'>"+
             "   <button id='boutonaj' name ='boutonaj' type='submit' value='"+ id_point +"'>"+ modify_button +"</button>"+
             "</form>"+
             "<form  action='<?= site_url('Ajout/suppressionPoint') ?>' method='post'>"+
