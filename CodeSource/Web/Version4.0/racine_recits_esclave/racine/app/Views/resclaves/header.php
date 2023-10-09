@@ -97,6 +97,13 @@ helper('language');
     idInput.value = '<?php echo isset($_POST['idE']) ? htmlspecialchars($_POST['idE']) : null; ?>'; // Remplacez par la valeur de votre ID
     form.appendChild(idInput);
 
+      // Ajouter le champ pour l'ID
+      var idInput = document.createElement('input');
+    idInput.type = 'hidden';
+    idInput.name = 'boutonaj';
+    idInput.value = '<?php echo isset($_POST['boutonaj']) ? htmlspecialchars($_POST['boutonaj']) : null; ?>'; // Remplacez par la valeur de votre ID
+    form.appendChild(idInput);
+
     document.body.appendChild(form);
     form.submit();
   });
@@ -115,6 +122,14 @@ helper('language');
     idInput.name = 'idE';
     idInput.value = '<?php echo isset($_POST['idE']) ? htmlspecialchars($_POST['idE']) : null; ?>'; // Remplacez par la valeur de votre ID
     form.appendChild(idInput);
+
+     // Ajouter le champ pour l'ID
+     var idInput = document.createElement('input');
+    idInput.type = 'hidden';
+    idInput.name = 'boutonaj';
+    idInput.value = '<?php echo isset($_POST['boutonaj']) ? htmlspecialchars($_POST['boutonaj']) : null; ?>'; // Remplacez par la valeur de votre ID
+    form.appendChild(idInput);
+
 
     document.body.appendChild(form);
     form.submit();

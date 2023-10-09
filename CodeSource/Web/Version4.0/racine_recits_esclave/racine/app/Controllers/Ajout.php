@@ -131,7 +131,7 @@ class Ajout extends BaseController
 
         $data = $model->getselecpoint($id_point);
 
-        if ($session->has('is_admin') && $session->get('is_admin') === true && $data != null) {
+        if ($session->has('is_admin') && $session->get('is_admin') === true && isset($_POST['boutonaj'])) {
             $var = explode('[', $data->geoj);
             $var = explode(']', $var[1]);
             $var = explode(',', $var[0]);
