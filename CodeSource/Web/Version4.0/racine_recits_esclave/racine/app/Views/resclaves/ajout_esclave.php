@@ -6,42 +6,42 @@
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/style_connexion.css'); ?>">
 </head>
 <body>
-    <div class="contentAjout">
+    <div class="login-container">
            <form action="<?= site_url('Ajout/InsertAuteur') ?>" method="post">
-           <label>Nom de l'esclave :</label>
+           <label><?= lang('ajout_esclave.name_slave') ?></label>
            <input name="nomR" id="nomR" type="text" required/><br><br>
         
-           <label>Année de naissance :</label>
+           <label><?= lang('ajout_esclave.year_birth') ?></label>
            <input name="anneeN" id="anneeN" type="number" min="0" max="2030" required/><br><br>
 
-           <label>Lieu de naissance :</label>
+           <label><?= lang('ajout_esclave.location_birth') ?></label>
            <input name="lieuN" id="lieuN" type="text" required/><br><br>
 
-           <label>Année de décès :</label>
+           <label><?= lang('ajout_esclave.year_death') ?></label>
            <input name="dateD" id="dateD" type="text" required/><br><br>
         
-           <label>Lieu de décès :</label>
+           <label><?= lang('ajout_esclave.location_death') ?></label>
            <input name="lieuD" id="lieuD" type="text" required/><br><br>
 
-           <label>Lieu d'esclavage :</label>
+           <label><?= lang('ajout_esclave.location_slavery') ?></label>
            <input name="lieuE" id="lieuE" type="text" required/><br><br>
 
-           <label>Moyen de libération :</label>
+           <label><?= lang('ajout_esclave.means_release') ?></label>
            <input name="moy" id="moy" type="text" required/><br><br>
 
-           <label>Lieu de vie après la libération :</label>
+           <label><?= lang('ajout_esclave.location_life_after_release') ?></label>
            <input name="lieuV" id="lieuV" type="text" required/><br><br>
 
-           <label>Origine des parents :</label>
+           <label><?= lang('ajout_esclave.origin_parents') ?></label>
            <input name="origP" id="origP" type="text" required/><br><br>
         
-           <label>Militant abolitionniste :</label>
+           <label><?= lang('ajout_esclave.abolitionist_activist') ?></label>
            <input name="mil" id="mil" type="text" required/><br><br>
 
-           <label>Particularités :</label>
+           <label><?= lang('ajout_esclave.particularities') ?></label>
            <input name="part" id="part" type="text" required/><br><br>
         
-           <button type="submit">Ajouter</button>
+           <button type="submit"><?= lang('ajout_esclave.add_button') ?></button>
         </form>
 </body>
 </html>

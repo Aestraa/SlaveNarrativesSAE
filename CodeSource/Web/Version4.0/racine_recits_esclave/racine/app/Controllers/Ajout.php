@@ -215,7 +215,8 @@ class Ajout extends BaseController
         $session = \Config\Services::session();
 
         if ($session->has('is_admin') && $session->get('is_admin') === true) {
-            return view('resclaves/ajout_esclave', $data);
+            return view('resclaves/header')
+                . view('resclaves/ajout_esclave', $data);
         } else {
             return redirect()->to('/map');
         }
