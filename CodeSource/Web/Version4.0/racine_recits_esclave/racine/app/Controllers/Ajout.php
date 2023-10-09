@@ -150,7 +150,8 @@ class Ajout extends BaseController
 
 
 
-        return view('resclaves/modifier_point',$data);
+        return view('resclaves/header')
+            . view('resclaves/modifier_point',$data);
     }
 
     public function modificationPoint()

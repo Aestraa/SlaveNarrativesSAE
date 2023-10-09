@@ -1,8 +1,5 @@
 <!DOCTYPE html>
 <html lang="fr">
-<?php
-   echo $id_recit;
-?>
 
 <head>
     <meta charset="UTF-8">
@@ -13,49 +10,28 @@
 
 <body>
     <div class="login-container">
-        <h2>Modification d'un Point</h2>
+        <h2><?= lang('modif_point.title') ?></h2>
         <form action="<?= site_url('Ajout/modificationPoint') ?>" method="post">
             <div class="input-group">
-                <label for="coord">Coordonnées</label>
+                <label for="coord"><?= lang('modif_point.coordinates') ?></label>
                 <input type="text" id="coord" name="coord" value="<?php echo $coord; ?>" required>
             </div>
             <div class="input-group">
-                <label for="ville">ville</label>
+                <label for="ville"><?= lang('modif_point.city') ?></label>
                 <input type="ville" id="ville" name="ville"  <?php echo"value=".$ville.""?> required>
             </div>
             <div class="input-group">
-                <label for="type">Type de point:</label>
+                <label for="type"><?= lang('modif_point.type') ?></label>
                 <select name="type" id="type">
-                    <?php if( $type == "naissance"){
-                        echo '<option value="naissance" selected >Naissance</option>';
-                    }else{
-                        echo '<option value="naissance">Naissance</option>';
-                    };
-                    if( $type == "publication"){
-                        echo '<option value="publication" selected >Publication</option>';
-                    }else{
-                        echo '<option value="publication">Publication</option>';
-                    };
-                    if( $type == "deces"){
-                        echo '<option value="deces" selected >Décée</option>';
-                    }else{
-                        echo '<option value="deces">Décée</option>';
-                    };
-                    if( $type == "esclavage"){
-                        echo '<option value="esclavage" selected >Esclavage</option>';
-                    }else{
-                        echo '<option value="esclavage">Esclavage</option>';
-                    };
-                    if( $type == "lieuvie"){
-                        echo '<option value="lieuvie" selected >Lieu de Vie</option>';
-                    }else{
-                        echo '<option value="lieuvie">Lieu de Vie</option>';
-                    };
-                    ?>
+                    <option value="naissance"><?= lang('modif_point.types.birth') ?></option>
+                    <option value="publication"><?= lang('modif_point.types.publication') ?></option>
+                    <option value="deces"><?= lang('modif_point.types.death') ?></option>
+                    <option value="esclavage"><?= lang('modif_point.types.slavery') ?></option>
+                    <option value="lieuvie"><?= lang('modif_point.types.location_life') ?></option>
                 </select>
             </div>
             <div class="input-group">
-                <label for="recit">Joindre a un Récit:</label>
+                <label for="recit"><?= lang('modif_point.attach_narrative') ?></label>
                 <select name="recit" id="recit">
                     <?php
                     if (!empty($title) && is_array($title)) {
@@ -78,7 +54,7 @@
                 <!-- champ caché -->
                 <input type="hidden" id="id_point" name="id_point" <?php echo'value="'.$id_point.'"'?>>
             </div>
-            <button type="submit">Terminer</button>
+            <button type="submit"><?= lang('modif_point.modify_point_button') ?></button>
         </form>
     </div>
     <div>
