@@ -48,7 +48,7 @@ class Language extends BaseController {
           return;
         } else {
          // on redirige avec la méthode get
-         return redirect()->to('/map');
+         return redirect()->back();
         }
    }
 
