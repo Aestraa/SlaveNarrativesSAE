@@ -64,7 +64,7 @@ curl_close($curl);
 
 
 <br><br>
-
+<div class="container">
 <p style="text-align:center; font-size:25px;padding:6px;">  
     <?= lang('view.title') ?></p>
 
@@ -115,6 +115,7 @@ curl_close($curl);
 </div>
 <br>
     </div>
+</div>
     <script>
         function afficherPopup(choix) {
             // Recherchez l'élément correspondant à la valeur de choix dans le tableau data
