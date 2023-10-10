@@ -57,15 +57,15 @@ L.control.resetView({
 
 
 // légende statique
-var legendText = "<?php echo lang('Lieu de naissance')?>"
+var legendText = "<?php echo lang('accueil.locations_birth')?>"
   var legend = L.control({ position: "bottomright" });
-  var legendText2 = "<?php echo lang('accueil.locations_publication_narratives')?>"
+  var legendText2 = "<?php echo lang('accueil.locations_publication')?>"
   var legend2 = L.control({ position: "bottomright" });
-  var legendText3 = "<?php echo lang('Lieu de vie')?>"
+  var legendText3 = "<?php echo lang('accueil.locations_life')?>"
   var legend2 = L.control({ position: "bottomright" });
-  var legendText4 = "<?php echo lang('Lieu de décès')?>"
+  var legendText4 = "<?php echo lang('accueil.locations_death')?>"
   var legend2 = L.control({ position: "bottomright" });
-  var legendText5 = "<?php echo lang('Lieu d\'escalavage')?>"
+  var legendText5 = "<?php echo lang('accueil.locations_slavery')?>"
   var legend2 = L.control({ position: "bottomright" });
   legend.onAdd = function(map) {
     var div = L.DomUtil.create("div", "legend");
