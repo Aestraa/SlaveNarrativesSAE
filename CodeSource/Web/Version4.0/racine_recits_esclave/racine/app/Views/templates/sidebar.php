@@ -104,10 +104,10 @@
 		<i class="deces"></i><span><?= lang('sidebar.legend.location_death')?></span><br>
 		<i class='esclavage'></i><span><?= lang('sidebar.legend.location_slavery')?></span><br>
 
-		<i class='naiss_esc'></i><span><?= lang('sidebar.legend.birth_slavery')?></span><br>
-		<i class='lieuvie_dec'></i><span><?= lang('sidebar.legend.life_death')?></span><br>
-		<i class='esc_vie_dec'></i><span><?= lang('sidebar.legend.slavery_life_death')?></span><br>
-		<i class='naiss_esc_vie_dec'></i><span><?= lang('sidebar.legend.birth_slavery_life_death')?></span><br>
+		<i class='naiss_esc legend2_desc'></i><span><?= lang('sidebar.legend.birth_slavery')?></span><br>
+		<i class='lieuvie_dec legend2_desc'></i><span><?= lang('sidebar.legend.life_death')?></span><br>
+		<i class='esc_vie_dec legend2_desc'></i><span><?= lang('sidebar.legend.slavery_life_death')?></span><br>
+		<i class='naiss_esc_vie_dec legend2_desc'></i><span><?= lang('sidebar.legend.birth_slavery_life_death')?></span><br>
 		<br>
 		<i class='usa'></i><span><?= lang('sidebar.legend.us_borders')?></span><br>
 	</section>

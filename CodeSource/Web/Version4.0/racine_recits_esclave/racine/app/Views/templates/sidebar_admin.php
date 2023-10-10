@@ -107,10 +107,10 @@
 		<i class="deces"></i><span>Lieu de décès</span><br>
 		<i class='esclavage'></i><span>Lieu d'esclavage</span><br>
 
-		<i class='naiss_esc'></i><span>Naissance esclavage</span><br>
-		<i class='lieuvie_dec'></i><span>Vie et décès</span><br>
-		<i class='esc_vie_dec'></i><span>Esclavage, vie et décès</span><br>
-		<i class='naiss_esc_vie_dec'></i><span>Naissance, esclavage, vie et décès</span><br>
+		<i class='naiss_esc legend2_desc'></i><span>Naissance esclavage</span><br>
+		<i class='lieuvie_dec legend2_desc'></i><span>Vie et décès</span><br>
+		<i class='esc_vie_dec legend2_desc'></i><span>Esclavage, vie et décès</span><br>
+		<i class='naiss_esc_vie_dec legend2_desc'></i><span>Naissance, esclavage, vie et décès</span><br>
 		<br>
 		<i class='usa'></i><span>Frontières étatsuniennes</span><br>
 	</section>

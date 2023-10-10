@@ -6,6 +6,8 @@
 
 
   <!-- Import de la librairie Leaflet -->
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>/css/commun.css"   media="screen">
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>/css/theme.css"   media="screen">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
   <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
 
