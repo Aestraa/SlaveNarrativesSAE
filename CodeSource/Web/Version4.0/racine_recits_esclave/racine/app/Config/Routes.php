@@ -89,6 +89,8 @@ $routes->post('Modif/ModifAuteur', 'Modif::ModifAuteur');
 $routes->get('language/changeLanguage/(:any)', 'Language::changeLanguage/$1');
 $routes->post('language/changeLanguage/(:any)', 'Language::changeLanguage/$1');
 
+$routes->get('statistiques', 'Admin::statistiques');
+
 
 
 

@@ -11,6 +11,18 @@ class Admin extends BaseController
             . view('resclaves/connexion');
     }
 
+    public function statistiques()
+    {
+        $session = \Config\Services::session();
+        
+        if ($session->has('is_admin') && $session->get('is_admin') === true) {
+            return view('resclaves/header')
+                . view('resclaves/statistiques');
+        } else {
+            return redirect()->to('/map');
+        }
+    }
+
     public function login()
     {
         // Obtenez les données de formulaire

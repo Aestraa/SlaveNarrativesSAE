@@ -74,6 +74,11 @@ helper('language');
     <nav class="navbar navbar-expand-lg ">
       <a class="navbar-brand" href="<?= site_url() . "map" ?>"><?php echo lang('headergeo.nav_bar.home')?></a>
       <a class="navbar-brand" href="<?= site_url() . "recits" ?>"><?php echo lang('headergeo.nav_bar.list_narratives')?></a>
+
+      <?php if ($session->get('is_admin')) : ?>
+    <a class="navbar-brand" href="<?= site_url('statistiques') ?>">Statistiques</a>
+      <?php endif; ?>
+
       <div class="language">
       <a href="#" id="changeLanguageEN" class="language-link<?php echo ($session->get('locale') === 'en') ? ' language-link-active' : ''; ?>">EN</a>
       <a href="#" id="changeLanguageFR" class="language-link<?php echo ($session->get('locale') === 'fr') ? ' language-link-active' : ''; ?>">FR</a>
