@@ -1,0 +1,16 @@
+.navbar{
+    padding: 10px 20px;
+    background-color: #a0512db9;
+    font-family: "goudy", sans-serif;
+    .navbar-brand{
+        color:$black;
+        padding: 15px 30px;
+        &:hover{
+            color:$black;
+            background-color: antiquewhite;
+            border-radius:5px;
+        }
+    }    
+}
+
+
