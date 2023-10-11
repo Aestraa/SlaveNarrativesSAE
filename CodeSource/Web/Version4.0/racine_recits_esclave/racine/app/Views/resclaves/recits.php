@@ -78,8 +78,8 @@
 
     <?php else: ?>
 
-<h3>Pas de récit </h3>
-<p>Aucun récit n'a été trouvé</p>
+<h3>Pas de récit</h3>
+
 
 <?php endif ?>
 
