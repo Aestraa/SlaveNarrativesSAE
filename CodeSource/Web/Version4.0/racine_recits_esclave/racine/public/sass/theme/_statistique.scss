@@ -1,0 +1,11 @@
+.stats-container{
+    display: flex;
+    .box-stats{
+        width: 100%;
+        height: 700px;
+        text-align: center;
+        border: solid $black 1px;
+        border-radius: 15px;
+        margin: 10px;
+    }
+}
