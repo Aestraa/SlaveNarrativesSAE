@@ -4,6 +4,14 @@
 <?php $session = \Config\Services::session(); ?>
 <p style="text-align:center"> 
 <?= lang('recits.page_title') ?></p><br>
+
+
+<form action="<?= base_url('recits') ?>" method="get">
+    <input class="input-search" type="text" name="search" value="<?php echo isset($_GET['search']) ? $_GET['search'] : ''; ?>" placeholder="Rechercher...">
+    <input class="button-search" type="submit" value="Rechercher">
+</form></br>
+
+
 <?php if (! empty($recits) && is_array($recits)): ?>
     <table id="exa" class="display" style="width:100%">
     <thead>
@@ -18,7 +26,15 @@
         <?php endif; ?>
 	</TR>
 
-</thead>
+    </thead>
+
+    <?php 
+        if(isset($_GET['search'])){
+            $filtervalues = $_GET['search'];
+            $query = "SELECT * FROM tab_recits_v3 WHERE CONCAT(nom_esc,date_publi,titre) LIKE '%$filtervalues%' ";
+        }
+    ?>
+
 <tbody>
     <?php foreach ($recits as $r): ?>
   
