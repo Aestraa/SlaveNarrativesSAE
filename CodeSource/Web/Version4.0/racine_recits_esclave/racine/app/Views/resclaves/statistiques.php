@@ -19,8 +19,16 @@
   ?>
 
 <div class="stats-container">
-    <div class="box-stats"><br>Nombre de visite(s) des pages ci-dessous :<br><br><canvas id="myChart"></div>
-    <div class="box-stats"><canvas id="myPieChart"></canvas>    </div>
+    <div class="box-stats"></div>
+    <div class="box-stats">
+        <?php
+        if($result != null){
+            echo '<canvas id="myPieChart"></canvas>';
+        } else {
+            echo 'aucune donnée';
+        }
+        ?>  
+    </div>
     <div class="box-stats">Box 3</div>
   </div>
 

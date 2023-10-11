@@ -27,13 +27,22 @@ class DatabaseUtils
         $db = db_connect();
         $data = array();
 
+        $isEmpty = true;
+
         for ($i = 1; $i <= 12; $i++) {
             $result = $db->query("SELECT COUNT(*) AS nombre FROM Visite WHERE id_page = 13 AND MONTH(jour) = $i;");
             $row = $result->getRow();
             $data[] = $row->nombre;
+            if($row->nombre != 0){
+                $isEmpty = false;
+            }
         }
 
-        return $data;
+        if($isEmpty){
+            return null;
+        } else {
+            return $data;
+        }
     }
 
     //Fonction qui permet à travers une requête SQl de récupérer le nom des pages
