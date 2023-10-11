@@ -35,4 +35,36 @@ class DatabaseUtils
 
         return $data;
     }
+
+    //Fonction qui permet à travers une requête SQl de récupérer le nom des pages
+    public static function selectNameOfPage()
+    {
+        $db = db_connect();
+        $data = array();
+
+        $result2 = $db->query("SELECT nom AS Nom_des_pages FROM Page WHERE id  <> '13';");
+        if ($result2->getNumRows() > 0) {
+            foreach($result2 -> getResult() as $row){
+                $nom = $row->Nom_des_pages;
+                $data[] = $nom;
+            }
+            return $data;
+        }
+    }
+
+    //Fonction qui permet à travers une requête SQl de récupérer le nombre de consultation de chaque pages
+    public static function selectNumberOfVisitOfPage()
+    {
+        $db = db_connect();
+        $data = array();
+
+        
+            for ($i = 1; $i <= 12; $i++) {
+                $result3 = $db->query("SELECT COUNT(V.id) AS nombre from Page P, Visite V WHERE V.id_page = P.id AND P.id <> '13' AND P.id = $i;");
+                $row = $result3->getRow();
+                $data[] = $row->nombre;
+            }
+            return $data;
+        
+    }
 }

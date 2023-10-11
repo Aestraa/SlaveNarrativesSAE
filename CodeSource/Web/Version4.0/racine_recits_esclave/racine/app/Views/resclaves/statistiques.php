@@ -14,16 +14,50 @@
   use App\Libraries\DatabaseUtils;
 
   $result = DatabaseUtils::selectVisitByMonth();
+  $result2 = DatabaseUtils::selectNameOfPage();
+  $result3 = DatabaseUtils::selectNumberOfVisitOfPage();
   ?>
 
 <div class="stats-container">
-    <div class="box-stats"></div>
+    <div class="box-stats"><br>Nombre de visite(s) des pages ci-dessous :<br><br><canvas id="myChart"></div>
     <div class="box-stats"><canvas id="myPieChart"></canvas>    </div>
     <div class="box-stats">Box 3</div>
   </div>
 
   
   <script>
+    // Sélectionnez le canvas
+      var ctx = document.getElementById('myChart').getContext('2d');
+
+      // Définissez les données du graphique
+      var data = {
+          labels: <?= json_encode($result2) ?>,
+          datasets: [{
+              label: 'Visites des pages',
+              data: <?= json_encode($result3) ?>,
+              backgroundColor: 'rgba(255, 151, 92)', // Couleur de remplissage des barres
+              borderColor: 'rgba(0,0,0)', // Couleur des bordures
+              borderWidth: 1 // Largeur de la bordure
+          }]
+      };
+
+      // Définissez les options du graphique
+      var options = {
+          scales: {
+              y: {
+                  beginAtZero: true
+              }
+          }
+      };
+
+      // Créez le graphique
+      var myChart = new Chart(ctx, {
+          type: 'bar', // Type de graphique
+          data: data,
+          options: options
+      });
+
+
   // Sélectionnez le canvas
       var ctx = document.getElementById('myPieChart').getContext('2d');
 
