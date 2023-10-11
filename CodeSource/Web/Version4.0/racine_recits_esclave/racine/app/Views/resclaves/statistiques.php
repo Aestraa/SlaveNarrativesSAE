@@ -19,7 +19,7 @@
   ?>
 
 <div class="stats-container">
-    <div class="box-stats"></div>
+    <div class="box-stats"><br>Nombre de visite(s) des pages ci-dessous :<br><br><canvas id="myChart"></div>
     <div class="box-stats">
         <?php
         if($result != null){
