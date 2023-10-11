@@ -78,8 +78,8 @@
 
     <?php else: ?>
 
-<h3>No News</h3>
-<p>Unable to find any news for you.</p>
+<h3>Pas de récit </h3>
+<p>Aucun récit n'a été trouvé</p>
 
 <?php endif ?>
 
