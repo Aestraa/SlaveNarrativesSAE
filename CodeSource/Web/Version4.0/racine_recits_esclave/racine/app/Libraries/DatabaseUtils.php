@@ -21,4 +21,18 @@ class DatabaseUtils
         }
     }
     }
+
+    public static function selectVisitByMonth()
+    {
+        $db = db_connect();
+        $data = array();
+
+        for ($i = 1; $i <= 12; $i++) {
+            $result = $db->query("SELECT COUNT(*) AS nombre FROM Visite WHERE id_page = 13 AND MONTH(jour) = $i;");
+            $row = $result->getRow();
+            $data[] = $row->nombre;
+        }
+
+        return $data;
+    }
 }
