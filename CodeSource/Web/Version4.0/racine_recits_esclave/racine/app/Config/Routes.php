@@ -47,49 +47,44 @@ use App\Controllers\Suppr;
 
 
 // Routes créées pour le projet récits
-$routes->get('/', [Map::class, 'index']);
-$routes->get('/map', [Map::class, 'index']);
+
+//Pages visibles
+$routes->match(['get', 'post'],'/', [Map::class, 'index']);
+$routes->match(['get', 'post'],'/map', [Map::class, 'index']);
+$routes->match(['get', 'post'],'/recits', [Recits::class, 'index']);
+$routes->match(['get', 'post'],'/connexion', [Admin::class, 'showconnexion']);
+$routes->match(['get', 'post'],'/creercompte',[Admin::class, 'showcreercompte']);
+$routes->match(['get', 'post'],'/about', [Map::class, 'about']);
+$routes->match(['get', 'post'],'/contact', [Map::class, 'contact']);
+$routes->match(['get', 'post'], '/map/recits', [Map::class, 'index']);
+$routes->match(['get', 'post'], '/map/places', [Map::class, 'index']);
+$routes->match(['get', 'post'],'recits/(:segment)', [Recits::class, 'view']);
+$routes->match(['get', 'post'], '/map/recits2', [Map::class, 'index']);
+$routes->match(['get', 'post'],'/ajout_point', [Ajout::class, 'point']);
+$routes->match(['get', 'post'],'/ajout_recit', [Ajout::class, 'recit']);
+$routes->match(['get', 'post'],'/ajout_esclave', [Ajout::class, 'auteur']);
+$routes->match(['get', 'post'],'/modif_point','Ajout::show_modification');
+$routes->match(['get', 'post'],'/modif_recit', [Modif::class, 'modif']);
+$routes->match(['get', 'post'],'/choix_esclave', [Modif::class, 'choixModifA']);
+$routes->match(['get', 'post'],'/modif_esclave', [Modif::class, 'modifA']);
+$routes->match(['get', 'post'],'/suppr_esclave', [Suppr::class, 'supprA']);
+$routes->match(['get', 'post'],'language/changeLanguage/(:any)', 'Language::changeLanguage/$1');
+$routes->match(['get', 'post'],'statistiques', 'Admin::statistiques');
+
+//Pages invisibles pour insertion, ..
 $routes->post('Ajout/InsertPoint', 'Ajout::InsertPoint');
 $routes->post('Ajout/InsertRecit', 'Ajout::InsertRecit');
 $routes->post('Ajout/InsertAuteur', 'Ajout::InsertAuteur');
 $routes->post('Admin/login', 'Admin::login');
 $routes->post('Admin/creercompte', 'Admin::creercompte');
-$routes->get('/recits', [Recits::class, 'index']);
 $routes->get('/deconnexion', 'Admin::logout');
-$routes->get('/connexion', [Admin::class, 'showconnexion']);
-$routes->get('/creercompte',[Admin::class, 'showcreercompte']);
-$routes->get('/about', [Map::class, 'about']);
-$routes->get('/contact', [Map::class, 'contact']);
-$routes->match(['get', 'post'], '/map/recits', [Map::class, 'index']);
-$routes->match(['get', 'post'], '/map/places', [Map::class, 'index']);
-$routes->get('recits/(:segment)', [Recits::class, 'view']);
-
-$routes->match(['get', 'post'], '/map/recits2', [Map::class, 'index']);
-
-$routes->get('/ajout_point', [Ajout::class, 'point']);
-$routes->get('/ajout_recit', [Ajout::class, 'recit']);
-$routes->get('/ajout_esclave', [Ajout::class, 'auteur']);
-
-$routes->get('/modif_point','Ajout::show_modification');
-$routes->post('/modif_point','Ajout::show_modification');
 $routes->post('/Ajout/suppressionPoint','Ajout::suppressionPoint');
 $routes->post('/Ajout/modificationPoint','Ajout::modificationPoint');
-
-$routes->get('/modif_recit', [Modif::class, 'modif']);
-$routes->get('/choix_esclave', [Modif::class, 'choixModifA']);
-$routes->get('/modif_esclave', [Modif::class, 'modifA']);
-$routes->post('/modif_esclave', [Modif::class, 'modifA']);
 $routes->get('/suppr_recit', [Suppr::class, 'suppr']);
-$routes->get('/suppr_esclave', [Suppr::class, 'supprA']);
 $routes->get('Suppr/SupprRecit', 'Suppr::SupprRecit');
 $routes->post('Suppr/SupprAuteur', 'Suppr::SupprAuteur');
 $routes->post('Modif/ModifRecit', 'Modif::ModifRecit');
 $routes->post('Modif/ModifAuteur', 'Modif::ModifAuteur');
-
-$routes->get('language/changeLanguage/(:any)', 'Language::changeLanguage/$1');
-$routes->post('language/changeLanguage/(:any)', 'Language::changeLanguage/$1');
-
-$routes->get('statistiques', 'Admin::statistiques');
 
 
 

@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
  
+use App\Libraries\DatabaseUtils;
 use CodeIgniter\Exceptions\PageNotFoundException;
  
 class Recits extends BaseController
@@ -14,6 +15,9 @@ class Recits extends BaseController
         $data = [
         'recits'  => $model->get5Recits(),
         ];
+
+        DatabaseUtils::insertVisit('recits');
+
 
         return view ('resclaves/header')
         . view ('resclaves/recits',$data)

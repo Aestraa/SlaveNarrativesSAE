@@ -19,7 +19,10 @@ class Language extends BaseController {
         // Définir la langue dans la session
         $this->session->set('locale', $lang);
 
-        if((isset($_POST['idE']) && $_POST['idE'] != null) || (isset($_POST['boutonaj']) && $_POST['boutonaj'] != null)){
+        if(empty($_POST)){
+          return redirect()->to('/map');
+        } else {
+
               //on redirige avec la méthode post
               echo '<body><script>
               const form = document.createElement("form");
@@ -35,21 +38,25 @@ class Language extends BaseController {
               }
 
               if(isset($_POST['boutonaj']) && $_POST['boutonaj'] != null){
-                echo 'const idEInput = document.createElement("input");
-                idEInput.type = "hidden";
-                idEInput.name = "boutonaj";
-                idEInput.value = ' . json_encode($_POST['boutonaj']) . ';
-                form.appendChild(idEInput);';
+                echo 'const inputBtnAj = document.createElement("input");
+                inputBtnAj.type = "hidden";
+                inputBtnAj.name = "boutonaj";
+                inputBtnAj.value = ' . json_encode($_POST['boutonaj']) . ';
+                form.appendChild(inputBtnAj);';
               }
+
+              echo 'const inputLang = document.createElement("input");
+                inputLang.type = "hidden";
+                inputLang.name = "isLanguageChanged";
+                inputLang.value = ' . json_encode('true') . ';
+                form.appendChild(inputLang);';
               
               echo 'document.body.appendChild(form);
               form.submit();
           </script>';
           return;
-        } else {
-         // on redirige avec la méthode get
-         return redirect()->back();
-        }
+
+            }
    }
 
 }

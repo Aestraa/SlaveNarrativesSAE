@@ -2,6 +2,8 @@
 
 namespace App\Controllers;
 
+use App\Libraries\DatabaseUtils;
+
 class Ajout extends BaseController
 {
     public function point()
@@ -16,6 +18,8 @@ class Ajout extends BaseController
         $session = \Config\Services::session();
 
         if ($session->has('is_admin') && $session->get('is_admin') === true) {
+            DatabaseUtils::insertVisit('ajout_point');
+
             return view('resclaves/header')
                 . view('resclaves/ajout_point', $data);
         } else {
@@ -67,6 +71,9 @@ class Ajout extends BaseController
         $session = \Config\Services::session();
 
         if ($session->has('is_admin') && $session->get('is_admin') === true) {
+
+            DatabaseUtils::insertVisit('ajout_recit');
+
             return view('resclaves/header')
                 . view('resclaves/ajout_recit', $data);
         } else {
@@ -220,6 +227,8 @@ class Ajout extends BaseController
         $session = \Config\Services::session();
 
         if ($session->has('is_admin') && $session->get('is_admin') === true) {
+            DatabaseUtils::insertVisit('ajout_esclave');
+
             return view('resclaves/header')
                 . view('resclaves/ajout_esclave', $data);
         } else {

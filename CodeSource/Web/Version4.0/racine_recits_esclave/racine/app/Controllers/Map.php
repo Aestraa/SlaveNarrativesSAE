@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use CodeIgniter\Exceptions\PageNotFoundException;
+use App\Libraries\DatabaseUtils;
 
 class Map extends BaseController
 {
@@ -91,6 +92,7 @@ l'information récupérée des formulaires de type 'post' doit être dans la mê
 
     public function about()
     {
+        DatabaseUtils::insertVisit('about');
 
         return view('resclaves/header')
             . view('resclaves/about_resc')
@@ -99,6 +101,8 @@ l'information récupérée des formulaires de type 'post' doit être dans la mê
 
     public function contact()
     {
+
+        DatabaseUtils::insertVisit('contact');
 
         return view('resclaves/header')
             . view('resclaves/contact_resc')

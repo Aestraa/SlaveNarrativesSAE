@@ -2,6 +2,8 @@
 
 namespace App\Controllers;
 
+use App\Libraries\DatabaseUtils;
+
 class Admin extends BaseController
 {
     public function showconnexion()
@@ -69,6 +71,8 @@ class Admin extends BaseController
     public function showcreercompte()
     {
         //afficher la page de création de compte
+        DatabaseUtils::insertVisit('creercompte');
+
         return view('resclaves/header')
             . view('resclaves/creercompte');
     }
