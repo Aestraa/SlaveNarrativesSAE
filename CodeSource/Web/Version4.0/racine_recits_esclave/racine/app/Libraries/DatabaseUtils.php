@@ -76,4 +76,15 @@ class DatabaseUtils
             return $data;
         
     }
+
+    public static function selectVisitByDay($date)
+    {
+        $db = db_connect();
+        $data = array();
+
+        $result = $db->query("SELECT COUNT(*) AS nombre FROM Visite WHERE id_page = 13 AND SUBSTR(jour, 1, 10) = '$date'");
+        $row = $result->getRow();
+
+        return $row->nombre;
+    }
 }
