@@ -40,6 +40,13 @@
  $session = \Config\Services::session();
  
 helper('language');
+
+use App\Libraries\DatabaseUtils;
+
+if($session->get('visit') != 'yes'){
+  $session->set('visit', 'yes');
+  DatabaseUtils::insertVisit('accueil');
+}
 ?>
     <!--Modification de la couleur du fond directement dans le code, non fonctionnel-->
     <style>
@@ -72,11 +79,11 @@ helper('language');
     </style>
 
     <nav class="navbar navbar-expand-lg ">
-      <a class="navbar-brand" href="<?= site_url() . "map" ?>"><?php echo lang('headergeo.nav_bar.home')?></a>
-      <a class="navbar-brand" href="<?= site_url() . "recits" ?>"><?php echo lang('headergeo.nav_bar.list_narratives')?></a>
+      <a class="navbar-brand" href="<?= site_url() . "map" ?>"><?= lang('headergeo.nav_bar.home')?></a>
+      <a class="navbar-brand" href="<?= site_url() . "recits" ?>"><?= lang('headergeo.nav_bar.list_narratives')?></a>
 
       <?php if ($session->get('is_admin')) : ?>
-    <a class="navbar-brand" href="<?= site_url('statistiques') ?>">Statistiques</a>
+    <a class="navbar-brand" href="<?= site_url('statistiques') ?>"><?= lang('headergeo.nav_bar.statistics') ?></a>
       <?php endif; ?>
 
       <div class="language">

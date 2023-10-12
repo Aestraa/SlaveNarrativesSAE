@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <?php $page_name = 'Statistiques'?>
+        <?php $page_name = lang('statistiques.title') ?>
         <title><?= $page_name ?></title>
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     </head>
@@ -37,8 +37,8 @@
     ?>
 
     <div class="stats-container">
-        <div class="box-stats"><br>Nombre de visite(s) des pages :<br><br><canvas id="myChart"></div>
-        <div class="box-stats"><br>Nombre de visite(s) par mois :<br><br>
+        <div class="box-stats"><br><?= lang('statistiques.number_visits_pages') ?> :<br><br><canvas id="myChart"></div>
+        <div class="box-stats"><br><?= lang('statistiques.number_visits_month') ?> :<br><br>
             <div class="box-nombre-visite-mois">
             <?php
             if($result != null){
@@ -49,7 +49,7 @@
             ?>  
             </div>
         </div>
-        <div class="box-stats"><br>Nombre de visite(s) par jour :<br><br>
+        <div class="box-stats"><br><?= lang('statistiques.number_visits_day') ?> :<br><br>
             <form action="" method='post'>
             <input type="date" id="datePicker" name="selectedDate" value="<?= $selectedDate ?>" onchange="submitForm()"/>
             </form>
@@ -72,7 +72,7 @@
         var data = {
             labels: <?= json_encode($result2) ?>,
             datasets: [{
-                label: 'Visites des pages',
+                label: '<?= lang('statistiques.legend_visits_pages') ?>',
                 data: <?= json_encode($result3) ?>,
                 backgroundColor: 'rgba(255, 151, 92)', // Couleur de remplissage des barres
                 borderColor: 'rgba(0,0,0)', // Couleur des bordures
@@ -102,7 +102,7 @@
 
         // Définissez les données du graphique (initiallement pour le jour 1)
         var data1 = {
-            labels: ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Aout', 'Septembre', 'Octobre', 'Novembre', 'Décembre'],
+            labels: ['<?= lang('statistiques.months.january') ?>', '<?= lang('statistiques.months.february') ?>', '<?= lang('statistiques.months.march') ?>', '<?= lang('statistiques.months.april') ?>', '<?= lang('statistiques.months.may') ?>', '<?= lang('statistiques.months.june') ?>', '<?= lang('statistiques.months.july') ?>', '<?= lang('statistiques.months.august') ?>', '<?= lang('statistiques.months.september') ?>', '<?= lang('statistiques.months.october') ?>', '<?= lang('statistiques.months.november') ?>', '<?= lang('statistiques.months.december') ?>'],
             datasets: [{
                 data: <?= json_encode($result) ?>,
                 backgroundColor: <?= json_encode($backgroundColorPieChart) ?>,
@@ -125,9 +125,9 @@
                         var value = context.formattedValue;
                         var percentage = context.dataset.data[context.dataIndex];
                         if(value > 1){
-                            return value + ' visites';
+                            return value + ' <?= lang('statistiques.legend_word_visits') ?>';
                         } else {
-                            return value + ' visite';
+                            return value + ' <?= lang('statistiques.legend_word_visits') ?>';
                         }
                     }
                 }

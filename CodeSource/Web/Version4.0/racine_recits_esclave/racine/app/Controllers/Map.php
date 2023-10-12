@@ -80,8 +80,6 @@ l'information récupérée des formulaires de type 'post' doit être dans la mê
                 'points'  => $model->getPoints(),
             ];
 
-            DatabaseUtils::insertVisit('accueil');
-
 
             return view('resclaves/header')
                 . view('resclaves/style')
