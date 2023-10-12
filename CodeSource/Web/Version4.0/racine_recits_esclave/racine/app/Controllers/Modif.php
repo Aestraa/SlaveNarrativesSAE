@@ -6,6 +6,7 @@ class Modif extends BaseController
 {
     public function modif()
     {
+        $session = \Config\Services::session();
         $model = model(ModelFormulaire::class);
         $model1 = model(ModelGetAuteur::class);
 

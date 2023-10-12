@@ -1,35 +1,42 @@
 <?php
 // Remplacez ces valeurs par les vôtres
+/*
 $userId = "12590816";
 $apiKey = "KOxihaGOFAJo7XOhFIqvtGyg";
-//Api du client
-//$userId = "12590816";
-//$apiKey = "E7a5WJBnmii1HdXPtMVRZcG1";
 // clé de la collection 'test'
 $key = "NPKZ2DS9";
+
 
 // URL de l'API Zotero
 $url = "https://api.zotero.org/users/$userId/collections/$key/items";
 //$url = "https://api.zotero.org/users/$userId/collections";
+$url = "https://api.zotero.org/users/$userId/collections/8QXA7IIX/items?itemType=journalArticle";
 
-// Configuration de la requête cURL
-$curl = curl_init($url);
-curl_setopt($curl, CURLOPT_HTTPHEADER, array("Authorization: Bearer $apiKey"));
-curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
 
-// Exécution de la requête
-$response = curl_exec($curl);
-$httpStatus = curl_getinfo($curl, CURLINFO_HTTP_CODE);
+$data =[];
 
-// Gestion de la réponse
-if ($httpStatus == 200) {
-    $data = json_decode($response, true);
-    // Traitez les données ici
-  
-    //var_dump($data);
-} else {
-    echo "La requête a échoué avec le code de statut : $httpStatus";
-}
+//foreach($keys as $key){
+
+    //$url = "https://api.zotero.org/users/$userId/collections/$key/items?fields=-data.dateModified,-data.dateAdded,-ISBN";
+
+    // Configuration de la requête cURL
+    $curl = curl_init($url);
+    curl_setopt($curl, CURLOPT_HTTPHEADER, array("Authorization: Bearer $apiKey"));
+    curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+
+    // Exécution de la requête
+    $response = curl_exec($curl);
+    $httpStatus = curl_getinfo($curl, CURLINFO_HTTP_CODE);
+
+    // Gestion de la réponse
+    if ($httpStatus == 200) {
+        $data[$key] = json_decode($response, true);
+        // Traitez les données ici
+    
+        var_dump($data);
+    } else {
+        echo "La requête a échoué avec le code de statut : $httpStatus";
+    }
 
 // Fermeture de la session cURL
 curl_close($curl);
@@ -95,8 +102,8 @@ curl_close($curl);
 
 <div id="comm">
     <p style="text-align:center;">
-    <?= lang('view.comments') ?> : <br><br> 
-        <?= html_entity_decode($rec['historiographie']) ?>
+        Commentaires / Historiographie: <br><br> 
+        <?= html_entity_decode($histo) ?>
 
 </p>
 </div>
@@ -115,38 +122,112 @@ curl_close($curl);
 </div>
 <br>
     </div>
-</div>
+    <!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Ma page</title>
+    <!-- Inclure jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <!-- Votre contenu HTML ici -->
     <script>
-        function afficherPopup(choix) {
-            // Recherchez l'élément correspondant à la valeur de choix dans le tableau data
-            var data = <?php echo json_encode($data); ?>;
+    function afficherPopup(choix) {
+  console.log("Début de l'affichage");
 
-            var elt = null;
-            for (var i = 0; i < data.length; i++) {
-                if (data[i].data.shortTitle === choix) {
-                    elt = data[i];
-                    break;
-                }
-            }
+  var userId = "5400206";
+  var apiKey = "E7a5WJBnmii1HdXPtMVRZcG1";
+  var keys = [
+    '7QK6BKPQ',
+    'PQPUY22P',
+    '8RS5C7VK',
+    'LZL82L82',
+    'AUL58SY9',
+    '8QXA7IIX',
+    'XVHKSNVS'
+  ];
 
-            // Si un élément correspondant est trouvé, utilisez ses données pour afficher le contenu de la pop-up
-            if (elt) {
-                var titre = elt.data.title;
-                var auteur = elt.meta.creatorSummary;
-                var type = elt.data.itemType;
-                var date = elt.data.date;
-                var lang = elt.data.language;
+  var data = [];
 
-                // Générez le contenu de la pop-up avec les informations
-                var contenuPopup = titre + ', ' + type + ' de ' + auteur + ', le ' + date + ' en ' + lang;
+  // Fonction pour effectuer la requête API avec une promesse
+  function makeApiRequest(key) {
+    console.log("Début de la requête pour la clé : " + key);
+    var url = "https://api.zotero.org/users/" + userId + "/collections/" + key + "/items";
 
-                // Ouvrez une nouvelle fenêtre pop-up avec le contenu généré
-                var popup = window.open('', '', 'width=400,height=200');
-                popup.document.write(contenuPopup);
-            } else {
-                // Si aucun élément correspondant n'est trouvé, affichez un message d'erreur ou gérez-le selon vos besoins.
-                alert('Aucun élément correspondant trouvé pour le choix ' + choix);
-            }
+    return new Promise(function (resolve, reject) {
+      $.ajax({
+        url: url,
+        headers: {
+          'Authorization': 'Bearer ' + apiKey
+        },
+        method: 'GET',
+        success: function (response) {
+          console.log("Requête réussie pour la clé : " + key);
+          data.push(response);
+          resolve();
+        },
+        error: function (xhr, status, error) {
+          console.log("Requête échouée pour la clé : " + key);
+          console.error("La requête a échoué avec le code de statut : " + xhr.status);
+          resolve(); // Nous résolvons toujours la promesse, même en cas d'erreur
         }
-</script>
+      });
+    });
+  }
 
+  // Fonction pour vérifier les données et afficher la pop-up
+  function checkData() {
+    console.log("Début de la popup");
+    var titre = "";
+    var auteur = "";
+    var type = "";
+    var date = "";
+    var lang = "";
+
+    for (var i = 0; i < data.length; i++) {
+      var items = data[i];
+      for (var j = 0; j < items.length; j++) {
+        var item = items[j];
+        if (item.data.shortTitle === choix) {
+          titre = item.data.title;
+          auteur = item.meta.creatorSummary;
+          type = item.data.itemType;
+          date = item.data.date;
+          lang = item.data.language;
+          break; // Sortir de la boucle dès que vous trouvez un élément correspondant
+        }
+      }
+    }
+
+    // Mettre une condition car sinon rien ne s'affiche si c'est = ''
+    // Vérifier si le titre est vide
+    if (titre === "") {
+            // Aucune référence trouvée, afficher un message d'erreur
+            var popup = window.open('', '', 'width=400,height=200');
+            popup.document.write('Référence non trouvée');
+        } else {
+            // Afficher les détails de la référence
+            console.log("Ouverture de la popup");
+            var contenuPopup = titre + ', ' + type + ' de ' + auteur + ', le ' + date + ' en ' + lang;
+            var popup = window.open('', '', 'width=400,height=200');
+            popup.document.write(contenuPopup);
+        }
+  }
+
+  // Utilisation des promesses pour s'assurer que chaque requête est terminée avant d'afficher la popup
+  var promises = [];
+  for (var i = 0; i < keys.length; i++) {
+    promises.push(makeApiRequest(keys[i]));
+  }
+
+  Promise.all(promises)
+    .then(function () {
+      checkData(); // Afficher la popup une fois que toutes les requêtes sont terminées
+    })
+    .catch(function (error) {
+      console.error("Erreur :", error);
+    });
+}
+
+</script>

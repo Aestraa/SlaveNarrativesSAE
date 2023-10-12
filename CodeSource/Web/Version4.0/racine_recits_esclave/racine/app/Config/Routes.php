@@ -76,6 +76,7 @@ $routes->post('Ajout/InsertPoint', 'Ajout::InsertPoint');
 $routes->post('Ajout/InsertRecit', 'Ajout::InsertRecit');
 $routes->post('Ajout/InsertAuteur', 'Ajout::InsertAuteur');
 $routes->post('Admin/login', 'Admin::login');
+$routes->post('Admin/saveData', 'Admin::saveData');
 $routes->post('Admin/creercompte', 'Admin::creercompte');
 $routes->get('/deconnexion', 'Admin::logout');
 $routes->post('/Ajout/suppressionPoint','Ajout::suppressionPoint');

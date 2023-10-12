@@ -25,74 +25,43 @@ class Recits extends BaseController
 
 
     public function view($idrec = null)
-        {
-            $model = model(ModelRecit::class);
-            $texteArray = $model->getIdRec($idrec); // $texteArray est un tableau de valeurs
+{
+    $model = model(ModelRecit::class);
+    $texteArray = $model->getIdRec($idrec);
+    $textehisto = $texteArray["historiographie"];
 
-            // Tableau pour stocker les valeurs extraites
-            $apiValues = array();
+    // Tableau pour stocker les valeurs extraites
+    $apiValues = array();
 
-            // Parcourez chaque élément du tableau et appliquez le remplacement
-            foreach ($texteArray as &$texte) {
-                if (is_string($texte)) {
+    // Extrait les informations entre parenthèses
+    $pattern = '/\(([^)]+)\)/';
+    preg_match_all($pattern, $textehisto, $matches);
 
-                    $commentaire = $texte;
+    // Parcourt les correspondances et les traite
+    foreach ($matches[1] as $match) {
+        // Divise le texte en segments en utilisant la virgule
+        $segments = explode(',', $match);
 
-                    $pattern = '/\(([^,]+),([^,]+),(\d+)\)/';
+        // Vérifie qu'il y a au moins trois segments (auteur, titre, année)
+        if (count($segments) >= 3) {
+            $auteur = trim($segments[0]);
+            $titre = trim($segments[1]);
+            $annee = (int) trim($segments[2]);
 
-                    // Recherche des occurrences correspondantes dans la chaîne
-                    if (preg_match_all($pattern, $texte, $matches, PREG_SET_ORDER)) {
-                        foreach ($matches as $match) {
-                            // Le deuxième groupe de capture ($match[2]) contient la valeur entre les deux virgules
-                            $valeur = $match[2];
-                            // Ajout de la valeur au tableau
-                            $apiValues[] = $valeur;
-                        }
-                    }
+            // Génère le lien avec l'appel JavaScript
+            $lien = "<a href='javascript:void(0);' onclick=\"afficherPopup('$titre')\">($auteur, $titre, $annee)</a>";
 
-                    // Utilisation d'une expression régulière pour rechercher et remplacer les caractères spéciaux par des liens
-                    $texte = preg_replace_callback('/[()]/', function ($match) {
-                        if ($match[0] === '(') {
-                            return '<a href="javascript:void(0);" onclick="afficherPopup();">(';
-                        } elseif ($match[0] === ')') {
-                            return ')</a>';
-                        }
-                    }, $texte);
-
-                    $indiceValeur = 0;
-
-                    /*
-                    *
-                    *Ajout de titre racourci pour récupérer les informations de l'api
-                    *
-                    */
-
-                    if ($apiValues != null){
-                    
-                        // Remplacement de chaque occurrence de 'afficherPopup()' par une variable différente
-                        $texte = preg_replace_callback('/afficherPopup\(\)/', function ($match) use (&$indiceValeur, $apiValues) {
-                            // Obtenez la valeur actuelle du tableau en utilisant l'indice courant
-                                $valeur = $apiValues[$indiceValeur];
-                            
-                            
-                            // Incrémentez l'indice de valeur pour passer à la suivante
-                            $indiceValeur++;
-                            
-                            // Retournez la chaîne avec la valeur insérée dans les parenthèses
-                            return "afficherPopup('" . $valeur . "')";
-                        }, $texte);
-                    }
-
-
-
-                    $texte = htmlspecialchars_decode($texte);
-                }
-            }
+            // Remplace le texte entre parenthèses par le lien
+            $textehisto = str_replace("($match)", $lien, $textehisto);
+        }
+    }
+            
 
             // Assigner le tableau $apiValues à $data['api']
             $data['api'] = $apiValues;
 
             $data['rec'] = $texteArray;
+            $data['histo'] = $textehisto;
 
             if (empty($data['rec'])) {
                 throw new PageNotFoundException('Cannot find the news item: ' . $idre);

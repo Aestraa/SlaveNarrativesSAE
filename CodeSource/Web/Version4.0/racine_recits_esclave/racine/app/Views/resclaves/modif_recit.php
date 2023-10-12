@@ -73,7 +73,8 @@
                     if (!empty($title) && is_array($title)) {
                         foreach ($title as $elt) {
                             if ($elt['id_recit'] == $_GET['idR']){
-                            echo '<input name="com" id="com" type="text" value="'. $elt['historiographie'] .'"/><br><br>';
+                                echo "<input name='com' id='com' type='text' value='" . htmlspecialchars($elt['historiographie']) . "' /><br><br>";
+
                             }
                         }
                     }

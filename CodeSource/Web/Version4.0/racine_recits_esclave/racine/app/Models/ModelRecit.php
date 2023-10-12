@@ -45,7 +45,6 @@ class ModelRecit extends Model
 
         return $this->where(['id_recit' => $idrec])->first();
     }
-
 }
 
 class ModelRecitFormulaire extends Model {
