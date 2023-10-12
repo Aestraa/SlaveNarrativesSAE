@@ -45,7 +45,7 @@ use App\Libraries\DatabaseUtils;
 
 if($session->get('visit') != 'yes'){
   $session->set('visit', 'yes');
-  DatabaseUtils::insertVisit('accueil');
+  DatabaseUtils::insertVisit('site');
 }
 ?>
     <!--Modification de la couleur du fond directement dans le code, non fonctionnel-->

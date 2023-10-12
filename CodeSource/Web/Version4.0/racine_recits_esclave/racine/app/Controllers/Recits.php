@@ -3,6 +3,7 @@
 namespace App\Controllers;
  
 use CodeIgniter\Exceptions\PageNotFoundException;
+use App\Libraries\DatabaseUtils;
  
 class Recits extends BaseController
 {
@@ -16,6 +17,8 @@ class Recits extends BaseController
         $data = [
         'recits'  => $model->getRecits($search),
         ];
+
+        DatabaseUtils::insertVisit('recits');
 
         return view ('resclaves/header')
         . view ('resclaves/recits',$data)
@@ -67,6 +70,7 @@ class Recits extends BaseController
                 throw new PageNotFoundException('Cannot find the news item: ' . $idre);
             }
 
+            DatabaseUtils::insertVisit('fiche_recit');
             return view('resclaves/header')
                 . view('resclaves/view', $data)
                 . view('templates/footer_resc');

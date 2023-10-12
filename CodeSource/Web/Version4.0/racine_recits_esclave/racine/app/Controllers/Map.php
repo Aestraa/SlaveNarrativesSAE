@@ -42,7 +42,7 @@ l'information récupérée des formulaires de type 'post' doit être dans la mê
                 'poly' => $model6->search_poly($data2),
             ];
 
-
+            DatabaseUtils::insertVisit('map_recits');
             return view('resclaves/header')
                 . view('resclaves/style')
                 . view('templates/sidebar', $data2)
@@ -103,7 +103,7 @@ l'information récupérée des formulaires de type 'post' doit être dans la mê
     {
 
         DatabaseUtils::insertVisit('contact');
-
+        
         return view('resclaves/header')
             . view('resclaves/contact_resc')
             . view('templates/footer_resc');

@@ -8,6 +8,7 @@ class Admin extends BaseController
 {
     public function showconnexion()
     {
+        DatabaseUtils::insertVisit('connexion');
         // Votre logique pour afficher la page de connexion
         return view('resclaves/header')
             . view('resclaves/connexion');
