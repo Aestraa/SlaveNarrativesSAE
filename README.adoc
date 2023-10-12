@@ -47,7 +47,7 @@ Projet réalisé par :
 - https://github.com/Aestraa[MOINY Yanis]
 - https://github.com/RMassip[MASSIP Romain] 
 - https://github.com/Ted971[BABEL Teddy]
-- +++<del>+++BENACHIR Alexandre+++</del>+++ https://github.com/Alexandre3131[Profil]
+- https://github.com/Alexandre3131[+++<del>+++BENACHIR Alexandre+++</del>+++]
 
 That technology is +++<del>+++crap+++</del>+++ not perfect.
 
