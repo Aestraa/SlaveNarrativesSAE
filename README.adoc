@@ -49,9 +49,6 @@ Projet réalisé par :
 - https://github.com/Ted971[BABEL Teddy]
 - https://github.com/Alexandre3131[+++<del>+++BENACHIR Alexandre+++</del>+++]
 
-That technology is +++<del>+++crap+++</del>+++ not perfect.
-
-
 === Elève formation alternance
 
 - https://github.com/Darknxss[GRASSER James]
