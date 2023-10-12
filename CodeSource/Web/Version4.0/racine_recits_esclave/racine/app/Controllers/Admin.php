@@ -101,13 +101,4 @@ class Admin extends BaseController
             return redirect()->to('/creercompte');
         }
     }
-
-    public function saveData()
-        {
-            $data = $this->request->getJSON(); // Récupérez les données JSON envoyées depuis le JavaScript
-    
-            // Écrivez les données dans le fichier JSON
-            $jsonFile = WRITEPATH . 'app/Data/data.json'; // Chemin complet du fichier JSON
-            file_put_contents($jsonFile, json_encode($data));
-        }
 }
