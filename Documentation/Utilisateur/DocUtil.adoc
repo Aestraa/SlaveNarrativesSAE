@@ -98,6 +98,12 @@ Le menu du site a également changé, avec en plus un onglet "statistiques".
 
 image::images/connexionHeader[connexionHeader]
 
+=== Statistique
+
+En cliquant sur le bouton "statistiques", vous serez redirigé vers une page de statistiques. On y trouve 3 graphiques qui représentent le nombre de visite des pages, nombre de visite par mois et par jour, avec la possibilité de choisir le jour à voir.
+
+image::images/pageStatistique[pageStatistique]
+
 === Déconnexion
 
 Vous aurez également accès à un bouton `Déconnexion` en bas à droite de la page en dessous de la légende. Ce bouton vous permettra de vous déconnecter de la partie administrateur.
