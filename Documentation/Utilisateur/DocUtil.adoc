@@ -184,14 +184,6 @@ Il ne vous reste plus qu'à cliquer sur le bouton `Terminer` afin d'ajouter le p
 
 image::images/pointAjouté.png[ajoutPoint9]
 
-====
-*Non fonctionnel pour le moment*.
-====
-
-image::images/contact.png[contact]
-
-
-
 
 
 
