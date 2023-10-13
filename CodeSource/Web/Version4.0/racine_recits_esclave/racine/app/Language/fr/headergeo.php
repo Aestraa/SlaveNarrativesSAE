@@ -7,6 +7,6 @@ return [
         'statistics' => "Statistiques"
     ],
     'title' => "Récits d'esclaves",
-    'isConnected' => " (Connecté)",
+    'isConnected' => " (Administrateur)",
     'subtitle' => 'Chaque voix doit être entendue'
 ];

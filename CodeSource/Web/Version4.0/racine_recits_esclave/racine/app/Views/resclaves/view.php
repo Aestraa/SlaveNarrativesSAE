@@ -1,16 +1,16 @@
 <?php
 // Remplacez ces valeurs par les vôtres
-/*
+
 $userId = "12590816";
 $apiKey = "KOxihaGOFAJo7XOhFIqvtGyg";
 // clé de la collection 'test'
-$key = "NPKZ2DS9";
+$key = "8QXA7IIX";
 
 
 // URL de l'API Zotero
 $url = "https://api.zotero.org/users/$userId/collections/$key/items";
 //$url = "https://api.zotero.org/users/$userId/collections";
-$url = "https://api.zotero.org/users/$userId/collections/8QXA7IIX/items?itemType=journalArticle";
+//$url = "https://api.zotero.org/users/$userId/collections/8QXA7IIX/items?itemType=journalArticle";
 
 
 $data =[];
@@ -127,12 +127,11 @@ curl_close($curl);
 <head>
     <meta charset="UTF-8">
     <title>Ma page</title>
-    <!-- Inclure jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
-    <!-- Votre contenu HTML ici -->
-    <script>
+
+<script>
     function afficherPopup(choix) {
   console.log("Début de l'affichage");
 
@@ -200,19 +199,18 @@ curl_close($curl);
       }
     }
 
-    // Mettre une condition car sinon rien ne s'affiche si c'est = ''
     // Vérifier si le titre est vide
     if (titre === "") {
             // Aucune référence trouvée, afficher un message d'erreur
             var popup = window.open('', '', 'width=400,height=200');
             popup.document.write('Référence non trouvée');
-        } else {
+    } else {
             // Afficher les détails de la référence
             console.log("Ouverture de la popup");
             var contenuPopup = titre + ', ' + type + ' de ' + auteur + ', le ' + date + ' en ' + lang;
             var popup = window.open('', '', 'width=400,height=200');
             popup.document.write(contenuPopup);
-        }
+    }
   }
 
   // Utilisation des promesses pour s'assurer que chaque requête est terminée avant d'afficher la popup

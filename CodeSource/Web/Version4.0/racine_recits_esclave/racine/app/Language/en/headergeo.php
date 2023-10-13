@@ -7,6 +7,6 @@ return [
         'statistics' => "Statistics"
     ],
     'title' => 'Slave narratives',
-    'isConnected' => ' (Connected)',
+    'isConnected' => ' (Administrator)',
     'subtitle' => 'Every voice needs to be heard'
 ];
