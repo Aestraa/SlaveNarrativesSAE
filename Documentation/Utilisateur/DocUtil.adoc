@@ -78,6 +78,18 @@ Une légende est présente en bas à droite de la carte. Elle vous permet de sav
 
 image::images/légende.png[légende]
 
+=== Pied de page du site
+
+Le pied de page contient des liens vers les pages tel que `A propos`, `Contact` (mettre lien vers explication page)
+
+image::images/piedPage.png[pied de page]
+
+==== Contact
+
+Lorsque vous cliquez sur le bouton de `contact`, vous pouvez remplir le formulaire avec votre nom, email et le message que vous voulez envoyer. Il sera directement envoyé au propriétaire du site.
+
+image::images/formulaireContact[formulaireContact]
+
 == Partie Administrateur
 
 === Connexion
@@ -94,13 +106,13 @@ Une fois la connexion effectuée vous serez redirigé vers la page d'accueil mai
 
 image::images/adminAccueil.png[connexionTitle]
 
-Le menu du site a également changé, avec en plus un onglet "statistiques".
+Le menu du site a également changé, avec en plus un onglet `statistiques`.
 
 image::images/connexionHeader[connexionHeader]
 
 === Statistique
 
-En cliquant sur le bouton "statistiques", vous serez redirigé vers une page de statistiques. On y trouve 3 graphiques qui représentent le nombre de visite des pages, nombre de visite par mois et par jour, avec la possibilité de choisir le jour à voir.
+En cliquant sur le bouton `statistiques`, vous serez redirigé vers une page de statistiques. On y trouve 3 graphiques qui représentent le nombre de visite des pages, nombre de visite par mois et par jour, avec la possibilité de choisir le jour à voir.
 
 image::images/pageStatistique[pageStatistique]
 
@@ -165,13 +177,6 @@ image::images/formAjoutPoint5.png[ajoutPoint8]
 Il ne vous reste plus qu'à cliquer sur le bouton `Terminer` afin d'ajouter le point sur la carte. Le point sera alors visible sur la carte.
 
 image::images/pointAjouté.png[ajoutPoint9]
-
-
-=== Pied de page du site
-
-Le pied de page contient des liens vers les pages tel que `A propos`, `Contact` (mettre lien vers explication page)
-
-image::images/piedPage.png[pied de page]
 
 ==== À propos
 
