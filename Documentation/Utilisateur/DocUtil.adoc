@@ -84,6 +84,12 @@ Le pied de page contient des liens vers les pages tel que `A propos`, `Contact` 
 
 image::images/piedPage.png[pied de page]
 
+==== À propos
+
+Cette page permet d'avoir des informations sur le site et sur les personnes qui ont travaillé dessus.
+
+image::images/àPropos.png[à propos]
+
 ==== Contact
 
 Lorsque vous cliquez sur le bouton de `contact`, vous pouvez remplir le formulaire avec votre nom, email et le message que vous voulez envoyer. Il sera directement envoyé au propriétaire du site.
@@ -177,16 +183,6 @@ image::images/formAjoutPoint5.png[ajoutPoint8]
 Il ne vous reste plus qu'à cliquer sur le bouton `Terminer` afin d'ajouter le point sur la carte. Le point sera alors visible sur la carte.
 
 image::images/pointAjouté.png[ajoutPoint9]
-
-==== À propos
-
-Cette page permet d'avoir des informations sur le site et sur les personnes qui ont travaillé dessus.
-
-image::images/àPropos.png[à propos]
-
-==== Contact
-
-Cette page permet de contacter Marie-Pierre BADUEL la cliente et gérante du site. 
 
 ====
 *Non fonctionnel pour le moment*.
