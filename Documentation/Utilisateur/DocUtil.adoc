@@ -32,7 +32,7 @@ image::images/boutonListeRécit.png[accueil3]
 
 Une fois sur la page de la liste des récits vous pourrez découvrir la liste des récits disponibles sur notre site.
 
-image::images/listeRécit.png[listeRécit]
+image::images/listeRecit[listeRécit]
 
 Depuis cette page vous pouvez aussi accéder au détail du récit en cliquant sur le `nom de l'auteur` du récit. 
 
