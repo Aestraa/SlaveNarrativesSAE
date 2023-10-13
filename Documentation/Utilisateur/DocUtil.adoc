@@ -118,7 +118,7 @@ image::images/connexionHeader[connexionHeader]
 
 === Statistique
 
-En cliquant sur le bouton `statistiques`, vous serez redirigé vers une page de statistiques. On y trouve 3 graphiques qui représentent le nombre de visite des pages, nombre de visite par mois et par jour, avec la possibilité de choisir le jour à voir.
+En cliquant sur le bouton `statistiques`, vous serez redirigé vers une page de statistiques. On y trouve 4 graphiques qui représentent le nombre de visite des pages, nombre de visite par année, par mois et par jour avec la possibilité de choisir le jour à voir.
 
 image::images/pageStatistiquev2[pageStatistique]
 
