@@ -92,6 +92,10 @@ image::images/connexion2.png[connexion2]
 
 Une fois la connexion effectuée vous serez redirigé vers la page d'accueil mais avec quelques ajouts. Un ajout sur le titre du site sera visible avec le mot `Connecté` afin de vous indiquer que vous êtes bien connecté.
 
+image::images/adminAccueil.png[connexionTitle]
+
+Le menu du site a également changé, avec en plus un onglet "statistiques".
+Update DocUtil.adoc
 image::images/connexionHeader[connexionHeader]
 
 === Déconnexion
