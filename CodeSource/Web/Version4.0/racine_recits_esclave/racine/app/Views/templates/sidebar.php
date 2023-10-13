@@ -122,22 +122,22 @@
 
 	<br>
 	<a href="<?= $session->get('is_admin') ? '/deconnexion' : '/connexion' ?>">
-		<button onclick="return <?= $session->get('is_admin') ? 'confirmLogout()' : '' ?>"><?= $session->get('is_admin') ? lang('sidebar.logout_button') : lang('sidebar.login_button') ?></button>
+		<button id="cc" onclick="return <?= $session->get('is_admin') ? 'confirmLogout()' : '' ?>"><?= $session->get('is_admin') ? lang('sidebar.logout_button') : lang('sidebar.login_button') ?></button>
 	</a>
 
 	<br><br>
 		<?php if($session->get('is_admin')):?>
-				<a href="/creercompte"><button><?= lang('sidebar.create_account_button')?></button> </a> 
+				<a href="/creercompte"><button id="cc"><?= lang('sidebar.create_account_button')?></button> </a> 
 				<br>
-				<a href="/ajout_point"><button><?= lang('sidebar.add_point_button')?></button></a>
+				<a href="/ajout_point"><button id="cc"><?= lang('sidebar.add_point_button')?></button></a>
 				<br>
-				<a href="/ajout_recit"><button><?= lang('sidebar.add_narrative_button')?></button></a>
+				<a href="/ajout_recit"><button id="cc"><?= lang('sidebar.add_narrative_button')?></button></a>
 				<br>
-				<a href="/ajout_esclave"><button><?= lang('sidebar.add_slave_button')?></button></a>
+				<a href="/ajout_esclave"><button id="cc"><?= lang('sidebar.add_slave_button')?></button></a>
 				<br>
-				<a href="/choix_esclave"><button><?= lang('sidebar.modify_slave_button')?></button></a>
+				<a href="/choix_esclave"><button id="cc"><?= lang('sidebar.modify_slave_button')?></button></a>
 				<br>
-				<a href="/suppr_esclave"><button><?= lang('sidebar.delete_slave_button')?></button></a>
+				<a href="/suppr_esclave"><button id="cc"><?= lang('sidebar.delete_slave_button')?></button></a>
 			<?php endif ?>
 
 </div>
