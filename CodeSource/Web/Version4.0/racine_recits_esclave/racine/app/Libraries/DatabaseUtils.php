@@ -45,6 +45,46 @@ class DatabaseUtils
         }
     }
 
+    public static function selectVisitByYear()
+    {
+        $db = db_connect();
+        $data = array();
+
+        $isEmpty = true;
+
+        $years = $db->query("SELECT DISTINCT YEAR(jour) AS nombre FROM Visite WHERE id_page = 13");
+           
+        foreach($years -> getResult() as $year) {
+            $annee = $year->nombre;
+            $result = $db->query("SELECT COUNT(*) AS nombre FROM Visite WHERE id_page = 13 AND YEAR(jour) = '$annee';");
+            $row = $result->getRow();
+            $data[] = $row->nombre;
+            if($row->nombre != 0){
+                $isEmpty = false;
+            }
+        }
+
+        if($isEmpty){
+            return null;
+        } else {
+            return $data;
+        }
+    }
+
+    public static function selectYearsVisits()
+    {
+        $db = db_connect();
+        $data = array();
+
+        $years = $db->query("SELECT DISTINCT YEAR(jour) AS nombre FROM Visite WHERE id_page = 13");
+           
+        foreach($years -> getResult() as $year) {
+            $data[] = $year->nombre;
+        }
+
+        return $data;
+    }
+
     //Fonction qui permet à travers une requête SQl de récupérer le nom des pages
     public static function selectNameOfPage()
     {

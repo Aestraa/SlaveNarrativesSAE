@@ -16,7 +16,7 @@ return [
     ],
     'legend' => [
         'title' => 'Countries and cities present in the narrative',
-        'location_birth' => 'Location of birth',
+        'location_birth' => 'Location of place of birth',
         'location_publication_narratives' => 'Location of publication of narratives',
         'location_life' => 'Location of life',
         'location_death' => 'Location of death',

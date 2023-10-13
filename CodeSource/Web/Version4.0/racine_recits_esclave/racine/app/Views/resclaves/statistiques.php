@@ -14,6 +14,8 @@
     use App\Libraries\DatabaseUtils;
 
     $result = DatabaseUtils::selectVisitByMonth();
+    $result_visits_year = DatabaseUtils::selectVisitByYear();
+    $result_years = Databaseutils::selectYearsVisits();
     $result2 = DatabaseUtils::selectNameOfPage();
     $result3 = DatabaseUtils::selectNumberOfVisitOfPage();
 
@@ -43,6 +45,17 @@
             <?php
             if($result != null){
                 echo '<canvas id="myPieChart"></canvas>';
+            } else {
+                echo 'aucune donnée';
+            }
+            ?>  
+            </div>
+        </div>
+        <div class="box-stats"><br><?= lang('statistiques.number_visits_year') ?> :<br><br>
+            <div class="box-nombre-visite-mois">
+            <?php
+            if($result != null){
+                echo '<canvas id="myPieChart2"></canvas>';
             } else {
                 echo 'aucune donnée';
             }
@@ -99,12 +112,22 @@
 
     // Sélectionnez le canvas 
         var ctx = document.getElementById('myPieChart').getContext('2d');
+        var ctx2 = document.getElementById('myPieChart2').getContext('2d');
 
         // Définissez les données du graphique (initiallement pour le jour 1)
         var data1 = {
             labels: ['<?= lang('statistiques.months.january') ?>', '<?= lang('statistiques.months.february') ?>', '<?= lang('statistiques.months.march') ?>', '<?= lang('statistiques.months.april') ?>', '<?= lang('statistiques.months.may') ?>', '<?= lang('statistiques.months.june') ?>', '<?= lang('statistiques.months.july') ?>', '<?= lang('statistiques.months.august') ?>', '<?= lang('statistiques.months.september') ?>', '<?= lang('statistiques.months.october') ?>', '<?= lang('statistiques.months.november') ?>', '<?= lang('statistiques.months.december') ?>'],
             datasets: [{
                 data: <?= json_encode($result) ?>,
+                backgroundColor: <?= json_encode($backgroundColorPieChart) ?>,
+                borderColor: ['white'],
+                borderWidth: 1
+            }]
+        };
+         var data2 = {
+            labels: <?= json_encode($result_years) ?>,
+            datasets: [{
+                data: <?= json_encode($result_visits_year) ?>,
                 backgroundColor: <?= json_encode($backgroundColorPieChart) ?>,
                 borderColor: ['white'],
                 borderWidth: 1
@@ -127,7 +150,7 @@
                         if(value > 1){
                             return value + ' <?= lang('statistiques.legend_word_visits') ?>';
                         } else {
-                            return value + ' <?= lang('statistiques.legend_word_visits') ?>';
+                            return value + ' <?= lang('statistiques.legend_word_visit') ?>';
                         }
                     }
                 }
@@ -142,6 +165,12 @@
             options: options
         });
 
+         // Créez le graphique initial
+         var myPieChart2 = new Chart(ctx2, {
+            type: 'pie',
+            data: data2,
+            options: options
+        });
         </script>
 
     </body>
