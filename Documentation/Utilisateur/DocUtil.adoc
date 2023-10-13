@@ -95,7 +95,7 @@ Une fois la connexion effectuée vous serez redirigé vers la page d'accueil mai
 image::images/adminAccueil.png[connexionTitle]
 
 Le menu du site a également changé, avec en plus un onglet "statistiques".
-Update DocUtil.adoc
+
 image::images/connexionHeader[connexionHeader]
 
 === Déconnexion
