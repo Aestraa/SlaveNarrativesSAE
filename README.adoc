@@ -54,7 +54,8 @@ Projet réalisé par :
 - https://github.com/Darknxss[GRASSER James]
 - https://github.com/EternalNico[SACILOTTO Nicolas]
 - https://github.com/jordanQuin[QUINVEROS Jordan] | https://github.com/Aestraa/SlaveNarrativesSAE/blob/master/Documentation/Rapport/Jordan/JordanQuinveros3B.pdf[Lien vers mon rapport]
-- https://github.com/Guilhamasse[GUILHAMASSÉ Quentin]
+- https://github.com/Guilhamasse[GUILHAMASSÉ Quentin] |
+https://github.com/Aestraa/SlaveNarrativesSAE/blob/master/Documentation/Rapport/Quentin/GuilhamasseQuentin3B.pdf[Lien vers mon rapport]
 
 Cliente:: mailto:marie-pierre.baduel@univ-tlse2.fr[MPB]
 
