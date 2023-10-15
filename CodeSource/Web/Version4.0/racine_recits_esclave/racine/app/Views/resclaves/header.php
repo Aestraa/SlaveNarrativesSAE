@@ -92,6 +92,39 @@ if($session->get('visit') != 'yes'){
       </div>
     </nav>
 
+    
+    <div id="menu_mobile_container" class="d-block d-lg-none ">
+  <nav class="navbar_mobile">
+    <div class="burgermobile" id="boutonburger">	
+          <svg id="burger" class="ham1" viewBox="0 0 100 100" width="90" >
+            <path
+                class="line top"
+                d="m 30,33 h40 l -42,38" />
+            <path
+                class="line middle"
+                d="m 30,50 h 40" />
+            <path
+                class="line bottom"
+                d="m 30,67 h40 l -42,-38" />
+          </svg>
+      </div>
+  </nav>
+  <div class="contenu_menu_mobile">
+    <a  href="<?= site_url() . "map" ?>"><?php echo lang('headergeo.nav_bar.home')?></a>
+    <hr />
+    <a  href="<?= site_url() . "recits" ?>"><?php echo lang('headergeo.nav_bar.list_narratives')?></a>
+    <hr />
+    <?php if ($session->get('is_admin')) : ?>
+      <a href="<?= site_url('statistiques') ?>">Statistiques</a>
+      <hr />
+    <?php endif; ?>
+    <div class="language">
+      <a href="#" id="changeLanguageEN" class="language-link<?php echo ($session->get('locale') === 'en') ? ' language-link-active' : ''; ?>">EN</a>
+      <a href="#" id="changeLanguageFR" class="language-link<?php echo ($session->get('locale') === 'fr') ? ' language-link-active' : ''; ?>">FR</a>
+    </div>
+  </div>
+</div>
+
     <h1 class=tprinc><?php echo lang('headergeo.title')?><?= $session->get('is_admin') ? lang('headergeo.isConnected') : '' ?> </h1>
     <h3> <?php echo lang('headergeo.subtitle')?> </h3>
 
@@ -147,5 +180,17 @@ if($session->get('visit') != 'yes'){
 
     document.body.appendChild(form);
     form.submit();
+  });
+        jQuery('#menu_mobile_container').css('top',jQuery('#menu_header_bandeau').outerHeight());
+  jQuery('#burger').click(function () {
+    if (jQuery(this).hasClass('ouvert')) {
+      jQuery('#menu_mobile_container').css('left','-100vw');
+      jQuery(this).removeClass('active ouvert');
+      jQuery('body').css('overflow', 'visible');
+    } else {
+      jQuery(this).addClass('active ouvert');
+      jQuery('#menu_mobile_container').css('left','0');
+      jQuery('body').css('overflow', 'hidden');
+    }
   });
 </script>
