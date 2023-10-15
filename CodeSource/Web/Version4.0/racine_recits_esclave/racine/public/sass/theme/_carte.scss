@@ -1,7 +1,10 @@
-
 #carte{
-    width:73%;
-    height:100vh;
+    @media(min-width: 992px){
+        width:73%;
+        height:100vh;
+    }
+    height:50vh;
+    z-index: 1;
     border: 3px solid #dadada;
     border-radius: 10px;
     position:relative;
