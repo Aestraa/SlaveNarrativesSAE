@@ -1,3 +1,6 @@
+
+<link rel="stylesheet" type="text/css" href="<?= base_url('css/notification.css') ?>">
+
 <br><br>
 <div class="container">
 <p style="text-align:center; font-size:25px;padding:6px;">  
@@ -8,6 +11,7 @@
 
     <?= esc($rec['titre']) ?> </p><br>
 </div>
+
     <br> 
     <div class="rec"><br>
     
@@ -26,6 +30,12 @@
     <strong><p><?= lang('view.additional_information') ?> :</strong> <?= esc($rec['particularites']) ?> </p>
 
 </div>
+
+<div id="notification" class="hidden">
+  <div class="notification-text">Recherche en cours</div>
+  <div class="notification-spinner"></div>
+</div>
+
 <br><br>
 
 <div id="comm">
@@ -66,6 +76,10 @@ function afficherPopup(choix) {
   var Apidata = [];
   var arrayselec = null ; // Variable pour stocker l'élément correspondant
     var found = false; // Variable pour indiquer si l'élément correspondant a été trouvé
+
+    // Afficher une notification "Recherche en cours"
+    var notification = document.getElementById("notification");
+    notification.style.display = "block";
 
   // Fonction pour effectuer la recherche parmi les éléments dans la bibliothèque Zotero
   function makeSearchRequest(query, start) {
@@ -110,7 +124,7 @@ function afficherPopup(choix) {
     var type = "";
     var date = "";
     var lang = "";
-
+    
     if (arrayselec != null) {
       var item = arrayselec;
       titre = item.data.title;
@@ -140,14 +154,16 @@ function afficherPopup(choix) {
 
     // Vérifier si le titre est vide
     if (titre === "") {
-      // Aucune référence trouvée, afficher un message d'erreur
-      var popup = window.open('', '', 'width=400,height=200');
-      popup.document.write('Référence non trouvée');
+        notification.style.display = "none";
+        // Aucune référence trouvée, afficher un message d'erreur
+        var popup = window.open('', '', 'width=400,height=200');
+        popup.document.write('Référence non trouvée');
     } else {
-      // Afficher les détails de la référence
-      var contenuPopup = titre + ', ' + type + ' de ' + auteur + ', le ' + date + ' en ' + lang;
-      var popup = window.open('', '', 'width=400,height=200');
-      popup.document.write(contenuPopup);
+        notification.style.display = "none";
+        // Afficher les détails de la référence
+        var contenuPopup = titre + ', ' + type + ' de ' + auteur + ', le ' + date + ' en ' + lang;
+        var popup = window.open('', '', 'width=400,height=200');
+        popup.document.write(contenuPopup);
     }
   }
 
@@ -174,6 +190,24 @@ function afficherPopup(choix) {
         checkData(); // En cas d'erreur, vérifiez quand même les données
       });
   }
+
+  // Fonction pour afficher une notification
+  function afficherNotification(message) {
+    // Vérifier si le navigateur prend en charge les notifications
+    if ('Notification' in window) {
+      // Vérifier l'autorisation de notification
+      if (Notification.permission === 'granted') {
+        new Notification(message);
+      } else if (Notification.permission !== 'denied') {
+        Notification.requestPermission().then(function (permission) {
+          if (permission === 'granted') {
+            new Notification(message);
+          }
+        });
+      }
+    }
+  }
+
 
   // Démarrer la recherche récursive
   var start = 0;

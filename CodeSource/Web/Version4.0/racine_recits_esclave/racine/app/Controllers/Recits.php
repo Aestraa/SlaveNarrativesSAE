@@ -57,6 +57,22 @@ class Recits extends BaseController
             // Remplace le texte entre parenthèses par le lien
             $textehisto = str_replace("($match)", $lien, $textehisto);
         }
+        if(count($segments) == 2){
+            $titre = trim($segments[0]);
+            $annee = (int) trim($segments[1]);
+
+            // Génère le lien avec l'appel JavaScript
+            $lien = "<a href='javascript:void(0);' onclick=\"afficherPopup('$titre')\">($titre, $annee)</a>";
+
+            // Remplace le texte entre parenthèses par le lien
+            $textehisto = str_replace("($match)", $lien, $textehisto);
+        }
+        if(count($segments) == 1){
+            $titre = trim($segments[0]);
+            $lien = "<a href='https://www.encyclopedia.com'>($titre)</a>";
+
+            $textehisto = str_replace("($match)", $lien, $textehisto);
+        }
     }
             
 
@@ -75,6 +91,4 @@ class Recits extends BaseController
                 . view('resclaves/view', $data)
                 . view('templates/footer_resc');
         }
-
-
 }
