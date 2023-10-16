@@ -1,75 +1,3 @@
-<?php
-// Remplacez ces valeurs par les vôtres
-
-$userId = "12590816";
-$apiKey = "KOxihaGOFAJo7XOhFIqvtGyg";
-// clé de la collection 'test'
-$key = "8QXA7IIX";
-
-
-// URL de l'API Zotero
-$url = "https://api.zotero.org/users/$userId/collections/$key/items";
-//$url = "https://api.zotero.org/users/$userId/collections";
-//$url = "https://api.zotero.org/users/$userId/collections/8QXA7IIX/items?itemType=journalArticle";
-
-
-$data =[];
-
-//foreach($keys as $key){
-
-    //$url = "https://api.zotero.org/users/$userId/collections/$key/items?fields=-data.dateModified,-data.dateAdded,-ISBN";
-
-    // Configuration de la requête cURL
-    $curl = curl_init($url);
-    curl_setopt($curl, CURLOPT_HTTPHEADER, array("Authorization: Bearer $apiKey"));
-    curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-
-    // Exécution de la requête
-    $response = curl_exec($curl);
-    $httpStatus = curl_getinfo($curl, CURLINFO_HTTP_CODE);
-
-    // Gestion de la réponse
-    if ($httpStatus == 200) {
-        $data[$key] = json_decode($response, true);
-        // Traitez les données ici
-    
-        var_dump($data);
-    } else {
-        echo "La requête a échoué avec le code de statut : $httpStatus";
-    }
-
-// Fermeture de la session cURL
-curl_close($curl);
-?>
-
-<?php 
-    $list =[
-        'titre' => 'erreur',
-        'auteur' => 'erreur',
-        'type' => 'erreur',
-        'date' => 'erreur',
-        'lang' => 'erreur'
-    ];
-
-/*
-    $titre ='';
-    foreach ($data as &$elt){
-        if($elt['data']['shortTitle'] == $valeur){
-            $list =[
-                'titre' => $elt['data']['title'],
-                'auteur' => $elt['meta']['creatorSummary'],
-                'type' => $elt['data']['itemType'],
-                'date' => $elt['data']['date'],
-                'lang' => $elt['data']['language']
-            ];
-            break;
-        }
-    }
-    */
-?>
-
-
-
 <br><br>
 <div class="container">
 <p style="text-align:center; font-size:25px;padding:6px;">  
@@ -132,44 +60,44 @@ curl_close($curl);
 <body>
 
 <script>
-    function afficherPopup(choix) {
-  console.log("Début de l'affichage");
-
-  var userId = "5400206";
+function afficherPopup(choix) {
   var apiKey = "E7a5WJBnmii1HdXPtMVRZcG1";
-  var keys = [
-    '7QK6BKPQ',
-    'PQPUY22P',
-    '8RS5C7VK',
-    'LZL82L82',
-    'AUL58SY9',
-    '8QXA7IIX',
-    'XVHKSNVS'
-  ];
+  var userId = "5400206";
+  var Apidata = [];
+  var arrayselec = null ; // Variable pour stocker l'élément correspondant
+    var found = false; // Variable pour indiquer si l'élément correspondant a été trouvé
 
-  var data = [];
-
-  // Fonction pour effectuer la requête API avec une promesse
-  function makeApiRequest(key) {
-    console.log("Début de la requête pour la clé : " + key);
-    var url = "https://api.zotero.org/users/" + userId + "/collections/" + key + "/items";
+  // Fonction pour effectuer la recherche parmi les éléments dans la bibliothèque Zotero
+  function makeSearchRequest(query, start) {
+    var url = `https://api.zotero.org/users/${userId}/items?limit=25&start=${start}`;
+    //console.log('requete');
 
     return new Promise(function (resolve, reject) {
       $.ajax({
         url: url,
-        headers: {
-          'Authorization': 'Bearer ' + apiKey
-        },
         method: 'GET',
         success: function (response) {
-          console.log("Requête réussie pour la clé : " + key);
-          data.push(response);
-          resolve();
+
+            for (var i = 0; i < Apidata.length && !found; i++) {
+                var data = Apidata[i];
+                for (var y = 0; y < data.length && !found; y++) {
+                    var elt = data[y];
+                    if (elt['data']['shortTitle'] === choix) {
+                        //console.log('---------------------');
+                        //console.log(choix);
+                        //console.log(elt);
+                        //console.log('---------------------');
+                        arrayselec = elt;
+                        found = true; // Définir la variable "found" sur true pour sortir des boucles
+                    }
+                }
+            }
+          Apidata.push(response);
+          resolve(response);
         },
         error: function (xhr, status, error) {
-          console.log("Requête échouée pour la clé : " + key);
           console.error("La requête a échoué avec le code de statut : " + xhr.status);
-          resolve(); // Nous résolvons toujours la promesse, même en cas d'erreur
+          resolve(null);
         }
       });
     });
@@ -177,55 +105,79 @@ curl_close($curl);
 
   // Fonction pour vérifier les données et afficher la pop-up
   function checkData() {
-    console.log("Début de la popup");
     var titre = "";
     var auteur = "";
     var type = "";
     var date = "";
     var lang = "";
 
-    for (var i = 0; i < data.length; i++) {
-      var items = data[i];
-      for (var j = 0; j < items.length; j++) {
-        var item = items[j];
-        if (item.data.shortTitle === choix) {
-          titre = item.data.title;
-          auteur = item.meta.creatorSummary;
-          type = item.data.itemType;
-          date = item.data.date;
-          lang = item.data.language;
-          break; // Sortir de la boucle dès que vous trouvez un élément correspondant
+    if (arrayselec != null) {
+      var item = arrayselec;
+      titre = item.data.title;
+      auteur = item.meta.creatorSummary;
+      type = item.data.itemType;
+      date = item.data.date;
+      lang = item.data.language;
+    } else {
+      for (var i = 0; i < Apidata.length; i++) {
+        var items = Apidata[i];
+        for (var j = 0; j < items.length; j++) {
+          var item = items[j];
+          if (item.data.shortTitle === choix) {
+            titre = item.data.title;
+            auteur = item.meta.creatorSummary;
+            type = item.data.itemType;
+            date = item.data.date;
+            lang = item.data.language;
+            // Vous pouvez choisir ici comment gérer plusieurs éléments correspondants
+            // Pour l'exemple, nous affichons le premier élément correspondant
+            arrayselec = item;
+            break;
+          }
         }
       }
     }
 
     // Vérifier si le titre est vide
     if (titre === "") {
-            // Aucune référence trouvée, afficher un message d'erreur
-            var popup = window.open('', '', 'width=400,height=200');
-            popup.document.write('Référence non trouvée');
+      // Aucune référence trouvée, afficher un message d'erreur
+      var popup = window.open('', '', 'width=400,height=200');
+      popup.document.write('Référence non trouvée');
     } else {
-            // Afficher les détails de la référence
-            console.log("Ouverture de la popup");
-            var contenuPopup = titre + ', ' + type + ' de ' + auteur + ', le ' + date + ' en ' + lang;
-            var popup = window.open('', '', 'width=400,height=200');
-            popup.document.write(contenuPopup);
+      // Afficher les détails de la référence
+      var contenuPopup = titre + ', ' + type + ' de ' + auteur + ', le ' + date + ' en ' + lang;
+      var popup = window.open('', '', 'width=400,height=200');
+      popup.document.write(contenuPopup);
     }
   }
 
-  // Utilisation des promesses pour s'assurer que chaque requête est terminée avant d'afficher la popup
-  var promises = [];
-  for (var i = 0; i < keys.length; i++) {
-    promises.push(makeApiRequest(keys[i]));
+  // Fonction récursive pour effectuer des recherches successives
+  function recursiveSearch(query, start) {
+    makeSearchRequest(query, start)
+      .then(function (response) {
+        if (arrayselec == null) {
+          if (response && response.length > 0) {
+            // S'il y a des éléments dans la réponse, continuez la recherche avec le prochain lot de résultats
+            start += 25;
+            recursiveSearch(query, start);
+          } else {
+            // S'il n'y a plus de résultats, vérifiez les données et affichez la popup
+            //console.log(Apidata); // Afficher les données dans la console
+            checkData();
+          }
+        } else {
+          checkData();
+        }
+      })
+      .catch(function (error) {
+        console.error("Erreur :", error);
+        checkData(); // En cas d'erreur, vérifiez quand même les données
+      });
   }
 
-  Promise.all(promises)
-    .then(function () {
-      checkData(); // Afficher la popup une fois que toutes les requêtes sont terminées
-    })
-    .catch(function (error) {
-      console.error("Erreur :", error);
-    });
+  // Démarrer la recherche récursive
+  var start = 0;
+  var query = choix; // Utilisez le choix comme critère de recherche
+  recursiveSearch(query, start);
 }
-
 </script>
