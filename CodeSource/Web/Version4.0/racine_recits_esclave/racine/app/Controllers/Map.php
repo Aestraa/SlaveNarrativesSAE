@@ -62,7 +62,8 @@ l'information récupérée des formulaires de type 'post' doit être dans la mê
                 'points'  => $model->getPoints(),
                 'place'  => $model5->search_place($data),
                 'aires' => $model4->getAiresAut(),
-                'roy_afr' => $model3->getRoyAfr()
+                'roy_afr' => $model3->getRoyAfr(),
+                'type' => $this->request->getPost('select_place')
             ];
 
 

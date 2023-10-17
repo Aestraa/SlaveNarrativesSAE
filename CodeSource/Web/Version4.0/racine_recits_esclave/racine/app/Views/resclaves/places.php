@@ -49,8 +49,76 @@ map.createPane("pane_afr").style.zIndex = 253;
                 zoom: 3.3,
             }).addTo(map);
 
-  
+  // Récupérez la valeur PHP dans une variable JavaScript
+var type = "<?php echo $type; ?>";
+
+// Affichez la valeur dans la console
+console.log(type);
+  // Ajout légende
+if(type == 'naissance'){
+  var legendText = "<?php echo lang('accueil.locations_birth')?>";
+  var legend = L.control({ position: "bottomright" });
+
+  legend.onAdd = function(map) {
+    var div = L.DomUtil.create("div", "legend");
+    div.innerHTML += '<i class="naissance"></i><span>' + legendText +'</span><br> ';
+    return div;
+  };
+  legend.addTo(map);
+}
+
+if(type == 'publication'){
+  var legendText2 = "<?php echo lang('accueil.locations_publication')?>";
+  var legend2 = L.control({ position: "bottomright" });
+
+  legend2.onAdd = function(map) {  // Utilisez une nouvelle variable 'legend2' ici
+    var div = L.DomUtil.create("div", "legend");
+    div.innerHTML += '<i class="publi"></i><span>' + legendText2 +'</span><br>';
+    return div;
+  };
+  legend2.addTo(map);
+}
+
+if(type == 'lieuvie'){
+  var legendText3 = "<?php echo lang('accueil.locations_life')?>";
+  var legend3 = L.control({ position: "bottomright" });
+
+  legend3.onAdd = function(map) {  // Utilisez une nouvelle variable 'legend3' ici
+    var div = L.DomUtil.create("div", "legend");
+    div.innerHTML += '<i class="lieuvie"></i><span>' + legendText3 +'</span><br>';
+    return div;
+  };
+  legend3.addTo(map);
+}
+
+if(type == 'deces'){
+  var legendText4 = "<?php echo lang('accueil.locations_death')?>";
+  var legend4 = L.control({ position: "bottomright" });
+
+  legend4.onAdd = function(map) {  // Utilisez une nouvelle variable 'legend4' ici
+    var div = L.DomUtil.create("div", "legend");
+    div.innerHTML += '<i class="deces"></i><span>' + legendText4 +'</span><br>';
+    return div;
+  };
+  legend4.addTo(map);
+}
+
+if(type == 'esclavage'){
+  var legendText5 = "<?php echo lang('accueil.locations_slavery')?>";
+  var legend5 = L.control({ position: "bottomright" });
+
+  legend5.onAdd = function(map) {  // Utilisez une nouvelle variable 'legend5' ici
+    var div = L.DomUtil.create("div", "legend");
+    div.innerHTML += '<i class="esclavage"></i><span>' + legendText5 +'</span><br>';
+    return div;
+  };
+  legend5.addTo(map);
+}
+
+
     
+
+
 // Création des geojson
     <?php 
 		if (! empty($place) && is_array($place)) {

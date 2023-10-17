@@ -25,18 +25,41 @@
 		echo "<p>". lang('sidebar.location.search_location_type') ."</p>";
 	}
 	?>
-
+	<?php 
+		if (isset($type)) {
+			// La variable $type existe
+			// Vous pouvez effectuer des opérations sur cette variable ici
+		} else {
+			$type = 'rien';
+		}
+	?>
 	<form action="<?= base_url(); ?>/map/places" method="post">
 		<?= csrf_field() ?>
 		<select name="select_place" id="select">
 			<option selected disabled hidden style='display: none' value=''><?= lang('sidebar.location.select_location_type')?></option>
-
-			<option value="naissance"> <?= lang('sidebar.location.birth')?> </option>
-			<option value="publication"> <?= lang('sidebar.location.publication')?>  </option>
-			<option value="deces"> <?= lang('sidebar.location.death')?>  </option>
-			<option value="esclavage"> <?= lang('sidebar.location.slavery')?>  </option>
-			<option value="lieuvie"> <?= lang('sidebar.location.location_life')?> </option>
-
+				 
+				<?php if($type == 'naissance'){ ?>
+					<option value='naissance' selected> <?= lang('sidebar.location.birth')?> </option>
+				<?php } else{ ?>
+					<option value='naissance'> <?= lang('sidebar.location.birth')?> </option>
+				<?php } if($type == 'publication'){?>
+					<option value='publication' selected> <?= lang('sidebar.location.publication')?>  </option>
+				<?php } else{ ?>
+					<option value='publication'> <?= lang('sidebar.location.publication')?>  </option>
+				
+				<?php } if($type == 'deces'){?>
+					<option value='deces' selected> <?= lang('sidebar.location.death')?>  </option>
+				<?php } else{ ?>
+					<option value='deces'> <?= lang('sidebar.location.death')?>  </option>
+				<?php } if($type == 'esclavage'){?>
+					<option value='esclavage' selected> <?= lang('sidebar.location.slavery')?>  </option>
+				<?php } else{ ?>
+					<option value="esclavage"> <?= lang("sidebar.location.slavery")?>  </option>
+				<?php } if($type == 'lieuvie'){?>
+					<option value="lieuvie"> <?= lang("sidebar.location.location_life")?> </option>
+				<?php } else{ ?>
+					<option value="lieuvie"> <?= lang("sidebar.location.location_life")?> </option>
+				<?php }?>
 		</select>
 
 		<br><br>
