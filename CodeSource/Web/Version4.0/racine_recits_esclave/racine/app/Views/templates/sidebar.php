@@ -1,4 +1,122 @@
 <div class="sidebar" id="sidebar">
+<style>
+	/* Style pour le bouton d'ouverture du menu */
+#btnaction {
+    background-color: #fff2e3;
+    color: #111;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    font-weight: bold;
+	font-family:'goudy', sans-serif;
+	
+}
+
+#btnaction:hover {
+    background-color: #0056b3;
+}
+
+/* Style pour le conteneur du menu */
+#dropdown {
+    display: none;
+    position: absolute;
+    top: 50px; /* Ajustez la position verticale selon vos besoins */
+    right: 10px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    z-index: 1;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Ombre pour une apparence plus élégante */
+    border-radius: 5px;
+}
+
+/* Style pour la liste du menu */
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Style pour les éléments de la liste */
+li {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+li:last-child {
+    border-bottom: none; /* Supprime la bordure inférieure du dernier élément de la liste */
+}
+
+/* Style pour les liens dans le menu */
+a {
+    text-decoration: none;
+    color: #333;
+}
+
+/* Style pour le lien survolé */
+
+a:hover {
+    background-color: #f0f0f0;
+    color: #0074D9;
+}
+
+/* Style pour les boutons dans la liste */
+ul li a button {
+    background-color: #0074D9;
+    color: #fff;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+ul li a button:hover {
+    background-color: #0056b3;
+}
+
+</style>
+<?php $session = \Config\Services::session(); ?>
+
+<button onclick="toggleDropdown()" id="btnaction">Ouvrir le menu</button>
+<div id="dropdown" style="display: none;">
+    <ul>
+        <?php if($session->get('is_admin')): ?>
+            <li><a href="/creercompte"><?= lang('sidebar.create_account_button') ?></a></li>
+            <li><a href="/ajout_point"><?= lang('sidebar.add_point_button') ?></a></li>
+            <li><a href="/ajout_recit"><?= lang('sidebar.add_narrative_button') ?></a></li>
+            <li><a href="/ajout_esclave"><?= lang('sidebar.add_slave_button') ?></a></li>
+            <li><a href="/choix_esclave"><?= lang('sidebar.modify_slave_button') ?></a></li>
+            <li><a href="/suppr_esclave"><?= lang('sidebar.delete_slave_button') ?></a></li>
+        <?php endif ?>
+        
+        <li><a href="<?= $session->get('is_admin') ? '/deconnexion' : '/connexion' ?>"
+                onclick="<?= $session->get('is_admin') ? 'return confirmLogout()' : '' ?>">
+            <?= $session->get('is_admin') ? lang('sidebar.logout_button') : lang('sidebar.login_button') ?>
+        </a></li>
+    </ul>
+</div>
+
+<script>
+    function toggleDropdown() {
+        var dropdown = document.getElementById('dropdown');
+        if (dropdown.style.display === 'none' || dropdown.style.display === '') {
+            dropdown.style.display = 'block';
+        } else {
+            dropdown.style.display = 'none';
+        }
+    }
+</script>
+
+<script>
+  function confirmLogout() {
+	return confirm('<?= lang('sidebar.logout_confirmation') ?>');
+  }
+  </script>
+
+
+
 
 	<?= session()->getFlashdata('error') ?>
 
@@ -70,7 +188,7 @@
 
 
 
-	<br><br><br><br><br>
+	<br>
 
 
 	<!-- Menu déroulant pour le choix des récits -->
@@ -107,7 +225,7 @@
 
 		</select>
 
-		<br><br>
+		<br>
 
 
 		<input id="cc" type="submit" value="<?= lang('sidebar.search_button')?>" />
@@ -115,7 +233,7 @@
 	</form>
 
 
-	<br><br><br><br>
+	<br>
 	<section class="legend2">
 
 		<span>
@@ -134,33 +252,5 @@
 		<br>
 		<i class='usa'></i><span><?= lang('sidebar.legend.us_borders')?></span><br>
 	</section>
-	<script>
-		function confirmLogout() {
-			return confirm('<?= lang('sidebar.logout_confirmation') ?>');
-		}
-	</script>
-
-	<?php $session = \Config\Services::session(); ?>
-
-
-	<br>
-	<a href="<?= $session->get('is_admin') ? '/deconnexion' : '/connexion' ?>">
-		<button id="cc" onclick="return <?= $session->get('is_admin') ? 'confirmLogout()' : '' ?>"><?= $session->get('is_admin') ? lang('sidebar.logout_button') : lang('sidebar.login_button') ?></button>
-	</a>
-
-	<br><br>
-		<?php if($session->get('is_admin')):?>
-				<a href="/creercompte"><button id="cc"><?= lang('sidebar.create_account_button')?></button> </a> 
-				<br>
-				<a href="/ajout_point"><button id="cc"><?= lang('sidebar.add_point_button')?></button></a>
-				<br>
-				<a href="/ajout_recit"><button id="cc"><?= lang('sidebar.add_narrative_button')?></button></a>
-				<br>
-				<a href="/ajout_esclave"><button id="cc"><?= lang('sidebar.add_slave_button')?></button></a>
-				<br>
-				<a href="/choix_esclave"><button id="cc"><?= lang('sidebar.modify_slave_button')?></button></a>
-				<br>
-				<a href="/suppr_esclave"><button id="cc"><?= lang('sidebar.delete_slave_button')?></button></a>
-			<?php endif ?>
 
 </div>
