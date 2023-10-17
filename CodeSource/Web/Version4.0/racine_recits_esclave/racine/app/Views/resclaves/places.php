@@ -279,12 +279,3 @@ var roy_afr = L.geoJSON(roy_afr,{
     var layerControl = L.control.layers(baseMaps, overlayMaps).addTo(map);
 
 </script>
-<br><br><br><br>
-
-
-            
-
-
-
-
-

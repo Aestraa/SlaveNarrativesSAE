@@ -10,26 +10,26 @@
     margin-bottom: 10px;
     border-radius: 5px;
     font-weight: bold;
-	font-family:'goudy', sans-serif;
-	
+    font-family: 'goudy', sans-serif;
 }
 
 #btnaction:hover {
-    background-color: #0056b3;
+    background-color: #fddeba;
 }
 
 /* Style pour le conteneur du menu */
 #dropdown {
     display: none;
     position: absolute;
-    top: 50px; /* Ajustez la position verticale selon vos besoins */
-    right: 10px;
+    top: 50px; /* Ajustez la position verticale pour placer le menu sous le bouton */
+    left: 8px; /* Aligner le bord gauche du menu avec le bouton */
     background-color: #fff;
     border: 1px solid #ccc;
     z-index: 1;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Ombre pour une apparence plus élégante */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
     border-radius: 5px;
 }
+
 
 /* Style pour la liste du menu */
 ul {
@@ -98,22 +98,22 @@ ul li a button:hover {
     </ul>
 </div>
 
-<script>
-    function toggleDropdown() {
-        var dropdown = document.getElementById('dropdown');
-        if (dropdown.style.display === 'none' || dropdown.style.display === '') {
-            dropdown.style.display = 'block';
-        } else {
-            dropdown.style.display = 'none';
-        }
-    }
-</script>
+	<script>
+		function toggleDropdown() {
+			var dropdown = document.getElementById('dropdown');
+			if (dropdown.style.display === 'none' || dropdown.style.display === '') {
+				dropdown.style.display = 'block';
+			} else {
+				dropdown.style.display = 'none';
+			}
+		}
+	</script>
 
-<script>
-  function confirmLogout() {
-	return confirm('<?= lang('sidebar.logout_confirmation') ?>');
-  }
-  </script>
+	<script>
+		function confirmLogout() {
+			return confirm('<?= lang('sidebar.logout_confirmation') ?>');
+		}
+  	</script>
 
 
 
@@ -225,7 +225,7 @@ ul li a button:hover {
 
 		</select>
 
-		<br>
+		<br><br>
 
 
 		<input id="cc" type="submit" value="<?= lang('sidebar.search_button')?>" />

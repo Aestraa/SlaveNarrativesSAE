@@ -172,9 +172,6 @@ var legendText = "<?php echo lang('accueil.locations_publication_narratives')?>"
 
 
   </script>
-
-  <br><br><br><br><br>
-
             
 
 

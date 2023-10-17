@@ -250,10 +250,10 @@
   }
   
   #sidebar {
-    margin-top: 80px;
+    margin-top: 25px;
     position: relative;
     padding: 0.5rem;
-    height: 130vh;
+    height: 100vh;
     border-radius: 10px;
     box-shadow: -3px 3px 6px 2px #858585;
     background-image: url("./../../css/parchemin.jpg");

@@ -330,7 +330,6 @@ cluster.addLayer(L.geoJSON(place, {
     // Ajout d'une fonctionnalité permettant le choix du fond de carte et des couches
     var layerControl = L.control.layers(baseMaps, overlayMaps).addTo(map);
 </script>
-<br><br><br><br>
 
 
             
