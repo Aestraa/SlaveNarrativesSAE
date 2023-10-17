@@ -243,13 +243,13 @@ cluster.addLayer(L.geoJSON(place, {
 
             "<form id='formulaire' action='<?= base_url();?>/map/recits' method='post'>"+
     " <button id='bouton' type='submit' name ='select_recit' value="+ id_recit +"> <p id='pop_carte'>Visualiser la carte du récit </p>" +
-    "</button></form><br>"+
+    "</button></form><br><div id='buttons-container'>"+
     "<form id='formulaire' action='<?= site_url('Ajout/show_modification') ?>' method='post'>"+
-    "   <button id='boutonaj' name ='boutonaj' type='submit' value='"+ id_point +"'>Modifier</button>"+
+    "   <button id='btn2' name ='boutonaj' type='submit' value='"+ id_point +"'>Modifier</button>"+
     "</form>"+
     "<form  action='<?= site_url('Ajout/suppressionPoint') ?>' method='post'>"+
-    "   <button id='boutonsup' name ='boutonsup' type='submit' value="+ id_point +">Supprimer</button>"+
-    "</form>"
+    "   <button id='btn3' name ='boutonsup' type='submit' value="+ id_point +">Supprimer</button>"+
+    "</form></div>"
       ),
 
         layer.bindTooltip(feature.properties.ville, {

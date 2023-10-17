@@ -5,7 +5,7 @@
     background-color: #fff2e3;
     color: #111;
     padding: 10px;
-    border: none;
+    border: 1px solid #adadad;
     cursor: pointer;
     margin-bottom: 10px;
     border-radius: 5px;

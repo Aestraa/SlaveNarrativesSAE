@@ -135,12 +135,14 @@ var legendText = "<?php echo lang('accueil.locations_publication_narratives')?>"
           "<form id='formulaire' action='<?= base_url();?>/map/recits' method='post'>"+
           " <button id='bouton' type='submit' name ='select_recit' value="+ id_recit +"> <p id='pop_carte'>" + visualize_button + " </p>" +
           "</button></form><br>"+
+          "<div id='buttons-container'>"+
             "<form id='formulaire' action='<?= site_url('modif_point') ?>' method='post'>"+
-            "   <button id='boutonaj' name ='boutonaj' type='submit' value='"+ id_point +"'>"+ modify_button +"</button>"+
+            "   <button id='btn2' name ='boutonaj' type='submit' value='"+ id_point +"'>"+ modify_button +"</button>"+
             "</form>"+
             "<form  action='<?= site_url('Ajout/suppressionPoint') ?>' method='post'>"+
-            "   <button id='boutonsup' name ='boutonsup' type='submit' value="+ id_point +">"+ delete_button +"</button>"+
-            "</form>"
+            "   <button id='btn3' name ='boutonsup' type='submit' value="+ id_point +">"+ delete_button +"</button>"+
+            "</form>"+
+          "</div>"
         <?php else: ?>
           '<a id="trya" href="' + url +'">' + "<h3 id='h3popup'>"+feature.properties.nom_esc+"</h3>" + "</a>"+
           "<p class='text_popup'>"+date_publication+" : "+ feature.properties.date_publi+ "</p>"+

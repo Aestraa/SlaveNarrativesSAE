@@ -468,7 +468,7 @@
     font-size: 15px;
   }
   
-  #carte #bouton {
+  #carte #bouton{
     background-color: rgba(255, 212, 170, 0.788);
     margin: auto;
     border: 1px solid rgba(165, 87, 42, 0.681);
@@ -476,6 +476,45 @@
     width: 100%;
     position: relative;
   }
+  /* Styles pour le bouton d'ouverture du menu */
+  #carte #btnaction {
+    background-color: #fff2e3;
+    color: #111;
+    padding: 5px;
+    border: 1px solid #000; /* Bordure noire de 1 pixel */
+    cursor: pointer;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    font-weight: bold;
+    font-family: 'goudy', sans-serif;
+  }
+
+#carte #btnaction:hover {
+  background-color: #0056b3;
+}
+
+/* Styles pour les boutons 2 et 3 */
+#carte #buttons-container {
+  display: flex; /* Utilisez un affichage flex pour aligner les boutons côte à côte */
+}
+
+#carte #btn2, #carte #btn3 {
+  background-color: #fff2e3;
+  color: #111;
+  padding: 10px;
+  border: 1px solid #000;
+  cursor: pointer;
+  margin-left: 20px; /* Espace entre les boutons (ajustez selon vos besoins) */
+  border-radius: 5px;
+  font-weight: bold;
+  font-family: 'goudy', sans-serif;
+}
+
+#carte #btn2:hover, #carte #btn3:hover {
+  background-color: #0056b3;
+}
+
+
   
   #carte #bouton #pop_carte {
     font-size: 18px;
