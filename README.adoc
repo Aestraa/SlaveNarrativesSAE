@@ -53,9 +53,8 @@ Projet réalisé par :
 
 - https://github.com/Darknxss[GRASSER James]
 - https://github.com/EternalNico[SACILOTTO Nicolas]
-- https://github.com/jordanQuin[QUINVEROS Jordan] | https://github.com/Aestraa/SlaveNarrativesSAE/blob/master/Documentation/Rapport/Jordan/JordanQuinveros3B.pdf[Lien vers mon rapport]
-- https://github.com/Guilhamasse[GUILHAMASSÉ Quentin] |
-https://github.com/Aestraa/SlaveNarrativesSAE/blob/master/Documentation/Rapport/Quentin/GuilhamasseQuentin3B.pdf[Lien vers mon rapport]
+- https://github.com/jordanQuin[QUINVEROS Jordan] 
+- https://github.com/Guilhamasse[GUILHAMASSÉ Quentin]
 
 Cliente:: mailto:marie-pierre.baduel@univ-tlse2.fr[MPB]
 
@@ -105,6 +104,14 @@ WARNING: Le contenu de ce dépôt et de ce ReadMe changeront tout au long de la 
 |===
 | Nom    | Lien         |  Notes 
 | `Code source BD V2` | https://github.com/Aestraa/SlaveNarrativesSAE/tree/master/CodeSource/BD/Version2[Lien vers le code source] | Code source partie BD Version 2
+|===
+
+=== Rapport de projet des alternants 
+
+[cols="1,2,2",options=header]
+|===
+| Nom    | Lien         |  Notes 
+| `Rapport de projet de #James Grasser#` | https://github.com/Aestraa/SlaveNarrativesSAE/blob/master/Documentation/Rapport/James/GrasserJames3B.pdf[Lien vers le rapport] | Rapport de projet de James Grasser
 |===
 
 == Gestion de projet & Qualité      
