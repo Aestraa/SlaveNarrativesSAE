@@ -111,7 +111,11 @@ WARNING: Le contenu de ce dépôt et de ce ReadMe changeront tout au long de la 
 [cols="1,2,2",options=header]
 |===
 | Nom    | Lien         |  Notes 
-| `Rapport de projet de #James Grasser#` | https://github.com/Aestraa/SlaveNarrativesSAE/blob/master/Documentation/Rapport/James/GrasserJames3B.pdf[Lien vers le rapport] | Rapport de projet de James Grasser
+| `Rapport de projet de #GRASSER James#` | https://github.com/Aestraa/SlaveNarrativesSAE/blob/master/Documentation/Rapport/James/GrasserJames3B.pdf[Lien vers le rapport] | Rapport de projet de GRASSER James
+|===
+|===
+| Nom    | Lien         |  Notes 
+| `Rapport de projet de #SACILOTTO Nicolas#` | https://github.com/Aestraa/SlaveNarrativesSAE/blob/master/Documentation/Rapport/James/GrasserJames3B.pdf[Lien vers le rapport] | Rapport de projet de SACILOTTO Nicolas
 |===
 
 == Gestion de projet & Qualité      
