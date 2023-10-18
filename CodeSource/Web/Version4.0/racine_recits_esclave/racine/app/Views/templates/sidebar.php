@@ -174,7 +174,7 @@ ul li a button:hover {
 				<?php } else{ ?>
 					<option value="esclavage"> <?= lang("sidebar.location.slavery")?>  </option>
 				<?php } if($type == 'lieuvie'){?>
-					<option value="lieuvie"> <?= lang("sidebar.location.location_life")?> </option>
+					<option value="lieuvie" selected> <?= lang("sidebar.location.location_life")?> </option>
 				<?php } else{ ?>
 					<option value="lieuvie"> <?= lang("sidebar.location.location_life")?> </option>
 				<?php }?>
