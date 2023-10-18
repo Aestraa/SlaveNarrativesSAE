@@ -14,13 +14,13 @@
                     if (!empty($title) && is_array($title)) {
                         foreach ($title as $elt) {
                             if ($elt['id_recit'] == $_GET['idR']){
-                            echo '<input name="nomR" id="nomR" type="text" value="'. $elt['titre'] .'"/><br><br>';
+                            echo '<input name="nomR" id="nomR" type="text" value="'. $elt['titre'] .'" required/><br><br>';
                             }
                         }
                     }
             ?>
            <label><?= lang('modif_recit.name_slave') ?></label>
-           <select name="idE" id="idE">
+           <select name="idE" id="idE" required>
                     <?php
                     if (!empty($auteurs) && is_array($auteurs)) {
                         foreach ($auteurs as $elt) {
@@ -39,7 +39,7 @@
                     if (!empty($title) && is_array($title)) {
                         foreach ($title as $elt) {
                             if ($elt['id_recit'] == $_GET['idR']){
-                            echo '<input name="lieuP" id="lieuP" type="text" value="'. $elt['lieu_publi'] .'"/><br><br>';
+                            echo '<input name="lieuP" id="lieuP" type="text" value="'. $elt['lieu_publi'] .'" required/><br><br>';
                             }
                         }
                     }
@@ -51,7 +51,7 @@
                     if (!empty($title) && is_array($title)) {
                         foreach ($title as $elt) {
                             if ($elt['id_recit'] == $_GET['idR']){
-                            echo '<input name="dateP" id="dateP" type="number" min="0" max="2100" value="'. $elt['date_publi'] .'"/><br><br>';
+                            echo '<input name="dateP" id="dateP" type="number" min="0" max="2100" value="'. $elt['date_publi'] .'" required/><br><br>';
                             }
                         }
                     }
@@ -62,7 +62,7 @@
                     if (!empty($title) && is_array($title)) {
                         foreach ($title as $elt) {
                             if ($elt['id_recit'] == $_GET['idR']){
-                            echo '<input name="typeR" id="typeR" type="text" value="'. $elt['lieu_publi'] .'"/><br><br>';
+                            echo '<input name="typeR" id="typeR" type="text" value="'. $elt['lieu_publi'] .'" required/><br><br>';
                             }
                         }
                     }
@@ -73,7 +73,7 @@
                     if (!empty($title) && is_array($title)) {
                         foreach ($title as $elt) {
                             if ($elt['id_recit'] == $_GET['idR']){
-                                echo "<input name='com' id='com' type='text' value='" . htmlspecialchars($elt['historiographie']) . "' /><br><br>";
+                                echo "<input name='com' id='com' type='text' value='" . htmlspecialchars($elt['historiographie']) . "' required/><br><br>";
 
                             }
                         }
@@ -85,7 +85,7 @@
                     if (!empty($title) && is_array($title)) {
                         foreach ($title as $elt) {
                             if ($elt['id_recit'] == $_GET['idR']){
-                            echo '<input name="modeP" id="modeP" type="text" value="'. $elt['mode_publi'] .'"/><br><br>';
+                            echo '<input name="modeP" id="modeP" type="text" value="'. $elt['mode_publi'] .'" required/><br><br>';
                             }
                         }
                     }
@@ -99,7 +99,7 @@
                     if (!empty($title) && is_array($title)) {
                         foreach ($title as $elt) {
                             if ($elt['id_recit'] == $_GET['idR']){
-                            echo '<input name="nomS" id="nomS" type="text" value="'. $elt['scribe_editeur'] .'"/><br><br>';
+                            echo '<input name="nomS" id="nomS" type="text" value="'. $elt['scribe_editeur'] .'" required/><br><br>';
                             }
                         }
                     }
@@ -110,7 +110,7 @@
                     if (!empty($title) && is_array($title)) {
                         foreach ($title as $elt) {
                             if ($elt['id_recit'] == $_GET['idR']){
-                            echo '<input name="lienR" id="lienR" type="text" value="'. $elt['lien_recit'] .'"/><br><br>';
+                            echo '<input name="lienR" id="lienR" type="text" value="'. $elt['lien_recit'] .'" required/><br><br>';
                             }
                         }
                     }

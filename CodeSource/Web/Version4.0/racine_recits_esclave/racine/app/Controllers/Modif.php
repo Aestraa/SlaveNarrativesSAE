@@ -40,10 +40,8 @@ class Modif extends BaseController
         $infoSup = $this->request->getPost('infoSup');
         $dateP = $this->request->getPost('dateP');
         $typeR = $this->request->getPost('typeR');
-        $pref = $this->request->getPost('pref');
         $com = $this->request->getPost('com');
         $modeP = $this->request->getPost('modeP');
-        $prefD = $this->request->getPost('prefD');
         $nomS = $this->request->getPost('nomS');
         $lienR = $this->request->getPost('lienR');
 
@@ -56,11 +54,11 @@ class Modif extends BaseController
             }
         }  
 
-        $sql = 'UPDATE `tab_recits_v3` SET `nom_esc` = ?, `titre` = ?, `date_publi` = ?, `lieu_publi` = ?, `mode_publi` = ?, `type_recit` = ?, `historiographie` = ?, `preface_blanc` = ?, `details_preface` = ?, `id_auteur` = ?, `scribe_editeur` = ?, `lien_recit` = ?, `debut_titre` = ? WHERE `id_recit` = ?';
+        $sql = 'UPDATE `tab_recits_v3` SET `nom_esc` = ?, `titre` = ?, `date_publi` = ?, `lieu_publi` = ?, `mode_publi` = ?, `type_recit` = ?, `historiographie` = ?, `id_auteur` = ?, `scribe_editeur` = ?, `lien_recit` = ?, `debut_titre` = ? WHERE `id_recit` = ?';
         $db = db_connect();
-        $db->query($sql, [$nomE, $nomR, $dateP, $lieuP, $modeP, $typeR, $com, $pref, $prefD, $idE, $nomS, $lienR, $nomR, $idR]);
+        $db->query($sql, [$nomE, $nomR, $dateP, $lieuP, $modeP, $typeR, $com, $idE, $nomS, $lienR, $nomR, $idR]);
 
-        return redirect()->to('/recits');
+        return redirect()->to('/recits?search='.$nomR);
     }
 
     public function choixModifA()
