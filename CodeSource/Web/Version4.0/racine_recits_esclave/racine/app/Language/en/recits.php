@@ -2,7 +2,7 @@
 
 return [
     'page_title' => 'Census of narratives',
-    'name_slave' => "Name of the slave",
+    'name_slave' => "Slave\'s name",
     'date_publication' => 'Date of publication',
     'title' => "Title",
     'modification' => "Modification",

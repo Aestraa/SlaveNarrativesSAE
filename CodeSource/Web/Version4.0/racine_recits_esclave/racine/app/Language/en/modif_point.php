@@ -10,8 +10,8 @@ return [
         'publication' => 'Publication',
         'death' => 'Death',
         'slavery' => 'Slavery',
-        'location_life' => 'Location of life'
+        'location_life' => 'Living location'
     ],
-    'attach_narrative' => "Attach to a narrative",
+    'attach_narrative' => "Link to a narrative",
     'modify_point_button' => 'Modify point'
 ];

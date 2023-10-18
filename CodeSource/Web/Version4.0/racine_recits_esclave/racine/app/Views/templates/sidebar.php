@@ -79,7 +79,7 @@ ul li a button:hover {
 </style>
 <?php $session = \Config\Services::session(); ?>
 
-<button onclick="toggleDropdown()" id="btnaction">Ouvrir le menu</button>
+<button onclick="toggleDropdown()" id="btnaction"><?= lang('sidebar.menu_button')?></button>
 <div id="dropdown" style="display: none;">
     <ul>
         <?php if($session->get('is_admin')): ?>

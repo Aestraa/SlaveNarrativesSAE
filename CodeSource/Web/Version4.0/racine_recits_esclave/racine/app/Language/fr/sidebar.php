@@ -36,5 +36,6 @@ return [
     'add_narrative_button' => "Ajout d'un récit",
     'add_slave_button' => "Ajout d'un esclave/auteur",
     'modify_slave_button' => "Modification d'un esclave/auteur",
-    'delete_slave_button' => "Suppression d'un esclave/auteur"
+    'delete_slave_button' => "Suppression d'un esclave/auteur",
+    'menu_button' => "Ouvrir le menu"
 ];

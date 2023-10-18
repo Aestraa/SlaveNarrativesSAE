@@ -2,15 +2,15 @@
 
 return [
     'title' => 'Modify a slave',
-    'name_slave' => "Slave name",
-   'year_birth' => 'Year of birth',
-   'location_birth' => 'Location of birth',
+    'name_slave' => "Slave\'s name",
+   'year_birth' => 'Birth place',
+   'location_birth' => 'Birthplace',
    'year_death' => 'Year of death',
-   'location_death' => 'Location of death',
-   'location_slavery' => "Location of slavery",
-   'means_release' => 'Means of release',
-   'location_life_after_release' => 'Location of life after release',
-   'origin_parents' => 'Origine of parents',
+   'location_death' => 'Death place',
+   'location_slavery' => "Living location during slavery",
+   'means_release' => 'Means of emancipation',
+   'location_life_after_release' => 'Living location after release',
+   'origin_parents' => 'Parent\'s origin',
    'abolitionist_activist' => 'Abolitionist activist',
    'particularities' => 'Particularities',
    'modify_button' => 'Modify'
