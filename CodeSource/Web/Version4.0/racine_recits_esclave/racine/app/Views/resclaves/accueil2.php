@@ -69,10 +69,10 @@ var legendText = "<?php echo lang('accueil.locations_birth')?>"
   var legend2 = L.control({ position: "bottomright" });
   legend.onAdd = function(map) {
     var div = L.DomUtil.create("div", "legend");
-    div.innerHTML += '<i class="naissance"></i><span>' + legendText +'</span><br> ';
+    div.innerHTML += '<i class="naissance"></i><span>' + legendText +'</span><br><br> ';
     div.innerHTML += '<i class="publi"></i><span>' + legendText2 +'</span><br>';
-    div.innerHTML += '<i class="lieuvie"></i><span>' + legendText3 +'</span><br>';
-    div.innerHTML += '<i class="deces"></i><span>' + legendText4 +'</span><br>';
+    div.innerHTML += '<i class="lieuvie"></i><span>' + legendText3 +'</span><br><br>';
+    div.innerHTML += '<i class="deces"></i><span>' + legendText4 +'</span><br><br>';
     div.innerHTML += '<i class="esclavage"></i><span>' + legendText5 +'</span><br>';
     return div;
   };
