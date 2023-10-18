@@ -239,11 +239,11 @@ ul li a button:hover {
 		<span>
 			<p> <?= lang('sidebar.legend.title')?> </p>
 		</span>
-		<i class="naissance"></i><span><?= lang('sidebar.legend.location_birth')?></span><br>
+		<i class="naiss"></i><span><?= lang('sidebar.legend.location_birth')?></span><br>
 		<i class="publi"></i><span><?= lang('sidebar.legend.location_publication_narratives')?></span><br>
-		<i class="lieuvie"></i><span><?= lang('sidebar.legend.location_life')?></span><br>
-		<i class="deces"></i><span><?= lang('sidebar.legend.location_death')?></span><br>
-		<i class='esclavage'></i><span><?= lang('sidebar.legend.location_slavery')?></span><br>
+		<i class="lieuv"></i><span><?= lang('sidebar.legend.location_life')?></span><br>
+		<i class="dece"></i><span><?= lang('sidebar.legend.location_death')?></span><br>
+		<i class='esclav'></i><span><?= lang('sidebar.legend.location_slavery')?></span><br>
 
 		<i class='naiss_esc legend2_desc'></i><span><?= lang('sidebar.legend.birth_slavery')?></span><br>
 		<i class='lieuvie_dec legend2_desc'></i><span><?= lang('sidebar.legend.life_death')?></span><br>

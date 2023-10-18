@@ -61,7 +61,7 @@ if(type == 'naissance'){
 
   legend.onAdd = function(map) {
     var div = L.DomUtil.create("div", "legend");
-    div.innerHTML += '<i class="naissance"></i><span>' + legendText +'</span><br> ';
+    div.innerHTML += '<i class="naiss"></i><span>' + legendText +'</span><br> ';
     return div;
   };
   legend.addTo(map);
@@ -85,7 +85,7 @@ if(type == 'lieuvie'){
 
   legend3.onAdd = function(map) {  // Utilisez une nouvelle variable 'legend3' ici
     var div = L.DomUtil.create("div", "legend");
-    div.innerHTML += '<i class="lieuvie"></i><span>' + legendText3 +'</span><br>';
+    div.innerHTML += '<i class="lieuv"></i><span>' + legendText3 +'</span><br>';
     return div;
   };
   legend3.addTo(map);
@@ -97,7 +97,7 @@ if(type == 'deces'){
 
   legend4.onAdd = function(map) {  // Utilisez une nouvelle variable 'legend4' ici
     var div = L.DomUtil.create("div", "legend");
-    div.innerHTML += '<i class="deces"></i><span>' + legendText4 +'</span><br>';
+    div.innerHTML += '<i class="dece"></i><span>' + legendText4 +'</span><br>';
     return div;
   };
   legend4.addTo(map);
@@ -109,7 +109,7 @@ if(type == 'esclavage'){
 
   legend5.onAdd = function(map) {  // Utilisez une nouvelle variable 'legend5' ici
     var div = L.DomUtil.create("div", "legend");
-    div.innerHTML += '<i class="esclavage"></i><span>' + legendText5 +'</span><br>';
+    div.innerHTML += '<i class="esclav"></i><span>' + legendText5 +'</span><br>';
     return div;
   };
   legend5.addTo(map);
@@ -161,7 +161,7 @@ if(type == 'esclavage'){
               echo $reponse;
           }
 	?>
-
+console.log(type);
 var style_c = style_clust(type); 
 var cluster = new L.MarkerClusterGroup({
         //spiderfyOnMaxZoom: true,
@@ -179,7 +179,7 @@ var cluster = new L.MarkerClusterGroup({
         });
     }
 });
-console.log("test");
+
 
 cluster.addLayer(L.geoJSON(place, {
     pointToLayer: function (feature, latlng) {

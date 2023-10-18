@@ -374,19 +374,19 @@
     background-color: #ff7800;
   }
   
-  #sidebar .legend2 i.deces {
+  #sidebar .legend2 i.dece {
     background-color: #902587;
   }
   
-  #sidebar .legend2 i.lieuvie {
+  #sidebar .legend2 i.lieuv {
     background-color: #20a238;
   }
   
-  #sidebar .legend2 i.esclavage {
+  #sidebar .legend2 i.esclav {
     background-color: #2e4c9b;
   }
   
-  #sidebar .legend2 i.naissance {
+  #sidebar .legend2 i.naiss {
     background-color: #1ba4b6;
   }
   
@@ -448,6 +448,63 @@
     margin-left: -20px;
   }
   
+  #carte .deces {
+    height: 44px !important;
+    width: 44px;
+    border-radius: 50%;
+    border: 2px solid #000000 !important;
+    background-color: #902587;
+    text-align: center;
+    font-size: 13px;
+    color: #000;
+    line-height: 35px;
+    margin-top: -20px;
+    margin-left: -20px;
+  }
+
+  #carte .naissance {
+    height: 44px !important;
+    width: 44px;
+    border-radius: 50%;
+    border: 2px solid #000000 !important;
+    background-color: #1ba4b6;
+    text-align: center;
+    font-size: 13px;
+    color: #000;
+    line-height: 35px;
+    margin-top: -20px;
+    margin-left: -20px;
+  }
+
+  #carte .lieuvie {
+    height: 44px !important;
+    width: 44px;
+    border-radius: 50%;
+    border: 2px solid #000000 !important;
+    background-color: #20a238;
+    text-align: center;
+    font-size: 13px;
+    color: #000;
+    line-height: 35px;
+    margin-top: -20px;
+    margin-left: -20px;
+  }
+
+  #carte .esclavage {
+    height: 44px !important;
+    width: 44px;
+    border-radius: 50%;
+    border: 2px solid #000000 !important;
+    background-color: #2e4c9b;
+    text-align: center;
+    font-size: 13px;
+    color: #000;
+    line-height: 35px;
+    margin-top: -20px;
+    margin-left: -20px;
+  }
+
+
   #carte #h3popup {
     font-family: "goudy", sans-serif;
     font-style: italic;
@@ -557,19 +614,19 @@
     background-color: #ff7800;
   }
   
-  #carte .legend i.deces {
+  #carte .legend i.dece {
     background-color: #902587;
   }
   
-  #carte .legend i.lieuvie {
+  #carte .legend i.lieuv {
     background-color: #20a238;
   }
   
-  #carte .legend i.esclavage {
+  #carte .legend i.esclav {
     background-color: #2e4c9b;
   }
   
-  #carte .legend i.naissance {
+  #carte .legend i.naiss {
     background-color: #1ba4b6;
   }
   
