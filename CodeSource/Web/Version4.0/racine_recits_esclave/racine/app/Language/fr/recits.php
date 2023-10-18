@@ -9,5 +9,7 @@ return [
     'delete' => "Suppression",
     'modify_button' => 'Modifier',
     'delete_button' => 'Suppression',
-    'delete_confirmation' => 'Voulez-vous vraiment supprimer ce récit ?'
+    'delete_confirmation' => 'Voulez-vous vraiment supprimer ce récit ?',
+    'search' => 'Rechercher...',
+    'search_button' => 'Rechercher'
 ];

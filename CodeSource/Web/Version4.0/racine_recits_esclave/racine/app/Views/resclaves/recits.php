@@ -7,8 +7,8 @@
 
 
 <form action="<?= base_url('recits') ?>" method="get">
-    <input class="input-search" type="text" name="search" value="<?php echo isset($_GET['search']) ? $_GET['search'] : ''; ?>" placeholder="Rechercher...">
-    <input class="button-search" type="submit" value="Rechercher">
+    <input class="input-search" type="text" name="search" value="<?php echo isset($_GET['search']) ? $_GET['search'] : ''; ?>" placeholder=<?= lang('recits.search') ?>>
+    <input class="button-search" type="submit" value=<?= lang('recits.search_button') ?>>
 </form></br>
 
 
