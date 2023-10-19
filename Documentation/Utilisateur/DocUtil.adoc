@@ -10,7 +10,7 @@ Bienvenue sur notre site web ! Ce guide d'utilisation a été conçu pour vous a
 
 == Accéder au site web
 
-Afin d'accéder à notre site ouvrez votre navigateur web et saisissez (ou cliquer simplement sur) l'adresse suivante : https://slave-narratives.univ-tlse2.fr/
+Afin d'accéder à notre site ouvrez votre navigateur web et saisissez (ou cliquer simplement sur) l'adresse suivante : https://slavenarrativessae.000webhostapp.com[Lien vers le site]
 
 == Accueil
 
@@ -44,6 +44,16 @@ Une fois sur la page de détail d'un récit vous pourrez découvrir les informat
 
 image::images/détailRécit.png[détailRécit]
 
+==== Information supplémentaire sur un récit
+
+Vous pouvez accéder à des informations supplémentaires sur le récit en cliquant sur le titre simplifié du récit.
+
+image::images/détailRécit2.png[détailRécit2]
+
+Cela aura pour effet de faire apparaître une fenêtre contenant des informations supplémentaires sur le récit.
+
+image::images/détailRécit3.png[détailRécit3]
+
 === Recherche d'un type de lieu    
 
 Vous pouvez rechercher un type de lieu en sélectionnant un type de lieu dans la liste déroulante `Rechercher un type de lieu` 
@@ -54,7 +64,7 @@ Puis en cliquant sur le bouton `Rechercher`.
 
 image::images/rechercheLieu.png[rechercheTypeLieu2]
 
-Cela aura pour effet de changer la couleur des points sur la carte. 
+Cela aura pour effet d'afficher les différents lieux correspondant au type de lieu sélectionné.
 
 image::images/pointDiff.png[carte]
 
@@ -71,6 +81,10 @@ image::images/rechercheRécit.png[rechercheRécit2]
 Cela aura pour effet de mettre en valeur les différents lieux liée au récit sélectionné.
 
 image::images/lieuRécit.png[lieuRécit]
+
+Vous pourrez également accéder à la fiche du récit en cliquant sur le lien `Voir la fiche du récit`.
+
+image::images/lienFicheRécit.png[lienFicheRécit]
 
 === Légende de la carte
 
@@ -100,7 +114,7 @@ image::images/formulaireContact[formulaireContact]
 
 === Connexion
 
-Pour accéder à la partie administrateur vous devez vous connecter en cliquant sur le bouton `Connexion` en bas à droite de la page en dessous de la légende.
+Pour accéder à la partie administrateur vous devez vous connecter en cliquant sur le bouton `Ouvrir le menu` puis en cliquant sur le bouton `Connexion` à droite de la page.
 
 image::images/connexion.png[connexion]
 
