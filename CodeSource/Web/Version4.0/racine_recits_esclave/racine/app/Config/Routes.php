@@ -74,6 +74,7 @@ $routes->match(['get', 'post'],'statistiques', 'Admin::statistiques');
 //Pages invisibles pour insertion, ..
 $routes->post('Ajout/InsertPoint', 'Ajout::InsertPoint');
 $routes->post('Ajout/InsertRecit', 'Ajout::InsertRecit');
+$routes->post('Ajout/InsertPoly', 'Ajout::InsertPoly');
 $routes->post('Ajout/InsertAuteur', 'Ajout::InsertAuteur');
 $routes->post('Admin/login', 'Admin::login');
 $routes->post('Admin/creercompte', 'Admin::creercompte');

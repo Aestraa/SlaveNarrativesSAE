@@ -9,7 +9,7 @@
 <body>
     
     <div class="login-container">
-           <form action="<?= site_url('Ajout/InsertRecit') ?>" method="post">
+           <form action="<?= site_url('Ajout/InsertPoly') ?>" method="post">
            <label><?= lang('ajout_recit.name_narrative') ?></label>
            <input name="nomR" id="nomR" type="text" /><br><br>
         
@@ -52,11 +52,11 @@
            <input name="lienR" id="lienR" type="text" /><br><br>
 
            <label><?= lang('ajout_recit.name_slave') ?></label>
-           <select name="poly" id="poly" multiple required>
+           <select name="poly[]" id="poly" multiple required>
                     <?php
-                    if (!empty($auteurs) && is_array($auteurs)) {
-                        foreach ($auteurs as $elt) {
-                            echo '<option value="' . $elt['id_auteur'] . '">' . $elt['nom'] . ' </option>';
+                    if (!empty($polys) && is_array($polys)) {
+                        foreach ($polys as $elt) {
+                            echo '<option value="' . $elt['id'] . '">' . $elt['name'] . ' </option>';
                         }  
                     }
                     ?>
@@ -64,6 +64,7 @@
         
            <button type="submit"><?= lang('ajout_recit.add_button') ?></button>
         </form>
+        
     </div>
 </body>
 </html>

@@ -63,11 +63,14 @@ class Ajout extends BaseController
     {
         $model = model(ModelFormulaire::class);
         $model1 = model(ModelGetAuteur::class);
+        $model2 = model(ModelCouches::class);
+        $model3 = model(ModelPolygones::class);
 
 
         $data = [
             'title' => $model->getRecit(),
-            'auteurs' => $model1->getAuteurs()
+            'auteurs' => $model1->getAuteurs(),
+            'polys' => $model3->getPoly()
         ];
 
         $session = \Config\Services::session();
@@ -103,6 +106,16 @@ class Ajout extends BaseController
         $dateN = $this->request->getPost('dateN');
         $nomS = $this->request->getPost('nomS');
         $lienR = $this->request->getPost('lienR');
+        $nb = $this->request->getPost('nb');
+        for($i=0; $i<$nb; $i++){
+        $type[$i] = $this->request->getPost('type'.$i);
+        }
+        for($i=0; $i<$nb; $i++){
+            $idP[$i] = $this->request->getPost('idP'.$i);
+        }
+        for($i=0; $i<$nb; $i++){
+            $nomP[$i] = $this->request->getPost('nomP'.$i);
+        }
 
         $idR = 0;
         foreach ($data['title'] as $elt) {
@@ -118,14 +131,18 @@ class Ajout extends BaseController
                 $nomE = $elt['nom'];
             }
         }  
+        
 
 
-
-        /*$sql = 'INSERT INTO `tab_recits_v3` (`nom_esc`, `titre`, `date_publi`,`lieu_publi`, `mode_publi`, `type_recit`, `historiographie`, `preface_blanc`, `details_preface`, `id_auteur`, `id_recit`, `scribe_editeur`, `lien_recit`, `debut_titre`) VALUES (\'' . $nomE . '\',\'' . $nomR . '\',\'' . $dateP . '\',\'' . $lieuP . '\',\'' . $modeP . '\',\'' . $typeR . '\',\'' . $com . '\'' . $pref . '\'' . $prefD . '\'' . $idE . '\'' . $idR . '\'' . $nomS . '\'' . $lienR . '\'' . $nomR . '\')';
-        //echo $sql;*/
         $sql = 'INSERT INTO `tab_recits_v3` (`nom_esc`, `titre`, `date_publi`, `lieu_publi`, `mode_publi`, `type_recit`, `historiographie`, `id_auteur`, `id_recit`, `scribe_editeur`, `lien_recit`, `debut_titre`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
         $db = db_connect();
         $db->query($sql, [$nomE, $nomR, $dateP, $lieuP, $modeP, $typeR, $com, $idE, $idR, $nomS, $lienR, $nomR]);
+
+        for($i=0; $i<$nb; $i++){
+        $sql = 'INSERT INTO `recit_poly` (`recit_id`, `poly_id`, `type`) VALUES (?, ?, ?)';
+        $db = db_connect();
+        $db->query($sql, [$idR, $idP[$i], $type[$i]]);
+        }
 
         return redirect()->to('/recits?search='.$nomR);
     }
@@ -297,5 +314,56 @@ class Ajout extends BaseController
         } else {
             return redirect()->to('/map');
         }
+    }
+
+    public function InsertPoly()
+    {
+        $model = model(ModelFormulaire::class);
+        $model1 = model(ModelGetAuteur::class);
+        $model2 = model(ModelCouches::class);
+        $model3 = model(ModelPolygones::class);
+        $data = [
+            'title' => $model->getRecit(),
+            'auteurs' => $model1->getAuteurs(),
+            'nomR' => $this->request->getPost('nomR'),
+            'idE' => $this->request->getPost('idE'),
+            'lieuP' => $this->request->getPost('lieuP'),
+            'infoSup' => $this->request->getPost('infoSup'),
+            'dateP' => $this->request->getPost('dateP'),
+            'typeR' => $this->request->getPost('typeR'),
+            'com' => $this->request->getPost('com'),
+            'modeP' => $this->request->getPost('modeP'),
+            'dateN' => $this->request->getPost('dateN'),
+            'nomS' => $this->request->getPost('nomS'),
+            'lienR' => $this->request->getPost('lienR'),
+            'polys' => $this->request->getPost('poly'),
+            'polygones' => $model3->getPoly()
+        ];
+
+        $idR = 0;
+        foreach ($data['title'] as $elt) {
+            if($elt['id_recit'] > $idR){
+            $idR = $elt['id_recit'];
+            }
+        }
+        $idR ++;
+
+        $idE = $this->request->getPost('idE');
+
+        $nomE = '';
+        foreach ($data['auteurs'] as $elt) {
+            if($elt['id_auteur'] == $idE){
+                $nomE = $elt['nom'];
+            }
+        } 
+
+        $data += [
+            'idR' => $idR,
+            'nomE' => $nomE
+        ];
+
+
+        return view('resclaves/header')
+        . view('resclaves/insert_polys', $data);
     }
 }

@@ -83,23 +83,7 @@ class ModelPoints extends Model
 
 
 
-/*
-class ModelPolygones extends Model
-{
-    protected $table = 'poly';
-	protected $allowedFields = ['name_1','id_recit','type','name','label','id'];
 
-    public function search_poly($data)
-	{
-		$idr = $this->db->escapeLikeString($data['id_recit']);
-
-        return $this->asArray()
-        ->join('tab_recits_v3', 'poly.id_recit = tab_recits_v3.id_recit')
-        ->Where(['poly.id_recit'=> $idr])
-        ->findAll();
-	}
-}
-*/
 
 class ModelPolygones extends Model
 {
