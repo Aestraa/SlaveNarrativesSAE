@@ -49,7 +49,9 @@ class Recits extends BaseController
         'recitsT'  => $model->getTriRecits($tri, $order)
         ];
 
-        DatabaseUtils::insertVisit('recits');
+        if((!empty($search) && !empty($search)) || (!empty($tri) && !empty($tri))){
+            DatabaseUtils::insertVisit('recits');
+        }
 
         return view ('resclaves/header')
         . view ('resclaves/recits',$data)
