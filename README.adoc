@@ -69,7 +69,8 @@ WARNING: Le contenu de ce dépôt et de ce ReadMe changeront tout au long de la 
 [cols="1,2,2",options=header]
 |===
 | Nom    | Lien         |  Notes 
-| `SITE WEB CLIENT` | https://slave-narratives.univ-tlse2.fr/[Lien vers le site web] | Site web client
+| `SITE WEB DÉPART` | https://slave-narratives.univ-tlse2.fr/[Lien vers le site web] | Site web donné au départ du projet
+| `SITE WEB ACTUEL` | https://slavenarrativessae.000webhostapp.com/map[Lien vers le site web] | Site web actuel du projet
 |===
 
 ==== Documentation utilisateur 
