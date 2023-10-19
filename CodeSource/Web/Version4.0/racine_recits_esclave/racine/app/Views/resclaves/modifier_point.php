@@ -58,9 +58,72 @@
             <button type="submit"><?= lang('modif_point.modify_point_button') ?></button>
         </form>
     </div>
-    <div>
-        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d38842409.43735749!2d-32.80326698876798!3d32.535496033354896!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sfr!2sfr!4v1695204067631!5m2!1sfr!2sfr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-    </div>
+    <!-- Div de la map -->
+    <div id="map" style="width: 100%; height: 500px;"></div>
+   
+    <!-- Script pour gérer la carte et récupérer les coordonnées -->
+    <script>
+        //le setView possède ces valeurs pour avoir une vue d'ensemble des tous les continents sur la carte
+        var map = L.map('map').setView([0, 0], 1);
+        
+        //Référence et configuration de la carte
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+        
+        //Variable d'affectation qui servira dans la fonction ci-dessous
+        var coordInput = document.getElementById("coord");
+        var villeInput = document.getElementById("ville");
+        
+        //Mise du bouton dans une variable pour changer son état (visibilité)
+        var submitButton = document.getElementById("submit-button");
+
+
+        // Ajustez la taille de la zone géographique autour des coordonnées
+        var radius = 5.0; // Par exemple, un rayon de 0,01 degré (environ 500 km)
+
+
+        //Méthode qui permet d'ajouter les coordonées dans la zone de texte souhaité suite à un clic sur la carte
+        map.on('click', function(e) {
+            var lat = e.latlng.lat;
+            var lng = e.latlng.lng;
+            //En suivant la norme ISO 6709 => l'ordre est latitude et longitude
+            var coordValue = lat + ','  + lng;
+            //Ajout des valeurs dans la zone de texte "Coordonées" suite au clic
+            coordInput.value = coordValue;
+
+            // Calcul des coordonnées de la zone géographique autour du clic
+            var latMin = lat - radius;
+            var latMax = lat + radius;
+            var lngMin = lng - radius;
+            var lngMax = lng + radius;
+
+
+            //Ajout de l'api qui permettra d'associer la ville au coordonnées
+            fetch(`https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lng}&format=json&lat_min=${latMin}&lat_max=${latMax}&lon_min=${lngMin}&lon_max=${lngMax}`)
+            //Ajout des villes dans le fichier json
+            .then(response => response.json())
+            .then(data => {
+                if (data.address && data.address.city) {
+                    var city = data.address.city || data.address.town || data.address.village || data.address.hamlet;
+                    // Ajout de la ville dans la zone de texte "Ville"
+                    villeInput.value = city;
+                    //Réapparition du bouton car tous les éléments sont renseignés
+                    submitButton.style.display = "block"; 
+                } else {
+                    // Effacer la valeur de la zone de texte "Ville" si aucune ville n'est trouvée
+                    villeInput.value = '';
+
+                }
+            })
+            .catch(error => {
+                console.error('Erreur :', error);
+                // Effacer la valeur de la zone de texte "Ville" en cas d'erreur
+                document.getElementById("ville").value = '';
+            });
+
+        });
+    </script>
 </body>
 
 </html>
