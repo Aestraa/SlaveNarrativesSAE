@@ -83,7 +83,7 @@ class ModelPoints extends Model
 
 
 
-
+/*
 class ModelPolygones extends Model
 {
     protected $table = 'poly';
@@ -99,6 +99,65 @@ class ModelPolygones extends Model
         ->findAll();
 	}
 }
+*/
+
+class ModelPolygones extends Model
+{
+    protected $table = 'polygone';
+    protected $allowedFields = ['name', 'label', 'category', 'state', 'geoj'];
+
+    public function search_poly($results)
+    {
+        $resultat = [];
+
+        foreach ($results as $elt) {
+            $query2 = $this->db->table('polygone')
+                ->where('id', $elt['poly_id'])
+                ->get();
+
+            $rows = $query2->getResultArray(); // Utilisez getResultArray() pour obtenir un tableau associatif
+
+            if (!empty($rows)) {
+                $row = $rows[0]; // Prenez le premier résultat du tableau (s'il y en a plusieurs)
+
+                $resultat[] = [
+                    'poly_id' => $elt['poly_id'],
+                    'recit_id' => $elt['recit_id'],
+                    'type' => $elt['type'],
+                    'name' => $row['name'],
+                    'label' => $row['label'],
+                    'category' => $row['category'],
+                    'state' => $row['state'],
+                    'geoj' => $row['geoj']
+                ];
+            }
+        }
+
+        return $resultat;
+    }
+}
+
+
+
+
+class ModelRecit_poly extends Model
+{
+    protected $table = 'recit_poly';
+    protected $allowedFields = ['recit_id', 'poly_id', 'type'];
+
+    public function search_recit_poly($data)
+    {
+        $idr = $this->db->escapeLikeString($data['id_recit']);
+
+        return $this->asArray()
+            ->where('recit_id', $idr)
+            ->like(['recit_poly.recit_id'=> $idr])
+            ->findAll();
+    }
+}
+
+
+
 
 
 

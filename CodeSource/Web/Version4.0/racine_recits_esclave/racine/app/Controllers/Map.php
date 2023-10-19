@@ -22,6 +22,7 @@ l'information récupérée des formulaires de type 'post' doit être dans la mê
 
         $model5 = model(ModelPoints::class);
         $model6 = model(ModelPolygones::class);
+        $model7 = model(ModelRecit_poly::class);
         helper('form');
         // affichage si l'utilisateur choisit le formulaire selon les récits
         if ($this->request->getPost('select_recit')) {
@@ -31,6 +32,8 @@ l'information récupérée des formulaires de type 'post' doit être dans la mê
                 'id_recit' => $this->request->getPost('select_recit')
             ];
 
+            $list = $model7->search_recit_poly($data2);
+
 
             $data2 = [
                 'points'  => $model->getPoints(),
@@ -39,7 +42,7 @@ l'information récupérée des formulaires de type 'post' doit être dans la mê
                 'aires' => $model4->getAiresAut(),
                 'roy_afr' => $model3->getRoyAfr(),
                 'pts' => $model5->search_pts($data2),
-                'poly' => $model6->search_poly($data2),
+                'poly' => $model6->search_poly($list),
             ];
 
             DatabaseUtils::insertVisit('map_recits');

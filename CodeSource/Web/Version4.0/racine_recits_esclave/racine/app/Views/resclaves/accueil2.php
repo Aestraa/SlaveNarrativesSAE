@@ -69,11 +69,11 @@ var legendText = "<?php echo lang('accueil.locations_birth')?>"
   var legend2 = L.control({ position: "bottomright" });
   legend.onAdd = function(map) {
     var div = L.DomUtil.create("div", "legend");
-    div.innerHTML += '<i class="naissance"></i><span>' + legendText +'</span><br><br> ';
+    div.innerHTML += '<i class="naiss"></i><span>' + legendText +'</span><br>';
     div.innerHTML += '<i class="publi"></i><span>' + legendText2 +'</span><br>';
-    div.innerHTML += '<i class="lieuvie"></i><span>' + legendText3 +'</span><br><br>';
-    div.innerHTML += '<i class="deces"></i><span>' + legendText4 +'</span><br><br>';
-    div.innerHTML += '<i class="esclavage"></i><span>' + legendText5 +'</span><br>';
+    div.innerHTML += '<i class="lieuv"></i><span>' + legendText3 +'</span><br>';
+    div.innerHTML += '<i class="dece"></i><span>' + legendText4 +'</span><br>';
+    div.innerHTML += '<i class="esclav"></i><span>' + legendText5 +'</span><br>';
     return div;
   };
 
@@ -142,8 +142,8 @@ if (! empty($pts) && is_array($pts)) {
               $reponse = 'var poly = {"type": "FeatureCollection", "features": [';
               $type = 'var type_pays =[';
               for ($i = 0; $i < $nbt; $i++) {
-                    $reponse .= '{"geometry": '.$poly[$i]['geoj'].',"id": '.$poly[$i]['id'].', "type": "Feature", "properties": {"type": "'.$poly[$i]['type'].'"
-                    ,"id_recit":"'.$poly[$i]['id_recit'].'",
+                    $reponse .= '{"geometry": '.$poly[$i]['geoj'].',"id": '.$poly[$i]['poly_id'].', "type": "Feature", "properties": {"type": "'.$poly[$i]['type'].'"
+                    ,"id_recit":"'.$poly[$i]['recit_id'].'",
                     "name":"'.$poly[$i]['name'].'"
                   }},'."\r\n";
                     $type .="'".$poly[$i]['type']."',";
