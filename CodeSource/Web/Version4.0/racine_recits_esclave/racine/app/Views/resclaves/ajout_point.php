@@ -62,7 +62,7 @@ $lastPoint = $model->getLastPoint();
                 ?>
             </div>
                 -->
-            <button type="submit" id="submit-button" style="display: none;"><?= lang('ajout_point.add_point_button') ?></button>
+            <button type="submit" id="submit-button"><?= lang('ajout_point.add_point_button') ?></button>
         </form>
     </div>
     <!-- Div de la map -->
