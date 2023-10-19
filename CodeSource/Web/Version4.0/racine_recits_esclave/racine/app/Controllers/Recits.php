@@ -12,10 +12,41 @@ class Recits extends BaseController
 
         $model = model(ModelRecit::class);
 
-        $search = $this->request->getGet('search'); // Récupérez la valeur de recherche depuis l'URL
+        $search = $this->request->getGet('search');
+        $tri = $this->request->getGet('tri');
+        $order = $this->request->getGet('tri');
+
+        switch($tri){
+            case "nomAZ":
+                $tri = "nom_esc";
+                $order = "ASC";
+                break;
+            case "nomZA":
+                $tri = "nom_esc";
+                $order = "DESC";
+                break;
+            case "anneeAZ":
+                $tri = "date_publi";
+                $order = "ASC";
+                break;
+            case "anneeZA":
+                $tri = "date_publi";
+                $order = "DESC";
+                break;
+            case "titreAZ":
+                $tri = "titre";
+                $order = "ASC";
+                break;
+            case "titreZA":
+                $tri = "titre";
+                $order = "DESC";
+                break;
+            default:
+        }
  
         $data = [
         'recits'  => $model->getRecits($search),
+        'recitsT'  => $model->getTriRecits($tri, $order)
         ];
 
         DatabaseUtils::insertVisit('recits');

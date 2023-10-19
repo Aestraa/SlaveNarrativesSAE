@@ -35,6 +35,17 @@ class ModelRecit extends Model
         }
 }
 
+public function getTriRecits($tri = null, $order = null)
+    {
+        if ($tri) {
+            return $this->asArray()
+                ->orderBy($tri, $order)
+                ->findAll();
+        } else {
+            return;
+        }
+}
+
     public function getIdRec($idrec = false)
     {
         $this->join('tab_auteurs', 'tab_recits_v3.id_auteur = tab_auteurs.id_auteur');

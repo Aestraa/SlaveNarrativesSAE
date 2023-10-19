@@ -11,6 +11,18 @@
     <input class="button-search" type="submit" value=<?= lang('recits.search_button') ?>>
 </form></br>
 
+<form action="<?= base_url('recits') ?>" method="get">
+    <select name="tri" id="tri">
+    <option value="nomAZ">Trier par nom de A-Z</option>
+    <option value="nomZA">Trier par nom de Z-A</option>
+    <option value="anneeAZ">Trier par annéee croissante</option>
+    <option value="anneeZA">Trier par annéee décroisante</option>
+    <option value="titreAZ">Trier par titre de A-Z</option>
+    <option value="titreZA">Trier par titre de Z-A</option>
+    </select>
+    <input class="button-tri" type="submit" value="Trier">
+</form></br>
+
 <!--
 <style>
     .sortable-header {
@@ -67,15 +79,11 @@
 
     </thead>
 
-    <?php 
-        if(isset($_GET['search'])){
-            $filtervalues = $_GET['search'];
-            $query = "SELECT * FROM tab_recits_v3 WHERE CONCAT(nom_esc,date_publi,titre) LIKE '%$filtervalues%' ";
-        }
-    ?>
+    
 
 <tbody>
-    <?php foreach ($recits as $r): ?>
+    <?php if(isset($recitsT) && is_array($recitsT)):
+     foreach ($recits as $r): ?>
   
 <tr>
 
@@ -106,7 +114,40 @@
     <?php endforeach ?>
     </tbody>
     </table>
-    
+    <?php else : ?>
+        <?php foreach ($recits as $r): ?>
+  
+  <tr>
+  
+      <td>
+          <p><a href="<?= site_url()."recits/".esc($r['id_recit'], 'url') ?>"><?php echo $r['nom_esc'];?></a></p>
+      </td>
+  
+      <td>
+          <p><?php echo $r['date_publi'];?></p>
+      </td>
+  
+      <td>
+          <p><?php echo $r['titre'];?></p>
+      </td>
+  
+          <?php if ($session->get('is_admin')) : ?>
+              <td>
+                  <p><a href="<?= site_url('/modif_recit?esc='.esc($r['id_auteur']).'&idR='.esc($r['id_recit'])) ?>"><?= lang('recits.modify_button') ?></a></p>
+               </td>
+  
+              <td>
+                  <p><a href="<?= site_url('Suppr/SupprRecit?esc='.esc($r['id_auteur']).'&idR='.esc($r['id_recit'])) ?>" onclick="return confirm('<?= lang('recits.delete_confirmation') ?>')"><?= lang('recits.delete_button') ?></a></p>
+              </td>
+          <?php endif; ?>
+  
+  </tr>
+  
+      <?php endforeach ?>
+      </tbody>
+    </table>
+    <?php endif; ?>
+
     <script>
 
         $(document).ready(function () {
