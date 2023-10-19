@@ -216,12 +216,22 @@ ul li a button:hover {
 			<option><?= lang('sidebar.narrative.search_narrative') ?></option>
 			<?php
 			$nbt = count($points);
-			foreach ($points as $p) { ?>
-				<option value=<?php echo $p['id_recit'] ?>>
+			if (!isset($selec) || $selec === null) {
+				$selec = '';
+			}
+			
+			foreach ($points as $p) { 
+				if($p['id_recit'] == $selec){?>
+					<option value=<?php echo $p['id_recit'] ?> selected>
 
-					<?php echo $p['nom_esc'], ' (', $p['date_publi'], ')' ?> </option>
+						<?php echo $p['nom_esc'], ' (', $p['date_publi'], ')' ?> </option>
 
-			<?php } ?>
+			<?php }else{ ?>
+						<option value=<?php echo $p['id_recit'] ?> >
+
+						<?php echo $p['nom_esc'], ' (', $p['date_publi'], ')' ?> </option>
+			<?php	}
+			}?>
 
 		</select>
 

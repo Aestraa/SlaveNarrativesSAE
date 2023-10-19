@@ -43,6 +43,7 @@ l'information récupérée des formulaires de type 'post' doit être dans la mê
                 'roy_afr' => $model3->getRoyAfr(),
                 'pts' => $model5->search_pts($data2),
                 'poly' => $model6->search_poly($list),
+                'selec' => $this->request->getpost('select_recit')
             ];
 
             DatabaseUtils::insertVisit('map_recits');

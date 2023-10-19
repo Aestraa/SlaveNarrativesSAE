@@ -11,15 +11,54 @@
     <input class="button-search" type="submit" value=<?= lang('recits.search_button') ?>>
 </form></br>
 
+<!--
+<style>
+    .sortable-header {
+        position: relative;
+    }
+
+    .sortable-header a {
+        position: absolute;
+        top: 0;
+    }
+
+    .arrow-up {
+        right: 10px; 
+    }
+
+    .arrow-down {
+        right: 0;
+    }
+    
+</style>
+-->
 
 <?php if (! empty($recits) && is_array($recits)): ?>
     <table id="exa" class="display" style="width:100%">
     <thead>
         
     <TR>
-		<TH> <?= lang('recits.name_slave') ?> </TH>
-        <TH> <?= lang('recits.date_publication') ?> </TH>
-        <TH> <?= lang('recits.title') ?> </TH>
+            <th style="position: relative;" class="sortable-header">
+                <?= lang('recits.name_slave') ?>
+                <!--
+                <a href="?sort=name_slave_asc" class="arrow-up">&#9650;</a>
+                <a href="?sort=name_slave_desc" class="arrow-down">&#9660;</a>
+                -->
+            </th>
+            <th style="position: relative;" class="sortable-header">
+                <?= lang('recits.date_publication') ?>
+                <!--
+                <a href="?sort=date_publication_asc" class="arrow-up">&#9650;</a>
+                <a href="?sort=date_publication_desc" class="arrow-down">&#9660;</a>
+                -->
+            </th>
+            <th style="position: relative;" class="sortable-header">
+                <?= lang('recits.title') ?>
+                <!--
+                <a href="?sort=title_desc" class="arrow-down">&#9660;</a>
+                <a href="?sort=title_asc" class="arrow-up">&#9650;</a>
+                -->
+            </th>
         <?php if ($session->get('is_admin')) : ?>
             <TH> <?= lang('recits.modification') ?> </TH>
             <TH> <?= lang('recits.delete') ?> </TH>
