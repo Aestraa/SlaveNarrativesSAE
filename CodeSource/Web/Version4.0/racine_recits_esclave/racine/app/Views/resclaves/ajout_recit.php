@@ -50,6 +50,17 @@
         
            <label><?= lang('ajout_recit.link_narrative') ?></label>
            <input name="lienR" id="lienR" type="text" /><br><br>
+
+           <label><?= lang('ajout_recit.name_slave') ?></label>
+           <select name="poly" id="poly" multiple required>
+                    <?php
+                    if (!empty($auteurs) && is_array($auteurs)) {
+                        foreach ($auteurs as $elt) {
+                            echo '<option value="' . $elt['id_auteur'] . '">' . $elt['nom'] . ' </option>';
+                        }  
+                    }
+                    ?>
+                </select><br><br>
         
            <button type="submit"><?= lang('ajout_recit.add_button') ?></button>
         </form>

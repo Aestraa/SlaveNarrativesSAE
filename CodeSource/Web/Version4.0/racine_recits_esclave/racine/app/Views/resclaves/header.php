@@ -155,7 +155,7 @@ if($session->get('visit') != 'yes'){
     form.submit();
   });
 
-      //script pour envoyer methode post pour language EN
+      //script pour envoyer methode post pour language FR
       document.getElementById('changeLanguageFR').addEventListener('click', function(event) {
     event.preventDefault();
 
@@ -167,14 +167,14 @@ if($session->get('visit') != 'yes'){
     var idInput = document.createElement('input');
     idInput.type = 'hidden';
     idInput.name = 'idE';
-    idInput.value = '<?php echo isset($_POST['idE']) ? htmlspecialchars($_POST['idE']) : null; ?>'; // Remplacez par la valeur de votre ID
+    idInput.value = '<?php echo isset($_POST['idE']) ? htmlspecialchars($_POST['idE']) : null; ?>';
     form.appendChild(idInput);
 
      // Ajouter le champ pour l'ID
      var idInput = document.createElement('input');
     idInput.type = 'hidden';
     idInput.name = 'boutonaj';
-    idInput.value = '<?php echo isset($_POST['boutonaj']) ? htmlspecialchars($_POST['boutonaj']) : null; ?>'; // Remplacez par la valeur de votre ID
+    idInput.value = '<?php echo isset($_POST['boutonaj']) ? htmlspecialchars($_POST['boutonaj']) : null; ?>';
     form.appendChild(idInput);
 
 

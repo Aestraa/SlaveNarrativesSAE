@@ -135,6 +135,13 @@ class ModelPolygones extends Model
 
         return $resultat;
     }
+
+    public function getPoly()
+    {
+        return $this->select('id', 'name')
+        ->get()
+        ->getResult();
+    }
 }
 
 
