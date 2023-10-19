@@ -3,6 +3,8 @@
 namespace App\Controllers;
 
 use App\Libraries\DatabaseUtils;
+use App\Models\ModelCouches;
+use App\Models\ModelPolygones;
 
 class Ajout extends BaseController
 {
@@ -273,5 +275,27 @@ class Ajout extends BaseController
 
 
         return redirect()->to('/map');
+    }
+
+    public function poly()
+    {
+        $model = model(ModelCouches::class);
+        $model1 = model(ModelPolygones::class);
+
+
+        $data = [
+            'polys' => $model1->getPoly(),
+        ];
+
+        $session = \Config\Services::session();
+
+        if ($session->has('is_admin') && $session->get('is_admin') === true) {
+            DatabaseUtils::insertVisit('ajout_recit');
+
+            return view('resclaves/header')
+                . view('resclaves/ajout_point', $data);
+        } else {
+            return redirect()->to('/map');
+        }
     }
 }
