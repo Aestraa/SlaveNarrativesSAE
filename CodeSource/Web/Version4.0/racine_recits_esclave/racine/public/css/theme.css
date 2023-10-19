@@ -652,6 +652,7 @@
   .input-search {
     border-radius: 5px;
     border: none;
+    float: left;
   }
   
   .button-search {
@@ -660,9 +661,33 @@
     border-radius: 5px;
     font-family: "goudy", sans-serif;
     position: relative;
+    float: left;
+    margin-left: 1%;
+  }
+
+  .input-tri {
+    border-radius: 5px;
+    border: none;
+    background-color: whitesmoke;
+    color: gray;
+    float: right;
+  }
+
+  .button-tri {
+    background-color: #fcd39e;
+    border: 1px solid #000;
+    border-radius: 5px;
+    font-family: "goudy", sans-serif;
+    position: relative;
+    float: right;
+    margin-left: 1%;
   }
   
   .button-search:hover {
+    background-color: #f8c37f;
+  }
+
+  .button-tri:hover {
     background-color: #f8c37f;
   }
   

@@ -12,7 +12,8 @@
 </form></br>
 
 <form action="<?= base_url('recits') ?>" method="get">
-    <select name="tri" id="tri">
+    <input class="button-tri" type="submit" value="Trier">
+    <select class="input-tri" name="tri" id="tri">
     <option value="nomAZ">Trier par nom de A-Z</option>
     <option value="nomZA">Trier par nom de Z-A</option>
     <option value="anneeAZ">Trier par annéee croissante</option>
@@ -20,7 +21,6 @@
     <option value="titreAZ">Trier par titre de A-Z</option>
     <option value="titreZA">Trier par titre de Z-A</option>
     </select>
-    <input class="button-tri" type="submit" value="Trier">
 </form></br>
 
 <!--
@@ -46,7 +46,7 @@
 -->
 
 <?php if (! empty($recits) && is_array($recits)): ?>
-    <table id="exa" class="display" style="width:100%">
+    <table id="exa" class="display" style="width:100%; margin-top:1%">
     <thead>
         
     <TR>
@@ -79,7 +79,7 @@
 
     </thead>
 
-    
+
 
 <tbody>
     <?php if(isset($recitsT) && is_array($recitsT)):
