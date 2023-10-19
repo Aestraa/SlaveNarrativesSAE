@@ -14,12 +14,65 @@
 <form action="<?= base_url('recits') ?>" method="get">
     <input class="button-tri" type="submit" value="Trier">
     <select class="input-tri" name="tri" id="tri">
-    <option value="nomAZ">Trier par nom de A-Z</option>
-    <option value="nomZA">Trier par nom de Z-A</option>
-    <option value="anneeAZ">Trier par annéee croissante</option>
-    <option value="anneeZA">Trier par annéee décroisante</option>
-    <option value="titreAZ">Trier par titre de A-Z</option>
-    <option value="titreZA">Trier par titre de Z-A</option>
+    <?php
+    if (isset($_GET['tri'])){
+        if($_GET['tri'] == 'nomAZ'){
+            echo '<option value="nomAZ" selected>'.lang('recits.nomAZ').'</option>
+            <option value="nomZA" >'.lang('recits.nomZA').'</option>
+            <option value="anneeAZ">'.lang('recits.anneeAZ').'</option>
+            <option value="anneeZA">'.lang('recits.anneeZA').'</option>
+            <option value="titreAZ">'.lang('recits.titreAZ').'</option>
+            <option value="titreZA">'.lang('recits.titreZA').'</option>';
+        }
+        elseif($_GET['tri'] == 'nomZA'){
+            echo '<option value="nomAZ">'.lang('recits.nomAZ').'</option>
+            <option value="nomZA" selected>'.lang('recits.nomZA').'</option>
+            <option value="anneeAZ">'.lang('recits.anneeAZ').'</option>
+            <option value="anneeZA">'.lang('recits.anneeZA').'</option>
+            <option value="titreAZ">'.lang('recits.titreAZ').'</option>
+            <option value="titreZA">'.lang('recits.titreZA').'</option>';
+        }
+        elseif($_GET['tri'] == 'anneeAZ'){
+            echo '<option value="nomAZ">'.lang('recits.nomAZ').'</option>
+            <option value="nomZA" >'.lang('recits.nomZA').'</option>
+            <option value="anneeAZ" selected>'.lang('recits.anneeAZ').'</option>
+            <option value="anneeZA">'.lang('recits.anneeZA').'</option>
+            <option value="titreAZ">'.lang('recits.titreAZ').'</option>
+            <option value="titreZA">'.lang('recits.titreZA').'</option>';
+        }
+        elseif($_GET['tri'] == 'anneeZA'){
+            echo '<option value="nomAZ">'.lang('recits.nomAZ').'</option>
+            <option value="nomZA" >'.lang('recits.nomZA').'</option>
+            <option value="anneeAZ">'.lang('recits.anneeAZ').'</option>
+            <option value="anneeZA" selected>'.lang('recits.anneeZA').'</option>
+            <option value="titreAZ">'.lang('recits.titreAZ').'</option>
+            <option value="titreZA">'.lang('recits.titreZA').'</option>';
+        }
+        elseif($_GET['tri'] == 'titreAZ'){
+            echo '<option value="nomAZ">'.lang('recits.nomAZ').'</option>
+            <option value="nomZA" >'.lang('recits.nomZA').'</option>
+            <option value="anneeAZ">'.lang('recits.anneeAZ').'</option>
+            <option value="anneeZA">'.lang('recits.anneeZA').'</option>
+            <option value="titreAZ" selected>'.lang('recits.titreAZ').'</option>
+            <option value="titreZA">'.lang('recits.titreZA').'</option>';
+        }
+        elseif($_GET['tri'] == 'titreZA'){
+            echo '<option value="nomAZ">'.lang('recits.nomAZ').'</option>
+            <option value="nomZA" >'.lang('recits.nomZA').'</option>
+            <option value="anneeAZ">'.lang('recits.anneeAZ').'</option>
+            <option value="anneeZA">'.lang('recits.anneeZA').'</option>
+            <option value="titreAZ">'.lang('recits.titreAZ').'</option>
+            <option value="titreZA" selected>'.lang('recits.titreZA').'</option>';
+        }
+    } else {
+        echo '<option value="nomAZ">'.lang('recits.nomAZ').'</option>
+        <option value="nomZA" >'.lang('recits.nomZA').'</option>
+        <option value="anneeAZ">'.lang('recits.anneeAZ').'</option>
+        <option value="anneeZA">'.lang('recits.anneeZA').'</option>
+        <option value="titreAZ">'.lang('recits.titreAZ').'</option>
+        <option value="titreZA">'.lang('recits.titreZA').'</option>';
+    }
+    ?>
     </select>
 </form></br>
 

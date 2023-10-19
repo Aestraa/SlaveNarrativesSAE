@@ -11,5 +11,12 @@ return [
     'delete_button' => 'Suppression',
     'delete_confirmation' => 'Voulez-vous vraiment supprimer ce récit ?',
     'search' => 'Rechercher...',
-    'search_button' => 'Rechercher'
+    'search_button' => 'Rechercher',
+    'sort_button' => 'Trier',
+    'nomAZ' => 'Trier par nom de A-Z',
+    'nomZA' => 'Trier par nom de Z-A',
+    'anneeAZ' => 'Trier par annéee croissante',
+    'anneeZA' => 'Trier par annéee décroisante',
+    'titreAZ' => 'Trier par titre de A-Z',
+    'titreZA' => 'Trier par titre de Z-A'
 ];

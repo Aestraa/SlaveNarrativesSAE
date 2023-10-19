@@ -11,5 +11,12 @@ return [
     'delete_button' => 'Delete',
     'delete_confirmation' => 'Are you sure you want to delete this narrative?',
     'search' => 'Search...',
-    'search_button' => 'Search'
+    'search_button' => 'Search',
+    'sort_button' => 'Sort',
+    'nomAZ' => 'Sort by name from A-Z',
+    'nomZA' => 'Sort by name from Z-A',
+    'anneeAZ' => 'Sort by ascending year',
+    'anneeZA' => 'Sort by descending year',
+    'titreAZ' => 'Sort by title from A-Z',
+    'titreZA' => 'Sort by name from Z-A'
 ];
