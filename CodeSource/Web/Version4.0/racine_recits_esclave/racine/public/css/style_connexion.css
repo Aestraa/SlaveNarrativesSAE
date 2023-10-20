@@ -60,3 +60,14 @@ button {
 button:hover {
     background-color: #6d4c2a;
 }
+
+.scrollable-table {
+    max-height: 300px; /* Hauteur maximale de la table avec barre de défilement */
+    overflow-y: auto; /* Ajoute une barre de défilement verticale si nécessaire */
+    scrollbar-width: thick; /* Épaisseur de la barre de défilement */
+}
+
+/* Largeur de la table à 100% pour s'adapter au conteneur */
+#exa {
+    width: 100%;
+}

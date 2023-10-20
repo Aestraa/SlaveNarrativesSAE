@@ -62,6 +62,7 @@ $routes->match(['get', 'post'],'recits/(:segment)', [Recits::class, 'view']);
 $routes->match(['get', 'post'], '/map/recits2', [Map::class, 'index']);
 $routes->match(['get', 'post'],'/ajout_point', [Ajout::class, 'point']);
 $routes->match(['get', 'post'],'/ajout_recit', [Ajout::class, 'recit']);
+$routes->match(['get', 'post'],'/ajout_poly', [Ajout::class, 'add_poly']);
 $routes->match(['get', 'post'],'/ajout_esclave', [Ajout::class, 'auteur']);
 $routes->match(['get', 'post'],'/modif_point','Ajout::show_modification');
 $routes->match(['get', 'post'],'/modif_recit', [Modif::class, 'modif']);
@@ -74,6 +75,7 @@ $routes->match(['get', 'post'],'statistiques', 'Admin::statistiques');
 //Pages invisibles pour insertion, ..
 $routes->post('Ajout/InsertPoint', 'Ajout::InsertPoint');
 $routes->post('Ajout/InsertRecit', 'Ajout::InsertRecit');
+$routes->post('Ajout/InsertPoly_Recit', 'Ajout::InsertPoly_Recit');
 $routes->post('Ajout/InsertPoly', 'Ajout::InsertPoly');
 $routes->post('Ajout/InsertAuteur', 'Ajout::InsertAuteur');
 $routes->post('Admin/login', 'Admin::login');

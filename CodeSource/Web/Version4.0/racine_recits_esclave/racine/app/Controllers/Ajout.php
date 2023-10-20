@@ -316,7 +316,7 @@ class Ajout extends BaseController
         }
     }
 
-    public function InsertPoly()
+    public function InsertPoly_Recit()
     {
         $model = model(ModelFormulaire::class);
         $model1 = model(ModelGetAuteur::class);
@@ -366,4 +366,29 @@ class Ajout extends BaseController
         return view('resclaves/header')
         . view('resclaves/insert_polys', $data);
     }
+
+    public function add_poly (){
+        return view('resclaves/header')
+        . view('resclaves/ajout_polygone');
+    }
+
+    public function InsertPoly(){
+        // Dans votre contrôleur (Ajout/InsertPoly)
+
+        // Récupérez les données POST
+        $data = $this->request->getPost();
+
+        // Si vous voulez vérifier ou manipuler les données reçues, vous pouvez le faire ici
+
+        // Ensuite, $data est un tableau clé-valeur avec des clés correspondant aux noms des champs POST et des valeurs correspondantes.
+
+        $nom_poly = $data['nom_poly'];
+        $type = $data['type'];
+        $coordonnees = json_decode($data['coordonnees'], true); // Décodez la chaîne JSON en un tableau
+
+        $sql = 'INSERT INTO `polygone` (`name`, `geoj`)
+        VALUES (?, ?)';
+        $db = db_connect();
+        $db->query($sql, [$nom_poly, $geoj]);
+    }   
 }

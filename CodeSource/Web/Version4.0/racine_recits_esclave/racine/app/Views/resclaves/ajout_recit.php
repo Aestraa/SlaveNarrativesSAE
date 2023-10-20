@@ -9,7 +9,7 @@
 <body>
     
     <div class="login-container">
-           <form action="<?= site_url('Ajout/InsertPoly') ?>" method="post">
+           <form action="<?= site_url('Ajout/InsertPoly_Recit') ?>" method="post">
            <label><?= lang('ajout_recit.name_narrative') ?></label>
            <input name="nomR" id="nomR" type="text" /><br><br>
         
@@ -56,7 +56,7 @@
                     <?php
                     if (!empty($polys) && is_array($polys)) {
                         foreach ($polys as $elt) {
-                            echo '<option value="' . $elt['id'] . '">' . $elt['name'] . ' </option>';
+                            echo '<option value="' . $elt['id'] . '">' . $elt['name']. ' </option>';
                         }  
                     }
                     ?>

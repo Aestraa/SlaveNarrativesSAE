@@ -86,6 +86,7 @@ ul li a button:hover {
             <li><a href="/creercompte"><?= lang('sidebar.create_account_button') ?></a></li>
             <li><a href="/ajout_point"><?= lang('sidebar.add_point_button') ?></a></li>
             <li><a href="/ajout_recit"><?= lang('sidebar.add_narrative_button') ?></a></li>
+			<li><a href="/ajout_poly"><?= lang('sidebar.add_polygon_button') ?></a></li>
             <li><a href="/ajout_esclave"><?= lang('sidebar.add_slave_button') ?></a></li>
             <li><a href="/choix_esclave"><?= lang('sidebar.modify_slave_button') ?></a></li>
             <li><a href="/suppr_esclave"><?= lang('sidebar.delete_slave_button') ?></a></li>

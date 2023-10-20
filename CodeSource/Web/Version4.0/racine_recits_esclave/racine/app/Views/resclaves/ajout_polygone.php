@@ -1,33 +1,37 @@
 <!DOCTYPE html>
 <html lang="fr">
-
-<?php
-$model = new \App\Models\ModelGetPoints();
-$lastPoint = $model->getLastPoint();
-?>
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <?php $page_name = lang('ajout_point.title') ?>
-    <title><?= $page_name ?></title>    <!-- Ajout du css pour la carte leaflet -->
+    <title><?= $page_name ?></title>
+    <!-- Ajout du CSS pour la carte Leaflet -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/style_connexion.css'); ?>">
-    <!-- Ajout du js pour la carte leaflet -->
-    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <!-- Ajout du CSS pour la barre de défilement -->
 </head>
-
 <body>
     <div class="login-container">
         <h2><?= lang('ajout_point.title')?></h2>
-        <form action="<?= site_url('Ajout/InsertPoint') ?>" method="post">
+        <form action="<?= site_url('Ajout/InsertPoly') ?>" method="post">
             <div class="input-group">
-                <label for="coord"><?= lang('ajout_point.coordinates')?></label>
-                <input type="text" id="coord" name="coord" required>
+                <label for="nom_poly"><?= lang('ajout_point.poly_name') ?></label>
+                <input type="text" id="nom_poly" name="nom_poly" required>
             </div>
             <div class="input-group">
-                <label for="ville"><?= lang('ajout_point.city')?></label>
-                <input type="ville" id="ville" name="ville" required>
+                <div class="scrollable-table"> <!-- Ajout de la classe "scrollable-table" ici -->
+                    <table id="exa" class="display" style="width:100%;">
+                        <thead>
+                            <tr>
+                                <th><?= lang('ajout_poly.point') ?></th>
+                                <th style="position: relative;"><?= lang('ajout_poly.suppr') ?></th>
+                            </tr>
+                        </thead>
+                        <tbody id="coordonneesTable">
+                            <!-- Les coordonnées seront ajoutées ici -->
+                        </tbody>
+                    </table>
+                </div>
             </div>
             <div class="input-group">
                 <label for="type"><?= lang('ajout_point.type') ?></label>
@@ -39,98 +43,93 @@ $lastPoint = $model->getLastPoint();
                     <option value="lieuvie"><?= lang('ajout_point.types.location_life') ?></option>
                 </select>
             </div>
-            <div class="input-group">
-                <label for="recit"><?= lang('ajout_point.attach_narrative')?></label>
-                <select name="recit" id="recit">
-                    <?php
-                    if (!empty($title) && is_array($title)) {
-                        foreach ($title as $elt) {
-                            //$Licoord = explode(',',$elt['titre']);
-                            echo '<option value="' . $elt['id_recit'] . '">' . $elt['nom_esc'] . ' (' . $elt['date_publi'] . ')</option>';
-                        }
-                    }
+            <!-- Ajoutez un champ de formulaire caché pour les coordonnées -->
+            <input type="hidden" name="coordonnees" id="coordonneesInput">
 
-
-                    ?>
-                </select>
-            </div>
-            <!--
-            <div class="input-group">
-                <label for="point">Id du Recit</label>
-                <?php
-                echo '<input type="text" id="point" name="point" value="' . $lastPoint . '">';
-                ?>
-            </div>
-                -->
             <button type="submit" id="submit-button"><?= lang('ajout_point.add_point_button') ?></button>
         </form>
     </div>
-    <!-- Div de la map -->
+
+    <!-- Div de la carte -->
     <div id="map" style="width: 100%; height: 500px;"></div>
-   
-    <!-- Script pour gérer la carte et récupérer les coordonnées -->
+
+    <!-- Script pour gérer la carte et ajouter les coordonnées au tableau -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
     <script>
-        //le setView possède ces valeurs pour avoir une vue d'ensemble des tous les continents sur la carte
-        var map = L.map('map').setView([0, 0], 1);
-        
-        //Référence et configuration de la carte
+        var map = L.map('map').setView([51.505, -0.09], 13);
+
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            maxZoom: 19,
         }).addTo(map);
-        
-        //Variable d'affectation qui servira dans la fonction ci-dessous
-        var coordInput = document.getElementById("coord");
-        var villeInput = document.getElementById("ville");
-        
-        //Mise du bouton dans une variable pour changer son état (visibilité)
-        var submitButton = document.getElementById("submit-button");
+
+        var coordonnees = []; // Tableau pour stocker les coordonnées
+
+        // Fonction pour gérer les clics sur la carte
+        function onClick(e) {
+            var latlng = e.latlng;
+            var lat = latlng.lat;
+            var lng = latlng.lng;
+
+            coordonnees.push(latlng);
+
+            // Créez une nouvelle ligne pour le tableau
+            var newRow = document.createElement("tr");
+
+            // Créez une cellule pour les coordonnées
+            var coordCell = document.createElement("td");
+            coordCell.textContent = lat + ", " + lng;
+
+            // Créez une cellule pour le bouton de suppression
+            var deleteCell = document.createElement("td");
+            var deleteButton = document.createElement("button");
+            deleteButton.textContent = "Supprimer";
+            deleteButton.onclick = function() {
+                // Supprimez la ligne lorsque le bouton est cliqué
+                var row = this.parentNode.parentNode;
+                // Supprimez également le cercle de la carte
+                map.removeLayer(row.circleMarker);
+                // Supprimez également la ligne de la polyline
+                map.removeLayer(row.polyline);
+                coordonnees.splice(coordonnees.indexOf(row.latlng), 1);
+                row.parentNode.removeChild(row);
+            };
+
+            deleteCell.appendChild(deleteButton);
+
+            var coordonneesInput = document.getElementById('coordonneesInput');
+            coordonneesInput.value = JSON.stringify(coordonnees);
+
+            // Ajoutez les cellules à la ligne
+            newRow.appendChild(coordCell);
+            newRow.appendChild(deleteCell);
+
+            // Ajoutez la ligne au tableau
+            document.getElementById("coordonneesTable").appendChild(newRow);
+
+            // Après avoir ajouté un point au tableau
+            // Scrollez vers le bas pour afficher le nouveau point ajouté
+            var scrollableTable = document.querySelector('.scrollable-table');
+            scrollableTable.scrollTop = scrollableTable.scrollHeight;
 
 
-        // Ajustez la taille de la zone géographique autour des coordonnées
-        var radius = 5.0; // Par exemple, un rayon de 0,01 degré (environ 500 km)
+            // Ajoutez un cercle sur la carte (CircleMarker)
+            var circleMarker = L.circleMarker([lat, lng]).addTo(map);
+            newRow.circleMarker = circleMarker; // Associez le cercle à la ligne
 
+            // Reliez les points avec une polyline
+            if (coordonnees.length > 1) {
+                var latlngs = coordonnees.map(function(coord) {
+                    return [coord.lat, coord.lng];
+                });
+                var polyline = L.polyline(latlngs, { color: 'blue' }).addTo(map);
+                newRow.polyline = polyline;
+            }
 
-        //Méthode qui permet d'ajouter les coordonées dans la zone de texte souhaité suite à un clic sur la carte
-        map.on('click', function(e) {
-            var lat = e.latlng.lat;
-            var lng = e.latlng.lng;
-            //En suivant la norme ISO 6709 => l'ordre est latitude et longitude
-            var coordValue = lat + ','  + lng;
-            //Ajout des valeurs dans la zone de texte "Coordonées" suite au clic
-            coordInput.value = coordValue;
+            newRow.latlng = latlng; // Associez les coordonnées à la ligne
+        }
 
-            // Calcul des coordonnées de la zone géographique autour du clic
-            var latMin = lat - radius;
-            var latMax = lat + radius;
-            var lngMin = lng - radius;
-            var lngMax = lng + radius;
-
-
-            //Ajout de l'api qui permettra d'associer la ville au coordonnées
-            fetch(`https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lng}&format=json&lat_min=${latMin}&lat_max=${latMax}&lon_min=${lngMin}&lon_max=${lngMax}`)
-            //Ajout des villes dans le fichier json
-            .then(response => response.json())
-            .then(data => {
-                if (data.address && data.address.city) {
-                    var city = data.address.city || data.address.town || data.address.village || data.address.hamlet;
-                    // Ajout de la ville dans la zone de texte "Ville"
-                    villeInput.value = city;
-                    //Réapparition du bouton car tous les éléments sont renseignés
-                    submitButton.style.display = "block"; 
-                } else {
-                    // Effacer la valeur de la zone de texte "Ville" si aucune ville n'est trouvée
-                    villeInput.value = '';
-
-                }
-            })
-            .catch(error => {
-                console.error('Erreur :', error);
-                // Effacer la valeur de la zone de texte "Ville" en cas d'erreur
-                document.getElementById("ville").value = '';
-            });
-
-        });
+        map.on('click', onClick);
     </script>
 </body>
-
 </html>
+        

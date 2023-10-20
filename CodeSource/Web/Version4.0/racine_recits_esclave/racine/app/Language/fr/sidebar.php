@@ -34,6 +34,7 @@ return [
     'create_account_button' => 'Créer un compte',
     'add_point_button' => "Ajout d'un point",
     'add_narrative_button' => "Ajout d'un récit",
+    'add_polygon_button' => "Ajout d'un polygone",
     'add_slave_button' => "Ajout d'un esclave/auteur",
     'modify_slave_button' => "Modification d'un esclave/auteur",
     'delete_slave_button' => "Suppression d'un esclave/auteur",
