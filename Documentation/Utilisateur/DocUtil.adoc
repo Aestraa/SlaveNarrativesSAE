@@ -18,6 +18,18 @@ Lorsque vous êtes redirigé vers notre site vous arrivez sur la page d'accueil.
 
 image::images/accueil.png[accueil]
 
+=== Traduction du site
+
+Vous pouvez traduire le site en anglais en cliquant sur le bouton `EN` en haut à droite de la page.
+
+image::images/traduction.png[traduction]
+
+Cela aura pour effet de traduire le site en anglais.
+
+image::images/traduction2.png[traduction2]
+
+Vous pouvez également re traduire le site en français en cliquant sur le bouton `FR` en haut à droite de la page.
+
 === En-tête du site 
 
 Vous pouvez accéder à tout moment à la page d'accueil en cliquant sur le bouton `Accueil` de notre site en haut à gauche de la page.
@@ -112,6 +124,20 @@ image::images/formulaireContact[formulaireContact]
 
 == Partie Administrateur
 
+=== Création d'un compte
+
+Si vous souhaitez créer un compte, vous devez cliquer sur le bouton `Ouvrir le menu` puis en cliquant sur le bouton `Créer un compte` à droite de la page.
+
+image::images/créerCompte.png[connexion]
+
+Vous arrivez alors sur la page de création de compte. Il vous suffit de saisir votre identifiant, votre mot de passe puis de cliquer sur le bouton `Créer le compte`.
+
+image::images/créerCompte2.png[connexion2]
+
+Le compte sera alors créé et sécurisé dans la base de données du site.
+
+image::images/créerCompte3.png[connexion3]
+
 === Connexion
 
 Pour accéder à la partie administrateur vous devez vous connecter en cliquant sur le bouton `Ouvrir le menu` puis en cliquant sur le bouton `Connexion` à droite de la page.
@@ -122,23 +148,27 @@ Vous arrivez alors sur la page de connexion. Il vous suffit de saisir votre iden
 
 image::images/connexion2.png[connexion2]
 
-Une fois la connexion effectuée vous serez redirigé vers la page d'accueil mais avec quelques ajouts. Un ajout sur le titre du site sera visible avec le mot `Connecté` afin de vous indiquer que vous êtes bien connecté.
+Une fois la connexion effectuée vous serez redirigé vers la page d'accueil mais avec quelques ajouts. Un ajout sur le titre du site sera visible avec le mot `Administrateur` afin de vous indiquer que vous êtes bien connecté.
 
 image::images/adminAccueil.png[connexionTitle]
 
 Dans cette partie administrateur, le menu du site a également changé, avec en plus un onglet `statistiques`.
 
-image::images/connexionHeader[connexionHeader]
+image::images/connexionHeader.png[connexionHeader]
 
-=== Statistique
+=== Statistiques
 
-En cliquant sur le bouton `statistiques`, vous serez redirigé vers une page de statistiques. On y trouve 4 graphiques qui représentent le nombre de visite des pages, nombre de visite par année, par mois et par jour avec la possibilité de choisir le jour à voir.
+En cliquant sur le bouton `Statistiques`, vous serez redirigé vers une page de statistiques. On y trouve 4 graphiques qui représentent le nombre de visite des pages, nombre de visite par année, par mois et par jour avec la possibilité de choisir le jour à voir.
 
 image::images/pageStatistiquev2[pageStatistique]
 
 === Déconnexion
 
-Vous aurez également accès à un bouton `Déconnexion` en bas à droite de la page en dessous de la légende. Ce bouton vous permettra de vous déconnecter de la partie administrateur.
+Vous aurez également accès à un bouton `Déconnexion` en ouvrant le menu déroulant à droite de la page.
+
+image::images/menu.png[menu]
+
+Ce bouton vous permettra de vous déconnecter de la partie administrateur.
 
 image::images/déconnexion.png[déconnexion]
 
@@ -154,7 +184,7 @@ image::images/listeRécitAdmin.png[listeRécitAdmin]
 
 === Ajout d'un point
 
-De plus, vous aurez accès à un bouton `Ajout d'un point` en bas à droite de la page en dessous du bouton de déconnexion. 
+De plus, vous aurez accès à un bouton `Ajout d'un point` en ouvrant le menu déroulant à droite de la page.
 
 image::images/ajoutPointBout.png[ajoutPoint]
 
@@ -164,17 +194,13 @@ image::images/formAjoutPoint.png[ajoutPoint2]
 
 ==== Ajout d'un point : Coordonnées
 
-Tout d'abord il vous faudra saisir les coordonnées du point que vous souhaitez ajouter. Pour cela vous devrez cliquer sur le bouton `Agrandir le plan` afin de l'ouvrir. 
+Tout d'abord il vous faudra saisir les coordonnées du point que vous souhaitez ajouter. Pour cela vous devrez cliquer sur l'endroit où vous souhaitez ajouter le point, sur la carte en dessous du formulaire.
 
 image::images/carteAjoutPoint.png[ajoutPoint3]
 
-Vous pourrez effectuer un clique droit sur l'endroit de votre choix afin de récupérer les coordonnées géographiques.
+Cela aura pour effet d'entrer automatiquement les coordonnées du point dans le champ `Coordonnées` de la page d'ajout d'un point.
 
-image::images/carteAjoutPoint2.png[ajoutPoint4]
-
-Vous devrez ensuite saisir les coordonnées dans le champ `Coordonnées` de la page d'ajout d'un point.
-
-image::images/formAjoutPoint2.png[ajoutPoint5]
+image::images/coordAjout.png[ajoutPoint4]
 
 ==== Ajout d'un point : Ville 
 
@@ -194,7 +220,9 @@ Vous pourrez ensuite sélectionner un récit dans la liste déroulante `Joindre 
 
 image::images/formAjoutPoint5.png[ajoutPoint8]
 
-Il ne vous reste plus qu'à cliquer sur le bouton `Terminer` afin d'ajouter le point sur la carte. Le point sera alors visible sur la carte.
+Il ne vous reste plus qu'à cliquer sur le bouton `Terminer` afin d'ajouter le point sur la carte. 
+
+Le point sera alors visible sur la carte.
 
 image::images/pointAjouté.png[ajoutPoint9]
 
