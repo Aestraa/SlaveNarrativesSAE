@@ -385,10 +385,25 @@ class Ajout extends BaseController
         $nom_poly = $data['nom_poly'];
         $type = $data['type'];
         $coordonnees = json_decode($data['coordonnees'], true); // Décodez la chaîne JSON en un tableau
+        //var_dump($coordonnees);
+        $strstart = '{"type":"MultiPolygon","coordinates":[[[';
+        $strend = ']]]}';
+
+        $geoj = $strstart;
+    
+        foreach ($coordonnees as $elt) {    
+            $geoj .= '[' . $elt['lat'] . ', ' . $elt['lng'] . '], ';
+        }
+
+        $geoj .= $strend;
+
 
         $sql = 'INSERT INTO `polygone` (`name`, `geoj`)
         VALUES (?, ?)';
         $db = db_connect();
         $db->query($sql, [$nom_poly, $geoj]);
+
+
+        return redirect()->to('/map');
     }   
 }

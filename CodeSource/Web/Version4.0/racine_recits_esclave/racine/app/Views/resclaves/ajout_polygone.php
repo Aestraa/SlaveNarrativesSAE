@@ -12,10 +12,10 @@
 </head>
 <body>
     <div class="login-container">
-        <h2><?= lang('ajout_point.title')?></h2>
+        <h2><?= lang('ajout_poly.title')?></h2>
         <form action="<?= site_url('Ajout/InsertPoly') ?>" method="post">
             <div class="input-group">
-                <label for="nom_poly"><?= lang('ajout_point.poly_name') ?></label>
+                <label for="nom_poly"><?= lang('ajout_poly.poly_name') ?></label>
                 <input type="text" id="nom_poly" name="nom_poly" required>
             </div>
             <div class="input-group">
@@ -46,7 +46,7 @@
             <!-- Ajoutez un champ de formulaire caché pour les coordonnées -->
             <input type="hidden" name="coordonnees" id="coordonneesInput">
 
-            <button type="submit" id="submit-button"><?= lang('ajout_point.add_point_button') ?></button>
+            <button type="submit" id="submit-button"><?= lang('ajout_poly.add_poly_button') ?></button>
         </form>
     </div>
 
