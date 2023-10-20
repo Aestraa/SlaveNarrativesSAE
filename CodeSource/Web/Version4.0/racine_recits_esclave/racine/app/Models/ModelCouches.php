@@ -122,9 +122,8 @@ class ModelPolygones extends Model
 
     public function getPoly()
     {
-        return $this->select('id', 'name')
-        ->get()
-        ->getResult();
+        return $this->asArray()
+        ->findAll();
     }
 }
 
