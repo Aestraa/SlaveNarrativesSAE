@@ -18,6 +18,18 @@ Lorsque vous êtes redirigé vers notre site vous arrivez sur la page d'accueil.
 
 image::images/accueil.png[accueil]
 
+=== Traduction du site
+
+Vous pouvez traduire le site en anglais en cliquant sur le bouton `EN` en haut à droite de la page.
+
+image::images/traduction.png[traduction]
+
+Cela aura pour effet de traduire le site en anglais.
+
+image::images/traduction2.png[traduction2]
+
+Vous pouvez également re traduire le site en français en cliquant sur le bouton `FR` en haut à droite de la page.
+
 === En-tête du site 
 
 Vous pouvez accéder à tout moment à la page d'accueil en cliquant sur le bouton `Accueil` de notre site en haut à gauche de la page.
@@ -111,6 +123,20 @@ Lorsque vous cliquez sur le bouton de `contact`, vous pouvez remplir le formulai
 image::images/formulaireContact[formulaireContact]
 
 == Partie Administrateur
+
+=== Création d'un compte
+
+Si vous souhaitez créer un compte, vous devez cliquer sur le bouton `Ouvrir le menu` puis en cliquant sur le bouton `Créer un compte` à droite de la page.
+
+image::images/créerCompte.png[connexion]
+
+Vous arrivez alors sur la page de création de compte. Il vous suffit de saisir votre identifiant, votre mot de passe puis de cliquer sur le bouton `Créer le compte`.
+
+image::images/créerCompte2.png[connexion2]
+
+Le compte sera alors créé et sécurisé dans la base de données du site.
+
+image::images/créerCompte3.png[connexion3]
 
 === Connexion
 
