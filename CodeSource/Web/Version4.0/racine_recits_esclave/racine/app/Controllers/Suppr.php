@@ -32,6 +32,8 @@ class Suppr extends BaseController
         $db->query($sql, [$idR]);
         $sql = 'DELETE FROM points WHERE `points`.`id_recit` = ? ';
         $db->query($sql, [$idR]);
+        $sql = 'DELETE FROM recit_poly WHERE `recit_id` = ? ';
+        $db->query($sql, [$idR]);
 
         return redirect()->to('/recits');
     }
