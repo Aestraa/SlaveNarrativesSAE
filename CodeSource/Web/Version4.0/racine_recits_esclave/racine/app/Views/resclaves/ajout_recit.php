@@ -66,5 +66,29 @@
         </form>
         
     </div>
+    <script>
+        var select = document.getElementById('poly');
+        var scrollPosition = 0;
+
+        window.onmousedown = function(e) {
+            // Enregistrez la position de défilement actuelle
+
+            var el = e.target;
+            if (el.tagName.toLowerCase() === 'option' && el.parentNode.hasAttribute('multiple')) {
+                e.preventDefault();
+
+                // Toggle selection
+                if (el.hasAttribute('selected')) el.removeAttribute('selected');
+                else el.setAttribute('selected', '');
+
+                // Hack to correct buggy behavior
+                var clonedSelect = select.cloneNode(true);
+                select.parentNode.replaceChild(clonedSelect, select);
+
+                // Restaurez la position de défilement après le changement de sélection
+                clonedSelect.scrollTop = scrollPosition;
+            }
+        };
+    </script>
 </body>
 </html>
