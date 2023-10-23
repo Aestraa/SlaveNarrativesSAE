@@ -1,14 +1,13 @@
 = Documentation Utilisateur site web G1A-1
-:toc: macro 
+:toc: macro
 :toc-title: Table des matières
-:sectnums:
-:sectnumlevels: 4
-:hide-uri-scheme:   
 
-toc::[]
+:hide-uri-scheme:   
 
 == Introduction
 Bienvenue sur notre site web ! Ce guide d'utilisation a été conçu pour vous aider à naviguer sur notre site et à en tirer le meilleur parti. Il vous expliquera comment accéder aux différentes sections et fonctionnalités, ainsi que les étapes à suivre pour effectuer des tâches courantes, telles que la création d'un compte ou la consultation d'un produit. Si vous rencontrez des problèmes ou des questions, n'hésitez pas à consulter notre section d'aide ou à nous contacter directement. Merci d'utiliser notre site !
+
+toc::[]
 
 == Accéder au site web
 
@@ -276,4 +275,28 @@ image::images/formAjoutEsclave2.png[ajoutEsclave3]
 
 Puis cliquer sur le bouton `Ajouter` afin d'ajouter l'esclave/auteur sur le site.
 
+=== Modification d'un esclave/auteur
 
+Si vous souhaitez modifier un esclave/auteur, vous devez cliquer sur le bouton `Modification d'un esclave/auteur` en ouvrant le menu déroulant à droite de la page.
+
+image::images/modifEsclaveBout.png[modifEsclave]
+
+Vous serez alors redirigé vers la page de modification d'un esclave/auteur. Il vous faudra donc selectionner l'esclave que vous souhaitez modifier dans la liste déroulante `Selectionner un esclave à modifier`.
+
+image::images/formModifEsclave.png[modifEsclave2]
+
+Vous pourrez ensuite modifier les informations de l'esclave/auteur que vous souhaitez modifier.
+
+image::images/formModifEsclave3.png[modifEsclave3]
+
+image::images/formModifEsclave4.png[modifEsclave4]
+
+=== Suppression d'un esclave/auteur
+
+Si vous souhaitez supprimer un esclave/auteur, vous devez cliquer sur le bouton `Suppression d'un esclave/auteur` en ouvrant le menu déroulant à droite de la page.
+
+image::images/supprEsclaveBout.png[supprEsclave]
+
+Vous serez alors redirigé vers la page de suppression d'un esclave/auteur. Il vous faudra donc selectionner l'esclave que vous souhaitez supprimer dans la liste déroulante `Selectionner un esclave à supprimer`.
+
+image::images/formSupprEsclave.png[supprEsclave2]
