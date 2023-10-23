@@ -102,7 +102,12 @@ class Recits extends BaseController
         }
         if(count($segments) == 1){
             $titre = trim($segments[0]);
-            $lien = "<a href='https://www.encyclopedia.com'>($titre)</a>";
+            if($titre ==' encyclopedia'){
+                $lien = "<a href='https://www.encyclopedia.com'>($titre)</a>";
+            };
+            if($titre == 'docsouth'){
+                $lien = "<a href='https://docsouth.unc.edu/'>($titre)</a>";
+            };
 
             $textehisto = str_replace("($match)", $lien, $textehisto);
         }
