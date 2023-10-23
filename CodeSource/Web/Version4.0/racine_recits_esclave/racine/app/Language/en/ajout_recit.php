@@ -11,5 +11,6 @@ return [
     'method_publication' => 'Method of publication',
     'name_writer' => 'Writer\'s name',
     'link_narrative' => 'Link to the narrative',
-    'add_button' => 'Add'
+    'add_button' => 'Add',
+    'choix_polys' => 'Choose the territories linked to the narrative'
 ];

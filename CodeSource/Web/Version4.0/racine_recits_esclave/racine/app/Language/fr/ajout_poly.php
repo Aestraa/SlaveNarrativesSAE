@@ -1,9 +1,9 @@
 <?php
 
 return [
-    'title' => 'Ajout Polygone',
-    'point' => "Liste des Points ",
-    'suppr' => 'Suppression du Point',
-    'poly_name' => 'Nom du Polygone',
-    'add_poly_button' =>'Ajouter le Polygone'
+    'title' => 'Ajout polygone',
+    'point' => "Liste des points ",
+    'suppr' => 'Suppression du point',
+    'poly_name' => 'Nom du polygone',
+    'add_poly_button' =>'Ajouter le polygone'
 ];

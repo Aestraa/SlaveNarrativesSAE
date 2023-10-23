@@ -2,7 +2,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <?php $page_name = lang('ajout_recit.title') ?>
+    <?php $page_name = lang('insert_polys.title') ?>
     <title><?= $page_name ?></title>
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/style_connexion.css'); ?>">
 </head>
@@ -11,7 +11,7 @@
     <div class="login-container">
            <form action="<?= site_url('Ajout/InsertRecit') ?>" method="post">
 
-           <label><?= lang('ajout_recit.name_slave') ?></label>
+           <label><?= lang('insert_polys.type_polys') ?></label>
                     <?php
                     $i = 0;
                     if (!empty($polys) && is_array($polys)) {
@@ -20,11 +20,11 @@
                                 if($te['id'] == $elt){
                                     echo $te['name'].'<br>';
                                     echo '<select name="type'.$i.'" id="type'.$i.'" required>';
-                                    echo '<option value="publication">Publication</option>';
-                                    echo '<option value="naissance">Naissance</option>';
-                                    echo '<option value="deces">Décès</option>';
-                                    echo '<option value="esclavage">Esclavage</option>';
-                                    echo '<option value="lieuvie">Lieu de vie</option>';
+                                    echo '<option value="publication">'.lang('insert_polys.publi').'</option>';
+                                    echo '<option value="naissance">'.lang('insert_polys.naiss').'</option>';
+                                    echo '<option value="deces">'.lang('insert_polys.deces').'</option>';
+                                    echo '<option value="esclavage">'.lang('insert_polys.esc').'</option>';
+                                    echo '<option value="lieuvie">'.lang('insert_polys.lieuv').'</option>';
                                     echo '</select><br><br>';
                                     echo '<input name="idP'.$i.'" id="idP'.$i.'" type="hidden" value="'.$elt.'"/>';
                                     echo '<input name="nomP'.$i.'" id="nomP'.$i.'" type="hidden" value="'.$te['name'].'"/>';
@@ -51,7 +51,7 @@
                     <input name="idR" id="idR" type="hidden" value="<?php echo $idR; ?>" />
                     <input name="nomE" id="nomE" type="hidden" value="<?php echo $nomE; ?>" />
         
-           <button type="submit"><?= lang('ajout_recit.add_button') ?></button>
+           <button type="submit"><?= lang('insert_polys.add_button') ?></button>
         </form>
         
     </div>
