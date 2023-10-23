@@ -9,10 +9,13 @@ class Modif extends BaseController
         $session = \Config\Services::session();
         $model = model(ModelFormulaire::class);
         $model1 = model(ModelGetAuteur::class);
+        $model2 = model(ModelCouches::class);
+        $model3 = model(ModelPolygones::class);
 
         $data = [
             'title' => $model->getRecit(),
-            'auteurs' => $model1->getAuteurs()
+            'auteurs' => $model1->getAuteurs(),
+            'polys' => $model3->getPoly()
         ];
 
         $session = \Config\Services::session();
@@ -44,6 +47,16 @@ class Modif extends BaseController
         $modeP = $this->request->getPost('modeP');
         $nomS = $this->request->getPost('nomS');
         $lienR = $this->request->getPost('lienR');
+        $nb = $this->request->getPost('nb');
+        for($i=0; $i<$nb; $i++){
+            $type[$i] = $this->request->getPost('type'.$i);
+            }
+            for($i=0; $i<$nb; $i++){
+                $idP[$i] = $this->request->getPost('idP'.$i);
+            }
+            for($i=0; $i<$nb; $i++){
+                $nomP[$i] = $this->request->getPost('nomP'.$i);
+            }
 
         $idR = $_GET['idR'];
 
@@ -58,7 +71,65 @@ class Modif extends BaseController
         $db = db_connect();
         $db->query($sql, [$nomE, $nomR, $dateP, $lieuP, $modeP, $typeR, $com, $idE, $nomS, $lienR, $nomR, $idR]);
 
+        /* A modifier les routes aussi
+        for($i=0; $i<$nb; $i++){
+            $sql = 'UPDATE `recit_poly` (`recit_id`, `poly_id`, `type`) VALUES (?, ?, ?)';
+            $db = db_connect();
+            $db->query($sql, [$idR, $idP[$i], $type[$i]]);
+            }*/
+
         return redirect()->to('/recits?search='.$nomR);
+    }
+
+    public function ModifPoly_Recit()
+    {
+        $model = model(ModelFormulaire::class);
+        $model1 = model(ModelGetAuteur::class);
+        $model2 = model(ModelCouches::class);
+        $model3 = model(ModelPolygones::class);
+        $data = [
+            'title' => $model->getRecit(),
+            'auteurs' => $model1->getAuteurs(),
+            'nomR' => $this->request->getPost('nomR'),
+            'idE' => $this->request->getPost('idE'),
+            'lieuP' => $this->request->getPost('lieuP'),
+            'infoSup' => $this->request->getPost('infoSup'),
+            'dateP' => $this->request->getPost('dateP'),
+            'typeR' => $this->request->getPost('typeR'),
+            'com' => $this->request->getPost('com'),
+            'modeP' => $this->request->getPost('modeP'),
+            'dateN' => $this->request->getPost('dateN'),
+            'nomS' => $this->request->getPost('nomS'),
+            'lienR' => $this->request->getPost('lienR'),
+            'polys' => $this->request->getPost('poly'),
+            'polygones' => $model3->getPoly()
+        ];
+
+        $idR = 0;
+        foreach ($data['title'] as $elt) {
+            if($elt['id_recit'] > $idR){
+            $idR = $elt['id_recit'];
+            }
+        }
+        $idR ++;
+
+        $idE = $this->request->getPost('idE');
+
+        $nomE = '';
+        foreach ($data['auteurs'] as $elt) {
+            if($elt['id_auteur'] == $idE){
+                $nomE = $elt['nom'];
+            }
+        } 
+
+        $data += [
+            'idR' => $idR,
+            'nomE' => $nomE
+        ];
+
+
+        return view('resclaves/header')
+        . view('resclaves/modif_polys', $data);
     }
 
     public function choixModifA()
