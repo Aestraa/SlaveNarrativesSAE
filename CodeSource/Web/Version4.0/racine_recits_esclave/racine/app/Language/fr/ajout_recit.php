@@ -11,5 +11,6 @@ return [
     'method_publication' => 'Mode de publication',
     'name_writer' => 'Nom du scribe / écrivain',
     'link_narrative' => 'Lien vers le récit',
-    'add_button' => 'Ajouter'
+    'add_button' => 'Ajouter',
+    'choix_polys'  => 'Choisir les territoires liées au récit'
 ];

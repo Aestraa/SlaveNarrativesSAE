@@ -51,7 +51,7 @@
            <label><?= lang('ajout_recit.link_narrative') ?></label>
            <input name="lienR" id="lienR" type="text" /><br><br>
 
-           <label><?= lang('ajout_recit.name_slave') ?></label>
+           <label><?= lang('ajout_recit.choix_polys') ?></label>
            <select name="poly[]" id="poly" multiple required>
                     <?php
                     if (!empty($polys) && is_array($polys)) {

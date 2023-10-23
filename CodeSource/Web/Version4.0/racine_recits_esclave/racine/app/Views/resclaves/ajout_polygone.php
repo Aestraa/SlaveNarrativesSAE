@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <?php $page_name = lang('ajout_point.title') ?>
+    <?php $page_name = lang('ajout_poly.title') ?>
     <title><?= $page_name ?></title>
     <!-- Ajout du CSS pour la carte Leaflet -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
