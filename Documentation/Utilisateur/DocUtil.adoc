@@ -1,9 +1,12 @@
 = Documentation Utilisateur site web G1A-1
-:toc:
+:toc: macro
+:toclevels: 3
 :toc-title: Table des matières
 :sectnums:
 :sectnumlevels: 4
 :hide-uri-scheme:   
+
+toc::[]
 
 == Introduction
 Bienvenue sur notre site web ! Ce guide d'utilisation a été conçu pour vous aider à naviguer sur notre site et à en tirer le meilleur parti. Il vous expliquera comment accéder aux différentes sections et fonctionnalités, ainsi que les étapes à suivre pour effectuer des tâches courantes, telles que la création d'un compte ou la consultation d'un produit. Si vous rencontrez des problèmes ou des questions, n'hésitez pas à consulter notre section d'aide ou à nous contacter directement. Merci d'utiliser notre site !
@@ -208,13 +211,13 @@ Vous devrez ensuite saisir la ville dans le champ `Ville` de la page d'ajout d'u
 
 image::images/formAjoutPoint3.png[ajoutPoint6]
 
-=== Ajout d'un point : Type de point
+==== Ajout d'un point : Type de point
 
 Vous devrez ensuite sélectionner le type de point que vous souhaitez ajouter dans la liste déroulante `Type de point` de la page d'ajout d'un point.
 
 image::images/formAjoutPoint4.png[ajoutPoint7]
 
-=== Ajout d'un point : Joindre à un récit
+==== Ajout d'un point : Joindre à un récit
 
 Vous pourrez ensuite sélectionner un récit dans la liste déroulante `Joindre à un récit` de la page d'ajout d'un point.
 
@@ -226,7 +229,24 @@ Le point sera alors visible sur la carte.
 
 image::images/pointAjouté.png[ajoutPoint9]
 
+=== Ajout d'un récit
 
+Si vous souhaitez ajouter un récit, vous devez cliquer sur le bouton `Ajout d'un récit` en ouvrant le menu déroulant à droite de la page.
 
+image::images/ajoutRécitBout.png[ajoutRécit]
+
+Vous serez alors redirigé vers la page d'ajout d'un récit. Il vous faudra donc saisir les informations demandées afin d'ajouter un récit sur le site dont : 
+
+* Le nom du récit
+* Le nom de l'esclave
+* Le lieu de publication
+* L'année de publication
+* Le type de récit
+* Commentaires / Historiographie
+* Mode de publication
+* Nom du scribe / écrivain 
+* Lien vers le récit
+
+image::images/formAjoutRécit0.png[ajoutRécit2]
 
 
