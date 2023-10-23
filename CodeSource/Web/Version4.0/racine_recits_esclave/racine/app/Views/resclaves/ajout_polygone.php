@@ -9,6 +9,18 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/style_connexion.css'); ?>">
     <!-- Ajout du CSS pour la barre de défilement -->
+    <style>
+        .display {
+
+            table-layout: fixed;
+            width: 150px;
+        }
+
+        .coordonneesTable{
+            
+        }
+    </style>
+
 </head>
 <body>
     <div class="login-container">
@@ -19,12 +31,12 @@
                 <input type="text" id="nom_poly" name="nom_poly" required>
             </div>
             <div class="input-group">
-                <div class="scrollable-table"> <!-- Ajout de la classe "scrollable-table" ici -->
+                <div class="scrollable-table">
                     <table id="exa" class="display" style="width:100%;">
                         <thead>
                             <tr>
                                 <th><?= lang('ajout_poly.point') ?></th>
-                                <th style="position: relative;"><?= lang('ajout_poly.suppr') ?></th>
+                                <th style="position: relative; width: 30%;"><?= lang('ajout_poly.suppr') ?></th>
                             </tr>
                         </thead>
                         <tbody id="coordonneesTable">
@@ -63,6 +75,7 @@
         }).addTo(map);
 
         var coordonnees = []; // Tableau pour stocker les coordonnées
+        var polyline; // Variable pour stocker la polyline
 
         // Fonction pour gérer les clics sur la carte
         function onClick(e) {
@@ -86,12 +99,23 @@
             deleteButton.onclick = function() {
                 // Supprimez la ligne lorsque le bouton est cliqué
                 var row = this.parentNode.parentNode;
+
                 // Supprimez également le cercle de la carte
                 map.removeLayer(row.circleMarker);
-                // Supprimez également la ligne de la polyline
-                map.removeLayer(row.polyline);
-                coordonnees.splice(coordonnees.indexOf(row.latlng), 1);
+
+                // Supprimez les coordonnées du tableau
+                var index = coordonnees.indexOf(row.latlng);
+                if (index !== -1) {
+                    coordonnees.splice(index, 1);
+                }
+
                 row.parentNode.removeChild(row);
+
+                var coordonneesInput = document.getElementById('coordonneesInput');
+                coordonneesInput.value = JSON.stringify(coordonnees);
+
+                // Mettez à jour la polyline ou la ligne en conséquence
+                updatePolyline();
             };
 
             deleteCell.appendChild(deleteButton);
@@ -111,24 +135,42 @@
             var scrollableTable = document.querySelector('.scrollable-table');
             scrollableTable.scrollTop = scrollableTable.scrollHeight;
 
-
             // Ajoutez un cercle sur la carte (CircleMarker)
             var circleMarker = L.circleMarker([lat, lng]).addTo(map);
             newRow.circleMarker = circleMarker; // Associez le cercle à la ligne
 
-            // Reliez les points avec une polyline
-            if (coordonnees.length > 1) {
-                var latlngs = coordonnees.map(function(coord) {
-                    return [coord.lat, coord.lng];
-                });
-                var polyline = L.polyline(latlngs, { color: 'blue' }).addTo(map);
-                newRow.polyline = polyline;
-            }
+            // Mettez à jour la polyline ou la ligne en conséquence
+            updatePolyline();
 
             newRow.latlng = latlng; // Associez les coordonnées à la ligne
         }
 
+        function updatePolyline() {
+            // Si le tableau coordonnees a plus de 2 points, créez ou mettez à jour le polygone
+            if (coordonnees.length >= 2) {
+                if (polyline) {
+                    map.removeLayer(polyline); // Supprimez la polyline existante
+                }
+
+                var latlngs = coordonnees.map(function(coord) {
+                    return [coord.lat, coord.lng];
+                });
+
+                if (latlngs.length === 2) {
+                    // Si vous avez exactement deux points, créez une ligne (polyline)
+                    polyline = L.polyline(latlngs, { color: 'blue' }).addTo(map);
+                } else {
+                    // Sinon, créez un polygone
+                    polyline = L.polygon(latlngs, { color: 'blue' }).addTo(map);
+                }
+            } else if (polyline) {
+                map.removeLayer(polyline); // Supprimez la polyline s'il existe mais a moins de 2 points
+            }
+        }
+
         map.on('click', onClick);
+
+
     </script>
 </body>
 </html>
