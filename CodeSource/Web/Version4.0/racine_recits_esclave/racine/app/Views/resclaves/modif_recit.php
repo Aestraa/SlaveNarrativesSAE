@@ -8,7 +8,7 @@
 <body>
     
     <div class="login-container">
-           <form action="<?= site_url('Modif/ModifRecit?idR='.$_GET['idR']) ?>" method="post">
+           <form action="<?= site_url('Modif/ModifPoly_Recit?idR='.$_GET['idR']) ?>" method="post">
            <label><?= lang('modif_recit.name_narrative') ?></label>
            <?php
                     if (!empty($title) && is_array($title)) {
@@ -121,7 +121,18 @@
                     <?php
                     if (!empty($polys) && is_array($polys)) {
                         foreach ($polys as $elt) {
-                            echo '<option value="' . $elt['id'] . '">' . $elt['name']. ' </option>';
+                            $write = true;
+                            if (!empty($recitP) && is_array($recitP)) {
+                                foreach($recitP as $pol){
+                                    if($pol['poly_id'] == $elt['id'] && $pol['recit_id'] == $_GET['idR']){
+                                        echo '<option value="' . $elt['id'] . '" selected>' . $elt['name']. ' </option>';
+                                        $write = false;
+                                    }
+                                }
+                                if($write){
+                                    echo '<option value="' . $elt['id'] . '">' . $elt['name']. ' </option>';
+                                }
+                            }
                         }  
                     }
                     ?>
@@ -152,6 +163,8 @@
                 clonedSelect.scrollTop = scrollPosition;
             }
         };
+
     </script>
+
 </body>
 </html>

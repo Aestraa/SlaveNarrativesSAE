@@ -144,6 +144,12 @@ class ModelRecit_poly extends Model
             ->like(['recit_poly.recit_id'=> $idr])
             ->findAll();
     }
+
+    public function getRecitPoly()
+    {
+        return $this->asArray()
+        ->findAll();
+    }
 }
 
 

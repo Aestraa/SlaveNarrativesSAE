@@ -18,23 +18,90 @@
                         foreach ($polys as $elt) {
                             foreach($polygones as $te){
                                 if($te['id'] == $elt){
+                                    $write = true;
                                     echo $te['name'].'<br>';
-                                    echo '<select name="type'.$i.'" id="type'.$i.'" required>';
-                                    echo '<option value="publication">'.lang('insert_polys.publi').'</option>';
-                                    echo '<option value="naissance">'.lang('insert_polys.naiss').'</option>';
-                                    echo '<option value="deces">'.lang('insert_polys.deces').'</option>';
-                                    echo '<option value="esclavage">'.lang('insert_polys.esc').'</option>';
-                                    echo '<option value="lieuvie">'.lang('insert_polys.lieuv').'</option>';
-                                    echo '</select><br><br>';
-                                    echo '<input name="idP'.$i.'" id="idP'.$i.'" type="hidden" value="'.$elt.'"/>';
-                                    echo '<input name="nomP'.$i.'" id="nomP'.$i.'" type="hidden" value="'.$te['name'].'"/>';
-                                    $i++;
+                                    foreach($recitP as $pol){
+                                        if($pol['recit_id'] == $_GET['idR'] && $pol['poly_id'] == $elt ){
+                                            if(preg_match('/^publicatio.?$/', $pol['type'])){
+                                                echo '<select name="type'.$i.'" id="type'.$i.'" required>';
+                                                echo '<option value="publication" selected>'.lang('insert_polys.publi').'</option>';
+                                                echo '<option value="naissance">'.lang('insert_polys.naiss').'</option>';
+                                                echo '<option value="deces">'.lang('insert_polys.deces').'</option>';
+                                                echo '<option value="esclavage">'.lang('insert_polys.esc').'</option>';
+                                                echo '<option value="lieuvie">'.lang('insert_polys.lieuv').'</option>';
+                                                echo '</select><br><br>';
+                                                echo '<input name="idP'.$i.'" id="idP'.$i.'" type="hidden" value="'.$elt.'"/>';
+                                                echo '<input name="nomP'.$i.'" id="nomP'.$i.'" type="hidden" value="'.$te['name'].'"/>';
+                                                $i++;
+                                                $write = false;
+                                            } elseif(preg_match('/^naissance.?$/', $pol['type'])){
+                                                echo '<select name="type'.$i.'" id="type'.$i.'" required>';
+                                                echo '<option value="publication">'.lang('insert_polys.publi').'</option>';
+                                                echo '<option value="naissance" selected>'.lang('insert_polys.naiss').'</option>';
+                                                echo '<option value="deces">'.lang('insert_polys.deces').'</option>';
+                                                echo '<option value="esclavage">'.lang('insert_polys.esc').'</option>';
+                                                echo '<option value="lieuvie">'.lang('insert_polys.lieuv').'</option>';
+                                                echo '</select><br><br>';
+                                                echo '<input name="idP'.$i.'" id="idP'.$i.'" type="hidden" value="'.$elt.'"/>';
+                                                echo '<input name="nomP'.$i.'" id="nomP'.$i.'" type="hidden" value="'.$te['name'].'"/>';
+                                                $i++;
+                                                $write = false;
+                                            } elseif(preg_match('/^deces.?$/', $pol['type'])){
+                                                echo '<select name="type'.$i.'" id="type'.$i.'" required>';
+                                                echo '<option value="publication">'.lang('insert_polys.publi').'</option>';
+                                                echo '<option value="naissance">'.lang('insert_polys.naiss').'</option>';
+                                                echo '<option value="deces" selected>'.lang('insert_polys.deces').'</option>';
+                                                echo '<option value="esclavage">'.lang('insert_polys.esc').'</option>';
+                                                echo '<option value="lieuvie">'.lang('insert_polys.lieuv').'</option>';
+                                                echo '</select><br><br>';
+                                                echo '<input name="idP'.$i.'" id="idP'.$i.'" type="hidden" value="'.$elt.'"/>';
+                                                echo '<input name="nomP'.$i.'" id="nomP'.$i.'" type="hidden" value="'.$te['name'].'"/>';
+                                                $i++;
+                                                $write = false;
+                                            } elseif(preg_match('/^esclavage.?$/', $pol['type'])){
+                                                echo '<select name="type'.$i.'" id="type'.$i.'" required>';
+                                                echo '<option value="publication">'.lang('insert_polys.publi').'</option>';
+                                                echo '<option value="naissance">'.lang('insert_polys.naiss').'</option>';
+                                                echo '<option value="deces">'.lang('insert_polys.deces').'</option>';
+                                                echo '<option value="esclavage" selected>'.lang('insert_polys.esc').'</option>';
+                                                echo '<option value="lieuvie">'.lang('insert_polys.lieuv').'</option>';
+                                                echo '</select><br><br>';
+                                                echo '<input name="idP'.$i.'" id="idP'.$i.'" type="hidden" value="'.$elt.'"/>';
+                                                echo '<input name="nomP'.$i.'" id="nomP'.$i.'" type="hidden" value="'.$te['name'].'"/>';
+                                                $i++;
+                                                $write = false;
+                                            } elseif(preg_match('/^lieuvie.?$/', $pol['type'])){
+                                                echo '<select name="type'.$i.'" id="type'.$i.'" required>';
+                                                echo '<option value="publication">'.lang('insert_polys.publi').'</option>';
+                                                echo '<option value="naissance">'.lang('insert_polys.naiss').'</option>';
+                                                echo '<option value="deces">'.lang('insert_polys.deces').'</option>';
+                                                echo '<option value="esclavage">'.lang('insert_polys.esc').'</option>';
+                                                echo '<option value="lieuvie" selected>'.lang('insert_polys.lieuv').'</option>';
+                                                echo '</select><br><br>';
+                                                echo '<input name="idP'.$i.'" id="idP'.$i.'" type="hidden" value="'.$elt.'"/>';
+                                                echo '<input name="nomP'.$i.'" id="nomP'.$i.'" type="hidden" value="'.$te['name'].'"/>';
+                                                $i++;
+                                                $write = false;
+                                            } 
+                                        } 
+                                    } if($write){
+                                        echo '<select name="type'.$i.'" id="type'.$i.'" required>';
+                                        echo '<option value="publication">'.lang('insert_polys.publi').'</option>';
+                                        echo '<option value="naissance">'.lang('insert_polys.naiss').'</option>';
+                                        echo '<option value="deces">'.lang('insert_polys.deces').'</option>';
+                                        echo '<option value="esclavage">'.lang('insert_polys.esc').'</option>';
+                                        echo '<option value="lieuvie">'.lang('insert_polys.lieuv').'</option>';
+                                        echo '</select><br><br>';
+                                        echo '<input name="idP'.$i.'" id="idP'.$i.'" type="hidden" value="'.$elt.'"/>';
+                                        echo '<input name="nomP'.$i.'" id="nomP'.$i.'" type="hidden" value="'.$te['name'].'"/>';
+                                        $i++;
+                                    }
+                                    }
                                 }
                             }
                             
                             
                         }  
-                    }
                     echo '<input name="nb" id="nb" type="hidden" value="'.$i.'"/>';
                     ?>
                      <input name="nomR" id="nomR" type="hidden" value="<?php echo $nomR; ?>" />
