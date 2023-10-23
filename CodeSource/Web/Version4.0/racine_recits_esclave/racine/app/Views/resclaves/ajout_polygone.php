@@ -15,10 +15,6 @@
             table-layout: fixed;
             width: 150px;
         }
-
-        .coordonneesTable{
-            
-        }
     </style>
 
 </head>

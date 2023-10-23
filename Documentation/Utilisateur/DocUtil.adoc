@@ -1,15 +1,13 @@
 = Documentation Utilisateur site web G1A-1
 :toc: macro
-:toclevels: 3
 :toc-title: Table des matières
-:sectnums:
-:sectnumlevels: 4
-:hide-uri-scheme:   
 
-toc::[]
+:hide-uri-scheme:   
 
 == Introduction
 Bienvenue sur notre site web ! Ce guide d'utilisation a été conçu pour vous aider à naviguer sur notre site et à en tirer le meilleur parti. Il vous expliquera comment accéder aux différentes sections et fonctionnalités, ainsi que les étapes à suivre pour effectuer des tâches courantes, telles que la création d'un compte ou la consultation d'un produit. Si vous rencontrez des problèmes ou des questions, n'hésitez pas à consulter notre section d'aide ou à nous contacter directement. Merci d'utiliser notre site !
+
+toc::[]
 
 == Accéder au site web
 
@@ -249,4 +247,56 @@ Vous serez alors redirigé vers la page d'ajout d'un récit. Il vous faudra donc
 
 image::images/formAjoutRécit0.png[ajoutRécit2]
 
+Puis cliquer sur le bouton `Ajouter` afin d'ajouter le récit sur le site.
 
+=== Ajout d'un esclave/auteur
+
+Si vous souhaitez ajouter un esclave/auteur, vous devez cliquer sur le bouton `Ajout d'un esclave/auteur` en ouvrant le menu déroulant à droite de la page.
+
+image::images/ajoutEsclaveBout.png[ajoutEsclave]
+
+Vous serez alors redirigé vers la page d'ajout d'un esclave/auteur. Il vous faudra donc saisir les informations demandées afin d'ajouter un esclave/auteur sur le site dont :
+
+* Le nom de l'esclave
+* L'année de naissance
+* Le lieu de naissance
+* L'année de décès
+* Le lieu de décès
+* Le lieu d'esclavage
+* Le moyen de libération 
+* Le lieu de vie après libération 
+* L'origine des parents
+* Si il est militant abolitionniste ou non
+* Les particularités de l'esclave
+
+image::images/formAjoutEsclave.png[ajoutEsclave2]
+
+image::images/formAjoutEsclave2.png[ajoutEsclave3]
+
+Puis cliquer sur le bouton `Ajouter` afin d'ajouter l'esclave/auteur sur le site.
+
+=== Modification d'un esclave/auteur
+
+Si vous souhaitez modifier un esclave/auteur, vous devez cliquer sur le bouton `Modification d'un esclave/auteur` en ouvrant le menu déroulant à droite de la page.
+
+image::images/modifEsclaveBout.png[modifEsclave]
+
+Vous serez alors redirigé vers la page de modification d'un esclave/auteur. Il vous faudra donc selectionner l'esclave que vous souhaitez modifier dans la liste déroulante `Selectionner un esclave à modifier`.
+
+image::images/formModifEsclave.png[modifEsclave2]
+
+Vous pourrez ensuite modifier les informations de l'esclave/auteur que vous souhaitez modifier.
+
+image::images/formModifEsclave3.png[modifEsclave3]
+
+image::images/formModifEsclave4.png[modifEsclave4]
+
+=== Suppression d'un esclave/auteur
+
+Si vous souhaitez supprimer un esclave/auteur, vous devez cliquer sur le bouton `Suppression d'un esclave/auteur` en ouvrant le menu déroulant à droite de la page.
+
+image::images/supprEsclaveBout.png[supprEsclave]
+
+Vous serez alors redirigé vers la page de suppression d'un esclave/auteur. Il vous faudra donc selectionner l'esclave que vous souhaitez supprimer dans la liste déroulante `Selectionner un esclave à supprimer`.
+
+image::images/formSupprEsclave.png[supprEsclave2]

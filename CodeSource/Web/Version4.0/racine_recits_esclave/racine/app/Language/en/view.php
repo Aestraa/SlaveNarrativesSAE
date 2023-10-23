@@ -15,5 +15,12 @@ return [
    'comments' => 'Comments / Historiography',
    'link_narrative' => 'Link to narrative',
    'back_narratives_list_button' => 'RETURN TO THE LIST OF NARRATIVES',
-   'back_narratives_map_button' => 'RETURN TO THE MAP OF NARRATIVES'
+   'back_narratives_map_button' => 'RETURN TO THE MAP OF NARRATIVES',
+   'info' => ' Not provided',
+   'de' => ' by ',
+   'parue' => ' published in ',
+   'par' => ' by ',
+   'a' => ' in ',
+   'ref' => 'Not Found',
+   'status' => 'Search in progress'
 ];

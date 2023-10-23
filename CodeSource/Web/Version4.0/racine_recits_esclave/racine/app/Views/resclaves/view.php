@@ -32,9 +32,10 @@
 </div>
 
 <div id="notification" class="hidden">
-  <div class="notification-text">Recherche en cours</div>
+  <div class="notification-text"><?= lang('view.status') ?></div>
   <div class="notification-spinner"></div>
 </div>
+
 
 <br><br>
 
@@ -64,8 +65,18 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Ma page</title>
+    <title>Récit</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+      var info = <?= json_encode(lang('view.info')) ?>;
+      var par = <?= json_encode(lang('view.par')) ?>;
+      var de = <?= json_encode(lang('view.de')) ?>; 
+      var parue = <?= json_encode(lang('view.parue')) ?>;
+      var a = <?= json_encode(lang('view.a')) ?>;
+      var ref = <?= json_encode(lang('view.ref')) ?>;
+    </script>
+
+
 </head>
 <body>
 
@@ -116,35 +127,76 @@ function afficherPopup(choix) {
       });
     });
   }
+  /*
 
+
+    Prénom
+    Nom
+    Titre
+
+    Lieu d'édition
+    Maison d'édition
+
+    Année de publication
+
+  */
   // Fonction pour vérifier les données et afficher la pop-up
   function checkData() {
-    var titre = "";
-    var auteur = "";
-    var type = "";
-    var date = "";
-    var lang = "";
+    var titre = info;
+    var nom = info;
+    var prenom = info;
+    var maisonEd = info;
+    var date = info;
+    var place = info;
     
     if (arrayselec != null) {
       var item = arrayselec;
-      titre = item.data.title;
-      auteur = item.meta.creatorSummary;
-      type = item.data.itemType;
-      date = item.data.date;
-      lang = item.data.language;
+
+      if(item.data.title != null){
+        titre = item.data.title;
+      }
+      if(item.data.creators[0].lastName != null){
+      nom = item.data.creators[0].lastName;
+      }
+      if(item.data.creators[0].firstName != null){
+      prenom = item.data.creators[0].firstName;
+      }
+      if(item.data.publisher != null ){
+       maisonEd = item.data.publisher;
+      }
+      if(item.data.date != null ){
+        date = item.data.date;
+      }
+      if(item.data.place != null ){
+        place = item.data.place;
+      }
+
     } else {
       for (var i = 0; i < Apidata.length; i++) {
         var items = Apidata[i];
         for (var j = 0; j < items.length; j++) {
           var item = items[j];
           if (item.data.shortTitle === choix) {
-            titre = item.data.title;
-            auteur = item.meta.creatorSummary;
-            type = item.data.itemType;
-            date = item.data.date;
-            lang = item.data.language;
-            // Vous pouvez choisir ici comment gérer plusieurs éléments correspondants
-            // Pour l'exemple, nous affichons le premier élément correspondant
+
+            if(item.data.title != null){
+              titre = item.data.title;
+            }
+            if(item.data.creators[0].lastName != null){
+            nom = item.data.creators[0].lastName;
+            }
+            if(item.data.creators[0].firstName != null){
+            prenom = item.data.creators[0].firstName;
+            }
+            if(item.data.publisher != null ){
+            maisonEd = item.data.publisher;
+            }
+            if(item.data.date != null ){
+              date = item.data.date;
+            }
+            if(item.data.place != null ){
+              place = item.data.place;
+            }
+
             arrayselec = item;
             break;
           }
@@ -153,15 +205,15 @@ function afficherPopup(choix) {
     }
 
     // Vérifier si le titre est vide
-    if (titre === "") {
+    if (titre === info) {
         notification.style.display = "none";
         // Aucune référence trouvée, afficher un message d'erreur
         var popup = window.open('', '', 'width=400,height=200');
-        popup.document.write('Référence non trouvée');
+        popup.document.write(ref);
     } else {
         notification.style.display = "none";
         // Afficher les détails de la référence
-        var contenuPopup = titre + ', ' + type + ' de ' + auteur + ', le ' + date + ' en ' + lang;
+        var contenuPopup = '"'+titre + '"'+ de + nom + ', '+ prenom +','+ parue + date + par +maisonEd + a +place+'.';
         var popup = window.open('', '', 'width=400,height=200');
         popup.document.write(contenuPopup);
     }
