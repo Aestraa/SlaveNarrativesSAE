@@ -71,11 +71,14 @@ $routes->match(['get', 'post'],'/modif_esclave', [Modif::class, 'modifA']);
 $routes->match(['get', 'post'],'/suppr_esclave', [Suppr::class, 'supprA']);
 $routes->match(['get', 'post'],'language/changeLanguage/(:any)', 'Language::changeLanguage/$1');
 $routes->match(['get', 'post'],'statistiques', 'Admin::statistiques');
+$routes->match(['get', 'post'], '/ajout_link', [Ajout::class, 'ajout_link']);
+
 
 //Pages invisibles pour insertion, ..
 $routes->post('Ajout/InsertPoint', 'Ajout::InsertPoint');
 $routes->post('Ajout/InsertRecit', 'Ajout::InsertRecit');
 $routes->post('Ajout/InsertPoly_Recit', 'Ajout::InsertPoly_Recit');
+$routes->post('Ajout/InsertLink', 'Ajout::InsertLink');
 $routes->post('Modif/ModifPoly_Recit', 'Modif::ModifPoly_Recit');
 $routes->post('Ajout/InsertPoly', 'Ajout::InsertPoly');
 $routes->post('Ajout/InsertAuteur', 'Ajout::InsertAuteur');

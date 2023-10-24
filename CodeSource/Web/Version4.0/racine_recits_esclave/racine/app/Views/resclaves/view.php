@@ -1,4 +1,4 @@
-
+<?php $session = \Config\Services::session(); ?>
 <link rel="stylesheet" type="text/css" href="<?= base_url('css/notification.css') ?>">
 
 <br><br>
@@ -20,6 +20,22 @@
         <strong><p style="text-align:right;"><?= lang('view.method_publication') ?> :</strong> <?= esc($rec['mode_publi']) ?> </p>
         <strong><p style="text-align:right;"><?= lang('view.several_written_narratives') ?> :</strong> <?= esc($rec['plrs_recits']) ?> </p>
 
+    <div class='bouton-recit'>
+      <?php if ($session->get('is_admin')) : ?>
+            <td>
+                <p><a href="<?= site_url('/modif_recit?esc='.esc($rec['id_auteur']).'&idR='.esc($rec['id_recit'])) ?>"><?= lang('recits.modify_button') ?></a></p>
+            </td>
+
+            <td>
+                <p><a href="<?= site_url('Suppr/SupprRecit?esc='.esc($rec['id_auteur']).'&idR='.esc($rec['id_recit'])) ?>" onclick="return confirm('<?= lang('recits.delete_confirmation') ?>')"><?= lang('recits.delete_button') ?></a></p>
+            </td>
+            <td>
+              <p><a href="/ajout_link">Ajouter un lien</a></p>
+            </td>
+
+        <?php endif; ?>
+      </div>
+
     <strong><p><?= lang('view.name_slave') ?> :</strong> <?= esc($rec['nom_esc']) ?> </p>
     <strong><p><?= lang('view.type_narrative') ?> :</strong> <?= esc($rec['type_recit']) ?> </p>
 
@@ -28,7 +44,6 @@
     <strong><p><?= lang('view.origins_parents') ?> :</strong> <?= esc($rec['origine_parents']) ?> </p>
     <strong><p><?= lang('view.name_writer') ?> :</strong> <?= esc($rec['scribe_editeur']) ?> </p>
     <strong><p><?= lang('view.additional_information') ?> :</strong> <?= esc($rec['particularites']) ?> </p>
-
 </div>
 
 <div id="notification" class="hidden">

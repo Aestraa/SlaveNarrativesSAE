@@ -1,0 +1,33 @@
+#page {
+    display: flex;
+    justify-content: center; /* Centre les éléments horizontalement */
+    align-items: flex-start; /* Alignement en haut */
+    width: 100%; /* Largeur totale de la page */
+    max-width: 800px; /* Largeur maximale des formulaires (ajustez selon vos besoins) */
+    margin: 0 auto; /* Centre horizontalement les éléments */
+}
+
+.form {
+    width: 50%;
+    padding: 10px;
+    margin-right: 10px;
+    /* Vous pouvez conserver ces styles si vous le souhaitez */
+}
+
+table {
+    width: 100%;
+}
+
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}

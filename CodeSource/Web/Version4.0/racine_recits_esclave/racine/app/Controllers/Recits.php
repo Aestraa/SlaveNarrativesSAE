@@ -102,13 +102,24 @@ class Recits extends BaseController
         }
         if(count($segments) == 1){
             $titre = trim($segments[0]);
-            if($titre ==' encyclopedia'){
-                $lien = "<a href='https://www.encyclopedia.com'>($titre)</a>";
-            };
-            if($titre == 'docsouth'){
-                $lien = "<a href='https://docsouth.unc.edu/'>($titre)</a>";
-            };
+            $sql = 'SELECT * FROM `link` WHERE reference = ?';
+            $db = db_connect();
+            $result = $db->query($sql, [$titre]);
 
+            if ($result) {
+                $row = $result->getRow(); // Obtenez la première ligne de résultat
+                if ($row) {
+                    $reference = $row->reference;
+                    $link = $row->link;
+                    $lien = "<a href='$link'>$reference</a>";
+                } else {
+                    // Aucun résultat trouvé pour le titre donné
+                    $lien = "<a >$titre</a>";
+                }
+            } else {
+                // Gérez les erreurs de requête ici, par exemple :
+                die("Erreur de requête SQL : " . $db->error());
+            }
             $textehisto = str_replace("($match)", $lien, $textehisto);
         }
     }

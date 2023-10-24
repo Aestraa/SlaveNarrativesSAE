@@ -373,7 +373,6 @@ class Ajout extends BaseController
     }
 
     public function InsertPoly(){
-        // Dans votre contrôleur (Ajout/InsertPoly)
 
         // Récupérez les données POST
         $data = $this->request->getPost();
@@ -406,4 +405,37 @@ class Ajout extends BaseController
 
         return redirect()->to('/map');
     }   
+
+    public function ajout_link(){
+
+        return view('resclaves/header')
+            .view('resclaves/ajout_link');
+    }
+
+    public function InsertLink() {
+        // Récupérer les données du formulaire
+        $data = $this->request->getPost();
+        
+        // Décodez les données JSON depuis les chaînes
+        $references = json_decode($data['ref']);
+        $liens = json_decode($data['link']);
+        //var_dump($references);
+
+        // Assurez-vous que les décodages ont réussi
+        if ($references !== null && $liens !== null) {
+            // Faites le traitement souhaité avec les données
+            for ($i = 0; $i < count($references); $i++) {
+                $sql = 'INSERT INTO `link` (`reference`, `link`) VALUES (?, ?)';
+                $db = db_connect();
+                $db->query($sql, [$references[$i], $liens[$i]]);
+
+                return redirect()->to('/recits');
+            }
+        } else {
+            // Gérez l'erreur de décodage JSON
+            echo "Erreur lors du décodage JSON des données.";
+            return redirect()->to('/recits');
+        }
+    }
+      
 }
