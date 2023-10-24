@@ -6,9 +6,6 @@
 :numbered:
 :toc: macro
 :toc-title: Table des matières
-:toclevels: 4
-:sectnums:
-:sectnumlevels: 5
 :window: _blank
 :correction!:
 
