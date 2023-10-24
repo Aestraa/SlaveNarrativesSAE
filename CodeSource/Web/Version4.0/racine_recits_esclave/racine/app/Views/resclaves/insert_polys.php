@@ -51,7 +51,7 @@
             <input name="nomE" id="nomE" type="hidden" value="<?php echo $nomE; ?>" />
 
             <a class="retour"
-                href="<?= site_url('/ajout_recit?nomR=' . $nomR . '&idE=' . $idE) ?>"><?= lang('recits.bouton_retour') ?></a>
+                href="<?= site_url('/ajout_recit?nomR='.$nomR.'&idE='.$idE.'$lieuP='.$lieuP.'$infoSup='.$infoSup.'$dateP='.$dateP.'$typeR='.$typeR.'$com='.$com.'$modeP='.$modeP.'$dateN='.$dateN.'$nomS='.$nomS.'$lienR='.$lienR.'$idR='.$idR.'$nomE='.$nomE) ?>"><?= lang('recits.bouton_retour') ?></a></p>
             </p>
             <button type="submit"><?= lang('insert_polys.add_button') ?></button>
         </form>
