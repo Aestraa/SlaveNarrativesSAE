@@ -13,7 +13,7 @@
 
 <body>
     <div class="container">
-        <div class="login-container">
+        <div class="poly-container">
             <h2><?= lang('ajout_poly.title') ?></h2>
             <form action="<?= site_url('Ajout/InsertPoly') ?>" method="post">
                 <div class="input-group">

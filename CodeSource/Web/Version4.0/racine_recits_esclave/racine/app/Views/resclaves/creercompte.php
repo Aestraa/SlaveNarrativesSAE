@@ -11,17 +11,18 @@
 
 <body>
     <div class="login-container">
-        <h2><?= lang('creercompte.title')?></h2>
-        <form action="<?=  site_url('/Admin/creercompte') ?>" method="post">
+        <h2><?= lang('creercompte.title') ?></h2>
+        <form action="<?= site_url('/Admin/creercompte') ?>" method="post">
             <div class="input-group">
-                <label for="username"><?= lang('creercompte.username')?></label>
+                <label for="username"><?= lang('creercompte.username') ?></label>
                 <input type="text" id="username" name="username" required>
             </div>
             <div class="input-group">
-                <label for="password"><?= lang('creercompte.password')?></label>
+                <label for="password"><?= lang('creercompte.password') ?></label>
                 <input type="password" id="password" name="password" required>
             </div>
-            <button type="submit"><?= lang('creercompte.create_button')?></button>
+            <a class="retour" href="<?= site_url('/map') ?>"><?= lang('recits.bouton_retour') ?></a></p>
+            <button type="submit"><?= lang('creercompte.create_button') ?></button>
         </form>
     </div>
 </body>
