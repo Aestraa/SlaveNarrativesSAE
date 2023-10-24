@@ -6,7 +6,7 @@
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/style_connexion.css'); ?>">
 </head>
 <body>
-    
+<a class="retour" href="<?= site_url('/recits') ?>"><?= lang('recits.bouton_retour') ?></a></p>
     <div class="login-container">
            <form action="<?= site_url('Modif/ModifPoly_Recit?idR='.$_GET['idR']) ?>" method="post">
            <label><?= lang('modif_recit.name_narrative') ?></label>

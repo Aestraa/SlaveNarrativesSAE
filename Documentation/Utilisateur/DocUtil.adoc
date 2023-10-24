@@ -244,10 +244,36 @@ Vous serez alors redirigé vers la page d'ajout d'un récit. Il vous faudra donc
 * Mode de publication
 * Nom du scribe / écrivain 
 * Lien vers le récit
+* Territoires liées au récit
 
 image::images/formAjoutRécit0.png[ajoutRécit2]
+image::images/formAjoutRécit1.png[ajoutRécit3]
 
 Puis cliquer sur le bouton `Ajouter` afin d'ajouter le récit sur le site.
+
+=== Ajout d'un polygone
+
+Si vous souhaitez ajouter un polygone, vous devez cliquer sur le bouton `Ajout d'un polygone` en ouvrant le menu déroulant à droite de la page.
+
+image::images/ajoutPolygoneBout.png[ajoutPolygone]
+
+Vous serez alors redirigé vers la page d'ajout d'un polygone. Il vous faudra donc saisir les informations demandées afin d'ajouter un polygone sur la carte dont : 
+
+* Le nom du polygone
+* Le type de polygone
+
+image::images/formAjoutPolygone.png[ajoutPolygone2]
+image::images/formAjoutPolygone2.png[ajoutPolygone3]
+
+==== Ajout d'un polygone : Liste des points
+
+Vous devrez ensuite sélectionner les points qui composent le polygone dans la carte en dessous du formulaire.
+
+image::images/carteAjoutPolygone.png[ajoutPolygone4]
+
+La liste des points sélectionnés sera alors visible dans la liste déroulante `Liste des points` et il sera aussi possible de les supprimer. 
+
+image::images/formAjoutPolygone3.png[ajoutPolygone5]
 
 === Ajout d'un esclave/auteur
 
@@ -300,3 +326,4 @@ image::images/supprEsclaveBout.png[supprEsclave]
 Vous serez alors redirigé vers la page de suppression d'un esclave/auteur. Il vous faudra donc selectionner l'esclave que vous souhaitez supprimer dans la liste déroulante `Selectionner un esclave à supprimer`.
 
 image::images/formSupprEsclave.png[supprEsclave2]
+
