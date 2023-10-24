@@ -18,5 +18,6 @@ return [
     'anneeAZ' => 'Trier par annéee croissante',
     'anneeZA' => 'Trier par annéee décroisante',
     'titreAZ' => 'Trier par titre de A-Z',
-    'titreZA' => 'Trier par titre de Z-A'
+    'titreZA' => 'Trier par titre de Z-A',
+    'bouton_retour' => 'Retour'
 ];

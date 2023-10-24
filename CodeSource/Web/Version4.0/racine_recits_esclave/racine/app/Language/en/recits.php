@@ -18,5 +18,6 @@ return [
     'anneeAZ' => 'Sort by ascending year',
     'anneeZA' => 'Sort by descending year',
     'titreAZ' => 'Sort by title from A-Z',
-    'titreZA' => 'Sort by name from Z-A'
+    'titreZA' => 'Sort by name from Z-A',
+    'bouton_retour' => 'Return'
 ];
