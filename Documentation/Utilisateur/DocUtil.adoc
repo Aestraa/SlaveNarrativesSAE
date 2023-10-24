@@ -244,8 +244,10 @@ Vous serez alors redirigé vers la page d'ajout d'un récit. Il vous faudra donc
 * Mode de publication
 * Nom du scribe / écrivain 
 * Lien vers le récit
+* Territoires liées au récit
 
 image::images/formAjoutRécit0.png[ajoutRécit2]
+image::images/formAjoutRécit1.png[ajoutRécit3]
 
 Puis cliquer sur le bouton `Ajouter` afin d'ajouter le récit sur le site.
 
