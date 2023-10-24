@@ -3,7 +3,6 @@
 :models: models
 :experimental:
 :incremental:
-:numbered:
 :toc: macro
 :toc-title: Table des matières
 :window: _blank
@@ -20,7 +19,6 @@ ifndef::env-github[:icons: font]
 // Specific to GitHub
 ifdef::env-github[]
 :correction:
-:!toc-title:
 :caution-caption: :fire:
 :important-caption: :exclamation:
 :note-caption: :paperclip:
