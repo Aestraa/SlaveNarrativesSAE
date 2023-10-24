@@ -71,3 +71,22 @@ button:hover {
 #exa {
     width: 100%;
 }
+
+.retour {
+    margin-left: 30%;
+    text-decoration: none;
+    background-color: #8a6d3b;
+    color: rgb(0, 0, 0);
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.retour:hover {
+    background-color: #6d4c2a;
+    color: rgb(0, 0, 0);
+}
+
+.retour:active{
+    background-color: #533a21;
+}

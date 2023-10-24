@@ -19,6 +19,7 @@
 
 </head>
 <body>
+<a class="retour" href="<?= site_url('/map') ?>"><?= lang('recits.bouton_retour') ?></a></p>
     <div class="login-container">
         <h2><?= lang('ajout_poly.title')?></h2>
         <form action="<?= site_url('Ajout/InsertPoly') ?>" method="post">

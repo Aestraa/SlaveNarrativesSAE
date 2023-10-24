@@ -8,7 +8,7 @@
 </head>
 <body>
 
-
+<a class="retour" href="<?= site_url('/map') ?>"><?= lang('recits.bouton_retour') ?></a></p>
     <div class="login-container">
            <form action="<?= site_url('Modif/ModifAuteur') ?>" method="post">
            <label><?= lang('modif_esclave.name_slave') ?></label>

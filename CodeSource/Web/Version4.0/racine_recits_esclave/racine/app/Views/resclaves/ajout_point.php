@@ -18,6 +18,7 @@ $lastPoint = $model->getLastPoint();
 </head>
 
 <body>
+<a class="retour" href="<?= site_url('/map') ?>"><?= lang('recits.bouton_retour') ?></a></p>
     <div class="login-container">
         <h2><?= lang('ajout_point.title')?></h2>
         <form action="<?= site_url('Ajout/InsertPoint') ?>" method="post">
