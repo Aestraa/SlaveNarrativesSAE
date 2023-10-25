@@ -1,6 +1,7 @@
 = Documentation Utilisateur site web G1A-1
 :toc: macro
 :toc-title: Table des matières
+:toclevels: 3
 
 :hide-uri-scheme:   
 
@@ -193,7 +194,7 @@ Vous serez alors redirigé vers la page d'ajout d'un point. Il vous faudra donc 
 
 image::images/formAjoutPoint.png[ajoutPoint2]
 
-==== Ajout d'un point : Coordonnées
+==== Ajout d'un point (Coordonnées)
 
 Tout d'abord il vous faudra saisir les coordonnées du point que vous souhaitez ajouter. Pour cela vous devrez cliquer sur l'endroit où vous souhaitez ajouter le point, sur la carte en dessous du formulaire.
 
@@ -203,19 +204,19 @@ Cela aura pour effet d'entrer automatiquement les coordonnées du point dans le 
 
 image::images/coordAjout.png[ajoutPoint4]
 
-==== Ajout d'un point : Ville 
+==== Ajout d'un point (Ville) 
 
 Vous devrez ensuite saisir la ville dans le champ `Ville` de la page d'ajout d'un point.    
 
 image::images/formAjoutPoint3.png[ajoutPoint6]
 
-==== Ajout d'un point : Type de point
+==== Ajout d'un point (Type de point)
 
 Vous devrez ensuite sélectionner le type de point que vous souhaitez ajouter dans la liste déroulante `Type de point` de la page d'ajout d'un point.
 
 image::images/formAjoutPoint4.png[ajoutPoint7]
 
-==== Ajout d'un point : Joindre à un récit
+==== Ajout d'un point (Joindre à un récit)
 
 Vous pourrez ensuite sélectionner un récit dans la liste déroulante `Joindre à un récit` de la page d'ajout d'un point.
 
@@ -251,7 +252,7 @@ image::images/formAjoutRécit1.png[ajoutRécit3]
 
 Puis cliquer sur le bouton `Ajouter` afin d'ajouter le récit sur le site.
 
-==== Ajout d'un récit : Ajout d'un lien
+==== Ajout d'un récit (Ajout d'un lien)
 
 Vous avez également la possibilité d'ajouter un lien vers le récit en cliquant tout d'abord sur le bouton `Liste de récits` en haut de la page.
 
@@ -295,7 +296,7 @@ Vous serez alors redirigé vers la page d'ajout d'un polygone. Il vous faudra do
 image::images/formAjoutPolygone.png[ajoutPolygone2]
 image::images/formAjoutPolygone2.png[ajoutPolygone3]
 
-==== Ajout d'un polygone : Liste des points
+==== Ajout d'un polygone (Liste des points)
 
 Vous devrez ensuite sélectionner les points qui composent le polygone dans la carte en dessous du formulaire.
 
