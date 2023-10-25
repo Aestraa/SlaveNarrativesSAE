@@ -259,3 +259,16 @@ la méthode vas récupérer les champ du formulaire hasher le password et compar
 
 ==== Déconnection
 
+Maintenant que l'on est connecter, le menu a changé de nouveau bouton sont apparue est parmis ceux ci déconnexion
+
+image::images/sidebar_gestionmenu_con_1.png[code]
+
+quand on clique sur le bouton déconnexion.
+
+image::images/sidebar_gestionmenu_deco_1.png[route]
+
+la route nous renvoie vers la méthode logout du controlleur admin.
+
+image::images/sidebar_gestionmenu_deco_2.png[méthode]
+
+La méthode quand à elle détruit la session "is_admin" est retourne la vers la route /map.
