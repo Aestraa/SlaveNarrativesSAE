@@ -251,6 +251,36 @@ image::images/formAjoutRécit1.png[ajoutRécit3]
 
 Puis cliquer sur le bouton `Ajouter` afin d'ajouter le récit sur le site.
 
+==== Ajout d'un récit : Ajout d'un lien
+
+Vous avez également la possibilité d'ajouter un lien vers le récit en cliquant tout d'abord sur le bouton `Liste de récits` en haut de la page.
+
+image::images/boutonListeRécit.png[ajoutRécit4]
+
+Puis en cliquant sur le récit de votre choix dans la liste des récits.
+
+image::images/listeRécit2.png[ajoutRécit5]
+
+Et enfin en cliquant sur le bouton `Ajouter un lien` dans le résumé du récit.
+
+image::images/ajoutLien.png[ajoutRécit6]
+
+Vous serez alors redirigé vers la page d'ajout d'un lien. Il vous faudra donc saisir les informations demandées afin d'ajouter un lien vers le récit sur le site dont :
+
+* Le nom du lien
+* Le lien
+
+image::images/formAjoutLien.png[ajoutRécit7]
+
+Le lien ajouté sera alors visible dans le tableau à droite du formulaire avec un bouton pour le supprimer en cas d'erreur de saisie. 
+
+image::images/formAjoutLien2.png[ajoutRécit8]
+
+Pour confirmer l'ajout du lien il vous faudra cliquer sur le bouton `Stocker les liens` en bas du tableau.
+Cela aura pour effet de stocker les liens dans la base de données du site.
+
+image::images/formAjoutLien3.png[ajoutRécit9]
+
 === Ajout d'un polygone
 
 Si vous souhaitez ajouter un polygone, vous devez cliquer sur le bouton `Ajout d'un polygone` en ouvrant le menu déroulant à droite de la page.
