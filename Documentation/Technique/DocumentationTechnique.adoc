@@ -111,7 +111,7 @@ image::images/header_accueil_5.png[traitment de base]
 
 il va éxécuté la méthode getPoints du modelMap.
 
-image::images/header_accueil_methode[methode getpoint]
+image::images/header_accueil_méthode.png[methode getpoint]
 
 Il va liée la table tab_recit_v3 et point par leur id_recit et vas retourné toute les lignes dans point qui on l'attribue type égale a publication.Les attribues des lignes récupérer par la requète seront égale a la définition de allowedFields au dessus de la méthode.SI un attribue n'est pas dans allowedFields il ne sera pas récupérer.
 
@@ -137,9 +137,9 @@ image::images/header_recit_3.png[méthode]
 
 puis va faire des requètes pour recherche les récits dans tab_recit_v3.
 
-image::images/header_recit_4.png[méthode]
-
 image::images/header_recit_5.png[méthode]
+
+image::images/header_recit_4.png[méthode]
 
 et enfin il va retourné les vues pour les afficher.
 
