@@ -15,11 +15,13 @@
             <label><?= lang('insert_polys.type_polys') ?></label>
             <?php
             $i = 0;
+            $names = array();
             if (!empty($polys) && is_array($polys)) {
                 foreach ($polys as $elt) {
                     foreach ($polygones as $te) {
                         if ($te['id'] == $elt) {
                             echo $te['name'] . '<br>';
+                            $names[$i] = $te['name'];
                             echo '<select name="type' . $i . '" id="type' . $i . '" required>';
                             echo '<option value="publication">' . lang('insert_polys.publi') . '</option>';
                             echo '<option value="naissance">' . lang('insert_polys.naiss') . '</option>';
@@ -51,7 +53,7 @@
             <input name="nomE" id="nomE" type="hidden" value="<?php echo $nomE; ?>" />
 
             <a class="retour"
-                href="<?= site_url('/ajout_recit?nomR='.$nomR.'&idE='.$idE.'$lieuP='.$lieuP.'$infoSup='.$infoSup.'$dateP='.$dateP.'$typeR='.$typeR.'$com='.$com.'$modeP='.$modeP.'$dateN='.$dateN.'$nomS='.$nomS.'$lienR='.$lienR.'$idR='.$idR.'$nomE='.$nomE) ?>"><?= lang('recits.bouton_retour') ?></a></p>
+                href="<?= site_url('/ajout_recit?nomR='.$nomR.'&idE='.$idE.'&lieuP='.$lieuP.'&infoSup='.$infoSup.'&dateP='.$dateP.'&typeR='.$typeR.'&com='.$com.'&modeP='.$modeP.'&dateN='.$dateN.'&nomS='.$nomS.'&lienR='.$lienR.'&idR='.$idR.'&nomE='.$nomE.'&polys='.(implode(',', $names))) ?>"><?= lang('recits.bouton_retour') ?></a></p>
             </p>
             <button type="submit"><?= lang('insert_polys.add_button') ?></button>
         </form>

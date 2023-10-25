@@ -59,14 +59,26 @@
             <label><?= lang('ajout_recit.choix_polys') ?></label>
             <select name="poly[]" id="poly" multiple required>
                 <?php
+                
                 if (!empty($polys) && is_array($polys)) {
                     foreach ($polys as $elt) {
-                        echo '<option value="' . $elt['id'] . '">' . $elt['name'] . ' </option>';
+                        if(isset($_GET['polys'])){
+                            $polygones = explode(",", $_GET['polys']);
+                            $write = true;
+                            for($i=0;$i<count($polygones);$i++){       
+                                if($polygones[$i] == $elt['name']){
+                                    echo '<option value="' . $elt['id'] . '" selected>' . $elt['name'] . ' </option>';
+                                    $write = false;
+                                    break;
+                                } 
+                            }
+                        } if($write){
+                            echo '<option value="' . $elt['id'] . '">' . $elt['name'] . ' </option>';
+                        }
                     }
                 }
                 ?>
             </select><br><br>
-
             <a class="retour" href="<?= site_url('/map') ?>"><?= lang('recits.bouton_retour') ?></a></p>
 
             <button type="submit"><?= lang('ajout_recit.add_button') ?></button>
