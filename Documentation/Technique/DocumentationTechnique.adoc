@@ -16,7 +16,7 @@ toc::[]
 
 Code Igniter 4 utilise le model MVC (Model Vue Controlleur).
 
-image::images/Archi_racine[structure_racine]
+image::images/Archi_racine.png[structure_racine]
 
 Dans le projet on retrouve 5 parties :
 ----
@@ -58,7 +58,15 @@ Dans app on retrouve plusieur dossier, mais on va ce focaliser sur quelque dossi
 
 ----
 
-Maintenant que vous avez vue la structure du projet passont a un detail par fonctionnalité.
+Passont a la base de données liée au projet
+
+== Base de données
+
+----
+
+----
+
+Maintenant que vous avez vue la structure du projet et la base de données, passontaux fonctionnalitées.
 
 == Accueil
 
@@ -145,12 +153,109 @@ et enfin il va retourné les vues pour les afficher.
 
 === Statistique
 
+Quand on clique sur statistique, on utilise la route.
+
+image::images/header_stat_1.png[lien]
+
+Cette route nous renvoie sur la méthode statistiques du controlleur Admin.
+
+image::images/header_stat_2.png[route]
+
+Le controlleur va retourner les vues dans resclaves, statistique.php ainsi que le header.
+
+image::images/header_stat_3.png[methode]
+
 === Language
 
+en haut a droite du site web, il est possible de changé la langue du site.Quand on choisit un langue le code fait des requêtes pour remplacé tout les champ ou un retrouve "lang()".
 
+image::images/header_lang_1.png[code_trad]
+
+Pour cela il va cherché dans le fichier headergeo.php et il va chercher la ligne nav_bar.home ou nav_bar.list_narrative
+
+image::images/header_lang_2.png[trad]
+
+Il existe la meme chose pour le français.Cela permet d'avoir une traduction rapide et précise.
 
 == sidebar
 
 image::images/sidebar.png[sidebar]
 
-Dans le sidebar on peut trouver plusieur fonctionnalités.
+Dans le sidebar on peut trouver plusieur fonctionnalités:
+
+=== Sélectionner un type de lieu
+
+le premier menu déroulant ou on peut rechercher par type de lieu permet d'afficher tout les points du type demandé.
+
+image::images/sidebar_formpoint_1.png[form]
+
+On peut voir le formulaire avec plein de if.Cela permet de definir le type de point recherché.Puis la route et définie dans le action du formulaire est non dans le bouton submit mais le principe reste le même.
+
+image:images/sidebar_formpoint_2.png[route]
+
+la route nous indique que l'on va utilisé la méthode index de la class Map comme quand si on voulais revenir a la carte.
+
+image:images/sidebar_formulaire_3.png[méthode]
+
+Sauf que cette fois ci on pas aps utilisé la dernière clause du if mais la clause ou select_place  est définis.notre formulaire va définir select_place avec un valeur ce qui voudras dire que on aa utilisé le formulaire.Suite a cela le code pas retourné les vues définis aevc comme information dans data. Les points qui sont du type choisie ainsi que les territoires a affiché sur la carte.
+
+=== Sélectionner un récit
+
+Le deuxième menu déroulant est un menu ou on peut choisir quel récit on veux afficher sur la carte.
+
+image::images/sidebar_formrecit_1.png[form]
+
+La route nous renvoie sur la méthode index du controlleur Map
+
+image::images/sidebar_formrecit_2.png[route]
+
+Et cette fois ci, on vas utiliser le premier if de la méthode car le formulaire a définis select_recit.
+
+image::images/sidebar_formrecit_3.png[méthode]
+
+La méthode vas retourner les vues demandé avec toute les informations liée a un récit.
+
+=== Menu de gestion
+
+Dans le menu de gestion il y a deux groupe de lien :
+
+image::images/sidebar_gestionmenu.png[code]
+
+Le premier groupe qui s'affiche que s'y l'utilisateur est connecté et une deuxième ou il affiche soit deconnection quand on est connecté ou connxion quand t'on ne les pas.
+
+=== Déconnecté
+Commençons par le début et donc quand on arrive sur le site web,l'utilisateur est déconnecté.
+
+==== Connection
+Pour ce connecté il faut cliquer sur le bouton
+
+image::images/sidebar_gestionmenu_con_1.png[code]
+
+Vue que l'on n'est pas connecté il vas utilisé la route /connexion
+
+image::images/sidebar_gestionmenu_con_2.png[code]
+
+la route renvoie vers la méthode showconnexion du controlleur admin.
+
+image::images/sidebar_gestionmenu_con_3.png[code]
+
+la méthode renvoie la vue de connexion (connexion.php)
+
+Sur la page de connexion on peut remplir deux champ du formulaire (username, password)
+
+image::images/sidebar_gestionmenu_con_4.png[connexion]
+
+Le formulaire va renvoie en utilisant sa route "/Admin/login" 
+
+image::images/sidebar_gestionmenu_con_5.png[route]
+
+Celle ci qui renvoie vas la méthode login du controlleur admin
+
+image::images/sidebar_gestionmenu_con_6.png[connexion]
+
+la méthode vas récupérer les champ du formulaire hasher le password et comparer le password reçus par la requête avec comme paramètre le username avec les password donnée dans le formulaire.Si c'est correcte il créer un session "is_admin" qui permetta d'afficher des action limité au admin et redirige vers la map en utilisant la route /map ou si le password n'est pas bon il renvoie sur la page de connexion.
+
+=== Connecté
+
+==== Déconnection
+

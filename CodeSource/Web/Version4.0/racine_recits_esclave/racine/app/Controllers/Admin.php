@@ -9,7 +9,7 @@ class Admin extends BaseController
     public function showconnexion()
     {
         DatabaseUtils::insertVisit('connexion');
-        // Votre logique pour afficher la page de connexion
+
         return view('resclaves/header')
             . view('resclaves/connexion');
     }
@@ -39,7 +39,7 @@ class Admin extends BaseController
 
         $storedPassword = $model->getPass($username);
 
-        // Vérifiez les identifiants (à adapter selon votre logique de vérification)
+
         if ($hashexa == $storedPassword & $storedPassword !== null) {
             // Démarrer la session
             $session = \Config\Services::session();

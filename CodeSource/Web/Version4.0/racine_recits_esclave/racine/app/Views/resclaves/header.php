@@ -83,7 +83,7 @@ if($session->get('visit') != 'yes'){
       <a class="navbar-brand" href="<?= site_url() . "recits" ?>"><?= lang('headergeo.nav_bar.list_narratives')?></a>
 
       <?php if ($session->get('is_admin')) : ?>
-    <a class="navbar-brand" href="<?= site_url('statistiques') ?>"><?= lang('headergeo.nav_bar.statistics') ?></a>
+        <a class="navbar-brand" href="<?= site_url('statistiques') ?>"><?= lang('headergeo.nav_bar.statistics') ?></a>
       <?php endif; ?>
 
       <div class="language">
