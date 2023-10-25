@@ -72,8 +72,11 @@
                                     break;
                                 } 
                             }
-                        } if($write){
-                            echo '<option value="' . $elt['id'] . '">' . $elt['name'] . ' </option>';
+                        } 
+                        if(isset($write)){
+                            if($write){
+                                echo '<option value="' . $elt['id'] . '">' . $elt['name'] . ' </option>';
+                            }
                         }
                     }
                 }
