@@ -44,64 +44,85 @@
         </div>
     </div>
 
+    <!DOCTYPE html>
+<html>
+<head>
+    <title>Supprimer ligne</title>
+</head>
+<body>
+    <input type="text" id="champ1" placeholder="Champ 1">
+    <input type="text" id="champ2" placeholder="Champ 2">
+    <button id="addLinkButton">Ajouter</button>
+    <table id="linkTable">
+        <tr>
+            <th>Champ 1</th>
+            <th>Champ 2</th>
+            <th>Action</th>
+        </tr>
+    </table>
+    <input type="hidden" id="refinput" name="refinput" value="">
+    <input type="hidden" id="linkinput" name="linkinput" value="">
     <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        var refs = [];
-        var links = [];
+        document.addEventListener("DOMContentLoaded", function() {
+            var refs = [];
+            var links = [];
 
-        var addLinkButton = document.getElementById("addLinkButton");
-        var linkTable = document.getElementById("linkTable");
-        var refInput = document.getElementById("refinput");
-        var linkInput = document.getElementById("linkinput");
+            var addLinkButton = document.getElementById("addLinkButton");
+            var linkTable = document.getElementById("linkTable");
+            var refInput = document.getElementById("refinput");
+            var linkInput = document.getElementById("linkinput");
 
-        addLinkButton.addEventListener("click", function() {
-            var champ1Value = document.getElementById("champ1").value;
-            var champ2Value = document.getElementById("champ2").value;
+            addLinkButton.addEventListener("click", function() {
+                var champ1Value = document.getElementById("champ1").value;
+                var champ2Value = document.getElementById("champ2").value;
 
-            // Créez un tableau pour stocker les données
-            var data = [champ1Value, champ2Value];
-            // Ajoutez les données au tableau
-            refs.push(data[0]);
-            links.push(data[1]);
+                // Créez un tableau pour stocker les données
+                var data = [champ1Value, champ2Value];
+                // Ajoutez les données au tableau
+                refs.push(data[0]);
+                links.push(data[1]);
 
-            var newRow = linkTable.insertRow();
-            var cell1 = newRow.insertCell(0);
-            var cell2 = newRow.insertCell(1);
-            var deleteCell = newRow.insertCell(2);
+                var newRow = linkTable.insertRow();
+                var cell1 = newRow.insertCell(0);
+                var cell2 = newRow.insertCell(1);
+                var deleteCell = newRow.insertCell(2);
 
-            cell1.innerHTML = data[0];
-            cell2.innerHTML = data[1];
+                cell1.innerHTML = data[0];
+                cell2.innerHTML = data[1];
 
-            // Ajouter un bouton de suppression pour la nouvelle ligne
-            var deleteButton = document.createElement("button");
-            deleteButton.textContent = "Supprimer";
-            deleteButton.addEventListener("click", function() {
-                if (linkTable.rows.length > 1) {
+                // Ajouter un bouton de suppression pour la nouvelle ligne
+                var deleteButton = document.createElement("button");
+                deleteButton.textContent = "Supprimer";
+                deleteButton.addEventListener("click", function() {
                     var index = Array.from(linkTable.rows).indexOf(newRow);
-                    // Supprimez la ligne du tableau
-                    linkTable.deleteRow(newRow.rowIndex);
-                    // Supprimez les données correspondantes du tableau
-                    refs.splice(index, 1);
-                    links.splice(index, 1);
-                    updateHiddenInputs();
-                }
+                    if (index !== -1) {
+                        // Supprimez la ligne du tableau
+                        linkTable.deleteRow(index);
+                        // Supprimez les données correspondantes du tableau
+                        refs.splice(index, 1);
+                        links.splice(index, 1);
+                        updateHiddenInputs();
+                    }
+                });
+                deleteCell.appendChild(deleteButton);
+
+                // Effacer les valeurs des champs du formulaire
+                document.getElementById("champ1").value = "";
+                document.getElementById("champ2").value = "";
+
+                updateHiddenInputs();
             });
-            deleteCell.appendChild(deleteButton);
 
-            // Effacer les valeurs des champs du formulaire 1
-            document.getElementById("champ1").value = "";
-            document.getElementById("champ2").value = "";
-
-            updateHiddenInputs();
+            // Fonction pour mettre à jour les champs cachés avec les données du tableau
+            function updateHiddenInputs() {
+                refInput.value = JSON.stringify(refs);
+                linkInput.value = JSON.stringify(links);
+            }
         });
-
-        // Fonction pour mettre à jour les champs cachés avec les données du tableau
-        function updateHiddenInputs() {
-            refInput.value = JSON.stringify(refs);
-            linkInput.value = JSON.stringify(links);
-        }
-    });
     </script>
+</body>
+</html>
+
 </body>
 
 </html>
