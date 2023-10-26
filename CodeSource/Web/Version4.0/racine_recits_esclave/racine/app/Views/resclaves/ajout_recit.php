@@ -59,7 +59,7 @@
             <label><?= lang('ajout_recit.choix_polys') ?></label>
             <select name="poly[]" id="poly" multiple required>
                 <?php
-                
+                $write = true;
                 if (!empty($polys) && is_array($polys)) {
                     foreach ($polys as $elt) {
                         if(isset($_GET['polys'])){
