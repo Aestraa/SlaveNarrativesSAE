@@ -43,25 +43,6 @@
             </form>
         </div>
     </div>
-
-    <!DOCTYPE html>
-<html>
-<head>
-    <title>Supprimer ligne</title>
-</head>
-<body>
-    <input type="text" id="champ1" placeholder="Champ 1">
-    <input type="text" id="champ2" placeholder="Champ 2">
-    <button id="addLinkButton">Ajouter</button>
-    <table id="linkTable">
-        <tr>
-            <th>Champ 1</th>
-            <th>Champ 2</th>
-            <th>Action</th>
-        </tr>
-    </table>
-    <input type="hidden" id="refinput" name="refinput" value="">
-    <input type="hidden" id="linkinput" name="linkinput" value="">
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             var refs = [];
