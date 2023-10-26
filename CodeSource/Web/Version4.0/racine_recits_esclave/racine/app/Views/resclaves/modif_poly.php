@@ -9,9 +9,7 @@
 </head>
 
 <body>
-    <a class="retour"
-        href="<?= site_url('/modif_recit?esc=' . $idE . '&idR=' . $_GET['idR']) ?>"><?= lang('recits.bouton_retour') ?></a>
-    </p>
+    
     <div class="login-container">
         <form action="<?= site_url('Modif/ModifRecit') ?>" method="post">
 

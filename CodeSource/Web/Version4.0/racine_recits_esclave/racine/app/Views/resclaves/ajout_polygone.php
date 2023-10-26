@@ -35,16 +35,7 @@
                         </table>
                     </div>
                 </div>
-                <div class="input-group">
-                    <label for="type"><?= lang('ajout_point.type') ?></label>
-                    <select name="type" id="type">
-                        <option value="naissance"><?= lang('ajout_point.types.birth') ?></option>
-                        <option value="publication"><?= lang('ajout_point.types.publication') ?></option>
-                        <option value="deces"><?= lang('ajout_point.types.death') ?></option>
-                        <option value="esclavage"><?= lang('ajout_point.types.slavery') ?></option>
-                        <option value="lieuvie"><?= lang('ajout_point.types.location_life') ?></option>
-                    </select>
-                </div>
+
                 <!-- Ajoutez un champ de formulaire caché pour les coordonnées -->
                 <input type="hidden" name="coordonnees" id="coordonneesInput">
 

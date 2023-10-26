@@ -382,7 +382,6 @@ class Ajout extends BaseController
         // Ensuite, $data est un tableau clé-valeur avec des clés correspondant aux noms des champs POST et des valeurs correspondantes.
 
         $nom_poly = $data['nom_poly'];
-        $type = $data['type'];
         $coordonnees = json_decode($data['coordonnees'], true); // Décodez la chaîne JSON en un tableau
         //var_dump($coordonnees);
         $strstart = '{"type":"MultiPolygon","coordinates":[[[';
