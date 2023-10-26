@@ -149,7 +149,59 @@ image::images/header_recit_5.png[méthode]
 
 image::images/header_recit_4.png[méthode]
 
-et enfin il va retourné les vues pour les afficher.
+et enfin il va retourné les vues pour les afficher (recits.php)
+
+image::images/header_recit_6.png[liste recit]
+
+le tableau affiche les récits avec pour chaque ligne un lien vers le récit en détail. ainsi que des possibilitées de modifier et supprimer les récits depuis la liste.
+
+==== Recit
+
+==== Modification Récit
+
+image::images/header_recit_modif_1.png[lien]
+
+Chaque ligne modifier a pour lien modif_recit plus des informations sur le récit sélectionné. 
+
+image::images/header_recit_2.png[route]
+
+La route appel la méthode modif du controlleur Modif
+
+image::images/header_recit_3.png[méthode]
+
+La méthode récupère toute les information des récit par récit puis affiche la page de modification du récit avec un formulaire pour chaque champ.
+
+image::images/header_recit_4.png[affichage]
+
+Il vas remplir les champs en parcourant les résultats de la méthode quand l'id du recit est égale a l'id du récit venant de l'url.
+
+Un fois cela,des que l'on valide le formulaire.Le formulaire utilise la route "Modif/ModifPoly_Recit"
+
+image::images/header_recit_5.png[route]
+
+La route renvoie vers la méthode ModifPoly_Recit du controlleur Modif
+
+image::images/header_recit_6.png[méthode]
+
+La méthode va récupérer tout les champs du formulaire 
+
+image::images/header_recit_7.png[méthode]
+
+Puis va faire les traitement dans la base de données.Il va modifier le récit avec les informationset supprimer les lignes dasn recit_poly qui sont égale a l'id du récit puis va re-insérer dans la base de donnée les liaison être les polygones et les récits.Puis va afficher la liste des récits.
+
+==== Suppression Récit
+
+image::images/header_recit_suppr_1.png[code]
+
+Lors du clic sur le lien il va cherché la route "Suppr/SupprRecit" et demandé  avec une pop up une confirmation de la volonter de supprimer le récit.
+
+image::images/header_recit_suppr_2.png[route]
+
+la route va appeller la méthode SupprRecit du controlleur Suppr(Suppr.php)
+
+image::images/header_recit_suppr_3.png[méthode]
+
+La méthode va supprimer tout les points liées au récit ainsi que le récit et les liaisons être les récits et les polygones. Puis va afficher la liste des récits.
 
 === Statistique
 

@@ -105,24 +105,12 @@
     <TR>
             <th style="position: relative;" class="sortable-header">
                 <?= lang('recits.name_slave') ?>
-                <!--
-                <a href="?sort=name_slave_asc" class="arrow-up">&#9650;</a>
-                <a href="?sort=name_slave_desc" class="arrow-down">&#9660;</a>
-                -->
             </th>
             <th style="position: relative;" class="sortable-header">
                 <?= lang('recits.date_publication') ?>
-                <!--
-                <a href="?sort=date_publication_asc" class="arrow-up">&#9650;</a>
-                <a href="?sort=date_publication_desc" class="arrow-down">&#9660;</a>
-                -->
             </th>
             <th style="position: relative;" class="sortable-header">
                 <?= lang('recits.title') ?>
-                <!--
-                <a href="?sort=title_desc" class="arrow-down">&#9660;</a>
-                <a href="?sort=title_asc" class="arrow-up">&#9650;</a>
-                -->
             </th>
         <?php if ($session->get('is_admin')) : ?>
             <TH> <?= lang('recits.modification') ?> </TH>
