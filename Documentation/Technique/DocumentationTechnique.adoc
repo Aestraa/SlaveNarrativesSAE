@@ -163,29 +163,29 @@ image::images/header_recit_modif_1.png[lien]
 
 Chaque ligne modifier a pour lien modif_recit plus des informations sur le récit sélectionné. 
 
-image::images/header_recit_2.png[route]
+image::images/header_recit_modif_2.png[route]
 
 La route appel la méthode modif du controlleur Modif
 
-image::images/header_recit_3.png[méthode]
+image::images/header_recit_modif_3.png[méthode]
 
 La méthode récupère toute les information des récit par récit puis affiche la page de modification du récit avec un formulaire pour chaque champ.
 
-image::images/header_recit_4.png[affichage]
+image::images/header_recit_modif_4.png[affichage]
 
 Il vas remplir les champs en parcourant les résultats de la méthode quand l'id du recit est égale a l'id du récit venant de l'url.
 
 Un fois cela,des que l'on valide le formulaire.Le formulaire utilise la route "Modif/ModifPoly_Recit"
 
-image::images/header_recit_5.png[route]
+image::images/header_recit_modif_5.png[route]
 
 La route renvoie vers la méthode ModifPoly_Recit du controlleur Modif
 
-image::images/header_recit_6.png[méthode]
+image::images/header_recit_modif_6.png[méthode]
 
 La méthode va récupérer tout les champs du formulaire 
 
-image::images/header_recit_7.png[méthode]
+image::images/header_recit_modif_7.png[méthode]
 
 Puis va faire les traitement dans la base de données.Il va modifier le récit avec les informationset supprimer les lignes dasn recit_poly qui sont égale a l'id du récit puis va re-insérer dans la base de donnée les liaison être les polygones et les récits.Puis va afficher la liste des récits.
 
@@ -247,7 +247,7 @@ image:images/sidebar_formpoint_2.png[route]
 
 la route nous indique que l'on va utilisé la méthode index de la class Map comme quand si on voulais revenir a la carte.
 
-image:images/sidebar_formulaire_3.png[méthode]
+image:images/sidebar_formpoint_3.png[méthode]
 
 Sauf que cette fois ci on pas aps utilisé la dernière clause du if mais la clause ou select_place  est définis.notre formulaire va définir select_place avec un valeur ce qui voudras dire que on aa utilisé le formulaire.Suite a cela le code pas retourné les vues définis aevc comme information dans data. Les points qui sont du type choisie ainsi que les territoires a affiché sur la carte.
 
@@ -387,21 +387,21 @@ image::images/footer_contact_3.png[méthode]
 
 Dans cette page on retrouve un formulaire on remplir les informations a transmettre dans le mail.
 
-image::images/footer_code_4.png[formulaire]
+image::images/footer_contact_4.png[formulaire]
 
 Mais on trouve aussi du java script pour faire l'envoie du mail.
 
-image::images/footer_code_5.png[service_id]
+image::images/footer_contact_5.png[service_id]
 
 Le premier block définis le service a utilisé par son identifiant.
 
-image::images/footer_code_8.png[service]
+image::images/footer_contact_8.png[service]
 
 Et le deuxième block contient l'envoie du mail avec le template a utilisé. Le template permet de pré-structurer le mail avec les informations fournie des le mail.
 
-image::images/footer_code_6.png[envoie]
+image::images/footer_contact_6.png[envoie]
 
-image::images/footer_code_7.png[template]
+image::images/footer_contact_7.png[template]
 
 === Information
 
