@@ -5,17 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact</title>
+    <!-- Inclure le CSS de style_connexion.css -->
     <link rel="stylesheet" type="text/css" href="<?php echo base_url('css/style_connexion.css'); ?>">
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
     <script type="text/javascript">
         (function() {
-            emailjs.init("CFprpDhypfb61HdhQ");
+            emailjs.init("RVs1DflIzpO8lrBGl"); // Utilisez le Service ID "service_9k8vzy6"
         })();
     </script>
 </head>
 
 <body>
-    <form id="myForm" method="post">
+    <form id="myForm">
         <div class="login-container">
             <h2><?= lang('contact_resc.title') ?></h2>
             <div class="input-group">
@@ -53,12 +54,17 @@
                 message: document.getElementById("message").value
             };
 
-            emailjs.send("contact_service", "contact_form", params).then(function (res) {
+            emailjs.send("service_9k8vzy6", "template_5e82ku5", {
+                from_name: document.getElementById("name").value,
+                email_id: document.getElementById("email").value,
+                message: document.getElementById("message").value
+            }).then(function (res) {
                 alert("Message envoyé !");
+            }).catch(function (error) {
+                console.error("Erreur lors de l'envoi de l'e-mail : ", error);
             });
         }
     </script>
-
 </body>
 
 </html>

@@ -227,33 +227,35 @@ Le premier groupe qui s'affiche que s'y l'utilisateur est connecté et une deuxi
 Commençons par le début et donc quand on arrive sur le site web,l'utilisateur est déconnecté.
 
 ==== Connection
-Pour ce connecté il faut cliquer sur le bouton
+
+Pour se connecter, il faut cliquer sur le bouton suivant :
 
 image::images/sidebar_gestionmenu_con_1.png[code]
 
-Vue que l'on n'est pas connecté il vas utilisé la route /connexion
+Comme l'utilisateur n'est pas connecté, il utilisera la route /connexion :
 
 image::images/sidebar_gestionmenu_con_2.png[code]
 
-la route renvoie vers la méthode showconnexion du controlleur admin.
+Cette route renvoie vers la méthode `showconnexion` du contrôleur admin :
 
 image::images/sidebar_gestionmenu_con_3.png[code]
 
-la méthode renvoie la vue de connexion (connexion.php)
+La méthode renvoie la vue de connexion (connexion.php).
 
-Sur la page de connexion on peut remplir deux champ du formulaire (username, password)
+Sur la page de connexion, on peut remplir deux champs du formulaire (username, password) :
 
 image::images/sidebar_gestionmenu_con_4.png[connexion]
 
-Le formulaire va renvoie en utilisant sa route "/Admin/login" 
+Le formulaire enverra les données en utilisant sa route "/Admin/login" :
 
 image::images/sidebar_gestionmenu_con_5.png[route]
 
-Celle ci qui renvoie vas la méthode login du controlleur admin
+Cette route mènera à la méthode `login` du contrôleur admin :
 
 image::images/sidebar_gestionmenu_con_6.png[connexion]
 
-la méthode vas récupérer les champ du formulaire hasher le password et comparer le password reçus par la requête avec comme paramètre le username avec les password donnée dans le formulaire.Si c'est correcte il créer un session "is_admin" qui permetta d'afficher des action limité au admin et redirige vers la map en utilisant la route /map ou si le password n'est pas bon il renvoie sur la page de connexion.
+La méthode récupérera les champs du formulaire, hashera le mot de passe et le comparera au mot de passe reçu dans la requête en utilisant le nom d'utilisateur fourni dans le formulaire. Si les informations sont correctes, elle créera une session "is_admin" qui permettra d'accéder à des actions limitées aux administrateurs, puis redirigera vers la carte en utilisant la route /map. Si le mot de passe est incorrect, l'utilisateur sera redirigé vers la page de connexion.
+
 
 === Connecté
 
@@ -272,3 +274,91 @@ la route nous renvoie vers la méthode logout du controlleur admin.
 image::images/sidebar_gestionmenu_deco_2.png[méthode]
 
 La méthode quand à elle détruit la session "is_admin" est retourne la vers la route /map.
+
+==== Création de compte
+
+Pour créer un nouveau compte de connexion il faut déjà être connecté.
+
+image::images/sidebar_cc_2.png[bouton]
+
+Quand on clique sur le bouton il applique la route définie (/creercompte).
+
+image::images/sidebar_cc_3.png[route]
+
+La route  renvoie vers la méthode showcreercompte du  controlleur Admin.
+
+image::images/sidebar_cc_4.png[méthode]
+
+Cette méthode ce charge d'afficher la page créer compte.
+
+image::images/sidebar_cc_1.png[page]
+
+Sur cette page on retrouve un formulaire qui quand il est validé utilise la route (/Admin/creercompte)
+
+image::images/sidebar_cc_5.png[route]
+
+La route renvoie vers la méthode creercompte du controlleur admin
+
+image::images/sidebar_cc_6.png[méthode]
+
+La méthode quand a elle vas préparer la requete d'insertion dans la bd est vérifier si il exite déjà pas une personne avec cette identifiant.Si cela est bon, il va insérer dans la base de données le compte.
+
+==== Ajout Point 
+
+==== Ajout Récit
+
+==== Ajout Polygone
+
+==== Ajout Esclave/Auteur 
+
+==== Modification d'un Esclave/auteur
+
+==== Suppression d'un Esclave/auteur
+
+== Footer
+
+image::images/footer_1.png[footer]
+
+Dans le footer on retrouve deux fonctionnalitées. Le contact avec la possibilité d'envoyé un mail sur l'adresse mail du site  et un page avec des informations et remerciment.
+
+image::images/footer_code_1.png[code]
+
+=== Contact
+
+Dans route appelle la méthode contact du controlleur Map.
+
+image::images/footer_contact_2.png[route]
+
+Cette méthode retourne la page contact.
+
+image::images/footer_contact_3.png[méthode]
+
+Dans cette page on retrouve un formulaire on remplir les informations a transmettre dans le mail.
+
+image::images/footer_code_4.png[formulaire]
+
+Mais on trouve aussi du java script pour faire l'envoie du mail.
+
+image::images/footer_code_5.png[service_id]
+
+Le premier block définis le service a utilisé par son identifiant.
+
+image::images/footer_code_8.png[service]
+
+Et le deuxième block contient l'envoie du mail avec le template a utilisé. Le template permet de pré-structurer le mail avec les informations fournie des le mail.
+
+image::images/footer_code_6.png[envoie]
+
+image::images/footer_code_7.png[template]
+
+=== Information
+
+Pour les informations du site web.
+
+image::images/footer_about_2.png[route]
+
+Le lien renvoie vers vers la méthode about du controlleur Map.
+
+image::images/footer_about_3.png[méthode]
+
+La page contient juste des informations et des remerciments.
