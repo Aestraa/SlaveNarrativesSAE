@@ -423,15 +423,193 @@ La méthode récupérera les champs du formulaire, hashera le mot de passe, et l
 
 ==== Ajout Point 
 
+Dans le menu du sidebar.
+
+image::images/sidebar_ajoutp_1.png[lien]
+
+Lors du clic, il appel la route /ajout_point
+
+image::images/sidebar_ajoutp_2.png[route]
+
+la route appel la méthode point du controlleur Ajout
+
+image::images/sidebar_ajoutp_3.png[méthode]
+
+La méthode point affiche la page ajout_point.
+
+image::images/sidebar_ajoup_4.png[page]
+
+La page contient un formulaire avec des champ pour chaque attribue de la table point. Quand on valide le formulaire un utilise la route Ajout/InsertPoint.
+
+image::images/sidebar_ajoup_5.png[route]
+
+La route appel la méthode InsertPoint du controlleur Ajout.
+
+image::images/sidebar_ajoup_6.png[méthode]
+
+La méthode récupère les champs du formulaire puis les insert dans la base de données.
+
 ==== Ajout Récit
+
+On retourve aussi un bouton pour ajouté un récit.
+
+image::images/sidebar_ajoutr_1.png[lien]
+
+Il appel la route "/ajout_recit".
+
+image::images/sidebar_ajoutr_2.png[route]
+
+La route appel la méthode recit du controlleur Ajout.
+
+image::images/sidebar_ajoutr_3.png[méthode]
+
+La méthode va affiché la page pour ajouté un formulaire ainsi que un menu déroulant avec tout les polygones dans la base de données.
+
+image::images/sidebar_ajoutr_4.png[page]
+
+Puis la page va avoir un formulaire a remplir.
+
+image::images/sidebar_ajoutr_5.png[page]
+
+Et un menu déroulant avec tout les polygones de la base de données.
+
+image::images/sidebar_ajoutr_6.png[route]
+
+Quand on valide le formulaire in va exécuté la route InsertPoly_Recit.
+
+image::images/sidebar_ajoutr_7.png[méthode]
+
+la méthode va récupérer les informations du formulaire
+
+image::images/sidebar_ajoutr_8.png[méthode]
+
+puis recherché l'id du récit et va retourné vers la page insert_poly mais sans l'affiché.
+
+Cette page va juste ressemblé les information pour l'appel de la méthode InsertRecit
+
+image::images/sidebar_ajoutr_9.png[méthode]
+
+Cette méthode va inséret dans la base de donnée le récit aussi que les liaison être le récit et les polygones.
 
 ==== Ajout Polygone
 
+image:images/sidebar_ajoutpol_1.png[lien]
+
+Quand on clique sur le bouton ajout polygone, il appel la route "/ajout_poly"
+
+image:images/sidebar_ajoutpol_2.png[route]
+
+La route renvoie vers la méthode add_poly du controlleur Ajout.
+
+image:images/sidebar_ajoutpol_3.png[méthode]
+
+Cettez méthode affiche la page ajout_polygone.
+
+image:images/sidebar_ajoutpol_4.png[page]
+
+Cette page contient un tableau de point.
+
+image:images/sidebar_ajoutpol_5.png[js]
+
+Ainsi que du java script. I ly a une carte , qui quadn elel est cliqué elle ajoute un point dans le tableau.Si il y a plus de 2 point dans le tableau il va déssiné un polygone.
+
+image:images/sidebar_ajoutpol_6.png[route]
+
+Puis quand on valide le formulaire il va cherché la méthode InsertPoly du controlleur Ajout par la route.
+
+image:images/sidebar_ajoutpol_7.png[méthode]
+
+Cette méthode s'occupe de faire l'insertion dans la base de données le polygonne créer.
+
 ==== Ajout Esclave/Auteur 
+
+image::images/sidebar_ajoutes_1.png[bouton]
+
+Quand on clique sur ajout d'un esclave il appel la route "/ajout_esclave".
+
+image::images/sidebar_ajoutes_2.png[route]
+
+La route appel la méthode auteur du controlleur Ajout.
+
+image::images/sidebar_ajoutes_3.png[méthode]
+
+La méthode affiche la page ajout_esclave
+
+image::images/sidebar_ajoutes_4.png[page]
+
+Dans cette page on retrouve tout les champ pour ajouté un auteur.
+
+image::images/sidebar_ajoutes_5.png[route]
+
+Quand on valide la formulaire, la route appel la méthode InsertAuteur du controlleur Ajout.
+
+image::images/sidebar_ajoutes_6.png[méthode]
+
+La méthode va insert dans la base de données les informations remplis dans le formulaire.
 
 ==== Modification d'un Esclave/auteur
 
+image::images/sidebar_modifes_1.png[bouton]
+
+Quand on clique sur modif d'un esclave il appel la route "/choix_esclave".
+
+image::images/sidebar_modifes_2.png[route]
+
+La route appel la méthode choixModifA du controlleur Modif.
+
+image::images/sidebar_modifes_3.png[méthode]
+
+La méthode récupère tout les auteurs dans la base de données est affiche la page choix_esclave.
+
+image::images/sidebar_modifes_4.png[page]
+
+La page contient un formulaire avecu n menu déroulant avec tout les auteurs ce qui permet de choisir l'auteur.
+
+image::images/sidebar_modifes_5.png[route]
+
+Le formulaire va appeller la route /modif_esclave et appeller la méthode modifA du controlleur Modif.
+
+image::images/sidebar_modifes_6.png[méthode]
+
+Cette méthode va récupérer tout les informations liée a un auteur et afficher la page modif_esclave avec les informations récupérer.
+
+image::images/sidebar_modifes_7.png[page]
+
+Cette page contient un formulaire avec tout les champ a remplir pour la base de donneés pré_remplis avec les informations récupérer.
+
+image::images/sidebar_modifes_8.png[route]
+
+Quand le formulaire est validé il va appeller la méthode ModifAuteur du controlleur Modif.
+
+image::images/sidebar_modifes_9.png[méthode]
+
+Cette méthode va update l'auteur.
+
 ==== Suppression d'un Esclave/auteur
+
+image::images/sidebar_suppres_1.png[bouton]
+
+Quand on clique sur suppression d'un esclave il appel la route "/suppr_esclave".
+
+image::images/sidebar_suppres_2.png[route]
+
+La route appel la méthode supprA du controlleur Suppr.
+
+image::images/sidebar_suppres_3.png[méthode]
+
+La méthode supprA récupaire tout les auteurs dans la base de données et affiche la page suppr_esclave.
+
+image::images/sidebar_suppres_4.png[page]
+
+La page sert a choisir l'auteur a supprimer.
+
+image::images/sidebar_suppres_5.png[route]
+
+Un fois l'auteur sélectionné et le formulaire validé, la route appel la méthode SupprAuteur du controlleur Suppr.
+
+image::images/sidebar_suppres_6.png[bouton]
+
+LA méthode va supprimer l'auteur sélection précédement.
 
 == Footer
 
