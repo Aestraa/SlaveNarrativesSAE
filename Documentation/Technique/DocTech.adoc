@@ -67,7 +67,7 @@ image::images/Archi_app_5.png[structure_app]
 
 == Base de données
 
-Voici la doc technique pour la base de données liée au site web.
+Voici la documentation technique pour la base de données liée au site web.
 
 === Autoch2
 
@@ -75,84 +75,83 @@ image::images/autoch.png[autoch]
 
 Cette table contient des polygones en Amérique.
 
-=== fullpt_1
+=== Fullpt_1
 
 image::images/fullpts.png[fullpts]
 
 Cette table contient des points.
 
-=== link
+=== Link
 
 image::images/link.png[link]
 
 Cette table contient des liens pour les récits.
 
-=== map3
+=== Map3
 
 image::images/map3.png[map3]
 
 Cette table contient des polygones.
 
-=== page
+=== Page
 
 image::images/page.png[page]
 
-Cette table liste tout les pages du site web.
+Cette table liste toutes les pages du site web.
 
-=== points
+=== Points
 
 image::images/point.png[point]
 
-Cette table contient les points liée au récit.
+Cette table contient les points liés aux récits.
 
-=== polygone
+=== Polygone
 
 image::images/poly.png[poly]
 
-Cette table contient les polygones liée au récit.
+Cette table contient les polygones liés aux récits.
 
-=== pts_publication
+=== Pts_publication
 
 image::images/ptspubli.png[ptspubli]
 
-Cette table contient les point de publication.
+Cette table contient les points de publication.
 
-=== recit_poly
+=== Recit_poly
 
 image::images/recitpoly.png[recitpoly]
 
-Cette contient les liens entres les polygones et les récits.
+Cette table contient les liens entre les polygones et les récits.
 
-=== roy_afr
+=== Roy_afr
 
 image::images/royafr.png[royafr]
 
-Cette table contient les polygones des royaumes africain.
+Cette table contient les polygones des royaumes africains.
 
-=== tab_auteurs
+=== Tab_auteurs
 
 image::images/auteur.png[auteur]
 
 Cette table contient les auteurs du site web.
 
-=== tab_recits_v3
+=== Tab_recits_v3
 
 image::images/recit.png[recit]
 
 Cette table contient les récits du site.
 
-=== user
+=== User
 
 image::images/user.png[user]
 
-Cette table contient les user pour ce connecté.
+Cette table contient les utilisateurs pour se connecter.
 
-=== visite
+=== Visite
 
 image::images/visite.png[visite]
 
-Cette table liste les connection aux page pour les statistique de visite.
-
+Cette table liste les connexions aux pages pour les statistiques de visite.
 
 Maintenant que vous avez vu la structure du projet, passons aux fonctionnalités.
 
@@ -301,31 +300,31 @@ La méthode va supprimer tout les points liées au récit ainsi que le récit et
 
 image::images/header_recit_recit_1.png[listeRecit]
 
-Lors que l'on clique sur un récit dans la liste, le formulaire appel la route recits/ + l'id du récit
+Lorsqu'on clique sur un récit dans la liste, le formulaire appelle la route recits/ + l'id du récit.
 
 image::images/header_recit_recit_2.png[route]
 
-La route appel la méthode view  du Controlleur Recits
+La route appelle la méthode view du contrôleur Recits.
 
 image::images/header_recit_recit_3.png[méthode1]
 
-La méthode récupère les infomations du récit sélectionnée dans les paramètre puis fait une recherche de toute les informations liée au récit en paramètre.Puis le champ "historiographie" est récupérer a pars pour être modifier.
+La méthode récupère les informations du récit sélectionné dans les paramètres puis fait une recherche de toutes les informations liées au récit en paramètre. Puis le champ "historiographie" est récupéré à part pour être modifié.
 
-Et enfin, on définis un pattern () et on recupère tout les occurences au lieu y a des paranthèses.
+Et enfin, on définit un pattern () et on récupère toutes les occurrences où il y a des parenthèses.
 
 image::images/header_recit_recit_4.png[méthode2]
 
-Pour chaque occurence des paranthèse on va diviser le texte avec comme séparateur la virgule. est l'affecté a $segments.
+Pour chaque occurrence des parenthèses, on va diviser le texte avec comme séparateur la virgule, et l'affecter à $segments.
 
-Si le segments a trois éléments, cela veux dire que dans la paranthèse on retrouve (Auteur,Titre raccourci, page). Puis on veut récupérer chaque élément et on vas générer un string qui appel la fonction javascript permétant de écupérer les infos de Zotero.
+Si le segment a trois éléments, cela veut dire que dans la parenthèse on retrouve (Auteur, Titre raccourci, page). Puis on veut récupérer chaque élément et on va générer un string qui appelle la fonction javascript permettant de récupérer les infos de Zotero.
 
 image::images/header_recit_recit_5.png[méthode5]
 
-Si le nombre d'éléments est égale a 2, cela veux dire que il y a le (Titre,page).Mais le principe reste le même.
+Si le nombre d'éléments est égal à 2, cela veut dire qu'il y a le (Titre, page). Mais le principe reste le même.
 
 image::images/header_recit_recit_6.png[méthode6]
 
-Si le nobre d'élement dans la paranthèse est égale a 1,cela ve dire que c'est un lien est donc on va récupérer les liens stocker dans la table Link. Si le lien existe il vas modifier les pour mettre le lien.Sinon il ne change rien.
+Si le nombre d'éléments dans la parenthèse est égal à 1, cela veut dire que c'est un lien et donc on va récupérer les liens stockés dans la table Link. Si le lien existe, il va modifier les pour mettre le lien. Sinon, il ne change rien.
 
 image::images/header_recit_recit_7.png[méthode7]
 
@@ -333,75 +332,75 @@ Puis il affiche la page view avec les informations du récit.
 
 === Affichage d'un récit
 
-Dans la page on retrouve toute les informations liée au récit sélectionnée.
+Dans la page on retrouve toutes les informations liées au récit sélectionné.
 
 ==== Ajout d'un lien
 
-Mais on trouve aussi la possibilité de modifier et supprimer le récit depusi cette page.Mais le principale est une possiblité d'ajouté des liens dans la bd.
+Mais on trouve aussi la possibilité de modifier et supprimer le récit depuis cette page. Mais le principal est une possibilité d'ajouter des liens dans la BD.
 
 image::images/header_recit_view_1.png[lien]
 
-Lors du clique sur le lien, la route appel "/ajout link"
+Lors du clic sur le lien, la route appelle "/ajout link".
 
 image::images/header_recit_view_24.png[route]
 
-La route appel la méthode ajout_link du controlleur Ajout.
+La route appelle la méthode ajout_link du contrôleur Ajout.
 
 image::images/header_recit_view_3.png[méthode]
 
-La méthode s'occupe juste de d'afficher la page d'ajout.
+La méthode s'occupe juste d'afficher la page d'ajout.
 
 image::images/header_recit_view_4.png[page]
 
-Sur cette page on retrouve deux formualires.Le premier est juste un formulaire avec 2 champs, un pour le nom du lien et un autre pour le lien.
+Sur cette page on retrouve deux formulaires. Le premier est juste un formulaire avec 2 champs, un pour le nom du lien et un autre pour le lien.
 
 image::images/header_recit_view_5.png[js]
 
-Quand on clique sur ajouter, le script java script s'occupe d'ajouté les information du 1er formulaire dans le tableau du deuxième.Cela permet d'ajouter plusieurs lie nen même temps.
+Quand on clique sur ajouter, le script javascript s'occupe d'ajouter les informations du 1er formulaire dans le tableau du deuxième. Cela permet d'ajouter plusieurs liens en même temps.
 
 image::images/header_recit_view_6.png[page]
 
-LE 2ème formulaire sert a stocker et afficher les liens à ajouter.Quand on clique sur validé du formualaire, il appel la route "Ajout/InsertLink"
+Le 2ème formulaire sert à stocker et afficher les liens à ajouter. Quand on clique sur validé du formulaire, il appelle la route "Ajout/InsertLink".
 
 image::images/header_recit_view_7.png[route]
 
-La route renvoie vers la méthode InsertLink du controlleur Ajout
+La route renvoie vers la méthode InsertLink du contrôleur Ajout.
 
 image::images/header_recit_view_8.png[méthode]
 
-La méthode vas inséret dans la table link les liens créé.
+La méthode va insérer dans la table link les liens créés.
 
 ==== Api Zotero
 
 image::images/header_recit_api_1.png[affichage]
 
-L'api Zotero sera utilisé que dans la partie commentaire.
+L'api Zotero sera utilisée que dans la partie commentaire.
 
 image::images/header_recit_api_2.png[js1]
 
-Quand on clique sur un lien dasn cette partie il appel la méthode afficherPopup dans le but d'afficher des information détailler de la source.
+Quand on clique sur un lien dans cette partie, il appelle la méthode afficherPopup dans le but d'afficher des informations détaillées de la source.
 
-Pour cela on trouve l'api avec la clé est l'userid mais aussi un notification en haut a droite de l'écrans pour informer l'utilisateur que la recherche est en cour.
+Pour cela on trouve l'api avec la clé et l'userid mais aussi une notification en haut à droite de l'écran pour informer l'utilisateur que la recherche est en cours.
 
 image::images/header_recit_api_3.png[js2]
 
-La fonction démare avec start et query a 0 et appel la méthode recursivesearch avec ces paramètres.
+La fonction démarre avec start et query à 0 et appelle la méthode recursiveSearch avec ces paramètres.
 
 image::images/header_recit_api_4.png[js3]
 
-la fonction quand a elle va appeller la fonction makesearchRequest aevc les paramètre quel a reçu. Puis a chaque résultat de cette fonction, elel va testé si la demande a était trouvé ou si il reste des éléments a recherché dasn l'api.Si il en reste, elle se rapelle avec les début de la recherche +25 éléments.Dans le cas ou il n'y a plus d'élément ou il a était trouvé elle appel la fonction checkdata.
+La fonction quant à elle va appeler la fonction makeSearchRequest avec les paramètres qu'elle a reçus. Puis à chaque résultat de cette fonction, elle va tester si la demande a été trouvée ou si il reste des éléments à rechercher dans l'api. Si il en reste, elle se rappelle avec le début de la recherche +25 éléments. Dans le cas où il n'y a plus d'élément ou il a été trouvé, elle appelle la fonction checkData.
 
 image::images/header_recit_api_5.png[js4]
 
-Cette fonction fait une requete de 25 éléments définis par la limit dans url de l'api et comment au x ème élments définis par le start reçu.Si il trouve l'élément il va modifier la variable found a true ce qui va stopper les requetes et faire l'affichage.
+Cette fonction fait une requête de 25 éléments définis par la limite dans l'url de l'api et commence aux x ème éléments définis par le start reçu. Si elle trouve l'élément, elle va modifier la variable found à true ce qui va stopper les requêtes et faire l'affichage.
 
 image::images/header_recit_api_6.png[js5]
 
-Quand checkData est appellé il remplis les champs par le résultat récupérer.
+Quand checkData est appelée, elle remplit les champs par le résultat récupéré.
 
 image::images/header_recit_api_7.png[js6]
 
-Puis si le titre est définis il affiche un popup avec les informations de la sources et retire la notification de recherche.Mais si le titr en'ets pas définis il fait une popup avec information non trouvé.
+Puis si le titre est défini, elle affiche un popup avec les informations de la source et retire la notification de recherche. Mais si le titre n'est pas défini, elle fait un popup avec information non trouvée.
 
 === Statistique
 
@@ -409,76 +408,77 @@ Quand on clique sur statistique, on utilise la route.
 
 image::images/header_stat_1.png[lien]
 
-Cette route nous renvoie sur la méthode statistiques du controlleur Admin.
+Cette route nous renvoie sur la méthode statistiques du contrôleur Admin.
 
 image::images/header_stat_2.png[route]
 
-Le controlleur va retourner les vues dans resclaves, statistique.php ainsi que le header.
+Le contrôleur va retourner les vues dans resclaves, statistique.php ainsi que le header.
 
 image::images/header_stat_3.png[methode]
 
-=== Language
+=== Langage
 
-en haut a droite du site web, il est possible de changé la langue du site.Quand on choisit un langue le code fait des requêtes pour remplacé tout les champ ou un retrouve "lang()".
+En haut à droite du site web, il est possible de changer la langue du site. Quand on choisit une langue, le code fait des requêtes pour remplacer tous les champs où l'on retrouve "lang()".
 
 image::images/header_lang_1.png[code_trad]
 
-Pour cela il va cherché dans le fichier headergeo.php et il va chercher la ligne nav_bar.home ou nav_bar.list_narrative
+Pour cela, il va chercher dans le fichier headergeo.php et il va chercher la ligne nav_bar.home ou nav_bar.list_narrative.
 
 image::images/header_lang_2.png[trad]
 
-Il existe la meme chose pour le français.Cela permet d'avoir une traduction rapide et précise.
+Il existe la même chose pour le français. Cela permet d'avoir une traduction rapide et précise.
 
-== sidebar
+== Sidebar
 
 image::images/sidebar.png[sidebar]
 
-Dans le sidebar on peut trouver plusieur fonctionnalités:
+Dans la sidebar, on peut trouver plusieurs fonctionnalités :
 
 === Sélectionner un type de lieu
 
-le premier menu déroulant ou on peut rechercher par type de lieu permet d'afficher tout les points du type demandé.
+Le premier menu déroulant, où l'on peut rechercher par type de lieu, permet d'afficher tous les points du type demandé.
 
 image::images/sidebar_formpoint_1.png[form]
 
-On peut voir le formulaire avec plein de if.Cela permet de definir le type de point recherché.Puis la route et définie dans le action du formulaire est non dans le bouton submit mais le principe reste le même.
+On peut voir le formulaire avec plein de if. Cela permet de définir le type de point recherché. Puis la route est définie dans l'action du formulaire et non dans le bouton submit, mais le principe reste le même.
 
-image:images/sidebar_formpoint_2.png[route]
+image::images/sidebar_formpoint_2.png[route]
 
-la route nous indique que l'on va utilisé la méthode index de la class Map comme quand si on voulais revenir a la carte.
+La route nous indique que l'on va utiliser la méthode index de la classe Map, comme si on voulait revenir à la carte.
 
-image:images/sidebar_formpoint_3.png[méthode]
+image::images/sidebar_formpoint_3.png[méthode]
 
-Sauf que cette fois ci on pas aps utilisé la dernière clause du if mais la clause ou select_place  est définis.notre formulaire va définir select_place avec un valeur ce qui voudras dire que on aa utilisé le formulaire.Suite a cela le code pas retourné les vues définis aevc comme information dans data. Les points qui sont du type choisie ainsi que les territoires a affiché sur la carte.
+Sauf que cette fois-ci, on ne va pas utiliser la dernière clause du if, mais la clause où select_place est défini. Notre formulaire va définir select_place avec une valeur, ce qui voudra dire que l'on a utilisé le formulaire. Suite à cela, le code va retourner les vues définies avec comme informations dans data, les points qui sont du type choisi ainsi que les territoires à afficher sur la carte.
 
 === Sélectionner un récit
 
-Le deuxième menu déroulant est un menu ou on peut choisir quel récit on veux afficher sur la carte.
+Le deuxième menu déroulant est un menu où l'on peut choisir quel récit on veut afficher sur la carte.
 
 image::images/sidebar_formrecit_1.png[form]
 
-La route nous renvoie sur la méthode index du controlleur Map
+La route nous renvoie sur la méthode index du contrôleur Map.
 
 image::images/sidebar_formrecit_2.png[route]
 
-Et cette fois ci, on vas utiliser le premier if de la méthode car le formulaire a définis select_recit.
+Et cette fois-ci, on va utiliser le premier if de la méthode, car le formulaire a défini select_recit.
 
 image::images/sidebar_formrecit_3.png[méthode]
 
-La méthode vas retourner les vues demandé avec toute les informations liée a un récit.
+La méthode va retourner les vues demandées avec toutes les informations liées à un récit.
 
 === Menu de gestion
 
-Dans le menu de gestion il y a deux groupe de lien :
+Dans le menu de gestion, il y a deux groupes de liens :
 
 image::images/sidebar_gestionmenu.png[code]
 
-Le premier groupe qui s'affiche que s'y l'utilisateur est connecté et une deuxième ou il affiche soit deconnection quand on est connecté ou connxion quand t'on ne les pas.
+Le premier groupe qui s'affiche seulement si l'utilisateur est connecté, et un deuxième où il affiche soit déconnexion quand on est connecté ou connexion quand on ne l'est pas.
 
 === Déconnecté
-Commençons par le début et donc quand on arrive sur le site web,l'utilisateur est déconnecté.
 
-==== Connection
+Commençons par le début, donc quand on arrive sur le site web, l'utilisateur est déconnecté.
+
+==== Connexion
 
 Pour se connecter, il faut cliquer sur le bouton suivant :
 
@@ -506,7 +506,7 @@ Cette route mènera à la méthode `login` du contrôleur `Admin` :
 
 image::images/sidebar_gestionmenu_con_6.png[connexion]
 
-La méthode récupérera les champs du formulaire, hashera le mot de passe, et le comparera au mot de passe reçu dans la requête en utilisant
+La méthode récupérera les champs du formulaire, hashera le mot de passe, et le comparera au mot de passe reçu dans la requête.
 
 ==== Ajout Point 
 
@@ -514,11 +514,11 @@ Dans le menu du sidebar.
 
 image::images/sidebar_ajoutp_1.png[lien]
 
-Lors du clic, il appel la route /ajout_point
+Lors du clic, il appelle la route /ajout_point.
 
 image::images/sidebar_ajoutp_2.png[route]
 
-la route appel la méthode point du controlleur Ajout
+La route appelle la méthode point du contrôleur Ajout.
 
 image::images/sidebar_ajoutp_3.png[méthode]
 
@@ -526,177 +526,177 @@ La méthode point affiche la page ajout_point.
 
 image::images/sidebar_ajoup_4.png[page]
 
-La page contient un formulaire avec des champ pour chaque attribue de la table point. Quand on valide le formulaire un utilise la route Ajout/InsertPoint.
+La page contient un formulaire avec des champs pour chaque attribut de la table point. Quand on valide le formulaire, on utilise la route Ajout/InsertPoint.
 
 image::images/sidebar_ajoup_5.png[route]
 
-La route appel la méthode InsertPoint du controlleur Ajout.
+La route appelle la méthode InsertPoint du contrôleur Ajout.
 
 image::images/sidebar_ajoup_6.png[méthode]
 
-La méthode récupère les champs du formulaire puis les insert dans la base de données.
+La méthode récupère les champs du formulaire puis les insère dans la base de données.
 
 ==== Ajout Récit
 
-On retourve aussi un bouton pour ajouté un récit.
+On retrouve aussi un bouton pour ajouter un récit.
 
 image::images/sidebar_ajoutr_1.png[lien]
 
-Il appel la route "/ajout_recit".
+Il appelle la route "/ajout_recit".
 
 image::images/sidebar_ajoutr_2.png[route]
 
-La route appel la méthode recit du controlleur Ajout.
+La route appelle la méthode recit du contrôleur Ajout.
 
 image::images/sidebar_ajoutr_3.png[méthode]
 
-La méthode va affiché la page pour ajouté un formulaire ainsi que un menu déroulant avec tout les polygones dans la base de données.
+La méthode va afficher la page pour ajouter un formulaire ainsi qu'un menu déroulant avec tous les polygones dans la base de données.
 
 image::images/sidebar_ajoutr_4.png[page]
 
-Puis la page va avoir un formulaire a remplir.
+Puis la page va avoir un formulaire à remplir.
 
 image::images/sidebar_ajoutr_5.png[page]
 
-Et un menu déroulant avec tout les polygones de la base de données.
+Et un menu déroulant avec tous les polygones de la base de données.
 
 image::images/sidebar_ajoutr_6.png[route]
 
-Quand on valide le formulaire in va exécuté la route InsertPoly_Recit.
+Quand on valide le formulaire, il va exécuter la route InsertPoly_Recit.
 
 image::images/sidebar_ajoutr_7.png[méthode]
 
-la méthode va récupérer les informations du formulaire
+La méthode va récupérer les informations du formulaire.
 
 image::images/sidebar_ajoutr_8.png[méthode]
 
-puis recherché l'id du récit et va retourné vers la page insert_poly mais sans l'affiché.
+Puis rechercher l'id du récit et va retourner vers la page insert_poly, mais sans l'afficher.
 
-Cette page va juste ressemblé les information pour l'appel de la méthode InsertRecit
+Cette page va juste rassembler les informations pour l'appel de la méthode InsertRecit.
 
 image::images/sidebar_ajoutr_9.png[méthode]
 
-Cette méthode va inséret dans la base de donnée le récit aussi que les liaison être le récit et les polygones.
+Cette méthode va insérer dans la base de données le récit ainsi que les liaisons entre le récit et les polygones.
 
 ==== Ajout Polygone
 
-image:images/sidebar_ajoutpol_1.png[lien]
+image::images/sidebar_ajoutpol_1.png[lien]
 
-Quand on clique sur le bouton ajout polygone, il appel la route "/ajout_poly"
+Quand on clique sur le bouton ajout polygone, il appelle la route "/ajout_poly".
 
-image:images/sidebar_ajoutpol_2.png[route]
+image::images/sidebar_ajoutpol_2.png[route]
 
-La route renvoie vers la méthode add_poly du controlleur Ajout.
+La route renvoie vers la méthode add_poly du contrôleur Ajout.
 
-image:images/sidebar_ajoutpol_3.png[méthode]
+image::images/sidebar_ajoutpol_3.png[méthode]
 
-Cettez méthode affiche la page ajout_polygone.
+Cette méthode affiche la page ajout_polygone.
 
-image:images/sidebar_ajoutpol_4.png[page]
+image::images/sidebar_ajoutpol_4.png[page]
 
-Cette page contient un tableau de point.
+Cette page contient un tableau de points.
 
-image:images/sidebar_ajoutpol_5.png[js]
+image::images/sidebar_ajoutpol_5.png[js]
 
-Ainsi que du java script. I ly a une carte , qui quadn elel est cliqué elle ajoute un point dans le tableau.Si il y a plus de 2 point dans le tableau il va déssiné un polygone.
+Ainsi que du JavaScript. Il y a une carte qui, quand elle est cliquée, ajoute un point dans le tableau. Si il y a plus de 2 points dans le tableau, il va dessiner un polygone.
 
-image:images/sidebar_ajoutpol_6.png[route]
+image::images/sidebar_ajoutpol_6.png[route]
 
-Puis quand on valide le formulaire il va cherché la méthode InsertPoly du controlleur Ajout par la route.
+Puis, quand on valide le formulaire, il va chercher la méthode InsertPoly du contrôleur Ajout par la route.
 
-image:images/sidebar_ajoutpol_7.png[méthode]
+image::images/sidebar_ajoutpol_7.png[méthode]
 
-Cette méthode s'occupe de faire l'insertion dans la base de données le polygonne créer.
+Cette méthode s'occupe de faire l'insertion dans la base de données du polygone créé.
 
-==== Ajout Esclave/Auteur 
+==== Ajout Esclave/Auteur
 
 image::images/sidebar_ajoutes_1.png[bouton]
 
-Quand on clique sur ajout d'un esclave il appel la route "/ajout_esclave".
+Quand on clique sur ajout d'un esclave, il appelle la route "/ajout_esclave".
 
 image::images/sidebar_ajoutes_2.png[route]
 
-La route appel la méthode auteur du controlleur Ajout.
+La route appelle la méthode auteur du contrôleur Ajout.
 
 image::images/sidebar_ajoutes_3.png[méthode]
 
-La méthode affiche la page ajout_esclave
+La méthode affiche la page ajout_esclave.
 
 image::images/sidebar_ajoutes_4.png[page]
 
-Dans cette page on retrouve tout les champ pour ajouté un auteur.
+Dans cette page, on retrouve tous les champs pour ajouter un auteur.
 
 image::images/sidebar_ajoutes_5.png[route]
 
-Quand on valide la formulaire, la route appel la méthode InsertAuteur du controlleur Ajout.
+Quand on valide le formulaire, la route appelle la méthode InsertAuteur du contrôleur Ajout.
 
 image::images/sidebar_ajoutes_6.png[méthode]
 
-La méthode va insert dans la base de données les informations remplis dans le formulaire.
+La méthode va insérer dans la base de données les informations remplies dans le formulaire.
 
-==== Modification d'un Esclave/auteur
+==== Modification d'un Esclave/Auteur
 
 image::images/sidebar_modifes_1.png[bouton]
 
-Quand on clique sur modif d'un esclave il appel la route "/choix_esclave".
+Quand on clique sur modif d'un esclave, il appelle la route "/choix_esclave".
 
 image::images/sidebar_modifes_2.png[route]
 
-La route appel la méthode choixModifA du controlleur Modif.
+La route appelle la méthode choixModifA du contrôleur Modif.
 
 image::images/sidebar_modifes_3.png[méthode]
 
-La méthode récupère tout les auteurs dans la base de données est affiche la page choix_esclave.
+La méthode récupère tous les auteurs dans la base de données et affiche la page choix_esclave.
 
 image::images/sidebar_modifes_4.png[page]
 
-La page contient un formulaire avecu n menu déroulant avec tout les auteurs ce qui permet de choisir l'auteur.
+La page contient un formulaire avec un menu déroulant avec tous les auteurs, ce qui permet de choisir l'auteur.
 
 image::images/sidebar_modifes_5.png[route]
 
-Le formulaire va appeller la route /modif_esclave et appeller la méthode modifA du controlleur Modif.
+Le formulaire va appeler la route /modif_esclave et appeler la méthode modifA du contrôleur Modif.
 
 image::images/sidebar_modifes_6.png[méthode]
 
-Cette méthode va récupérer tout les informations liée a un auteur et afficher la page modif_esclave avec les informations récupérer.
+Cette méthode va récupérer toutes les informations liées à un auteur et afficher la page modif_esclave avec les informations récupérées.
 
 image::images/sidebar_modifes_7.png[page]
 
-Cette page contient un formulaire avec tout les champ a remplir pour la base de donneés pré_remplis avec les informations récupérer.
+Cette page contient un formulaire avec tous les champs à remplir pour la base de données, pré-remplis avec les informations récupérées.
 
 image::images/sidebar_modifes_8.png[route]
 
-Quand le formulaire est validé il va appeller la méthode ModifAuteur du controlleur Modif.
+Quand le formulaire est validé, il va appeler la méthode ModifAuteur du contrôleur Modif.
 
 image::images/sidebar_modifes_9.png[méthode]
 
-Cette méthode va update l'auteur.
+Cette méthode va mettre à jour l'auteur.
 
-==== Suppression d'un Esclave/auteur
+==== Suppression d'un Esclave/Auteur
 
 image::images/sidebar_suppres_1.png[bouton]
 
-Quand on clique sur suppression d'un esclave il appel la route "/suppr_esclave".
+Quand on clique sur suppression d'un esclave, il appelle la route "/suppr_esclave".
 
 image::images/sidebar_suppres_2.png[route]
 
-La route appel la méthode supprA du controlleur Suppr.
+La route appelle la méthode supprA du contrôleur Suppr.
 
 image::images/sidebar_suppres_3.png[méthode]
 
-La méthode supprA récupaire tout les auteurs dans la base de données et affiche la page suppr_esclave.
+La méthode supprA récupère tous les auteurs dans la base de données et affiche la page suppr_esclave.
 
 image::images/sidebar_suppres_4.png[page]
 
-La page sert a choisir l'auteur a supprimer.
+La page sert à choisir l'auteur à supprimer.
 
 image::images/sidebar_suppres_5.png[route]
 
-Un fois l'auteur sélectionné et le formulaire validé, la route appel la méthode SupprAuteur du controlleur Suppr.
+Une fois l'auteur sélectionné et le formulaire validé, la route appelle la méthode SupprAuteur du contrôleur Suppr.
 
-image::images/sidebar_suppres_6.png[bouton]
+image::images/sidebar_suppres_6.png[méthode]
 
-LA méthode va supprimer l'auteur sélection précédement.
+La méthode va supprimer l'auteur sélectionné précédemment.
 
 == Footer
 
@@ -722,17 +722,17 @@ image::images/footer_contact_4.png[formulaire]
 
 Mais on trouve aussi du JavaScript pour faire l'envoi du mail.
 
-image::images/footer_contact_5.png[service_id]
+image::images/footer_contact_5.png[js]
 
 Le premier bloc définit le service à utiliser par son identifiant.
 
-image::images/footer_contact_8.png[service]
+image::images/footer_contact_8.png[js]
 
-Et le deuxième bloc contient l'envoi du mail avec le template à utiliser. Le template permet de pré-structurer le mail avec les informations fournies dans le mail.
+Et le deuxième bloc contient l'envoi du mail avec le template à utiliser. Le template permet de pré-structurer le mail avec les informations fournies.
 
-image::images/footer_contact_6.png[envoi]
+image::images/footer_contact_6.png[js]
 
-image::images/footer_contact_7.png[template]
+image::images/footer_contact_7.png[js]
 
 === Information
 
