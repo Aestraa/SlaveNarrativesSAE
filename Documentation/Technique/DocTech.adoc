@@ -127,7 +127,7 @@ image::images/header_accueil_4.png[return]
 
 puis il va retourné les vues pour les afficher.
 
-=== Liste Recit
+== Liste Recit
 
 Quand on clique sur liste des récits
 
@@ -155,7 +155,7 @@ image::images/header_recit_6.png[liste recit]
 
 le tableau affiche les récits avec pour chaque ligne un lien vers le récit en détail. ainsi que des possibilitées de modifier et supprimer les récits depuis la liste.
 
-==== Recit
+=== Recit
 
 ==== Modification Récit
 
@@ -202,6 +202,112 @@ la route va appeller la méthode SupprRecit du controlleur Suppr(Suppr.php)
 image::images/header_recit_suppr_3.png[méthode]
 
 La méthode va supprimer tout les points liées au récit ainsi que le récit et les liaisons être les récits et les polygones. Puis va afficher la liste des récits.
+
+==== Récit en Détail
+
+image::images/header_recit_recit_1.png[listeRecit]
+
+Lors que l'on clique sur un récit dans la liste, le formulaire appel la route recits/ + l'id du récit
+
+image::images/header_recit_recit_2.png[route]
+
+La route appel la méthode view  du Controlleur Recits
+
+image::images/header_recit_recit_3.png[méthode1]
+
+La méthode récupère les infomations du récit sélectionnée dans les paramètre puis fait une recherche de toute les informations liée au récit en paramètre.Puis le champ "historiographie" est récupérer a pars pour être modifier.
+
+Et enfin, on définis un pattern () et on recupère tout les occurences au lieu y a des paranthèses.
+
+image::images/header_recit_recit_4.png[méthode2]
+
+Pour chaque occurence des paranthèse on va diviser le texte avec comme séparateur la virgule. est l'affecté a $segments.
+
+Si le segments a trois éléments, cela veux dire que dans la paranthèse on retrouve (Auteur,Titre raccourci, page). Puis on veut récupérer chaque élément et on vas générer un string qui appel la fonction javascript permétant de écupérer les infos de Zotero.
+
+image::images/header_recit_recit_5.png[méthode5]
+
+Si le nombre d'éléments est égale a 2, cela veux dire que il y a le (Titre,page).Mais le principe reste le même.
+
+image::images/header_recit_recit_6.png[méthode6]
+
+Si le nobre d'élement dans la paranthèse est égale a 1,cela ve dire que c'est un lien est donc on va récupérer les liens stocker dans la table Link. Si le lien existe il vas modifier les pour mettre le lien.Sinon il ne change rien.
+
+image::images/header_recit_recit_7.png[méthode7]
+
+Puis il affiche la page view avec les informations du récit.
+
+=== Affichage d'un récit
+
+Dans la page on retrouve toute les informations liée au récit sélectionnée.
+
+==== Ajout d'un lien
+
+Mais on trouve aussi la possibilité de modifier et supprimer le récit depusi cette page.Mais le principale est une possiblité d'ajouté des liens dans la bd.
+
+image::images/header_recit_view_1.png[lien]
+
+Lors du clique sur le lien, la route appel "/ajout link"
+
+image::images/header_recit_view_24.png[route]
+
+La route appel la méthode ajout_link du controlleur Ajout.
+
+image::images/header_recit_view_3.png[méthode]
+
+La méthode s'occupe juste de d'afficher la page d'ajout.
+
+image::images/header_recit_view_4.png[page]
+
+Sur cette page on retrouve deux formualires.Le premier est juste un formulaire avec 2 champs, un pour le nom du lien et un autre pour le lien.
+
+image::images/header_recit_view_5.png[js]
+
+Quand on clique sur ajouter, le script java script s'occupe d'ajouté les information du 1er formulaire dans le tableau du deuxième.Cela permet d'ajouter plusieurs lie nen même temps.
+
+image::images/header_recit_view_6.png[page]
+
+LE 2ème formulaire sert a stocker et afficher les liens à ajouter.Quand on clique sur validé du formualaire, il appel la route "Ajout/InsertLink"
+
+image::images/header_recit_view_7.png[route]
+
+La route renvoie vers la méthode InsertLink du controlleur Ajout
+
+image::images/header_recit_view_8.png[méthode]
+
+La méthode vas inséret dans la table link les liens créé.
+
+==== Api Zotero
+
+image::images/header_recit_api_1.png[affichage]
+
+L'api Zotero sera utilisé que dans la partie commentaire.
+
+image::images/header_recit_api_2.png[js1]
+
+Quand on clique sur un lien dasn cette partie il appel la méthode afficherPopup dans le but d'afficher des information détailler de la source.
+
+Pour cela on trouve l'api avec la clé est l'userid mais aussi un notification en haut a droite de l'écrans pour informer l'utilisateur que la recherche est en cour.
+
+image::images/header_recit_api_3.png[js2]
+
+La fonction démare avec start et query a 0 et appel la méthode recursivesearch avec ces paramètres.
+
+image::images/header_recit_api_4.png[js3]
+
+la fonction quand a elle va appeller la fonction makesearchRequest aevc les paramètre quel a reçu. Puis a chaque résultat de cette fonction, elel va testé si la demande a était trouvé ou si il reste des éléments a recherché dasn l'api.Si il en reste, elle se rapelle avec les début de la recherche +25 éléments.Dans le cas ou il n'y a plus d'élément ou il a était trouvé elle appel la fonction checkdata.
+
+image::images/header_recit_api_5.png[js4]
+
+Cette fonction fait une requete de 25 éléments définis par la limit dans url de l'api et comment au x ème élments définis par le start reçu.Si il trouve l'élément il va modifier la variable found a true ce qui va stopper les requetes et faire l'affichage.
+
+image::images/header_recit_api_6.png[js5]
+
+Quand checkData est appellé il remplis les champs par le résultat récupérer.
+
+image::images/header_recit_api_7.png[js6]
+
+Puis si le titre est définis il affiche un popup avec les informations de la sources et retire la notification de recherche.Mais si le titr en'ets pas définis il fait une popup avec information non trouvé.
 
 === Statistique
 
@@ -308,7 +414,6 @@ image::images/sidebar_gestionmenu_con_6.png[connexion]
 
 La méthode récupérera les champs du formulaire, hashera le mot de passe et le comparera au mot de passe reçu dans la requête en utilisant le nom d'utilisateur fourni dans le formulaire. Si les informations sont correctes, elle créera une session "is_admin" qui permettra d'accéder à des actions limitées aux administrateurs, puis redirigera vers la carte en utilisant la route /map. Si le mot de passe est incorrect, l'utilisateur sera redirigé vers la page de connexion.
 
-
 === Connecté
 
 ==== Déconnection
@@ -356,6 +461,8 @@ image::images/sidebar_cc_6.png[méthode]
 La méthode quand a elle vas préparer la requete d'insertion dans la bd est vérifier si il exite déjà pas une personne avec cette identifiant.Si cela est bon, il va insérer dans la base de données le compte.
 
 ==== Ajout Point 
+
+
 
 ==== Ajout Récit
 

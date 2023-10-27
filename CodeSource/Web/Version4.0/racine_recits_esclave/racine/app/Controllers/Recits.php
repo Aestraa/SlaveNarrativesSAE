@@ -60,8 +60,8 @@ class Recits extends BaseController
 
 
 
-    public function view($idrec = null)
-{
+    public function view($idrec = null){
+        
     $model = model(ModelRecit::class);
     $texteArray = $model->getIdRec($idrec);
     $textehisto = $texteArray["historiographie"];

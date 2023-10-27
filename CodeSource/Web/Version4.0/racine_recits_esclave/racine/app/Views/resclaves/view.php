@@ -142,19 +142,7 @@ function afficherPopup(choix) {
       });
     });
   }
-  /*
-
-
-    Prénom
-    Nom
-    Titre
-
-    Lieu d'édition
-    Maison d'édition
-
-    Année de publication
-
-  */
+  
   // Fonction pour vérifier les données et afficher la pop-up
   function checkData() {
     var titre = info;
