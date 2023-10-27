@@ -67,6 +67,93 @@ image::images/Archi_app_5.png[structure_app]
 
 == Base de données
 
+Voici la doc technique pour la base de données liée au site web.
+
+=== Autoch2
+
+image::images/autoch.png[autoch]
+
+Cette table contient des polygones en Amérique.
+
+=== fullpt_1
+
+image::images/fullpts.png[fullpts]
+
+Cette table contient des points.
+
+=== link
+
+image::images/link.png[link]
+
+Cette table contient des liens pour les récits.
+
+=== map3
+
+image::images/map3.png[map3]
+
+Cette table contient des polygones.
+
+=== page
+
+image::images/page.png[page]
+
+Cette table liste tout les pages du site web.
+
+=== points
+
+image::images/point.png[point]
+
+Cette table contient les points liée au récit.
+
+=== polygone
+
+image::images/poly.png[poly]
+
+Cette table contient les polygones liée au récit.
+
+=== pts_publication
+
+image::images/ptspubli.png[ptspubli]
+
+Cette table contient les point de publication.
+
+=== recit_poly
+
+image::images/recitpoly.png[recitpoly]
+
+Cette contient les liens entres les polygones et les récits.
+
+=== roy_afr
+
+image::images/royafr.png[royafr]
+
+Cette table contient les polygones des royaumes africain.
+
+=== tab_auteurs
+
+image::images/auteur.png[auteur]
+
+Cette table contient les auteurs du site web.
+
+=== tab_recits_v3
+
+image::images/recit.png[recit]
+
+Cette table contient les récits du site.
+
+=== user
+
+image::images/user.png[user]
+
+Cette table contient les user pour ce connecté.
+
+=== visite
+
+image::images/visite.png[visite]
+
+Cette table liste les connection aux page pour les statistique de visite.
+
+
 Maintenant que vous avez vu la structure du projet, passons aux fonctionnalités.
 
 == Accueil
