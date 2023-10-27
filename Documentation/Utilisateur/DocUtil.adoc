@@ -1,4 +1,4 @@
-= Documentation Utilisateur site web G1A-1
+= Documentation Utilisateur site web Slave narratives
 :toc: macro
 :toc-title: Table des matières
 :toclevels: 3
