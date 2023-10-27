@@ -17,7 +17,7 @@
                 <?php
                 if (!empty($auteurs) && is_array($auteurs)) {
                     foreach ($auteurs as $elt) {
-                        echo '<option value="' . $elt['id_auteur'] . '">' . $elt['nom'] . ' </option>';
+                        echo '<option value="' . $elt['id_auteur'] . '">' . htmlspecialchars($elt['nom']) . ' </option>';
                     }
                 }
                 ?>

@@ -16,11 +16,11 @@
             <form action="<?= site_url('Ajout/modificationPoint') ?>" method="post">
                 <div class="input-group">
                     <label for="coord"><?= lang('modif_point.coordinates') ?></label>
-                    <input type="text" id="coord" name="coord" value="<?php echo $coord; ?>" required>
+                    <input type="text" id="coord" name="coord" value="<?php echo htmlspecialchars($coord); ?>" required>
                 </div>
                 <div class="input-group">
                     <label for="ville"><?= lang('modif_point.city') ?></label>
-                    <input type="ville" id="ville" name="ville" <?php echo "value=" . $ville . "" ?> required>
+                    <input type="ville" id="ville" name="ville" <?php echo "value=" . htmlspecialchars($ville) . "" ?> required>
                 </div>
                 <div class="input-group">
                     <label for="type"><?= lang('modif_point.type') ?></label>
@@ -40,9 +40,9 @@
                             foreach ($title as $elt) {
                                 if ($elt['id_recit'] == $id_recit) {
                                     //$Licoord = explode(',',$elt['titre']);
-                                    echo '<option value="' . $elt['id_recit'] . '" selected>' . $elt['nom_esc'] . ' (' . $elt['date_publi'] . ')</option>';
+                                    echo '<option value="' . $elt['id_recit'] . '" selected>' . htmlspecialchars($elt['nom_esc']) . ' (' . htmlspecialchars($elt['date_publi']) . ')</option>';
                                 } else {
-                                    echo '<option value="' . $elt['id_recit'] . '">' . $elt['nom_esc'] . ' (' . $elt['date_publi'] . ')</option>';
+                                    echo '<option value="' . $elt['id_recit'] . '">' . htmlspecialchars($elt['nom_esc']) . ' (' . htmlspecialchars($elt['date_publi']) . ')</option>';
                                 }
                             }
                         }
@@ -53,7 +53,7 @@
                 </div>
                 <div class="input-group">
                     <!-- champ caché -->
-                    <input type="hidden" id="id_point" name="id_point" <?php echo 'value="' . $id_point . '"' ?>>
+                    <input type="hidden" id="id_point" name="id_point" <?php echo 'value="' . htmlspecialchars($id_point) . '"' ?>>
                 </div>
                 <a class="retour" href="<?= site_url('/map') ?>"><?= lang('recits.bouton_retour') ?></a></p>
                 <button type="submit"><?= lang('modif_point.modify_point_button') ?></button>

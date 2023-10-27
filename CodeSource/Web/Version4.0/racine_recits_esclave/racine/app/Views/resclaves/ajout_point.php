@@ -47,7 +47,7 @@ $lastPoint = $model->getLastPoint();
                         if (!empty($title) && is_array($title)) {
                             foreach ($title as $elt) {
                                 //$Licoord = explode(',',$elt['titre']);
-                                echo '<option value="' . $elt['id_recit'] . '">' . $elt['nom_esc'] . ' (' . $elt['date_publi'] . ')</option>';
+                                echo '<option value="' . $elt['id_recit'] . '">' . $elt['nom_esc'] . ' (' . htmlspecialchars($elt['date_publi']) . ')</option>';
                             }
                         }
 
@@ -59,7 +59,7 @@ $lastPoint = $model->getLastPoint();
             <div class="input-group">
                 <label for="point">Id du Recit</label>
                 <?php
-                echo '<input type="text" id="point" name="point" value="' . $lastPoint . '">';
+                echo '<input type="text" id="point" name="point" value="' . htmlspecialchars($lastPoint) . '">';
                 ?>
             </div>
                 -->

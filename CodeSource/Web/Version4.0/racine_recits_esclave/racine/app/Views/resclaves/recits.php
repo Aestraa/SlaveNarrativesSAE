@@ -129,24 +129,24 @@
 <tr>
 
     <td>
-        <p><a href="<?= site_url()."recits/".esc($r['id_recit'], 'url') ?>"><?php echo $r['nom_esc'];?></a></p>
+        <p><a href="<?= site_url()."recits/".esc($r['id_recit'], 'url') ?>"><?php echo htmlspecialchars($r['nom_esc']);?></a></p>
     </td>
 
     <td>
-        <p><?php echo $r['date_publi'];?></p>
+        <p><?php echo htmlspecialchars($r['date_publi']);?></p>
     </td>
 
     <td>
-        <p><?php echo $r['titre'];?></p>
+        <p><?php echo htmlspecialchars($r['titre']);?></p>
     </td>
 
         <?php if ($session->get('is_admin')) : ?>
             <td>
-                <p><a href="<?= site_url('/modif_recit?esc='.esc($r['id_auteur']).'&idR='.esc($r['id_recit'])) ?>"><?= lang('recits.modify_button') ?></a></p>
+                <p><a href="<?= site_url('/modif_recit?esc='.esc(htmlspecialchars($r['id_auteur'])).'&idR='.esc(htmlspecialchars($r['id_recit']))) ?>"><?= lang('recits.modify_button') ?></a></p>
              </td>
 
             <td>
-                <p><a href="<?= site_url('Suppr/SupprRecit?esc='.esc($r['id_auteur']).'&idR='.esc($r['id_recit'])) ?>" onclick="return confirm('<?= lang('recits.delete_confirmation') ?>')"><?= lang('recits.delete_button') ?></a></p>
+                <p><a href="<?= site_url('Suppr/SupprRecit?esc='.esc(htmlspecialchars($r['id_auteur'])).'&idR='.esc(htmlspecialchars($r['id_recit']))) ?>" onclick="return confirm('<?= lang('recits.delete_confirmation') ?>')"><?= lang('recits.delete_button') ?></a></p>
             </td>
         <?php endif; ?>
 
