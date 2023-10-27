@@ -128,6 +128,14 @@ WARNING: Le contenu de ce dépôt et de ce ReadMe changeront tout au long de la 
 | `Rapport de projet de #GUILHAMASSÉ Quentin#` | https://github.com/Aestraa/SlaveNarrativesSAE/blob/master/Documentation/Rapport/Quentin/GuilhamasseQuentin3B.pdf[Lien vers le rapport] | Rapport de projet de `GUILHAMASSÉ Quentin`
 |===
 
+=== Video de présentation du projet 
+
+[cols="1,2,2",options=header]
+|===
+| Nom    | Lien         |  Notes 
+| `Video de présentation` | https://github.com/Aestraa/SlaveNarrativesSAE/blob/master/Documentation/Vid%C3%A9oPitch/Pitch%20video%20sae%20slave%20narrative.mp4[Lien vers la vidéo] | Vidéo de présentation du projet
+|===
+
 == Gestion de projet & Qualité      
 
 === Informations utiles
