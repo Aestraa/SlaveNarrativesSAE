@@ -4,6 +4,7 @@
 :experimental:
 :incremental:
 :toc: macro
+:toclevels: 3
 :toc-title: Table des matières
 :window: _blank
 :correction!:
@@ -80,6 +81,20 @@ WARNING: Le contenu de ce dépôt et de ce ReadMe changeront tout au long de la 
 |===
 | Nom    | Lien         |  Notes 
 | `DOCUMENTATION UTILISATEUR (adoc)` | https://github.com/Aestraa/SlaveNarrativesSAE/blob/master/Documentation/Utilisateur/DocUtil.adoc[Lien vers la documentation] | Documentation utilisateur en asciiDoc
+|===
+
+==== Documentation technique
+
+[cols="1,2,2",options=header]
+|===
+| Nom    | Lien         |  Notes 
+| `DOCUMENTATION TECHNIQUE (pdf)` | https://github.com/Aestraa/SlaveNarrativesSAE/blob/master/Documentation/Technique/DocTech.pdf[Lien vers la documentation] | Documentation technique en pdf
+|===
+
+[cols="1,2,2",options=header]
+|===
+| Nom    | Lien         |  Notes 
+| `DOCUMENTATION TECHNIQUE (adoc)` | https://github.com/Aestraa/SlaveNarrativesSAE/blob/master/Documentation/Technique/DocTech.adoc[Lien vers la documentation] | Documentation technique en asciiDoc
 |===
 
 === Code source du projet (WEB/BD)
