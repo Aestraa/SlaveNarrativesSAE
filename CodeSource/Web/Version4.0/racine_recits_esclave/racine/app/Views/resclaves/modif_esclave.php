@@ -17,7 +17,7 @@
             if (!empty($auteurs) && is_array($auteurs)) {
                 foreach ($auteurs as $elt) {
                     if ($elt['id_auteur'] == $auteur) {
-                        echo '<input name="nomE" id="nomE" type="text" value="' . $elt['nom'] . '" required/><br><br>';
+                        echo '<input name="nomE" id="nomE" type="text" value="' . htmlspecialchars($elt['nom']) . '" required/><br><br>';
                     }
                 }
             }
@@ -28,7 +28,7 @@
             if (!empty($auteurs) && is_array($auteurs)) {
                 foreach ($auteurs as $elt) {
                     if ($elt['id_auteur'] == $auteur) {
-                        echo '<input name="anneeN" id="anneeN" type="text"  value="' . $elt['naissance'] . '" required/><br><br>';
+                        echo '<input name="anneeN" id="anneeN" type="text"  value="' . htmlspecialchars($elt['naissance']) . '" required/><br><br>';
                     }
                 }
             }
@@ -39,7 +39,7 @@
             if (!empty($auteurs) && is_array($auteurs)) {
                 foreach ($auteurs as $elt) {
                     if ($elt['id_auteur'] == $auteur) {
-                        echo '<input name="lieuN" id="lieuN" type="text" value="' . $elt['lieu_naissance'] . '" required/><br><br>';
+                        echo '<input name="lieuN" id="lieuN" type="text" value="' . htmlspecialchars($elt['lieu_naissance']) . '" required/><br><br>';
                     }
                 }
             }
@@ -50,7 +50,7 @@
             if (!empty($auteurs) && is_array($auteurs)) {
                 foreach ($auteurs as $elt) {
                     if ($elt['id_auteur'] == $auteur) {
-                        echo '<input name="dateD" id="dateD" type="text" value="' . $elt['deces'] . '" required/><br><br>';
+                        echo '<input name="dateD" id="dateD" type="text" value="' . htmlspecialchars($elt['deces']) . '" required/><br><br>';
                     }
                 }
             }
@@ -61,7 +61,7 @@
             if (!empty($auteurs) && is_array($auteurs)) {
                 foreach ($auteurs as $elt) {
                     if ($elt['id_auteur'] == $auteur) {
-                        echo '<input name="lieuD" id="lieuD" type="text" value="' . $elt['lieu_deces'] . '" required/><br><br>';
+                        echo '<input name="lieuD" id="lieuD" type="text" value="' . htmlspecialchars($elt['lieu_deces']) . '" required/><br><br>';
                     }
                 }
             }
@@ -72,7 +72,7 @@
             if (!empty($auteurs) && is_array($auteurs)) {
                 foreach ($auteurs as $elt) {
                     if ($elt['id_auteur'] == $auteur) {
-                        echo '<input name="lieuE" id="lieuE" type="text" value="' . $elt['lieu_esclavage'] . '" required/><br><br>';
+                        echo '<input name="lieuE" id="lieuE" type="text" value="' . htmlspecialchars($elt['lieu_esclavage']) . '" required/><br><br>';
                     }
                 }
             }
@@ -83,7 +83,7 @@
             if (!empty($auteurs) && is_array($auteurs)) {
                 foreach ($auteurs as $elt) {
                     if ($elt['id_auteur'] == $auteur) {
-                        echo '<input name="moy" id="moy" type="text" value="' . $elt['moyen_lib'] . '" required/><br><br>';
+                        echo '<input name="moy" id="moy" type="text" value="' . htmlspecialchars($elt['moyen_lib']) . '" required/><br><br>';
                     }
                 }
             }
@@ -94,7 +94,7 @@
             if (!empty($auteurs) && is_array($auteurs)) {
                 foreach ($auteurs as $elt) {
                     if ($elt['id_auteur'] == $auteur) {
-                        echo '<input name="lieuV" id="lieuV" type="text" value="' . $elt['lieuvie_ap_lib'] . '" required/><br><br>';
+                        echo '<input name="lieuV" id="lieuV" type="text" value="' . htmlspecialchars($elt['lieuvie_ap_lib']). '" required/><br><br>';
                     }
                 }
             }
@@ -105,7 +105,7 @@
             if (!empty($auteurs) && is_array($auteurs)) {
                 foreach ($auteurs as $elt) {
                     if ($elt['id_auteur'] == $auteur) {
-                        echo '<input name="origP" id="origP" type="text" value="' . $elt['origine_parents'] . '" required/><br><br>';
+                        echo '<input name="origP" id="origP" type="text" value="' . htmlspecialchars($elt['origine_parents']) . '" required/><br><br>';
                     }
                 }
             }
@@ -116,7 +116,7 @@
             if (!empty($auteurs) && is_array($auteurs)) {
                 foreach ($auteurs as $elt) {
                     if ($elt['id_auteur'] == $auteur) {
-                        echo '<input name="mil" id="mil" type="text" value="' . $elt['militant_abolitionniste'] . '" required/><br><br>';
+                        echo '<input name="mil" id="mil" type="text" value="' . htmlspecialchars($elt['militant_abolitionniste']) . '" required/><br><br>';
                     }
                 }
             }
@@ -127,14 +127,14 @@
             if (!empty($auteurs) && is_array($auteurs)) {
                 foreach ($auteurs as $elt) {
                     if ($elt['id_auteur'] == $auteur) {
-                        echo '<input name="part" id="part" type="text" value="' . $elt['particularites'] . '" required/><br><br>';
+                        echo '<input name="part" id="part" type="text" value="' . htmlspecialchars($elt['particularites']) . '" required/><br><br>';
                     }
                 }
             }
             ?>
 
             <?php
-            echo '<input name="idE" id="idE" type="hidden" value="' . $auteur . '" required/><br><br>';
+            echo '<input name="idE" id="idE" type="hidden" value="' . htmlspecialchars($auteur) . '" required/><br><br>';
             ?>
 
             <a class="retour" href="<?= site_url('/map') ?>"><?= lang('recits.bouton_retour') ?></a></p>

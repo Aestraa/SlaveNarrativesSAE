@@ -16,7 +16,7 @@
             if (!empty($title) && is_array($title)) {
                 foreach ($title as $elt) {
                     if ($elt['id_recit'] == $_GET['idR']) {
-                        echo '<input name="nomR" id="nomR" type="text" value="' . $elt['titre'] . '" required/><br><br>';
+                        echo '<input name="nomR" id="nomR" type="text" value="' . htmlspecialchars($elt['titre']) . '" required/><br><br>';
                     }
                 }
             }
@@ -27,9 +27,9 @@
                 if (!empty($auteurs) && is_array($auteurs)) {
                     foreach ($auteurs as $elt) {
                         if ($elt['id_auteur'] == $_GET['esc']) {
-                            echo '<option value="' . $elt['id_auteur'] . '"selected>' . $elt['nom'] . ' </option>';
+                            echo '<option value="' . $elt['id_auteur'] . '"selected>' . htmlspecialchars($elt['nom']) . ' </option>';
                         } else {
-                            echo '<option value="' . $elt['id_auteur'] . '">' . $elt['nom'] . ' </option>';
+                            echo '<option value="' . $elt['id_auteur'] . '">' . htmlspecialchars($elt['nom']) . ' </option>';
                         }
                     }
                 }
@@ -41,7 +41,7 @@
             if (!empty($title) && is_array($title)) {
                 foreach ($title as $elt) {
                     if ($elt['id_recit'] == $_GET['idR']) {
-                        echo '<input name="lieuP" id="lieuP" type="text" value="' . $elt['lieu_publi'] . '" required/><br><br>';
+                        echo '<input name="lieuP" id="lieuP" type="text" value="' . htmlspecialchars($elt['lieu_publi']) . '" required/><br><br>';
                     }
                 }
             }
@@ -53,7 +53,7 @@
             if (!empty($title) && is_array($title)) {
                 foreach ($title as $elt) {
                     if ($elt['id_recit'] == $_GET['idR']) {
-                        echo '<input name="dateP" id="dateP" type="number" min="0" max="2100" value="' . $elt['date_publi'] . '" required/><br><br>';
+                        echo '<input name="dateP" id="dateP" type="number" min="0" max="2100" value="' . htmlspecialchars($elt['date_publi']) . '" required/><br><br>';
                     }
                 }
             }
@@ -64,7 +64,7 @@
             if (!empty($title) && is_array($title)) {
                 foreach ($title as $elt) {
                     if ($elt['id_recit'] == $_GET['idR']) {
-                        echo '<input name="typeR" id="typeR" type="text" value="' . $elt['lieu_publi'] . '" required/><br><br>';
+                        echo '<input name="typeR" id="typeR" type="text" value="' . htmlspecialchars($elt['lieu_publi']) . '" required/><br><br>';
                     }
                 }
             }
@@ -86,7 +86,7 @@
             if (!empty($title) && is_array($title)) {
                 foreach ($title as $elt) {
                     if ($elt['id_recit'] == $_GET['idR']) {
-                        echo '<input name="modeP" id="modeP" type="text" value="' . $elt['mode_publi'] . '" required/><br><br>';
+                        echo '<input name="modeP" id="modeP" type="text" value="' . htmlspecialchars($elt['mode_publi']) . '" required/><br><br>';
                     }
                 }
             }
@@ -100,7 +100,7 @@
             if (!empty($title) && is_array($title)) {
                 foreach ($title as $elt) {
                     if ($elt['id_recit'] == $_GET['idR']) {
-                        echo '<input name="nomS" id="nomS" type="text" value="' . $elt['scribe_editeur'] . '" required/><br><br>';
+                        echo '<input name="nomS" id="nomS" type="text" value="' . htmlspecialchars($elt['scribe_editeur']) . '" required/><br><br>';
                     }
                 }
             }
@@ -111,7 +111,7 @@
             if (!empty($title) && is_array($title)) {
                 foreach ($title as $elt) {
                     if ($elt['id_recit'] == $_GET['idR']) {
-                        echo '<input name="lienR" id="lienR" type="text" value="' . $elt['lien_recit'] . '" required/><br><br>';
+                        echo '<input name="lienR" id="lienR" type="text" value="' . htmlspecialchars($elt['lien_recit']) . '" required/><br><br>';
                     }
                 }
             }
@@ -126,12 +126,12 @@
                         if (!empty($recitP) && is_array($recitP)) {
                             foreach ($recitP as $pol) {
                                 if ($pol['poly_id'] == $elt['id'] && $pol['recit_id'] == $_GET['idR']) {
-                                    echo '<option value="' . $elt['id'] . '" selected>' . $elt['name'] . ' </option>';
+                                    echo '<option value="' . $elt['id'] . '" selected>' . htmlspecialchars($elt['name']) . ' </option>';
                                     $write = false;
                                 }
                             }
                             if ($write) {
-                                echo '<option value="' . $elt['id'] . '">' . $elt['name'] . ' </option>';
+                                echo '<option value="' . $elt['id'] . '">' . htmlspecialchars($elt['name']) . ' </option>';
                             }
                         }
                     }

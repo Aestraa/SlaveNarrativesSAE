@@ -12,7 +12,7 @@
     <div class="login-container">
         <form action="<?= site_url('Ajout/InsertPoly_Recit') ?>" method="post">
             <label><?= lang('ajout_recit.name_narrative') ?></label>
-            <input name="nomR" id="nomR" type="text" value="<?php if(isset($_GET['nomR'])){echo $_GET['nomR'];} ?>" /><br><br>
+            <input name="nomR" id="nomR" type="text" value="<?php if(isset($_GET['nomR'])){echo htmlspecialchars($_GET['nomR']);} ?>" /><br><br>
 
             <label><?= lang('ajout_recit.name_slave') ?></label>
             <select name="idE" id="idE" required>
@@ -20,9 +20,9 @@
                 if (!empty($auteurs) && is_array($auteurs)) {
                     foreach ($auteurs as $elt) {
                         if(isset($_GET['idE']) && $_GET['idE'] == $elt['id_auteur']){
-                            echo '<option value="' . $elt['id_auteur'] . '" selected>' . $elt['nom'] . ' </option>';
+                            echo '<option value="' . $elt['id_auteur'] . '" selected>' . htmlspecialchars($elt['nom']) . ' </option>';
                         } else {
-                            echo '<option value="' . $elt['id_auteur'] . '">' . $elt['nom'] . ' </option>';
+                            echo '<option value="' . $elt['id_auteur'] . '">' . htmlspecialchars($elt['nom']) . ' </option>';
                         }
                     }
                 }
@@ -30,31 +30,31 @@
             </select><br><br>
 
             <label><?= lang('ajout_recit.location_publication') ?></label>
-            <input name="lieuP" id="lieuP" type="text" value="<?php if(isset($_GET['lieuP'])){echo $_GET['lieuP'];} ?>" required /><br><br>
+            <input name="lieuP" id="lieuP" type="text" value="<?php if(isset($_GET['lieuP'])){echo htmlspecialchars($_GET['lieuP']);} ?>" required /><br><br>
 
             <!--<label>Information supplémentaire :</label>
            <input name="infoSup" id="infoSup" type="text" /><br><br>-->
 
             <label><?= lang('ajout_recit.year_publication') ?></label>
-            <input name="dateP" id="dateP" type="date" value="<?php if(isset($_GET['dateP'])){echo $_GET['dateP'];} ?>" required /><br><br>
+            <input name="dateP" id="dateP" type="date" value="<?php if(isset($_GET['dateP'])){echo htmlspecialchars($_GET['dateP']);} ?>" required /><br><br>
 
             <label><?= lang('ajout_recit.type_narrative') ?></label>
-            <input name="typeR" id="typeR" type="text" value="<?php if(isset($_GET['typeR'])){echo $_GET['typeR'];} ?>" required /><br><br>
+            <input name="typeR" id="typeR" type="text" value="<?php if(isset($_GET['typeR'])){echo htmlspecialchars($_GET['typeR']);} ?>" required /><br><br>
 
             <label><?= lang('ajout_recit.comments') ?></label>
-            <input name="com" id="com" type="text" value="<?php if(isset($_GET['com'])){echo $_GET['com'];} ?>" required /><br><br>
+            <input name="com" id="com" type="text" value="<?php if(isset($_GET['com'])){echo htmlspecialchars($_GET['com']);} ?>" required /><br><br>
 
             <label><?= lang('ajout_recit.method_publication') ?></label>
-            <input name="modeP" id="modeP" type="text" value="<?php if(isset($_GET['modeP'])){echo $_GET['modeP'];} ?>" required /><br><br>
+            <input name="modeP" id="modeP" type="text" value="<?php if(isset($_GET['modeP'])){echo htmlspecialchars($_GET['modeP']);} ?>" required /><br><br>
 
             <!--<label>Date de naissance :</label>
            <input name="dateN" id="dateN" type="date" /><br><br> -->
 
             <label><?= lang('ajout_recit.name_writer') ?></label>
-            <input name="nomS" id="nomS" type="text" value="<?php if(isset($_GET['nomS'])){echo $_GET['nomS'];} ?>" required /><br><br>
+            <input name="nomS" id="nomS" type="text" value="<?php if(isset($_GET['nomS'])){echo htmlspecialchars($_GET['nomS']);} ?>" required /><br><br>
 
             <label><?= lang('ajout_recit.link_narrative') ?></label>
-            <input name="lienR" id="lienR" type="text" value="<?php if(isset($_GET['lienR'])){echo $_GET['lienR'];} ?>" /><br><br>
+            <input name="lienR" id="lienR" type="text" value="<?php if(isset($_GET['lienR'])){echo htmlspecialchars($_GET['lienR']);} ?>" /><br><br>
 
             <label><?= lang('ajout_recit.choix_polys') ?></label>
             <select name="poly[]" id="poly" multiple required>
@@ -67,7 +67,7 @@
                             $write = true;
                             for($i=0;$i<count($polygones);$i++){       
                                 if($polygones[$i] == $elt['name']){
-                                    echo '<option value="' . $elt['id'] . '" selected>' . $elt['name'] . ' </option>';
+                                    echo '<option value="' . $elt['id'] . '" selected>' . htmlspecialchars($elt['name']) . ' </option>';
                                     $write = false;
                                     break;
                                 } 
@@ -75,7 +75,7 @@
                         } 
                         if(isset($write)){
                             if($write){
-                                echo '<option value="' . $elt['id'] . '">' . $elt['name'] . ' </option>';
+                                echo '<option value="' . $elt['id'] . '">' . htmlspecialchars($elt['name']) . ' </option>';
                             }
                         }
                     }

@@ -30,7 +30,7 @@
                             echo '<option value="lieuvie">' . lang('insert_polys.lieuv') . '</option>';
                             echo '</select><br><br>';
                             echo '<input name="idP' . $i . '" id="idP' . $i . '" type="hidden" value="' . $elt . '"/>';
-                            echo '<input name="nomP' . $i . '" id="nomP' . $i . '" type="hidden" value="' . $te['name'] . '"/>';
+                            echo '<input name="nomP' . $i . '" id="nomP' . $i . '" type="hidden" value="' . htmlspecialchars($te['name']) . '"/>';
                             $i++;
                         }
                     }
@@ -38,19 +38,19 @@
             }
             echo '<input name="nb" id="nb" type="hidden" value="' . $i . '"/>';
             ?>
-            <input name="nomR" id="nomR" type="hidden" value="<?php echo $nomR; ?>" />
-            <input name="idE" id="idE" type="hidden" value="<?php echo $idE; ?>" />
-            <input name="lieuP" id="lieuP" type="hidden" value="<?php echo $lieuP; ?>" />
-            <input name="infoSup" id="infoSup" type="hidden" value="<?php echo $infoSup; ?>" />
-            <input name="dateP" id="dateP" type="hidden" value="<?php echo $dateP; ?>" />
-            <input name="typeR" id="typeR" type="hidden" value="<?php echo $typeR; ?>" />
-            <input name="com" id="com" type="hidden" value="<?php echo $com; ?>" />
-            <input name="modeP" id="modeP" type="hidden" value="<?php echo $modeP; ?>" />
-            <input name="dateN" id="dateN" type="hidden" value="<?php echo $dateN; ?>" />
-            <input name="nomS" id="nomS" type="hidden" value="<?php echo $nomS; ?>" />
-            <input name="lienR" id="lienR" type="hidden" value="<?php echo $lienR; ?>" />
-            <input name="idR" id="idR" type="hidden" value="<?php echo $idR; ?>" />
-            <input name="nomE" id="nomE" type="hidden" value="<?php echo $nomE; ?>" />
+            <input name="nomR" id="nomR" type="hidden" value="<?php echo htmlspecialchars($nomR); ?>" />
+            <input name="idE" id="idE" type="hidden" value="<?php echo htmlspecialchars($idE); ?>" />
+            <input name="lieuP" id="lieuP" type="hidden" value="<?php echo htmlspecialchars($lieuP); ?>" />
+            <input name="infoSup" id="infoSup" type="hidden" value="<?php echo htmlspecialchars($infoSup); ?>" />
+            <input name="dateP" id="dateP" type="hidden" value="<?php echo htmlspecialchars($dateP); ?>" />
+            <input name="typeR" id="typeR" type="hidden" value="<?php echo htmlspecialchars($typeR); ?>" />
+            <input name="com" id="com" type="hidden" value="<?php echo htmlspecialchars($com); ?>" />
+            <input name="modeP" id="modeP" type="hidden" value="<?php echo htmlspecialchars($modeP); ?>" />
+            <input name="dateN" id="dateN" type="hidden" value="<?php echo htmlspecialchars($dateN); ?>" />
+            <input name="nomS" id="nomS" type="hidden" value="<?php echo htmlspecialchars($nomS); ?>" />
+            <input name="lienR" id="lienR" type="hidden" value="<?php echo htmlspecialchars($lienR); ?>" />
+            <input name="idR" id="idR" type="hidden" value="<?php echo htmlspecialchars($idR); ?>" />
+            <input name="nomE" id="nomE" type="hidden" value="<?php echo htmlspecialchars($nomE); ?>" />
 
             <a class="retour"
                 href="<?= site_url('/ajout_recit?nomR='.$nomR.'&idE='.$idE.'&lieuP='.$lieuP.'&infoSup='.$infoSup.'&dateP='.$dateP.'&typeR='.$typeR.'&com='.$com.'&modeP='.$modeP.'&dateN='.$dateN.'&nomS='.$nomS.'&lienR='.$lienR.'&idR='.$idR.'&nomE='.$nomE.'&polys='.(implode(',', $names))) ?>"><?= lang('recits.bouton_retour') ?></a></p>
