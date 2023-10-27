@@ -21,7 +21,7 @@ return [
         'location_life' => 'Lieu de vie',
         'location_death' => 'Lieu de décès',
         'location_slavery' => "Lieu d'esclavage",
-        'birth_slavery' => "Naissance d'esclavage",
+        'birth_slavery' => "Naissance et esclavage",
         'life_death' => 'Vie et décès',
         'slavery_life_death' => 'Esclavage, vie et décès',
         'birth_slavery_life_death' => 'Naissance, esclavage, vie et décès',

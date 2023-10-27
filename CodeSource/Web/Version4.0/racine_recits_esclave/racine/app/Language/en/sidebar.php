@@ -21,7 +21,7 @@ return [
         'location_life' => 'Living places',
         'location_death' => 'Places of death',
         'location_slavery' => 'Places of slavery',
-        'birth_slavery' => 'Birth of slavery',
+        'birth_slavery' => 'Birth and slavery',
         'life_death' => 'Life and death',
         'slavery_life_death' => 'Slavery, life and death',
         'birth_slavery_life_death' => 'Birth, slavery, life and death',
