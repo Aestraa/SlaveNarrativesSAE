@@ -72,289 +72,249 @@ Maintenant que vous avez vu la structure du projet, passons aux fonctionnalités
 == Accueil
 
 === Map
-Accueil est la page principale du projet, elle redirige vers la pluspard des fonctionnalitées du site web.
+L'accueil est la page principale du projet, elle redirige vers la plupart des fonctionnalités du site web.
 
 image::images/accueil.png[accueil]
 
-Accueil correspond a la page accueil.php
+`Accueil` correspond à la page `accueil.php`.
 
-la carte correspond a :
+La carte correspond à :
 
 image::images/accueil_map_code.png[accueil]
 
-Voici le code javascript pour ajouté les cartes a la page, puis on retrouve l'ajout de bouton pour manipulé la map ,la légende et enfin l'ajout de cercle.L'image ne contient que la récupération des map.
+Voici le code JavaScript pour ajouter les cartes à la page. Ensuite, on retrouve l'ajout de boutons pour manipuler la map, la légende, et enfin l'ajout de cercles. L'image ne contient que la récupération des maps.
 
-Accueil.php ne contient que la carte la sidebar a droite vien de la page sidebar.php
+`Accueil.php` ne contient que la carte; la sidebar à droite vient de la page `sidebar.php`.
 
 == Header
 
 image::images/header.png[header]
 
-Le fichier est header_resc.php
+Le fichier est `header_resc.php`.
 
 image::images/header_code.png[header]
 
-On y retrouve une navbar avec accueil qui renvoie vers la map en utilisant la route map masi aussi la liste des récits avec la route recit et enfin statistique avec ca route.Mais on retrouve aussi le code pour definir la langue du site.
+On y retrouve une barre de navigation (`navbar`) avec :
+
+* `Accueil` qui renvoie vers la map en utilisant la route `map`
+* La liste des récits avec la route `recit`
+* Statistiques avec sa route.
+
+De plus, on y retrouve le code pour définir la langue du site.
 
 image::images/header_code_lang.png[header]
 
-Le script js est utilisé quand le bouton est cliqué est il vas faire une recherche dans le dossier language , ici en anglais.
+Le script JavaScript est utilisé lorsque le bouton est cliqué, et il va faire une recherche dans le dossier `language`, ici en anglais.
 
 === Accueil
 
-Quand on clique sur accueil dans le header voici comme le code va exécuté cette action.
+Quand on clique sur `Accueil` dans le header, voici comment le code va exécuter cette action.
 
 image::images/header_accueil_1.png[lien]
 
-Quand accueil est cliqué il va cherché la route map.
+Quand `Accueil` est cliqué, il va chercher la route `map`.
 
 image::images/header_accueil_2.png[route]
 
-la route lui indique qu'il doit exécuté la méthode index de la class Map (controlleur Map).
+La route lui indique qu'il doit exécuter la méthode `index` de la classe `Map` (contrôleur Map).
 
 image::images/header_accueil_3.png[traitement]
 
-Il va import les méthodes des models et les utiliser. Il teste si un des formulaires dans le sidebar est remplie sinon il va faire l'affichage de base.
+Il va importer les méthodes des modèles et les utiliser. Il teste si un des formulaires dans le sidebar est rempli, sinon il va faire l'affichage de base.
 
-image::images/header_accueil_5.png[traitment de base]
+image::images/header_accueil_5.png[traitement de base]
 
-il va éxécuté la méthode getPoints du modelMap.
+Il va exécuter la méthode `getPoints` du modèle `Map`.
 
-image::images/header_accueil_méthode.png[methode getpoint]
+image::images/header_accueil_méthode.png[méthode getpoint]
 
-Il va liée la table tab_recit_v3 et point par leur id_recit et vas retourné toute les lignes dans point qui on l'attribue type égale a publication.Les attribues des lignes récupérer par la requète seront égale a la définition de allowedFields au dessus de la méthode.SI un attribue n'est pas dans allowedFields il ne sera pas récupérer.
+Il va lier la table `tab_recit_v3` et `point` par leur `id_recit` et va retourner toutes les lignes dans `point` qui ont l'attribut `type` égal à `publication`. Les attributs des lignes récupérées par la requête seront égaux à la définition de `allowedFields` au-dessus de la méthode. Si un attribut n'est pas dans `allowedFields`, il ne sera pas récupéré.
 
 image::images/header_accueil_4.png[return]
 
-puis il va retourné les vues pour les afficher.
+Puis il va retourner les vues pour les afficher.
 
-=== Liste Recit
+=== Liste Récit
 
-Quand on clique sur liste des récits
+Lorsque l'on clique sur `Liste des récits`, 
 
-il va chercher la route "recit".
+il va chercher la route `recit`.
 
 image::images/header_recit_1.png[lien]
 
-la route lui indique qu'il doit utilisé la méthode index du controlleur Recits
+La route lui indique qu'il doit utiliser la méthode `index` du contrôleur `Recits`.
 
 image::images/header_recit_2.png[route]
 
-La méthode fais tout d'abord des requete pour connaitre l'odre de tri des récits
+La méthode effectue tout d'abord des requêtes pour connaître l'ordre de tri des récits.
 
 image::images/header_recit_3.png[méthode]
 
-puis va faire des requètes pour recherche les récits dans tab_recit_v3.
+Ensuite, elle effectue des requêtes pour rechercher les récits dans `tab_recit_v3`.
 
 image::images/header_recit_5.png[méthode]
 
 image::images/header_recit_4.png[méthode]
 
-et enfin il va retourné les vues pour les afficher (recits.php)
+Et enfin, elle retourne les vues pour les afficher (`recits.php`).
 
 image::images/header_recit_6.png[liste recit]
 
-le tableau affiche les récits avec pour chaque ligne un lien vers le récit en détail. ainsi que des possibilitées de modifier et supprimer les récits depuis la liste.
+Le tableau affiche les récits, avec pour chaque ligne, un lien vers le récit en détail, ainsi que des possibilités de modification et de suppression des récits depuis la liste.
 
-==== Recit
+==== Récit
 
 ==== Modification Récit
 
 image::images/header_recit_modif_1.png[lien]
 
-Chaque ligne modifier a pour lien modif_recit plus des informations sur le récit sélectionné. 
+Chaque ligne `modifier` a pour lien `modif_recit` suivi des informations sur le récit sélectionné.
 
 image::images/header_recit_modif_2.png[route]
 
-La route appel la méthode modif du controlleur Modif
+La route appelle la méthode `modif` du contrôleur `Modif`.
 
 image::images/header_recit_modif_3.png[méthode]
 
-La méthode récupère toute les information des récit par récit puis affiche la page de modification du récit avec un formulaire pour chaque champ.
+La méthode récupère toutes les informations des récits, puis affiche la page de modification du récit avec un formulaire pour chaque champ.
 
 image::images/header_recit_modif_4.png[affichage]
 
-Il vas remplir les champs en parcourant les résultats de la méthode quand l'id du recit est égale a l'id du récit venant de l'url.
+Elle va remplir les champs en parcourant les résultats de la méthode lorsque l'id du récit est égal à l'id du récit venant de l'URL.
 
-Un fois cela,des que l'on valide le formulaire.Le formulaire utilise la route "Modif/ModifPoly_Recit"
+Une fois cela fait, dès que l'on valide le formulaire, celui-ci utilise la route `Modif/ModifPoly_Recit`.
 
 image::images/header_recit_modif_5.png[route]
 
-La route renvoie vers la méthode ModifPoly_Recit du controlleur Modif
+La route renvoie vers la méthode `ModifPoly_Recit` du contrôleur `Modif`.
 
 image::images/header_recit_modif_6.png[méthode]
 
-La méthode va récupérer tout les champs du formulaire 
+La méthode va récupérer tous les champs du formulaire.
 
 image::images/header_recit_modif_7.png[méthode]
 
-Puis va faire les traitement dans la base de données.Il va modifier le récit avec les informationset supprimer les lignes dasn recit_poly qui sont égale a l'id du récit puis va re-insérer dans la base de donnée les liaison être les polygones et les récits.Puis va afficher la liste des récits.
+Puis effectuer les traitements dans la base de données. Elle va modifier le récit avec les informations, supprimer les lignes dans `recit_poly` qui sont égales à l'id du récit, puis réinsérer dans la base de données les liaisons entre les polygones et les récits. Elle affichera ensuite la liste des récits.
 
 ==== Suppression Récit
 
 image::images/header_recit_suppr_1.png[code]
 
-Lors du clic sur le lien il va cherché la route "Suppr/SupprRecit" et demandé  avec une pop up une confirmation de la volonter de supprimer le récit.
+Lors du clic sur le lien, il va chercher la route `Suppr/SupprRecit` et demander, via une pop-up, une confirmation de la volonté de supprimer le récit.
 
 image::images/header_recit_suppr_2.png[route]
 
-la route va appeller la méthode SupprRecit du controlleur Suppr(Suppr.php)
+La route va appeler la méthode `SupprRecit` du contrôleur `Suppr`.
 
 image::images/header_recit_suppr_3.png[méthode]
 
-La méthode va supprimer tout les points liées au récit ainsi que le récit et les liaisons être les récits et les polygones. Puis va afficher la liste des récits.
+La méthode va supprimer tous les points liés au récit ainsi que le récit lui-même et les liaisons entre les récits et les polygones. Elle affichera ensuite la liste des récits.
 
-=== Statistique
+=== Statistiques
 
-Quand on clique sur statistique, on utilise la route.
+Lorsque l'on clique sur `Statistiques`, on utilise la route.
 
 image::images/header_stat_1.png[lien]
 
-Cette route nous renvoie sur la méthode statistiques du controlleur Admin.
+Cette route nous renvoie sur la méthode `statistiques` du contrôleur `Admin`.
 
 image::images/header_stat_2.png[route]
 
-Le controlleur va retourner les vues dans resclaves, statistique.php ainsi que le header.
+Le contrôleur va retourner les vues dans `resclaves`, `statistique.php` ainsi que le header.
 
-image::images/header_stat_3.png[methode]
+image::images/header_stat_3.png[méthode]
 
-=== Language
+=== Langue
 
-en haut a droite du site web, il est possible de changé la langue du site.Quand on choisit un langue le code fait des requêtes pour remplacé tout les champ ou un retrouve "lang()".
+En haut à droite du site web, il est possible de changer la langue du site. Quand on choisit une langue, le code fait des requêtes pour remplacer tous les champs où l'on retrouve `lang()`.
 
 image::images/header_lang_1.png[code_trad]
 
-Pour cela il va cherché dans le fichier headergeo.php et il va chercher la ligne nav_bar.home ou nav_bar.list_narrative
+Pour cela, il va chercher dans le fichier `headergeo.php` et il va chercher la ligne `nav_bar.home` ou `nav_bar.list_narrative`.
 
 image::images/header_lang_2.png[trad]
 
-Il existe la meme chose pour le français.Cela permet d'avoir une traduction rapide et précise.
+Il existe la même chose pour le français. Cela permet d'avoir une traduction rapide et précise.
 
-== sidebar
+== Sidebar
 
 image::images/sidebar.png[sidebar]
 
-Dans le sidebar on peut trouver plusieur fonctionnalités:
+Dans le sidebar, on peut trouver plusieurs fonctionnalités :
 
-=== Sélectionner un type de lieu
+=== Sélectionner un Type de Lieu
 
-le premier menu déroulant ou on peut rechercher par type de lieu permet d'afficher tout les points du type demandé.
+Le premier menu déroulant où l'on peut rechercher par type de lieu permet d'afficher tous les points du type demandé.
 
 image::images/sidebar_formpoint_1.png[form]
 
-On peut voir le formulaire avec plein de if.Cela permet de definir le type de point recherché.Puis la route et définie dans le action du formulaire est non dans le bouton submit mais le principe reste le même.
+On peut voir le formulaire avec plein de `if`. Cela permet de définir le type de point recherché. Puis la route est définie dans l'action du formulaire et non dans le bouton `submit`, mais le principe reste le même.
 
-image:images/sidebar_formpoint_2.png[route]
+image::images/sidebar_formpoint_2.png[route]
 
-la route nous indique que l'on va utilisé la méthode index de la class Map comme quand si on voulais revenir a la carte.
+La route nous indique que l'on va utiliser la méthode `index` de la classe `Map`, comme si l'on voulait revenir à la carte.
 
-image:images/sidebar_formpoint_3.png[méthode]
+image::images/sidebar_formpoint_3.png[méthode]
 
-Sauf que cette fois ci on pas aps utilisé la dernière clause du if mais la clause ou select_place  est définis.notre formulaire va définir select_place avec un valeur ce qui voudras dire que on aa utilisé le formulaire.Suite a cela le code pas retourné les vues définis aevc comme information dans data. Les points qui sont du type choisie ainsi que les territoires a affiché sur la carte.
+Sauf que cette fois-ci, on ne va pas utiliser la dernière clause du `if` mais la clause où `select_place` est défini. Notre formulaire va définir `select_place` avec une valeur, ce qui voudra dire que l'on a utilisé le formulaire. Suite à cela, le code va retourner les vues définies avec comme information dans `data`, les points qui sont du type choisi ainsi que les territoires à afficher sur la carte.
 
-=== Sélectionner un récit
+=== Sélectionner un Récit
 
-Le deuxième menu déroulant est un menu ou on peut choisir quel récit on veux afficher sur la carte.
+Le deuxième menu déroulant est un menu où l'on peut choisir quel récit on veut afficher sur la carte.
 
 image::images/sidebar_formrecit_1.png[form]
 
-La route nous renvoie sur la méthode index du controlleur Map
+La route nous renvoie sur la méthode `index` du contrôleur `Map`.
 
 image::images/sidebar_formrecit_2.png[route]
 
-Et cette fois ci, on vas utiliser le premier if de la méthode car le formulaire a définis select_recit.
+Et cette fois-ci, on va utiliser le premier `if` de la méthode car le formulaire a défini `select_recit`.
 
 image::images/sidebar_formrecit_3.png[méthode]
 
-La méthode vas retourner les vues demandé avec toute les informations liée a un récit.
+La méthode va retourner les vues demandées avec toutes les informations liées à un récit.
 
-=== Menu de gestion
+=== Menu de Gestion
 
-Dans le menu de gestion il y a deux groupe de lien :
+Dans le menu de gestion, il y a deux groupes de liens :
 
 image::images/sidebar_gestionmenu.png[code]
 
-Le premier groupe qui s'affiche que s'y l'utilisateur est connecté et une deuxième ou il affiche soit deconnection quand on est connecté ou connxion quand t'on ne les pas.
+Le premier groupe qui s'affiche seulement si l'utilisateur est connecté et un deuxième où il affiche soit `déconnexion` quand on est connecté ou `connexion` quand on ne l'est pas.
 
 === Déconnecté
-Commençons par le début et donc quand on arrive sur le site web,l'utilisateur est déconnecté.
 
-==== Connection
+Commençons par le début, et donc quand on arrive sur le site web, l'utilisateur est déconnecté.
+
+==== Connexion
 
 Pour se connecter, il faut cliquer sur le bouton suivant :
 
 image::images/sidebar_gestionmenu_con_1.png[code]
 
-Comme l'utilisateur n'est pas connecté, il utilisera la route /connexion :
+Comme l'utilisateur n'est pas connecté, il utilisera la route `/connexion` :
 
 image::images/sidebar_gestionmenu_con_2.png[code]
 
-Cette route renvoie vers la méthode `showconnexion` du contrôleur admin :
+Cette route renvoie vers la méthode `showconnexion` du contrôleur `Admin` :
 
 image::images/sidebar_gestionmenu_con_3.png[code]
 
-La méthode renvoie la vue de connexion (connexion.php).
+La méthode renvoie la vue de connexion (`connexion.php`).
 
-Sur la page de connexion, on peut remplir deux champs du formulaire (username, password) :
+Sur la page de connexion, on peut remplir deux champs du formulaire (`username`, `password`) :
 
 image::images/sidebar_gestionmenu_con_4.png[connexion]
 
-Le formulaire enverra les données en utilisant sa route "/Admin/login" :
+Le formulaire enverra les données en utilisant sa route `/Admin/login` :
 
 image::images/sidebar_gestionmenu_con_5.png[route]
 
-Cette route mènera à la méthode `login` du contrôleur admin :
+Cette route mènera à la méthode `login` du contrôleur `Admin` :
 
 image::images/sidebar_gestionmenu_con_6.png[connexion]
 
-La méthode récupérera les champs du formulaire, hashera le mot de passe et le comparera au mot de passe reçu dans la requête en utilisant le nom d'utilisateur fourni dans le formulaire. Si les informations sont correctes, elle créera une session "is_admin" qui permettra d'accéder à des actions limitées aux administrateurs, puis redirigera vers la carte en utilisant la route /map. Si le mot de passe est incorrect, l'utilisateur sera redirigé vers la page de connexion.
-
-
-=== Connecté
-
-==== Déconnection
-
-Maintenant que l'on est connecter, le menu a changé de nouveau bouton sont apparue est parmis ceux ci déconnexion
-
-image::images/sidebar_gestionmenu_con_1.png[code]
-
-quand on clique sur le bouton déconnexion.
-
-image::images/sidebar_gestionmenu_deco_1.png[route]
-
-la route nous renvoie vers la méthode logout du controlleur admin.
-
-image::images/sidebar_gestionmenu_deco_2.png[méthode]
-
-La méthode quand à elle détruit la session "is_admin" est retourne la vers la route /map.
-
-==== Création de compte
-
-Pour créer un nouveau compte de connexion il faut déjà être connecté.
-
-image::images/sidebar_cc_2.png[bouton]
-
-Quand on clique sur le bouton il applique la route définie (/creercompte).
-
-image::images/sidebar_cc_3.png[route]
-
-La route  renvoie vers la méthode showcreercompte du  controlleur Admin.
-
-image::images/sidebar_cc_4.png[méthode]
-
-Cette méthode ce charge d'afficher la page créer compte.
-
-image::images/sidebar_cc_1.png[page]
-
-Sur cette page on retrouve un formulaire qui quand il est validé utilise la route (/Admin/creercompte)
-
-image::images/sidebar_cc_5.png[route]
-
-La route renvoie vers la méthode creercompte du controlleur admin
-
-image::images/sidebar_cc_6.png[méthode]
-
-La méthode quand a elle vas préparer la requete d'insertion dans la bd est vérifier si il exite déjà pas une personne avec cette identifiant.Si cela est bon, il va insérer dans la base de données le compte.
+La méthode récupérera les champs du formulaire, hashera le mot de passe, et le comparera au mot de passe reçu dans la requête en utilisant
 
 ==== Ajout Point 
 
@@ -372,46 +332,46 @@ La méthode quand a elle vas préparer la requete d'insertion dans la bd est vé
 
 image::images/footer_1.png[footer]
 
-Dans le footer on retrouve deux fonctionnalitées. Le contact avec la possibilité d'envoyé un mail sur l'adresse mail du site  et un page avec des informations et remerciment.
+Dans le footer, on retrouve deux fonctionnalités : le contact avec la possibilité d'envoyer un mail à l'adresse mail du site et une page avec des informations et remerciements.
 
 image::images/footer_code_1.png[code]
 
-=== Contact
+=== Contacts
 
-Dans route appelle la méthode contact du controlleur Map.
+Dans la route, on appelle la méthode `contact` du contrôleur `Map`.
 
 image::images/footer_contact_2.png[route]
 
-Cette méthode retourne la page contact.
+Cette méthode retourne la page `contact`.
 
 image::images/footer_contact_3.png[méthode]
 
-Dans cette page on retrouve un formulaire on remplir les informations a transmettre dans le mail.
+Dans cette page, on retrouve un formulaire où l'on peut remplir les informations à transmettre dans le mail.
 
 image::images/footer_contact_4.png[formulaire]
 
-Mais on trouve aussi du java script pour faire l'envoie du mail.
+Mais on trouve aussi du JavaScript pour faire l'envoi du mail.
 
 image::images/footer_contact_5.png[service_id]
 
-Le premier block définis le service a utilisé par son identifiant.
+Le premier bloc définit le service à utiliser par son identifiant.
 
 image::images/footer_contact_8.png[service]
 
-Et le deuxième block contient l'envoie du mail avec le template a utilisé. Le template permet de pré-structurer le mail avec les informations fournie des le mail.
+Et le deuxième bloc contient l'envoi du mail avec le template à utiliser. Le template permet de pré-structurer le mail avec les informations fournies dans le mail.
 
-image::images/footer_contact_6.png[envoie]
+image::images/footer_contact_6.png[envoi]
 
 image::images/footer_contact_7.png[template]
 
 === Information
 
-Pour les informations du site web.
+Pour les informations du site web :
 
 image::images/footer_about_2.png[route]
 
-Le lien renvoie vers vers la méthode about du controlleur Map.
+Le lien renvoie vers la méthode `about` du contrôleur `Map`.
 
 image::images/footer_about_3.png[méthode]
 
-La page contient juste des informations et des remerciments.
+La page contient juste des informations et des remerciements.
