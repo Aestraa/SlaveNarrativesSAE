@@ -111,10 +111,10 @@ class Recits extends BaseController
                 if ($row) {
                     $reference = $row->reference;
                     $link = $row->link;
-                    $lien = "<a href='$link'>$reference</a>";
+                    $lien = "<a href='$link'>($reference)</a>";
                 } else {
                     // Aucun résultat trouvé pour le titre donné
-                    $lien = "<a >$titre</a>";
+                    $lien = "<a >($titre)</a>";
                 }
             } else {
                 // Gérez les erreurs de requête ici, par exemple :
