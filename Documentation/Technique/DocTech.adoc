@@ -1,76 +1,77 @@
-= Documation Technique :
-
+= Documation Technique
 :toc: macro
 :toc-title: Table des matières
+:toclevels: 3
 
 :hide-uri-scheme: 
 
-
 == Introduction
 
-Cette documentation a pour de lister le fonctionnement du site web dans le cadre de futur projet de développement sur celui-ci.Vous retrouverez dans la doc les fonctionnalitées listé et détaillé ainsi que leur fonctionnement.
+Cette documentation a pour but de lister le fonctionnement du site web dans le cadre de futurs projets de développement. Vous retrouverez dans cette documentation les fonctionnalités listées et détaillées, ainsi que leur fonctionnement.
 
 toc::[]
 
 == Architecture Code Igniter 4
 
-Code Igniter 4 utilise le model MVC (Model Vue Controlleur).
+Code Igniter 4 utilise le modèle MVC (Modèle Vue Contrôleur).
 
 image::images/Archi_racine.png[structure_racine]
 
-Dans le projet on retrouve 5 parties :
-----
+Dans le projet, on retrouve 5 parties :
 
-* La première est la configuration du projet code igniter avec le fichier .env a modifier pour le fonctionnement de votre site.
+* La première est la configuration du projet Code Igniter avec le fichier .env à modifier pour le fonctionnement de votre site.
 
-image::images/Archi_racine_1[structure_racine]
+image::images/ArchiRacine1.png[structure_racine]
 
-* La deuxième est les writables, ils stocke tout les informations du a des problèmes.
+* La deuxième est les writables, ils stockent toutes les informations liées à des problèmes.
 
-image::images/Archi_racine_2[structure_racine]
+image::images/Archi_racine_2.png[structure_racine]
 
-* Le troixième est système. Tout le fonctionnement du site est dedans.
+* Le troisième est le système. Tout le fonctionnement du site est contenu dedans.
 
-image::images/Archi_racine_3[structure_racine]
+image::images/Archi_racine_3.png[structure_racine]
 
-* le quatrième est public dasn celui ci on peut retrouvé les fichier css,js ou tout autre language utilisé.
+* Le quatrième est le dossier public. Dans celui-ci, on peut retrouver les fichiers css, js ou tout autre langage utilisé.
 
-image::images/Archi_racine_4[structure_racine]
+image::images/Archi_racine_4.png[structure_racine]
 
-* lle dernier est app, dans celui-ci on retrouve toute l'application, les vues ,les controlleur et les models.
+* Le dernier est app, dans celui-ci on retrouve toute l'application, les vues, les contrôleurs et les modèles.
 
-image::images/Archi_racine_5[structure_racine]
-----
+image::images/Archi_racine_5.png[structure_racine]
 
-Rentront dans app pour voir en detail l'application.
+Rentrons dans app pour voir en détail l'application.
 
-----
+image::images/Archi_racine_5.png[structure_app]
 
-image::images/Archi_app[structure_app]
+Dans app, on retrouve plusieurs dossiers, mais nous allons nous focaliser sur certains dossiers en particulier.
 
-Dans app on retrouve plusieur dossier, mais on va ce focaliser sur quelque dossier.
+* Le dossier config, où vous pourrez paramétrer l'application et définir les routes de votre projet. L'application utilise énormément les routes. Grâce à elles, on peut se déplacer dans l'application et réaliser des actions.
 
-* le dossier config ou vous pourrez paramètrer l'application et definir les routes de votre projet.L'application utilise énormément les routes. Grace a elle on peut ce déplacer dasn l'aplication et faire des actions.
-* le dossier controlleur ou on trouve les controlleur permettent la gestion des vues, les controlleurs imports les méthodes qui sont définis dans les models.
-* le dossier model ou il y a tout les models de méthodes.On y retrouve des méthodes de requète en base de données ou des récupèration de données qui seront appliqués dans les controlleurs.
-* le dossier language ou on trouve la traduction de tout les champs affichers du site.Actuellement il y a la version française et anglaise.
-* le dossier views qui stocke toute les pages du site web rangé des dans dossier. Templates contient les pages pour le footer et la sidebar. le dossier reclaves contient lui toute les autres pages du site web ainsi que le header.
+image::images/Archi_app_1.png[structure_app]
 
-----
+* Le dossier contrôleur, où on trouve les contrôleurs qui permettent la gestion des vues. Les contrôleurs importent les méthodes qui sont définies dans les modèles.
 
-Passont a la base de données liée au projet
+image::images/Archi_app_2.png[structure_app]
+
+* Le dossier modèle, où il y a tous les modèles de méthodes. On y retrouve des méthodes de requête en base de données ou de récupération de données qui seront appliquées dans les contrôleurs.
+
+image::images/Archi_app_3.png[structure_app]
+
+* Le dossier langage, où on trouve la traduction de tous les champs affichés du site. Actuellement, il y a la version française et anglaise.
+
+image::images/Archi_app_4.png[structure_app]
+
+* Le dossier views qui stocke toutes les pages du site web, rangées dans des dossiers. Le dossier templates contient les pages pour le footer et la sidebar. Le dossier reclaves, quant à lui, contient toutes les autres pages du site web ainsi que le header.
+
+image::images/Archi_app_5.png[structure_app]
 
 == Base de données
 
-----
-
-----
-
-Maintenant que vous avez vue la structure du projet et la base de données, passontaux fonctionnalitées.
+Maintenant que vous avez vu la structure du projet, passons aux fonctionnalités.
 
 == Accueil
 
-=== map
+=== Map
 Accueil est la page principale du projet, elle redirige vers la pluspard des fonctionnalitées du site web.
 
 image::images/accueil.png[accueil]
