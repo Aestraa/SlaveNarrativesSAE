@@ -20,7 +20,9 @@
         "mikey179/vfsstream": "^1.6",
         "nexusphp/cs-config": "^3.6",
         "phpunit/phpunit": "^9.1",
-        "predis/predis": "^1.1 || ^2.0"
+        "predis/predis": "^1.1 || ^2.0",
+        "behat/mink-goutte-driver": "^2.0",
+        "friends-of-behat/mink-extension": "^2.3"
     },
     "suggest": {
         "ext-curl": "If you use CURLRequest class",
