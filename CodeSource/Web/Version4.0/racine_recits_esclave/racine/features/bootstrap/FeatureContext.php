@@ -56,14 +56,38 @@ class FeatureContext extends MinkContext implements Context
      */
     public function iClickOnTheLanguageButton($language)
     {
-        // Utilisez l'ID du bouton pour cliquer dessus
-        $buttonId = $language == 'EN' ? 'changeLanguageEN' : 'changeLanguageFR';
-        $button = $this->getSession()->getPage()->find('css', "a[id='$buttonId']");
-        if (null === $button) {
-            throw new Exception("Button not found: " . $buttonId);
+        // Utilisez l'ID du lien pour cliquer dessus
+        $linkId = 'changeLanguageEN';
+        $link = $this->getSession()->getPage()->find('css', "a[id='$linkId']");
+
+        if (null === $link) {
+            throw new Exception("Language switch button not found: " . $linkId);
         }
-        $button->click();
+
+        // Imprimer le nom de la classe de l'élément cliqué
+        $class = $link->getAttribute('class');
+        print_r("The class of the clicked link is: " . $class . "\n");
+
+        // Cliquer sur le lien
+        $link->click();
+
+        // Attendre que la page se recharge et que le contenu soit mis à jour
+        // Note : Sleep est utilisé ici pour simplicité, mais il est préférable d'utiliser une méthode d'attente explicite
+        sleep(3);
+
+        // Trouver la balise h1 et imprimer son contenu
+        $h1 = $this->getSession()->getPage()->find('css', 'h1');
+
+        if ($h1) {
+            $h1Text = $h1->getText();
+            print_r("The text of the h1 element is: " . $h1Text . "\n");
+        } else {
+            print_r("No h1 element found on the page.\n");
+        }
     }
+
+
+
 
     /**
      * @Then the website should be in English
